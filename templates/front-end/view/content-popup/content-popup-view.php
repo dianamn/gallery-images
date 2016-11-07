@@ -229,7 +229,8 @@
 	?>
 </section>
 <ul id="huge_it_gallery_popup_list_<?php echo $galleryID; ?>" class="huge_it_gallery_popup_list gallery-img-content"
-    data-rating-type="<?php echo $like_dislike; ?>">
+    data-rating-type="<?php echo $like_dislike; ?>"
+    data-popup-mobile-position-top="<?php echo $gallery_default_params[ 'ht_view2_popup_mobile_position_at_top' ]; ?>">
 	<?php
 	$changePopup = 1;
 	foreach ( $images as $key => $row ) {
