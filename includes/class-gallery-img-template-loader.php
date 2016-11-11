@@ -53,7 +53,7 @@ class Gallery_Img_Template_Loader {
             }
         }
 		if ( isset( $_GET[ 'page-img' . $galleryID . $pID ] ) ) {
-			$page = $_GET[ 'page-img' . $galleryID . $pID ];
+			$page = absint( $_GET[ 'page-img' . $galleryID . $pID ] );
 		} else {
 			$page = '';
 		}

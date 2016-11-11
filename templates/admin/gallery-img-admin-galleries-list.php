@@ -15,7 +15,7 @@ $gallery_wp_nonce_add_gallery    = wp_create_nonce( 'gallery_wp_nonce_add_galler
 			<form method="post" onkeypress="galleryImgDoNothing()" action="admin.php?page=galleries_huge_it_gallery"
 			      id="admin_form" name="admin_form">
 				<h2>Huge-IT <?php echo __( 'Galleries', 'gallery-images' ); ?>
-					<a onclick="window.location.href='admin.php?page=galleries_huge_it_gallery&task=add_cat&gallery_wp_nonce_add_gallery=<?php echo $gallery_wp_nonce_add_gallery; ?>'"
+					<a onclick="window.location.href='admin.php?page=galleries_huge_it_gallery&task=add_gallery&gallery_wp_nonce_add_gallery=<?php echo $gallery_wp_nonce_add_gallery; ?>'"
 					   class="add-new-h2"><?php echo __( 'Add New Gallery', 'gallery-images' ); ?></a>
 				</h2>
 				<?php
@@ -152,10 +152,10 @@ $gallery_wp_nonce_add_gallery    = wp_create_nonce( 'gallery_wp_nonce_add_galler
 				<input type="hidden" name="oreder_move" id="oreder_move" value=""/>
 				<input type="hidden" name="asc_or_desc" id="asc_or_desc"
 				       value="<?php if ( isset( $_POST['asc_or_desc'] ) ) {
-					       echo $_POST['asc_or_desc'];
+					       echo esc_attr($_POST['asc_or_desc']);
 				       } ?>"/>
 				<input type="hidden" name="order_by" id="order_by" value="<?php if ( isset( $_POST['order_by'] ) ) {
-					echo $_POST['order_by'];
+					echo esc_attr($_POST['order_by']);
 				} ?>"/>
 				<input type="hidden" name="saveorder" id="saveorder" value=""/>
 

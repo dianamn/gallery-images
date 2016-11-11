@@ -52,7 +52,7 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 					}
 					?>
 					<li class="add-new">
-						<a onclick="window.location.href='admin.php?page=galleries_huge_it_gallery&amp;task=add_cat&gallery_wp_nonce_add_gallery=<?php echo $gallery_wp_nonce_add_gallery; ?>'">+</a>
+						<a onclick="window.location.href='admin.php?page=galleries_huge_it_gallery&amp;task=add_gallery&gallery_wp_nonce_add_gallery=<?php echo $gallery_wp_nonce_add_gallery; ?>'">+</a>
 					</li>
 				</ul>
 			</div>

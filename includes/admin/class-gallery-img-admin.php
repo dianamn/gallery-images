@@ -105,7 +105,7 @@ class Gallery_Img_Admin {
 	public function wp_loaded() {
 		if ( isset( $_GET['task'] ) ) {
 			$task = sanitize_text_field( $_GET['task'] );
-			if ( $task == 'add_cat' ) {
+			if ( $task == 'add_gallery' ) {
 				if ( ! isset( $_REQUEST['gallery_wp_nonce_add_gallery'] ) || ! wp_verify_nonce( $_REQUEST['gallery_wp_nonce_add_gallery'], 'gallery_wp_nonce_add_gallery' ) ) {
 					wp_die( 'Security check fail' );
 				}
@@ -127,12 +127,13 @@ INSERT INTO
 	 * Duplicate Video
 	 */
 	public function wp_loaded_duplicate_gallery() {
-		if ( isset( $_GET["id"] ) ) {
-			$id = absint( $_GET["id"] );
-		}
 		if ( isset( $_GET['page'] ) && $_GET['page'] == 'galleries_huge_it_gallery' ) {
 			if ( isset( $_GET["task"] ) ) {
 				if ( $_GET["task"] == 'duplicate_gallery_image' ) {
+					if ( !isset( $_GET["id"] ) || absint( $_GET['id'] ) != $_GET['id'] ) {
+						wp_die('"id" parameter is required to be not negative integer');
+					}
+					$id = absint( $_GET["id"] );
 					if ( ! isset( $_REQUEST['gallery_duplicate_nonce'] ) || ! wp_verify_nonce( $_REQUEST['gallery_duplicate_nonce'], 'huge_it_gallery_nonce_duplicate_gallery' . $id ) ) {
 						wp_die( 'Security check fail' );
 					}
@@ -188,6 +189,9 @@ INSERT INTO
 	 */
 	public function wp_loaded_remove_gallery() {
 		if ( isset( $_GET["task"] ) && $_GET["task"] == 'remove_gallery' ) {
+			if ( !isset( $_GET["id"] ) || absint( $_GET['id'] ) != $_GET['id'] ) {
+				wp_die('"id" parameter is required to be not negative integer');
+			}
 			$id = absint( $_GET["id"] );
 			if ( ! isset( $_REQUEST['huge_it_gallery_nonce_remove_gallery'] ) || ! wp_verify_nonce( $_REQUEST['huge_it_gallery_nonce_remove_gallery'], 'huge_it_gallery_nonce_remove_gallery' . $id ) ) {
 				wp_die( 'Security check fail' );
