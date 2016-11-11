@@ -120,15 +120,12 @@ GROUP BY " . $wpdb->prefix . "huge_itgallery_images.gallery_id ";
 	 * @return string
 	 */
 	public function edit_gallery( $id ) {
-		if ( isset( $_GET["removeslide"] ) ) {
-			$idfordelete = absint( $_GET["removeslide"] );
-		}else{
-			wp_die('"removeslide" parameter is required.');
-		}
+
 		global $wpdb;
 		if ( isset( $_POST["huge_it_sl_effects"] ) ) {
 			if ( isset( $_GET["removeslide"] ) ) {
-				if ( $_GET["removeslide"] != '' ) {
+				$idfordelete = absint( $_GET["removeslide"] );
+				if ( $idfordelete ) {
 					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_images  WHERE id = %d ", $idfordelete ) );
 				}
 			}
