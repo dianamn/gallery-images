@@ -50,7 +50,7 @@ jQuery(document).ready(function () {
         var galleryId = jQuery(this).data('gallery-id');
         var imageId = jQuery(this).data('image-id');
 		var removeNonce = jQuery(this).data('nonce-value');
-        jQuery('#adminForm').attr('action', 'admin.php?page=galleries_huge_it_gallery&task=edit_cat&id='+galleryId+'&removeslide='+imageId+'&gallery_nonce_remove_image='+removeNonce);
+        jQuery('#adminForm').attr('action', 'admin.php?page=galleries_huge_it_gallery&id='+galleryId+'&removeslide='+imageId+'&save_data_nonce='+removeNonce);
         galleryImgSubmitbutton('apply');
     });
 	jQuery(".wp-media-buttons-icon").click(function() {

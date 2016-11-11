@@ -7,42 +7,6 @@
 			<input type="hidden" class="pagenum" value="1"/>
 			<?php
 			global $wpdb;
-			$pattern = '/-/';
-			$query2  = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_gallerys where id = '%d' order by ordering ASC ", $galleryID );
-			$gallery = $wpdb->get_results( $query2 );
-			foreach ( $gallery as $gall ) {
-				global $post;
-				$pID        = $post->ID;
-				$disp_type  = $gall->display_type;
-				$count_page = $gall->content_per_page;
-				if ( $count_page == 0 ) {
-					$count_page = 999;
-				} elseif ( preg_match( $pattern, $count_page ) ) {
-					$count_page = preg_replace( $pattern, '', $count_page );
-				}
-			}
-			global $wpdb;
-			$num   = $count_page;
-			$total = intval( ( ( count( $images ) - 1 ) / $num ) + 1 );
-			if ( isset( $_GET[ 'page-img' . $galleryID . $pID ] ) ) {
-				$page = $_GET[ 'page-img' . $galleryID . $pID ];
-			} else {
-				$page = '';
-			}
-			$page = intval( $page );
-			if ( empty( $page ) or $page < 0 ) {
-				$page = 1;
-			}
-			if ( $page > $total ) {
-				$page = $total;
-			}
-			$start       = $page * $num - $num;
-			$query       = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_images where gallery_id = '%d' order by ordering ASC LIMIT " . $start . "," . $num . "", $galleryID );
-			$page_images = $wpdb->get_results( $query );
-			if ( $disp_type == 2 ) {
-				$page_images = $images;
-				$count_page  = 9999;
-			}
 			?>
 			<input type="hidden" id="total" value="<?= $total; ?>"/>
 			<?php
