@@ -569,7 +569,7 @@ class Gallery_Img_Ajax {
                             </li>
                             <li>
                                 <p>
-                                    ' . $_POST['thumbtext'] . '
+                                    ' . esc_html($_POST['thumbtext']) . '
                                 </p>
                             </li>
                         </ul>
@@ -728,12 +728,21 @@ class Gallery_Img_Ajax {
 				$huge_it_ip = $_SERVER['REMOTE_ADDR'];
 			}
 			global $wpdb;
-			$num   = $wpdb->prepare( "SELECT `image_status`,`ip` FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d", (int) $_POST['image_id'] );
-			$num2  = $wpdb->prepare( "SELECT `image_status`,`ip` FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `ip` = '" . $huge_it_ip . "'", (int) $_POST['image_id'] );
+
+			if( !isset( $_POST['image_id'] ) || absint( $_POST['image_id'] ) != $_POST['image_id'] ){
+				echo json_encode(array('success'=>0));
+				die();
+			}
+
+			$image_id = absint($_POST['image_id']);
+			$cook = sanitize_text_field( $_POST['cook'] );
+
+			$num   = $wpdb->prepare( "SELECT `image_status`,`ip` FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d", $image_id  );
+			$num2  = $wpdb->prepare( "SELECT `image_status`,`ip` FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `ip` = '" . $huge_it_ip . "'", $image_id );
 			$res   = $wpdb->get_results( $num );
 			$res2  = $wpdb->get_results( $num, ARRAY_A );
 			$res3  = $wpdb->get_row( $num2 );
-			$num3  = $wpdb->prepare( "SELECT `image_status`,`ip`,`cook` FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `cook` = '" . $_POST['cook'] . "'", (int) $_POST['image_id'] );
+			$num3  = $wpdb->prepare( "SELECT `image_status`,`ip`,`cook` FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `cook` = '" . $cook . "'", $image_id );
 			$res4  = $wpdb->get_row( $num3 );
 			$resIP = '';
 			for ( $i = 0; $i < count( $res2 ); $i ++ ) {
@@ -741,37 +750,37 @@ class Gallery_Img_Ajax {
 			}
 			$arrIP = explode( "|", $resIP );
 			if ( ! isset( $res3 ) && ! isset( $res4 ) ) {
-				$wpdb->query( $wpdb->prepare( "INSERT INTO " . $wpdb->prefix . "huge_itgallery_like_dislike (`image_id`,`image_status`,`ip`,`cook`) VALUES ( %d, 'liked', '" . $huge_it_ip . "',%s)", (int) $_POST['image_id'], $_POST['cook'] ) );
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `like` = `like`+1 WHERE id = %d ", (int) $_POST['image_id'] ) );
-				$numLike    = $wpdb->prepare( "SELECT `like` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", (int) $_POST['image_id'] );
+				$wpdb->query( $wpdb->prepare( "INSERT INTO " . $wpdb->prefix . "huge_itgallery_like_dislike (`image_id`,`image_status`,`ip`,`cook`) VALUES ( %d, 'liked', '" . $huge_it_ip . "',%s)", $image_id, $cook ) );
+				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `like` = `like`+1 WHERE id = %d ", $image_id ) );
+				$numLike    = $wpdb->prepare( "SELECT `like` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", $image_id );
 				$resLike    = $wpdb->get_results( $numLike );
-				$numDislike = $wpdb->prepare( "SELECT `dislike` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", (int) $_POST['image_id'] );
+				$numDislike = $wpdb->prepare( "SELECT `dislike` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", $image_id );
 				$resDislike = $wpdb->get_results( $numDislike );
 				echo json_encode( array( "like" => $resLike[0]->like, "statLike" => 'Liked' ) );
-			} elseif ( ( isset( $res3 ) && $res3->image_status == 'liked' && $res3->ip == $huge_it_ip ) || ( isset( $res4 ) && $res4->image_status == 'liked' && $res4->cook == $_POST['cook'] ) ) {
+			} elseif ( ( isset( $res3 ) && $res3->image_status == 'liked' && $res3->ip == $huge_it_ip ) || ( isset( $res4 ) && $res4->image_status == 'liked' && $res4->cook == $cook ) ) {
 				if ( isset( $res3 ) && $res3->image_status == 'liked' && $res3->ip == $huge_it_ip ) {
-					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `ip`='" . $huge_it_ip . "'", (int) $_POST['image_id'] ) );
-				} elseif ( isset( $res4 ) && $res4->cook == $_POST['cook'] ) {
-					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `cook`='" . $_POST['cook'] . "'", (int) $_POST['image_id'] ) );
+					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `ip`='" . $huge_it_ip . "'", $image_id ) );
+				} elseif ( isset( $res4 ) && $res4->cook == $cook ) {
+					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `cook`='" . $cook . "'", $image_id ) );
 				}
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `like` = `like`-1 WHERE id = %d ", (int) $_POST['image_id'] ) );
-				$numLike    = $wpdb->prepare( "SELECT `like` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", (int) $_POST['image_id'] );
+				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `like` = `like`-1 WHERE id = %d ", $image_id ) );
+				$numLike    = $wpdb->prepare( "SELECT `like` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", $image_id );
 				$resLike    = $wpdb->get_results( $numLike );
-				$numDislike = $wpdb->prepare( "SELECT `dislike` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", (int) $_POST['image_id'] );
+				$numDislike = $wpdb->prepare( "SELECT `dislike` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", $image_id );
 				$resDislike = $wpdb->get_results( $numDislike );
 				echo json_encode( array( "like" => $resLike[0]->like, "statLike" => 'Like' ) );
-			} elseif ( ( isset( $res3 ) && $res3->image_status == 'disliked' && $res3->ip == $huge_it_ip ) || ( isset( $res4 ) && $res4->image_status == 'disliked' && $res4->cook == $_POST['cook'] ) ) {
+			} elseif ( ( isset( $res3 ) && $res3->image_status == 'disliked' && $res3->ip == $huge_it_ip ) || ( isset( $res4 ) && $res4->image_status == 'disliked' && $res4->cook == $cook ) ) {
 				if ( isset( $res3 ) && $res3->image_status == 'disliked' && $res3->ip == $huge_it_ip ) {
-					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `ip`='" . $huge_it_ip . "'", (int) $_POST['image_id'] ) );
-				} elseif ( isset( $res4 ) && $res4->image_status == 'disliked' && $res4->cook == $_POST['cook'] ) {
-					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `cook`='" . $_POST['cook'] . "'", (int) $_POST['image_id'] ) );
+					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `ip`='" . $huge_it_ip . "'", $image_id ) );
+				} elseif ( isset( $res4 ) && $res4->image_status == 'disliked' && $res4->cook == $cook ) {
+					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `cook`='" . $cook . "'", $image_id ) );
 				}
-				$wpdb->query( $wpdb->prepare( "INSERT INTO " . $wpdb->prefix . "huge_itgallery_like_dislike (`image_id`,`image_status`,`ip`,`cook`) VALUES ( %d, 'liked', '" . $huge_it_ip . "',%s)", (int) $_POST['image_id'], $_POST['cook'] ) );
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `like` = `like`+1 WHERE id = %d ", (int) $_POST['image_id'] ) );
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `dislike` = `dislike`-1 WHERE id = %d ", (int) $_POST['image_id'] ) );
-				$numLike    = $wpdb->prepare( "SELECT `like` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", (int) $_POST['image_id'] );
+				$wpdb->query( $wpdb->prepare( "INSERT INTO " . $wpdb->prefix . "huge_itgallery_like_dislike (`image_id`,`image_status`,`ip`,`cook`) VALUES ( %d, 'liked', '" . $huge_it_ip . "',%s)", $image_id, $cook ) );
+				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `like` = `like`+1 WHERE id = %d ", $image_id ) );
+				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `dislike` = `dislike`-1 WHERE id = %d ", $image_id ) );
+				$numLike    = $wpdb->prepare( "SELECT `like` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", $image_id );
 				$resLike    = $wpdb->get_results( $numLike );
-				$numDislike = $wpdb->prepare( "SELECT `dislike` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", (int) $_POST['image_id'] );
+				$numDislike = $wpdb->prepare( "SELECT `dislike` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", $image_id );
 				$resDislike = $wpdb->get_results( $numDislike );
 				echo json_encode( array(
 					"like"        => $resLike[0]->like,
@@ -791,12 +800,21 @@ class Gallery_Img_Ajax {
 				$huge_it_ip = $_SERVER['REMOTE_ADDR'];
 			}
 			global $wpdb;
-			$num   = $wpdb->prepare( "SELECT `image_status`,`ip` FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d", (int) $_POST['image_id'] );
-			$num2  = $wpdb->prepare( "SELECT `image_status`,`ip` FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `ip` = '" . $huge_it_ip . "'", (int) $_POST['image_id'] );
+
+			if( !isset( $_POST['image_id'] ) || absint( $_POST['image_id'] ) != $_POST['image_id'] ){
+				echo json_encode(array('success'=>0));
+				die();
+			}
+
+			$image_id = absint($_POST['image_id']);
+			$cook = sanitize_text_field( $_POST['cook'] );
+
+			$num   = $wpdb->prepare( "SELECT `image_status`,`ip` FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d", $image_id );
+			$num2  = $wpdb->prepare( "SELECT `image_status`,`ip` FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `ip` = '" . $huge_it_ip . "'", $image_id );
 			$res   = $wpdb->get_results( $num );
 			$res2  = $wpdb->get_results( $num, ARRAY_A );
 			$res3  = $wpdb->get_row( $num2 );
-			$num3  = $wpdb->prepare( "SELECT `image_status`,`ip`,`cook` FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `cook` = '" . $_POST['cook'] . "'", (int) $_POST['image_id'] );
+			$num3  = $wpdb->prepare( "SELECT `image_status`,`ip`,`cook` FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `cook` = '" . $cook . "'", $image_id );
 			$res4  = $wpdb->get_row( $num3 );
 			$resIP = '';
 			for ( $i = 0; $i < count( $res2 ); $i ++ ) {
@@ -804,37 +822,37 @@ class Gallery_Img_Ajax {
 			}
 			$arrIP = explode( "|", $resIP );
 			if ( ! isset( $res3 ) && ! isset( $res4 ) ) {
-				$wpdb->query( $wpdb->prepare( "INSERT INTO " . $wpdb->prefix . "huge_itgallery_like_dislike (`image_id`,`image_status`,`ip`,`cook`) VALUES ( %d, 'disliked', '" . $huge_it_ip . "',%s)", (int) $_POST['image_id'], $_POST['cook'] ) );
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `dislike` = `dislike`+1 WHERE id = %d ", (int) $_POST['image_id'] ) );
-				$numDislike = $wpdb->prepare( "SELECT `dislike` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", (int) $_POST['image_id'] );
+				$wpdb->query( $wpdb->prepare( "INSERT INTO " . $wpdb->prefix . "huge_itgallery_like_dislike (`image_id`,`image_status`,`ip`,`cook`) VALUES ( %d, 'disliked', '" . $huge_it_ip . "',%s)", $image_id, $cook ) );
+				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `dislike` = `dislike`+1 WHERE id = %d ", $image_id ) );
+				$numDislike = $wpdb->prepare( "SELECT `dislike` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", $image_id );
 				$resDislike = $wpdb->get_results( $numDislike );
-				$numLike    = $wpdb->prepare( "SELECT `like` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", (int) $_POST['image_id'] );
+				$numLike    = $wpdb->prepare( "SELECT `like` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", $image_id );
 				$resLike    = $wpdb->get_results( $numLike );
 				echo json_encode( array( "dislike" => $resDislike[0]->dislike, "statDislike" => 'Disliked' ) );
-			} elseif ( ( isset( $res3 ) && $res3->image_status == 'disliked' && $res3->ip == $huge_it_ip ) || ( isset( $res4 ) && $res4->image_status == 'disliked' && $res4->cook == $_POST['cook'] ) ) {
+			} elseif ( ( isset( $res3 ) && $res3->image_status == 'disliked' && $res3->ip == $huge_it_ip ) || ( isset( $res4 ) && $res4->image_status == 'disliked' && $res4->cook == $cook ) ) {
 				if ( isset( $res3 ) && $res3->image_status == 'disliked' && $res3->ip == $huge_it_ip ) {
-					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `ip`='" . $huge_it_ip . "'", (int) $_POST['image_id'] ) );
-				} elseif ( isset( $res4 ) && $res4->image_status == 'disliked' && $res4->cook == $_POST['cook'] ) {
-					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `cook`='" . $_POST['cook'] . "'", (int) $_POST['image_id'] ) );
+					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `ip`='" . $huge_it_ip . "'", $image_id ) );
+				} elseif ( isset( $res4 ) && $res4->image_status == 'disliked' && $res4->cook == $cook ) {
+					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `cook`='" . $cook . "'", $image_id ) );
 				}
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `dislike` = `dislike`-1 WHERE id = %d ", (int) $_POST['image_id'] ) );
-				$numDislike = $wpdb->prepare( "SELECT `dislike` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", (int) $_POST['image_id'] );
+				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `dislike` = `dislike`-1 WHERE id = %d ", $image_id ) );
+				$numDislike = $wpdb->prepare( "SELECT `dislike` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", $image_id );
 				$resDislike = $wpdb->get_results( $numDislike );
-				$numLike    = $wpdb->prepare( "SELECT `like` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", (int) $_POST['image_id'] );
+				$numLike    = $wpdb->prepare( "SELECT `like` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", $image_id );
 				$resLike    = $wpdb->get_results( $numLike );
 				echo json_encode( array( "dislike" => $resDislike[0]->dislike, "statDislike" => 'Dislike' ) );
-			} elseif ( ( isset( $res3 ) && $res3->image_status == 'liked' && $res3->ip == $huge_it_ip ) || ( isset( $res4 ) && $res4->image_status == 'liked' && $res4->cook == $_POST['cook'] ) ) {
+			} elseif ( ( isset( $res3 ) && $res3->image_status == 'liked' && $res3->ip == $huge_it_ip ) || ( isset( $res4 ) && $res4->image_status == 'liked' && $res4->cook == $cook ) ) {
 				if ( isset( $res3 ) && $res3->image_status == 'liked' && $res3->ip == $huge_it_ip ) {
-					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `ip`='" . $huge_it_ip . "'", (int) $_POST['image_id'] ) );
-				} elseif ( isset( $res4 ) && $res4->image_status == 'liked' && $res4->cook == $_POST['cook'] ) {
-					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `cook`='" . $_POST['cook'] . "'", (int) $_POST['image_id'] ) );
+					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `ip`='" . $huge_it_ip . "'", $image_id ) );
+				} elseif ( isset( $res4 ) && $res4->image_status == 'liked' && $res4->cook == $cook ) {
+					$wpdb->query( $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itgallery_like_dislike WHERE image_id = %d AND `cook`='" . $cook . "'", $image_id ) );
 				}
-				$wpdb->query( $wpdb->prepare( "INSERT INTO " . $wpdb->prefix . "huge_itgallery_like_dislike (`image_id`,`image_status`,`ip`,`cook`) VALUES ( %d, 'disliked', '" . $huge_it_ip . "',%s)", (int) $_POST['image_id'], $_POST['cook'] ) );
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `dislike` = `dislike`+1 WHERE id = %d ", (int) $_POST['image_id'] ) );
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `like` = `like`-1 WHERE id = %d ", (int) $_POST['image_id'] ) );
-				$numDislike = $wpdb->prepare( "SELECT `dislike` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", (int) $_POST['image_id'] );
+				$wpdb->query( $wpdb->prepare( "INSERT INTO " . $wpdb->prefix . "huge_itgallery_like_dislike (`image_id`,`image_status`,`ip`,`cook`) VALUES ( %d, 'disliked', '" . $huge_it_ip . "',%s)", $image_id, $cook ) );
+				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `dislike` = `dislike`+1 WHERE id = %d ", $image_id ) );
+				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_images SET  `like` = `like`-1 WHERE id = %d ", $image_id ) );
+				$numDislike = $wpdb->prepare( "SELECT `dislike` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", $image_id );
 				$resDislike = $wpdb->get_results( $numDislike );
-				$numLike    = $wpdb->prepare( "SELECT `like` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", (int) $_POST['image_id'] );
+				$numLike    = $wpdb->prepare( "SELECT `like` FROM " . $wpdb->prefix . "huge_itgallery_images WHERE id = %d LIMIT 1", $image_id );
 				$resLike    = $wpdb->get_results( $numLike );
 				echo json_encode( array(
 					"like"        => $resLike[0]->like,

@@ -10,10 +10,10 @@ class Gallery_Img_Galleries {
 	 */
 	public function load_gallery_page() {
 		global $wpdb;
-		if ( isset( $_GET['page'] ) && $_GET['page'] == 'galleries_huge_it_gallery' ) {
-			$task = gallery_img_get_gallery_task();
-			$id   = gallery_img_get_gallery_id();
-		}
+
+        $task = gallery_img_get_gallery_task();
+        $id   = gallery_img_get_gallery_id();
+
 		switch ( $task ) {
 			case 'gallery_video':
 				if ( ! isset( $_REQUEST['gallery_wp_nonce_video'] ) || ! wp_verify_nonce( $_REQUEST['gallery_wp_nonce_video'], 'gallery_wp_nonce_video' ) ) {
@@ -122,6 +122,8 @@ GROUP BY " . $wpdb->prefix . "huge_itgallery_images.gallery_id ";
 	public function edit_gallery( $id ) {
 		if ( isset( $_GET["removeslide"] ) ) {
 			$idfordelete = absint( $_GET["removeslide"] );
+		}else{
+			wp_die('"removeslide" parameter is required.');
 		}
 		global $wpdb;
 		if ( isset( $_POST["huge_it_sl_effects"] ) ) {
