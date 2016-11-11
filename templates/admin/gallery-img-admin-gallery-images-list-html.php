@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 global $wpdb;
-$gallery_wp_nonce = wp_create_nonce( 'huge_it_gallery_nonce' );
+$gallery_wp_nonce_add_gallery    = wp_create_nonce( 'gallery_wp_nonce_add_gallery' );
 if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 	$id = intval( $_GET['id'] );
 	$gallery_img_get_default_options = gallery_img_get_option();
@@ -15,9 +15,12 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 </div>
 <div class="wrap">
 	<?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-free-banner.php' ); ?>
-	<?php $path_site = plugins_url( "../images", __FILE__ ); ?>
+	<?php
+		$path_site = plugins_url( "../images", __FILE__ );
+		$save_data_nonce = wp_create_nonce('huge_it_gallery_nonce_save_data' . $id);
+	?>
 	<div style="clear: both;"></div>
-	<form action="admin.php?page=galleries_huge_it_gallery&id=<?php echo $row->id; ?>" method="post" name="adminForm"
+	<form action="admin.php?page=galleries_huge_it_gallery&id=<?php echo $row->id; ?>&save_data_nonce=<?php echo $save_data_nonce; ?>" method="post" name="adminForm"
 	      id="adminForm">
 		<input type="hidden" class="changedvalues" value="" name="changedvalues" size="80">
 
@@ -28,10 +31,11 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 					<?php
 					foreach ( $rowsld as $rowsldires ) {
 						if ( $rowsldires->id != $row->id ) {
+							$huge_it_gallery_nonce_galleries = wp_create_nonce( 'huge_it_gallery_nonce_galleries'. $rowsldires->id );
 							?>
 							<li>
 								<a href="#"
-								   onclick="window.location.href='admin.php?page=galleries_huge_it_gallery&task=edit_cat&id=<?php echo $rowsldires->id; ?>&huge_it_gallery_nonce=<?php echo $gallery_wp_nonce; ?>'"><?php echo $rowsldires->name; ?></a>
+								   onclick="window.location.href='admin.php?page=galleries_huge_it_gallery&task=edit_cat&id=<?php echo $rowsldires->id; ?>&huge_it_gallery_nonce_galleries=<?php echo $huge_it_gallery_nonce_galleries; ?>'"><?php echo $rowsldires->name; ?></a>
 							</li>
 							<?php
 						} else { ?>
@@ -48,7 +52,7 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 					}
 					?>
 					<li class="add-new">
-						<a onclick="window.location.href='admin.php?page=galleries_huge_it_gallery&amp;task=add_cat&huge_it_gallery_nonce=<?php echo $gallery_wp_nonce; ?>'">+</a>
+						<a onclick="window.location.href='admin.php?page=galleries_huge_it_gallery&amp;task=add_cat&gallery_wp_nonce_add_gallery=<?php echo $gallery_wp_nonce_add_gallery; ?>'">+</a>
 					</li>
 				</ul>
 			</div>
@@ -616,7 +620,6 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 				</div>
 			</div>
 		</div>
-		<?php echo wp_nonce_field( 'huge_it_gallery_nonce', 'huge_it_gallery_nonce' ) ?>
 		<input type="hidden" name="task" value=""/>
 	</form>
 </div>

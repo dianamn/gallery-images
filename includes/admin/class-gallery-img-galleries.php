@@ -16,11 +16,8 @@ class Gallery_Img_Galleries {
 		}
 		switch ( $task ) {
 			case 'gallery_video':
-				if ( isset( $_REQUEST['gallery_wp_nonce_video'] ) ) {
-					$wp_nonce = $_GET['gallery_wp_nonce_video'];
-					if ( ! wp_verify_nonce( $wp_nonce, 'gallery_wp_nonce_video' ) ) {
-						wp_die( 'Security check fail' );
-					}
+				if ( ! isset( $_REQUEST['gallery_wp_nonce_video'] ) || ! wp_verify_nonce( $_REQUEST['gallery_wp_nonce_video'], 'gallery_wp_nonce_video' ) ) {
+					wp_die( 'Security check fail' );
 				}
 				if ( $id ) {
 					$this->insert_gallery_img_video( $id );
@@ -30,17 +27,8 @@ class Gallery_Img_Galleries {
 				}
 				break;
 			case 'edit_cat':
-				if ( isset( $_REQUEST['huge_it_gallery_nonce_galleries'] ) ) {
-					$wp_nonce = $_REQUEST['huge_it_gallery_nonce_galleries'];
-					if ( ! wp_verify_nonce( $wp_nonce, 'huge_it_gallery_nonce_galleries' ) ) {
-						wp_die( 'Security check fail' );
-					}
-				}
-				if ( isset( $_REQUEST['huge_it_gallery_nonce_images_list'] ) ) {
-					$wp_nonce = $_REQUEST['huge_it_gallery_nonce_images_list'];
-					if ( ! wp_verify_nonce( $wp_nonce, 'huge_it_gallery_nonce_images_list' ) ) {
-						wp_die( 'Security check fail' );
-					}
+				if ( ! isset( $_REQUEST['huge_it_gallery_nonce_galleries'] ) || ! wp_verify_nonce( $_REQUEST['huge_it_gallery_nonce_galleries'], 'huge_it_gallery_nonce_galleries' . $id ) ) {
+					wp_die( 'Security check fail' );
 				}
 				if ( $id ) {
 					$this->edit_gallery( $id );
@@ -49,17 +37,14 @@ class Gallery_Img_Galleries {
 					$this->edit_gallery( $id );
 				}
 				break;
-			case 'save':
-				if ( $id ) {
-					$this->save_gallery_data( $id );
-				}
-				break;
 			case 'apply':
-				if ( isset( $_REQUEST['huge_it_gallery_nonce_save_data'] ) ) {
-					$wp_nonce = $_REQUEST['huge_it_gallery_nonce_save_data'];
-					if ( ! wp_verify_nonce( $wp_nonce, 'huge_it_gallery_nonce_save_data' ) ) {
-						wp_die( 'Security check fail' );
-					}
+
+				$a = isset( $_REQUEST['save_data_nonce'] );
+				$b = wp_verify_nonce( $_REQUEST['save_data_nonce'], 'huge_it_gallery_nonce_save_data' . $id );
+				$c = wp_verify_nonce( $_REQUEST['save_data_nonce'], 'gallery_nonce_remove_image' . ( isset( $_GET['removeslide'] ) ? absint( $_GET['removeslide'] ) : '' ) );
+
+				if ( ! ( ( $b || $c ) && $a ) ) {
+					wp_die( 'Security check fail' );
 				}
 				if ( $id ) {
 					$this->save_gallery_data( $id );
@@ -136,13 +121,7 @@ GROUP BY " . $wpdb->prefix . "huge_itgallery_images.gallery_id ";
 	 */
 	public function edit_gallery( $id ) {
 		if ( isset( $_GET["removeslide"] ) ) {
-			$idfordelete = esc_html( $_GET["removeslide"] );
-		}
-		if ( isset( $_REQUEST['gallery_nonce_remove_image'] ) ) {
-			$gallery_nonce_remove_image = $_REQUEST['gallery_nonce_remove_image'];
-			if ( ! wp_verify_nonce( $gallery_nonce_remove_image, 'gallery_nonce_remove_image' . $idfordelete ) ) {
-				wp_die( 'Security check fail' );
-			}
+			$idfordelete = absint( $_GET["removeslide"] );
 		}
 		global $wpdb;
 		if ( isset( $_POST["huge_it_sl_effects"] ) ) {
@@ -215,8 +194,8 @@ INSERT INTO
 		$max_ord = $wpdb->get_var( 'SELECT MAX(ordering) FROM ' . $wpdb->prefix . 'huge_itgallery_gallerys' );
 		$query   = $wpdb->prepare( "SELECT sl_width FROM " . $wpdb->prefix . "huge_itgallery_gallerys WHERE id = %d", $id );
 		$id_bef  = $wpdb->get_var( $query );
-		if(isset($_POST['gallery_img_admin_image_hover_preview'])) {
-			$img_hover_preview = sanitize_text_field($_POST['gallery_img_admin_image_hover_preview']);
+		if ( isset( $_POST['gallery_img_admin_image_hover_preview'] ) ) {
+			$img_hover_preview = sanitize_text_field( $_POST['gallery_img_admin_image_hover_preview'] );
 			update_option( 'gallery_img_admin_image_hover_preview', $img_hover_preview );
 
 		}
@@ -266,7 +245,7 @@ INSERT INTO
 				$orderBy   = sanitize_text_field( $_POST[ "order_by_" . $rowimages->id ] );
 				$linkTaret = sanitize_text_field( $_POST[ "sl_link_target" . $rowimages->id ] );
 				$slUrl     = sanitize_text_field( str_replace( '%', '__5_5_5__', $_POST[ "sl_url" . $rowimages->id ] ) );
-				$name      = wp_kses( wp_unslash( str_replace( '%', '__5_5_5__', $_POST[ "titleimage" . $rowimages->id ] ) ), 'default');
+				$name      = wp_kses( wp_unslash( str_replace( '%', '__5_5_5__', $_POST[ "titleimage" . $rowimages->id ] ) ), 'default' );
 				$desc      = wp_unslash( str_replace( '%', '__5_5_5__', $_POST[ "im_description" . $rowimages->id ] ) );
 				$imageUrl  = sanitize_text_field( $_POST[ "imagess" . $rowimages->id ] );
 				$like      = sanitize_text_field( $_POST[ "like_" . $rowimages->id ] );

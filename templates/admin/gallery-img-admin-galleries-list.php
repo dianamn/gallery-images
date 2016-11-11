@@ -4,7 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 global $wpdb;
 $gallery_wp_nonce_add_gallery    = wp_create_nonce( 'gallery_wp_nonce_add_gallery' );
-$huge_it_gallery_nonce_galleries = wp_create_nonce( 'huge_it_gallery_nonce_galleries' );
 ?>
 
 <div class="wrap">
@@ -124,7 +123,7 @@ $huge_it_gallery_nonce_galleries = wp_create_nonce( 'huge_it_gallery_nonce_galle
 						} else {
 							$pr_count = 0;
 						}
-
+						$huge_it_gallery_nonce_galleries = wp_create_nonce( 'huge_it_gallery_nonce_galleries'. $rows[ $i ]->id);
 						$huge_it_gallery_nonce_remove_gallery = wp_create_nonce( 'huge_it_gallery_nonce_remove_gallery' . $rows[ $i ]->id );
 						$huge_it_gallery_nonce_duplicate_gallery = wp_create_nonce('huge_it_gallery_nonce_duplicate_gallery'.$rows[$i]->id);
 						?>
