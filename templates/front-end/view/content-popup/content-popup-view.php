@@ -30,7 +30,7 @@
 					echo 'no-title';
 				} ?>"
 				     tabindex="0"
-				     data-symbol="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>"
+				     data-symbol="<?php echo esc_attr( str_replace( '__5_5_5__', '%', $row->name ) ); ?>"
 				     data-category="alkaline-earth">
 					<div class="image-block image-block_<?php echo $galleryID; ?>">
 						<?php
@@ -43,7 +43,7 @@
 								?>
 								<?php $imgurl = explode( ";", $row->image_url ); ?>
 								<?php if ( $row->image_url != ';' ) { ?>
-								<img alt="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>"
+								<img alt="<?php echo esc_attr( str_replace( '__5_5_5__', '%', $row->name ) ); ?>"
 								     id="wd-cl-img<?php echo $key; ?>"
 								     src="<?php if ( $gallery_default_params[ 'image_natural_size_contentpopup' ] == 'resize' ) {
 									     echo esc_url( gallery_img_get_image_by_sizes_and_src( $imgurl[0], array(
@@ -54,7 +54,7 @@
 									     echo $imgurl[0];
 								     } ?>"/>
 							<?php } else { ?>
-								<img alt="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>"
+								<img alt="<?php echo esc_attr( str_replace( '__5_5_5__', '%', $row->name ) ); ?>"
 								     id="wd-cl-img<?php echo $key; ?>" src="images/noimage.jpg"/>
 								<?php
 							} ?>
@@ -95,7 +95,7 @@
 						?>
 						<div class="gallery-image-overlay">
 							<a href="#<?php echo $row->id; ?>"
-							   title="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>"></a>
+							   title="<?php echo esc_attr( str_replace( '__5_5_5__', '%', $row->name ) ); ?>"></a>
 							<?php if ( $like_dislike != 'off' ): ?>
 								<div
 									class="huge_it_gallery_like_cont huge_it_gallery_like_cont_<?php echo $galleryID . $pID; ?>">
@@ -156,7 +156,7 @@
 							class="title-block_<?php echo $galleryID; ?>">
 							<?php if ( $title != '' && $title != null ) { ?>
 								<h3
-									title="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>">
+									title="<?php echo esc_attr( str_replace( '__5_5_5__', '%', $row->name ) ); ?>">
 									<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>
 								</h3>
 							<?php } ?>
@@ -316,10 +316,10 @@
 						case 'image':
 							?>
 							<?php if ( $row->image_url != ';' ) { ?>
-							<img alt="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>"
+							<img alt="<?php echo esc_attr( str_replace( '__5_5_5__', '%', $row->name ) ); ?>"
 							     id="wd-cl-big-img<?php echo $key; ?>" src="<?php echo esc_attr( $imgurl[0] ); ?>"/>
 						<?php } else { ?>
-							<img alt="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>"
+							<img alt="<?php echo esc_attr( str_replace( '__5_5_5__', '%', $row->name ) ); ?>"
 							     id="wd-cl-big-img<?php echo $key; ?>" src="images/noimage.jpg"/>
 							<?php
 						} ?>

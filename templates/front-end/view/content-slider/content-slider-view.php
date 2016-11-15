@@ -91,14 +91,14 @@
 							?>
 							<?php if ( $row->image_url != ';' ) { ?>
 							<a class="gallery_group<?php echo $galleryID; ?>" href="<?php echo $imgurl[0]; ?>"
-							   title="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>"><img
-									alt="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>" class="main-image"
+							   title="<?php echo esc_attr( str_replace( '__5_5_5__', '%', $row->name ) ); ?>"><img
+									alt="<?php echo esc_attr( str_replace( '__5_5_5__', '%', $row->name ) ); ?>" class="main-image"
 									src="<?php echo esc_url( gallery_img_get_image_by_sizes_and_src( $imgurl[0], array(
 										$gallery_default_params[ 'ht_view5_main_image_width' ],
 										''
 									), false ) ); ?>"/></a>
 						<?php } else { ?>
-							<img alt="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>" class="main-image"
+							<img alt="<?php echo esc_attr( str_replace( '__5_5_5__', '%', $row->name ) ); ?>" class="main-image"
 							     src="images/noimage.jpg"/>
 							<?php
 						} ?>

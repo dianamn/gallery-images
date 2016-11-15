@@ -435,21 +435,26 @@ function gallery_img_get_image_id($image_url)
         return $attachment[0];
 }
 
+
 /**
  * Get image url by image src, width, height
  *
  * @param $image_src
- * @param $image_width
- * @param $image_height
- * @param bool $is_attachment
- *
+ * @param $image_sizes
+ * @param $is_thumbnail
  * @return false|string
  */
 function gallery_img_get_image_by_sizes_and_src($image_src, $image_sizes, $is_thumbnail)
 {
     $is_attachment = gallery_img_get_image_id($image_src);
-    $img_sizes = getimagesize($image_src);
-    $img_height = $img_sizes[1];
+    $is_readable = is_readable($image_src);
+    if( $is_readable) {
+        $img_sizes = getimagesize($image_src);
+        $img_height = $img_sizes[1];
+    }
+    else{
+        $img_height = NULL;
+    }
 
     if (is_string($image_sizes)) {
         $image_sizes = $image_sizes;
@@ -469,14 +474,13 @@ function gallery_img_get_image_by_sizes_and_src($image_src, $image_sizes, $is_th
         $natural_img_width = intval(str_replace('px', '', $natural_img_width));
         if ($is_thumbnail) {
             $image_url = wp_get_attachment_image_url($attachment_id, 'thumbnail');
-        } elseif ($image_sizes[0] <= 300 || $image_sizes[0] == '' ) {
-            if( $img_height <=  $natural_img_width)
-                $image_url = wp_get_attachment_image_url( $attachment_id, 'medium' );
+        } elseif ($image_sizes[0] <= 300 || $image_sizes[0] == '') {
+            if ($img_height == NULL || $img_height >= $natural_img_width)
+                $image_url = wp_get_attachment_image_url($attachment_id, 'large');
             else
-                $image_url = wp_get_attachment_image_url( $attachment_id, 'large' );
-        }
-        elseif($image_sizes[0] <= 700){
-            $image_url = wp_get_attachment_image_url( $attachment_id, 'large' );
+                $image_url = wp_get_attachment_image_url($attachment_id, 'medium');
+        } elseif ($image_sizes[0] <= 700) {
+            $image_url = wp_get_attachment_image_url($attachment_id, 'large');
         } elseif ($image_sizes[0] >= $natural_img_width) {
             $image_url = wp_get_attachment_image_url($attachment_id, 'full');
         } else {

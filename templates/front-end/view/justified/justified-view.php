@@ -3,42 +3,6 @@
 	<div id="mygallery_<?php echo $galleryID; ?>" class="mygallery clearfix view-<?php echo $view_slug; ?>">
 		<?php
 		global $wpdb;
-		$pattern = '/-/';
-		$query2  = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_gallerys where id = '%d' order by ordering ASC ", $galleryID );
-		$gallery = $wpdb->get_results( $query2 );
-		foreach ( $gallery as $gall ) {
-			global $post;
-			$pID        = $post->ID;
-			$disp_type  = $gall->display_type;
-			$count_page = $gall->content_per_page;
-			if ( $count_page == 0 ) {
-				$count_page = 999;
-			} elseif ( preg_match( $pattern, $count_page ) ) {
-				$count_page = preg_replace( $pattern, '', $count_page );
-			}
-		}
-		global $wpdb;
-		$num   = $count_page;
-		$total = intval( ( ( count( $images ) - 1 ) / $num ) + 1 );
-		if ( isset( $_GET[ 'page-img' . $galleryID . $pID ] ) ) {
-			$page = $_GET[ 'page-img' . $galleryID . $pID ];
-		} else {
-			$page = '';
-		}
-		$page = intval( $page );
-		if ( empty( $page ) or $page < 0 ) {
-			$page = 1;
-		}
-		if ( $page > $total ) {
-			$page = $total;
-		}
-		$start       = $page * $num - $num;
-		$query       = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_images where gallery_id = '%d' order by ordering ASC LIMIT " . $start . "," . $num . "", $galleryID );
-		$page_images = $wpdb->get_results( $query );
-		if ( $disp_type == 2 ) {
-			$page_images = $images;
-			$count_page  = 9999;
-		}
 		?>
 		<input type="hidden" id="total" value="<?php echo $total; ?>"/>
 		<?php
@@ -68,9 +32,9 @@
 					?>
 					<?php if ( $row->image_url != ';' ) { ?>
 					<a class="gallery_group<?php echo $galleryID; ?>" href="<?php echo $imgurl[0]; ?>"
-					   title="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>">
+					   title="<?php echo esc_attr(  str_replace( '__5_5_5__', '%', $row->name ) ); ?>">
 						<img id="wd-cl-img<?php echo $key; ?>"
-						     alt="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>"
+						     alt="<?php echo esc_attr(  str_replace( '__5_5_5__', '%', $row->name ) ); ?>"
 						     src="<?php echo esc_url( gallery_img_get_image_by_sizes_and_src( $imgurl[0], array(
 							     '',
 							     $gallery_default_params[ 'ht_view8_element_height' ]
@@ -129,7 +93,7 @@
 					</a>
 					<input type="hidden" class="pagenum" value="1"/>
 				<?php } else { ?>
-					<img alt="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>"
+					<img alt="<?php echo esc_attr(  str_replace( '__5_5_5__', '%', $row->name ) ); ?>"
 					     id="wd-cl-img<?php echo $key; ?>"
 					     src="images/noimage.jpg"/>
 					<?php if ( $like_dislike != 'off' ): ?>
@@ -193,10 +157,10 @@
 						?>
 						<a class="giyoutube huge_it_gallery_item gallery_group<?php echo $galleryID; ?>"
 						   href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
-						   title="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>">
-							<img alt="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>"
+						   title="<?php echo esc_attr(  str_replace( '__5_5_5__', '%', $row->name ) ); ?>">
+							<img alt="<?php echo esc_attr(  str_replace( '__5_5_5__', '%', $row->name ) ); ?>"
 							     src="http://img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg"
-							     alt="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>"/>
+							     alt="<?php echo esc_attr(  str_replace( '__5_5_5__', '%', $row->name ) ); ?>"/>
 							<div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
 							<?php if ( $like_dislike != 'off' ): ?>
 								<div class="huge_it_gallery_like_cont_<?php echo $galleryID . $pID; ?>">
@@ -259,10 +223,10 @@
 						?>
 						<a class="givimeo huge_it_gallery_item gallery_group<?php echo $galleryID; ?>"
 						   href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>"
-						   title="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>">
-							<img alt="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>"
+						   title="<?php echo esc_attr(  str_replace( '__5_5_5__', '%', $row->name ) ); ?>">
+							<img alt="<?php echo esc_attr(  str_replace( '__5_5_5__', '%', $row->name ) ); ?>"
 							     src="<?php echo esc_attr( $imgsrc ); ?>"
-							     alt="<?php echo str_replace( '__5_5_5__', '%', $row->name ); ?>"/>
+							     alt="<?php echo esc_attr(  str_replace( '__5_5_5__', '%', $row->name ) ); ?>"/>
 							<div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
 							<?php if ( $like_dislike != 'off' ): ?>
 								<div class="huge_it_gallery_like_cont_<?php echo $galleryID . $pID; ?>">

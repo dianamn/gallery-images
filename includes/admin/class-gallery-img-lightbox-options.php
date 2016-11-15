@@ -25,16 +25,13 @@ class Gallery_Img_Lightbox_Options {
 	}
 
 	public function save_options() {
-		if ( isset( $_REQUEST['huge_it_gallery_nonce_save_lightbox_options'] ) ) {
-			$huge_it_gallery_nonce_save_lightbox_options = $_REQUEST['huge_it_gallery_nonce_save_lightbox_options'];
-			if ( ! wp_verify_nonce( $huge_it_gallery_nonce_save_lightbox_options, 'huge_it_gallery_nonce_save_lightbox_options' ) ) {
-				wp_die( 'Security check fail' );
-			}
+		if ( !isset( $_REQUEST['huge_it_gallery_nonce_save_lightbox_options'] ) || ! wp_verify_nonce( $_REQUEST['huge_it_gallery_nonce_save_lightbox_options'], 'huge_it_gallery_nonce_save_lightbox_options' ) ) {
+			wp_die( 'Security check fail' );
 		}
 		if (isset($_POST['params'])) {
 			$params = $_POST['params'];
 			foreach ($params as $name => $value) {
-				update_option($name, wp_unslash($value));
+				update_option($name, wp_unslash(sanitize_text_field($value)));
 			}
 			?>
 			<div class="updated"><p><strong><?php _e('Item Saved'); ?></strong></p></div>

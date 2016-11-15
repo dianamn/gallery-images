@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, lightbox gallery, wordpress gallery, photo gallery, content gallery, media gallery, youtube gallery, images gallery, responsive gallery, thumbnail gallery,
 Requires at least: 3.0.1
 Tested up to: 4.6.1
-Stable tag: 2.0.4
+Stable tag: 2.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -884,6 +884,15 @@ The commercial version users can do unlimited customization, if your images/vide
 
 
 == Changelog ==
+
+= 2.0.6 =
+*  Fixed issues with nonce tokens in the plugin for all _POST, _GET requests
+*  Fixed issue with cross site scripting (XSS)
+
+= 2.0.5 =
+* 1) We've fixed an issue related to file-system access, which was causing an images disappearance on front/back ends
+* 2) Added new functionality that allows users to add HTML in titles 
+* 3) Updated featured plugin list with the new plugin called Pricing Tables
 
 = 2.0.4 =
 *  Important update as required from users on forum: Low res previews in HugeIt Gallery now display bigger image elements with previews.

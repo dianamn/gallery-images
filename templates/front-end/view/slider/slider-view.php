@@ -828,7 +828,7 @@
 										}
 										echo '<a href="' . $image_row->sl_url . '" ' . $target . '>';
 									} ?>
-									<img alt="<?php echo str_replace( '__5_5_5__', '%', $image_row->name ); ?>"
+									<img alt="<?php echo esc_attr( str_replace( '__5_5_5__', '%', $image_row->name ) ); ?>"
 									     id="huge_it_slideshow_image_gallery_<?php echo $galleryID; ?>_<?php echo $key; ?>"
 									     class="huge_it_slideshow_image_gallery_<?php echo $galleryID; ?>"
 									     src="<?php echo esc_attr( $image_row->image_url ); ?>"
