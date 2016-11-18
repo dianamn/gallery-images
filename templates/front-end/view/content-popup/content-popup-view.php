@@ -243,9 +243,9 @@
 			<div class="heading-navigation heading-navigation_<?php echo $galleryID; ?>">
 				<div style="display: inline-block; float: left;">
 					<div class="left-change"><a href="#<?php echo $changePopup - 1; ?>"
-					                            data-popupid="#<?php echo $row->id; ?>"><</a></div>
+					                            data-popupid="#<?php echo $row->id; ?>">&lt;</a></div>
 					<div class="right-change"><a href="#<?php echo $changePopup + 1; ?>"
-					                             data-popupid="#<?php echo $row->id; ?>">></a></div>
+					                             data-popupid="#<?php echo $row->id; ?>">&gt;</a></div>
 				</div>
 				<?php $changePopup = $changePopup + 1; ?>
 				<a href="#close" class="close"></a>
