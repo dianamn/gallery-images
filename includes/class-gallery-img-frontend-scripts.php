@@ -114,15 +114,15 @@ class Gallery_Img_Frontend_Scripts {
 		$gallery_default_params = gallery_img_get_default_options();
 		$query = $wpdb->prepare( "SELECT image_url FROM " . $wpdb->prefix . "huge_itgallery_images WHERE gallery_id=%d", $id );
 		$images       = $wpdb->get_col( $query );
-		$has_youtube  = 'false';
-		$has_vimeo    = 'false';
+		$has_youtube  = false;
+		$has_vimeo    = false;
 		$view_slug = gallery_img_get_view_slag_by_id( $id );
 		foreach ( $images as $image_row ) {
 			if ( strpos( $image_row, 'youtu' ) !== false ) {
-				$has_youtube = 'true';
+				$has_youtube = true;
 			}
 			if ( strpos( $image_row, 'vimeo' ) !== false ) {
-				$has_vimeo = 'true';
+				$has_vimeo = true;
 			}
 		}
 

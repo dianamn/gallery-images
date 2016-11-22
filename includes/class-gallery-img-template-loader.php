@@ -42,14 +42,14 @@ class Gallery_Img_Template_Loader {
         $slideshow_title_position = explode('-', $trim_slider_title_position);
         $trim_slider_description_position = trim($gallery_default_params['slider_description_position']);
         $slideshow_description_position = explode('-', $trim_slider_description_position);
-        $has_youtube  = 'false';
-        $has_vimeo    = 'false';
+        $has_youtube  = false;
+        $has_vimeo    = false;
         foreach ( $images as $image ) {
             if ( strpos( $image->image_url, 'youtu' ) !== false ) {
-                $has_youtube = 'true';
+                $has_youtube = true;
             }
             if ( strpos( $image->image_url, 'vimeo' ) !== false ) {
-                $has_vimeo = 'true';
+                $has_vimeo = true;
             }
         }
 		if ( isset( $_GET[ 'page-img' . $galleryID . $pID ] ) ) {
