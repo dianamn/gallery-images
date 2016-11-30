@@ -512,7 +512,7 @@
 	}
 	function huge_it_change_image_gallery_<?php echo $galleryID; ?>(current_key, key, data_gallery_<?php echo $galleryID; ?>, from_effect,clicked) {
 		if (data_gallery_<?php echo $galleryID; ?>[key]) {
-			if(video_is_playing_gallery_<?php echo $galleryID; ?> && !clicked){
+			if(typeof video_is_playing_gallery_<?php echo $galleryID; ?> != 'undefined' && video_is_playing_gallery_<?php echo $galleryID; ?> && !clicked){
 				return false;
 			}
 			if (!from_effect) {
