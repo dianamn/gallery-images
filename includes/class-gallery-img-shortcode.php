@@ -34,18 +34,8 @@ class Gallery_Img_Shortcode {
 		$gallery_view = $wpdb->get_var( $query );
 		$query = $wpdb->prepare( "SELECT image_url FROM " . $wpdb->prefix . "huge_itgallery_images WHERE gallery_id=%d", $attrs['id'] );
 		$images       = $wpdb->get_col( $query );
-		$has_youtube  = false;
-		$has_vimeo    = false;
-		foreach ( $images as $image_row ) {
-			if ( strpos( $image_row, 'youtu' ) !== false ) {
-				$has_youtube = true;
-			}
-			if ( strpos( $image_row, 'vimeo' ) !== false ) {
-				$has_vimeo = true;
-			}
-		}
 
-		do_action( 'gallery_img_shortcode_scripts', $attrs['id'], $gallery_view, $has_youtube, $has_vimeo );
+		do_action( 'gallery_img_shortcode_scripts', $attrs['id'], $gallery_view );
 		do_action( 'gallery_img_localize_scripts', $attrs['id'] );
 
 		return $this->init_frontend( $attrs['id'] );

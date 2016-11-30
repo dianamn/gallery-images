@@ -55,7 +55,7 @@ class Gallery_Img_Frontend_Scripts {
 	/**
 	 * Enqueue scripts
 	 */
-	public function frontend_scripts( $id, $gallery_view, $has_youtube, $has_vimeo ) {
+	public function frontend_scripts( $id, $gallery_view ) {
 		$view_slug = gallery_img_get_view_slag_by_id( $id );
 
 		if ( ! wp_script_is( 'jquery' ) ) {
@@ -92,14 +92,6 @@ class Gallery_Img_Frontend_Scripts {
 			wp_register_script( 'jusiifed-js', plugins_url( '../assets/js/justifiedGallery.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'jusiifed-js' );
 		}
-		if ( $gallery_view == '3' ) {
-			if ( $has_youtube ) {
-				wp_enqueue_script( 'youtube-lib-js', plugins_url( '../assets/js/youtube.lib.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
-			}
-			if ( $has_vimeo ) {
-				wp_enqueue_script( 'vimeo-lib-js', plugins_url( '../assets/js/vimeo.lib.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
-			}
-		}
 
 	}
 
@@ -114,18 +106,7 @@ class Gallery_Img_Frontend_Scripts {
 		$gallery_default_params = gallery_img_get_default_options();
 		$query = $wpdb->prepare( "SELECT image_url FROM " . $wpdb->prefix . "huge_itgallery_images WHERE gallery_id=%d", $id );
 		$images       = $wpdb->get_col( $query );
-		$has_youtube  = 'false';
-		$has_vimeo    = 'false';
 		$view_slug = gallery_img_get_view_slag_by_id( $id );
-		foreach ( $images as $image_row ) {
-			if ( strpos( $image_row, 'youtu' ) !== 'false' ) {
-				$has_youtube = 'true';
-			}
-			if ( strpos( $image_row, 'vimeo' ) !== 'false' ) {
-				$has_vimeo = 'true';
-			}
-		}
-
 		$gallery_view = $gallery[0]->huge_it_sl_effects;
 		$lightbox     = array(
 			'lightbox_transition'     => $gallery_default_params[ 'gallery_img_light_box_transition' ],
@@ -260,8 +241,6 @@ class Gallery_Img_Frontend_Scripts {
 		wp_localize_script( 'front-end-js-'.$view_slug, 'gallery_obj', $gallery );
 		wp_localize_script( 'front-end-js-'.$view_slug, 'adminUrl', $admin_url );
 		wp_localize_script( 'front-end-js-'.$view_slug, 'postID', $pID );
-		wp_localize_script( 'front-end-js-'.$view_slug, 'hasYoutube', $has_youtube );
-		wp_localize_script( 'front-end-js-'.$view_slug, 'hasVimeo', $has_vimeo );
 		wp_localize_script( 'front-end-js-'.$view_slug, 'postID', $pID );
 		wp_localize_script( 'jquery.gicolorbox-js', 'lightbox_obj', $lightbox );
 		wp_localize_script( 'custom-js', 'galleryId', $id );
