@@ -9,8 +9,8 @@ function Gallery_Img_Thumbnails(id) {
     _this.container = jQuery('#' + id + '.view-thumbnails');
     _this.content = _this.container.parent();
     _this.element = _this.container.find('.element');
-    _this.defaultBlockWidth = param_obj.thumb_image_width;
-    _this.defaultBlockHeiight = param_obj.thumb_image_height;
+    _this.defaultBlockWidth = param_obj.gallery_img_thumb_image_width;
+    _this.defaultBlockHeiight = param_obj.gallery_img_thumb_image_height;
     _this.ratingType = _this.content.data('rating-type');
     _this.likeContent = jQuery('.huge_it_gallery_like_cont');
     _this.likeCountContainer = jQuery('.huge_it_like_count');
@@ -26,12 +26,12 @@ function Gallery_Img_Thumbnails(id) {
         var thumbnailLoadNonce = jQuery(this).attr('data-thumbnail-nonce-value');
         if (parseInt(_this.content.find(".pagenum:last").val()) < parseInt(_this.container.find("#total").val())) {
             var pagenum = parseInt(_this.content.find(".pagenum:last").val()) + 1;
-            var perpage = gallery_obj[0].content_per_page;
-            var galleryid = gallery_obj[0].id;
-            var thumbtext = param_obj.thumb_view_text;
+            var perpage = _this.content.attr('data-content-per-page');
+            var galleryid = _this.content.attr('data-gallery-id');
+            var thumbtext = param_obj.gallery_img_thumb_view_text;
             var pID = postID;
             var likeStyle = _this.ratingType;
-            var ratingCount = param_obj.ht_lightbox_rating_count;
+            var ratingCount = param_obj.gallery_img_ht_lightbox_rating_count;
             _this.getResult(pagenum, perpage, galleryid, thumbtext, pID, likeStyle, ratingCount, thumbnailLoadNonce);
         } else {
             _this.loadMoreBtn.hide();
@@ -65,7 +65,7 @@ function Gallery_Img_Thumbnails(id) {
                     galleryImglightboxInit();
                     galleryImgRatingCountsOptimize(_this.container, _this.ratingType);
                     setTimeout(function () {
-                        if (param_obj.image_natural_size_thumbnail == 'natural') {
+                        if (param_obj.gallery_img_image_natural_size_thumbnail == 'natural') {
                             _this.naturalImageThumb();
                         }
                     }, 200);
@@ -99,7 +99,7 @@ function Gallery_Img_Thumbnails(id) {
     _this.init = function () {
         _this.documentReady();
         _this.addEventListeners();
-        if (param_obj.image_natural_size_thumbnail == 'natural') {
+        if (param_obj.gallery_img_image_natural_size_thumbnail == 'natural') {
             _this.naturalImageThumb();
         }
     };

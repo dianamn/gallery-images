@@ -20,9 +20,10 @@ class Gallery_Img_Admin_Assets {
 	public function admin_styles( $hook ){
 		if( in_array($hook, Gallery_Img()->admin->pages ) ){
 			wp_enqueue_style( "gallery_admin_css", Gallery_Img()->plugin_url()."/assets/style/admin.style.css", false );
-			wp_enqueue_style( "jquery_ui", esc_url("http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"), false );
+			wp_enqueue_style( "jquery_ui", Gallery_Img()->plugin_url()."/assets/style/smoothness-ui.css", false );
 			wp_enqueue_style( "simple_slider_css", Gallery_Img()->plugin_url()."/assets/style/simple-slider_sl.css",  false );
             wp_enqueue_style( "featured_plugins", Gallery_Img()->plugin_url()."/assets/style/featured-plugins.css",  false );
+            wp_enqueue_style( "licensing_css", Gallery_Img()->plugin_url()."/assets/style/licensing.css",  false );
 		}
 	}
 

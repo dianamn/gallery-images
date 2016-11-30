@@ -31,27 +31,17 @@ class Gallery_Img_Template_Loader {
 		$huge_it_ip   = gallery_img_get_ip();
 		$pID          = $post->ID;
         $slidertitle=$gallery[0]->name;
-        $sliderheight=$gallery[0]->sl_height - 2*$gallery_default_params['slider_slideshow_border_size'];
-        $sliderwidth=$gallery[0]->sl_width - 2*$gallery_default_params['slider_slideshow_border_size'];
+        $sliderheight=$gallery[0]->sl_height - 2*$gallery_default_params['gallery_img_slider_slideshow_border_size'];
+        $sliderwidth=$gallery[0]->sl_width - 2*$gallery_default_params['gallery_img_slider_slideshow_border_size'];
         $slidereffect=$gallery[0]->gallery_list_effects_s;
         $slidepausetime=($gallery[0]->description+$gallery[0]->param);
         $sliderpauseonhover=$gallery[0]->pause_on_hover;
         $sliderposition=$gallery[0]->sl_position;
         $slidechangespeed=$gallery[0]->param;
-        $trim_slider_title_position = trim($gallery_default_params['slider_title_position']);
+        $trim_slider_title_position = trim($gallery_default_params['gallery_img_slider_title_position']);
         $slideshow_title_position = explode('-', $trim_slider_title_position);
-        $trim_slider_description_position = trim($gallery_default_params['slider_description_position']);
+        $trim_slider_description_position = trim($gallery_default_params['gallery_img_slider_description_position']);
         $slideshow_description_position = explode('-', $trim_slider_description_position);
-        $has_youtube  = false;
-        $has_vimeo    = false;
-        foreach ( $images as $image ) {
-            if ( strpos( $image->image_url, 'youtu' ) !== false ) {
-                $has_youtube = true;
-            }
-            if ( strpos( $image->image_url, 'vimeo' ) !== false ) {
-                $has_vimeo = true;
-            }
-        }
 		if ( isset( $_GET[ 'page-img' . $galleryID . $pID ] ) ) {
 			$page = absint( $_GET[ 'page-img' . $galleryID . $pID ] );
 		} else {

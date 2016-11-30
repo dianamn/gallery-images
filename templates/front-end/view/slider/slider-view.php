@@ -1,119 +1,3 @@
-<?php if ($has_vimeo==true){?>
-	<script>
-		var video_is_playing_gallery_<?php echo $galleryID; ?>=false;
-		jQuery(function(){
-			var vimeoPlayer = document.querySelector('iframe');
-			jQuery('iframe').each(function(){
-				Froogaloop(this).addEvent('ready', ready);
-			});
-			jQuery(".sidedock,.controls").remove();
-			function ready(player_id) {
-				froogaloop = $f(player_id);
-				function setupEventListeners() {
-					function onPlay() {
-						froogaloop.addEvent('play',
-							function(){
-								video_is_playing_gallery_<?php echo $galleryID; ?>=true;
-							});
-					}
-					function onPause() {
-						froogaloop.addEvent('pause',
-							function(){
-								video_is_playing_gallery_<?php echo $galleryID; ?>=false;
-							});
-					}
-					function stopVimeoVideo(player){
-						Froogaloop(player).api('pause');
-					}
-					onPlay();
-					onPause();
-					jQuery('#huge_it_slideshow_left_gallery_<?php echo $galleryID; ?>, #huge_it_slideshow_right_gallery_<?php echo $galleryID; ?>,.huge_it_slideshow_dots_gallery_<?php echo $galleryID; ?>').click(function(){
-						stopVimeoVideo(player_id);
-					});
-				}
-				setupEventListeners();
-			}
-		});
-<?php } ?>
-<?php if ($has_youtube==true){?>
-		<?php
-		if (!function_exists('get_youtube_id_from_url')) {
-			function get_youtube_id_from_url($url){
-				if (stristr($url,'youtu.be/'))
-				{ preg_match('/(https:|http:|)(\/\/www\.|\/\/|)(.*?)\/(.{11})/i', $url, $final_ID); return $final_ID[4]; }
-				else
-				{ preg_match('/(https:|http:|):(\/\/www\.|\/\/|)(.*?)\/(embed\/|watch\?v=|(.*?)&v=|v\/|e\/|.+\/|watch.*v=|)([a-z_A-Z0-9]{11})/i', $url, $IDD); return $IDD[6]; }
-			}
-		}
-		$i=0;
-		foreach ($images as $key => $image_row) {
-		if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtube') !== false){
-		?>
-		var player_<?php echo $image_row->id; ?>;
-		<?php
-		}else if (strpos($image_row->image_url,'vimeo') !== false){ ?>
-		<?php
-		}else{continue;}
-		$i++;
-		}
-		?>
-		video_is_playing_gallery_<?php echo $galleryID; ?>=false;
-		function onYouTubeIframeAPIReady() {
-			<?php
-			foreach ($images as $key => $image_row) {?>
-			<?php if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtu') !== false){
-			?>
-			player_<?php echo $image_row->id; ?> = new YT.Player('video_id_gallery_<?php echo $galleryID; ?>_<?php echo $key;?>', {
-				height: '<?php echo $sliderheight; ?>',
-				width: '<?php echo $sliderwidth; ?>',
-				videoId: '<?php echo get_youtube_id_from_url($image_row->image_url); ?>',
-				playerVars: {
-					'controls': <?php if ($images[$key]->sl_url=="on"){ echo 1;}else{echo 0;} ?>,
-					'showinfo': <?php if ($images[$key]->link_target=="on"){ echo 1;}else{echo 0;} ?>
-				},
-				events: {
-					'onStateChange': onPlayerStateChange_<?php echo $image_row->id; ?>,
-					'loop':1
-				}
-			});
-			<?php
-			}else{continue;}
-			}
-			?>
-		}
-		<?php
-		foreach ($images as $key => $image_row) {
-		if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtu') !== false){
-		?>
-		function onPlayerStateChange_<?php echo $image_row->id; ?>(event) {
-			//(event.data);
-			if (event.data == YT.PlayerState.PLAYING) {
-				event.target.setPlaybackQuality('<?php echo $images[$key]->name; ?>');
-				video_is_playing_gallery_<?php echo $galleryID; ?>=true;
-			}
-			else{
-				video_is_playing_gallery_<?php echo $galleryID; ?>=false;
-			}
-		}
-		<?php
-		}else{continue;}
-		}
-		?>
-		function stopYoutubeVideo() {
-			<?php
-			$i=0;
-			foreach ($images as $key => $image_row) {
-			if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtu') !== false){
-			?>
-			player_<?php echo $image_row->id; ?>.pauseVideo();
-			<?php
-			}else{continue;}
-			$i++;
-			}
-			?>
-		}
-	</script>
-<?php } ?>
 <script>
 	var data_gallery_<?php echo $galleryID; ?> = [];
 	var event_stack_gallery_<?php echo $galleryID; ?> = [];
@@ -564,7 +448,6 @@
 			jQuery(current_image_class).find('.huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?>').addClass('none');
 			//errorlogjQuery(".huge_it_slideshow_image_wrap_gallery_<?php echo $galleryID; ?>").after("--cur-key="+current_key+" --cur-img-class="+current_image_class+" nxt-img-class="+next_image_class+"--");
 			huge_it_move_dots_gallery_<?php echo $galleryID; ?>();
-			<?php if ($has_youtube==true){?>stopYoutubeVideo(); <?php } ?>
 			window.clearInterval(huge_it_playInterval_gallery_<?php echo $galleryID; ?>);
 			play_gallery_<?php echo $galleryID; ?>();
 		}
@@ -579,7 +462,7 @@
 		if(sliderwidth>bodyWidth){sliderwidth=bodyWidth;}
 		var str=(<?php echo $sliderheight;?>/staticsliderwidth);
 
-		jQuery('.huge_it_slideshow_image_wrap_gallery_<?php echo $galleryID; ?>').css({'max-height':parentWidth*str-2*<?php echo $gallery_default_params['slider_slideshow_border_size']; ?>});
+		jQuery('.huge_it_slideshow_image_wrap_gallery_<?php echo $galleryID; ?>').css({'max-height':parentWidth*str-2*<?php echo $gallery_default_params['gallery_img_slider_slideshow_border_size']; ?>});
 
 	}
 	jQuery(window).load(function () {
@@ -704,7 +587,7 @@
 			?>
 		</div>
 		<?php
-		if ( $gallery_default_params['slider_show_arrows'] == "on" ) {
+		if ( $gallery_default_params['gallery_img_slider_show_arrows'] == "on" ) {
 			?>
 			<a id="huge_it_slideshow_left_gallery_<?php echo $galleryID; ?>" href="#"
 			   onclick="huge_it_change_image_gallery_<?php echo $galleryID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $galleryID; ?>').val()), (parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $galleryID; ?>').val()) - iterator_gallery_<?php echo $galleryID; ?>()) >= 0 ? (parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $galleryID; ?>').val()) - iterator_gallery_<?php echo $galleryID; ?>()) % data_gallery_<?php echo $galleryID; ?>.length : data_gallery_<?php echo $galleryID; ?>.length - 1, data_gallery_<?php echo $galleryID; ?>,false,true);return false;">
@@ -793,7 +676,7 @@
 											<?php endif; ?>
 											</span>
 											<span
-												class="huge_it_like_count <?php if ( $gallery_default_params['ht_slider_rating_count'] == 'off' ) {
+												class="huge_it_like_count <?php if ( $gallery_default_params['gallery_img_ht_slider_rating_count'] == 'off' ) {
 													echo 'huge_it_hide';
 												} ?>"
 												id="<?php echo $image_row->id ?>"><?php if ( $like_dislike != 'heart' ): ?><?php echo $image_row->like; ?><?php endif; ?></span>
@@ -813,7 +696,7 @@
 											      } ?>">
 											</span>
 											<span
-												class="huge_it_dislike_count <?php if ( $gallery_default_params['ht_slider_rating_count'] == 'off' ) {
+												class="huge_it_dislike_count <?php if ( $gallery_default_params['gallery_img_ht_slider_rating_count'] == 'off' ) {
 													echo 'huge_it_hide';
 												} ?>"
 												id="<?php echo $image_row->id ?>"><?php echo $image_row->dislike; ?></span>
@@ -882,7 +765,7 @@
 											<?php endif; ?>
 											</span>
 												<span
-													class="huge_it_like_count <?php if ( $gallery_default_params['ht_slider_rating_count'] == 'off' ) {
+													class="huge_it_like_count <?php if ( $gallery_default_params['gallery_img_ht_slider_rating_count'] == 'off' ) {
 														echo 'huge_it_hide';
 													} ?>"
 													id="<?php echo $image_row->id ?>"><?php if ( $like_dislike != 'heart' ): ?><?php echo $image_row->like; ?><?php endif; ?></span>
@@ -902,7 +785,7 @@
 											      } ?>">
 											</span>
 											<span
-												class="huge_it_dislike_count <?php if ( $gallery_default_params['ht_slider_rating_count'] == 'off' ) {
+												class="huge_it_dislike_count <?php if ( $gallery_default_params['gallery_img_ht_slider_rating_count'] == 'off' ) {
 													echo 'huge_it_hide';
 												} ?>"
 												id="<?php echo $image_row->id ?>"><?php echo $image_row->dislike; ?></span>

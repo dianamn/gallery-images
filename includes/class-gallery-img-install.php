@@ -41,20 +41,31 @@ class Gallery_Img_Install {
 			}
 		}
 		$new_options = array(
-			'gallery_img_admin_image_hover_preview' => 'on',
-			'light_box_size_fix'                    => 'false',
-			'light_box_width'                       => '500',
-			'light_box_height'                      => '500',
-			'light_box_maxwidth'                    => '900',
-			'light_box_maxheight'                   => '700',
-			'light_box_initialwidth'                => '300',
-			'light_box_initialheight'               => '100',
-			'gallery_img_version'                   => '2.0.2'
+			'gallery_img_admin_image_hover_preview'             => 'on',
+			'gallery_img_light_box_size_fix'                    => 'false',
+			'gallery_img_light_box_width'                       => '500',
+			'gallery_img_light_box_height'                      => '500',
+			'gallery_img_light_box_maxwidth'                    => '900',
+			'gallery_img_light_box_maxheight'                   => '700',
+			'gallery_img_light_box_initialwidth'                => '300',
+			'gallery_img_light_box_initialheight'               => '100',
+			'gallery_img_version'                               => '2.0.2'
 		);
 		if ( ! get_option( 'light_box_initialheight' ) ) {
 			foreach ( $new_options as $name => $new_option ) {
 				add_option( $name, $new_option );
 			}
+		}
+		global $wpdb;
+		$updated_options = array('light_box_size_fix','light_box_width','light_box_height','light_box_maxwidth','light_box_initialwidth','light_box_initialheight');
+		foreach ( $updated_options as $updated_option ) {
+			$query = $wpdb->prepare("SELECT option_name FROM ".$wpdb->prefix."options WHERE option_name = %s",$updated_option);
+			$option_name = $wpdb->get_var($query);
+			$wpdb->update(
+				$wpdb->prefix."options",
+				array( 'option_name' => 'gallery_img_'.$option_name),
+				array( 'option_name' => $option_name )
+			);
 		}
 	}
 

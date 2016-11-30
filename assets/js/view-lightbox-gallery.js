@@ -9,7 +9,7 @@ function Gallery_Img_Lightbox_Gallery(id) {
     _this.container = jQuery('#' + id + '.view-lightbox-gallery');
     _this.content = _this.container.parent();
     _this.element = _this.container.find('.element');
-    _this.defaultBlockWidth = param_obj.ht_view6_width;
+    _this.defaultBlockWidth = param_obj.gallery_img_ht_view6_width;
     _this.isCentered = _this.container.data("show-center") == "on";
     _this.ratingType = _this.content.data('rating-type');
     _this.likeContent = jQuery('.huge_it_gallery_like_cont');
@@ -20,7 +20,7 @@ function Gallery_Img_Lightbox_Gallery(id) {
         var options = {
             itemSelector: _this.element,
             masonry: {
-                columnWidth: _this.defaultBlockWidth + 10 + param_obj.ht_view6_border_width * 2,
+                columnWidth: _this.defaultBlockWidth + 10 + param_obj.gallery_img_ht_view6_border_width * 2,
             },
             masonryHorizontal: {
                 rowHeight: 300 + 20
@@ -62,7 +62,7 @@ function Gallery_Img_Lightbox_Gallery(id) {
     _this.showCenter = function () {
         if (_this.isCentered) {
             var count = _this.element.length;
-            var elementWidth = _this.defaultBlockWidth + 10 + param_obj.ht_view6_border_width * 2;
+            var elementWidth = _this.defaultBlockWidth + 10 + param_obj.gallery_img_ht_view6_border_width * 2;
             var enteryContent = _this.content.width();
             var whole = ~~(enteryContent / (elementWidth));
             if (whole > count) whole = count;
@@ -102,7 +102,7 @@ function Gallery_Img_Lightbox_Gallery(id) {
             var galleryid = gallery_obj[0].id;
             var pID = postID;
             var likeStyle = _this.ratingType;
-            var ratingCount = param_obj.ht_lightbox_rating_count;
+            var ratingCount = param_obj.gallery_img_ht_lightbox_rating_count;
             _this.getResult(pagenum, perpage, galleryid, pID, likeStyle, ratingCount, lightboxLoadNonce);
         } else {
             _this.loadMoreBtn.hide();
@@ -132,10 +132,10 @@ function Gallery_Img_Lightbox_Gallery(id) {
 							var options2 = {
 								itemSelector: '.element',
 								masonry: {
-									columnWidth: _this.defaultBlockWidth + 10 + param_obj.ht_view6_border_width * 2,
+									columnWidth: _this.defaultBlockWidth + 10 + param_obj.gallery_img_ht_view6_border_width * 2,
 								},
 								masonryHorizontal: {
-									rowHeight: 300 + 20 +  + param_obj.ht_view6_border_width * 2
+									rowHeight: 300 + 20 +  + param_obj.gallery_img_ht_view6_border_width * 2
 								},
 								cellsByRow: {
 									columnWidth: 300 + 20,
