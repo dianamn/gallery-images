@@ -11,6 +11,7 @@ if (!defined('ABSPATH')) {
 function gallery_img_get_default_options()
 {
     $gallery_default__params = array(
+        'ht_view2_popup_mobile_position_at_top' => 'on',
         'ht_view2_element_linkbutton_text' => 'View More',
         'ht_view2_element_show_linkbutton' => 'on',
         'ht_view2_element_linkbutton_color' => 'ffffff',
