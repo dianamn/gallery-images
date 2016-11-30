@@ -103,7 +103,7 @@ class Gallery_Img_Admin {
 	public function wp_loaded() {
 		if ( isset( $_GET['page'] ) && $_GET['page'] == 'galleries_huge_it_gallery' ) {
 			if ( isset( $_GET['task'] ) ) {
-				$task = sanitize_text_field( $_GET['task'] );
+				$task = $_GET['task'] ;
 				switch ( $task ) {
 					case 'add_gallery':
 						$this->add_gallery();

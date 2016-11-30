@@ -118,10 +118,10 @@ class Gallery_Img_Frontend_Scripts {
 		$has_vimeo    = 'false';
 		$view_slug = gallery_img_get_view_slag_by_id( $id );
 		foreach ( $images as $image_row ) {
-			if ( strpos( $image_row, 'youtu' ) !== false ) {
+			if ( strpos( $image_row, 'youtu' ) !== 'false' ) {
 				$has_youtube = 'true';
 			}
-			if ( strpos( $image_row, 'vimeo' ) !== false ) {
+			if ( strpos( $image_row, 'vimeo' ) !== 'false' ) {
 				$has_vimeo = 'true';
 			}
 		}

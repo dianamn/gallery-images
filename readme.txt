@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, lightbox gallery, wordpress gallery, photo gallery, content gallery, media gallery, youtube gallery, images gallery, responsive gallery, thumbnail gallery,
 Requires at least: 3.0.1
 Tested up to: 4.6.1
-Stable tag: 2.0.2
+Stable tag: 2.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -884,6 +884,25 @@ The commercial version users can do unlimited customization, if your images/vide
 
 
 == Changelog ==
+
+= 2.0.6 =
+*  Fixed issues with nonce tokens in the plugin for all _POST, _GET requests
+*  Fixed issue with cross site scripting (XSS)
+
+= 2.0.5 =
+* 1) We've fixed an issue related to file-system access, which was causing an images disappearance on front/back ends
+* 2) Added new functionality that allows users to add HTML in titles 
+* 3) Updated featured plugin list with the new plugin called Pricing Tables
+
+= 2.0.4 =
+*  Important update as required from users on forum: Low res previews in HugeIt Gallery now display bigger image elements with previews.
+
+= 2.0.3 =
+* 1) New preview options: In the back-end of the plugin galleries have new preview options. You may check the "On hover preview" and view each image of your gallery in full size
+* 2) We have fixed a conflict of 2 lightboxes appearing at the same time in some views
+* 3) We are giving more access to lightbox options and opening new options for free users. Now in the lite version users can change lightbox dimension options 
+* 4) Now users can duplicate their galleries in back end and delete multiple galleries too
+* 5) We have also made some UI/UX customization's in order to have back-end of the plugin more friendly
 
 = 2.0.2 =
 *  A lot of users reported an issue with the gallery on PHP versions lower than 5.6. We have fixed it in this new version of the plugin.

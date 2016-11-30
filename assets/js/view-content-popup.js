@@ -25,6 +25,7 @@ function Gallery_Img_Content_Popup(id) {
     _this.likeCountContainer = jQuery('.huge_it_like_count');
     _this.loadMoreBtn = _this.content.find('.load_more_button5');
     _this.loadingIcon = _this.content.find('.loading5');
+    _this.popupMobilePositionAtTop = _this.popupList.data('popup-mobile-position-top');
 
     _this.documentReady = function () {
         var options = {
@@ -110,7 +111,11 @@ function Gallery_Img_Content_Popup(id) {
         var height = jQuery(window).height();
         var width = jQuery(window).width();
         if (width <= 767) {
-            jQuery(window).scrollTop(0);
+            if(_this.popupMobilePositionAtTop == 'on') {
+                jQuery(window).scrollTop(0);
+            } else {
+                _this.popupList.css({top: jQuery(window).scrollTop()});
+            }
             _this.popupList.find('.popup-wrapper .image-block iframe').height(jQuery('body').width() * 0.5);
         } else {
             _this.popupList.find('.popup-wrapper .image-block iframe').height(jQuery('body').width() * 0.23);
