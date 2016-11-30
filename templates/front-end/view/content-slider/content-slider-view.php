@@ -53,7 +53,7 @@
 							<?php endif; ?>
 							</span>
 							<span
-								class="huge_it_like_count <?php if ( $gallery_default_params['ht_contentsl_rating_count'] == 'off' ) {
+								class="huge_it_like_count <?php if ( $gallery_default_params['gallery_img_ht_contentsl_rating_count'] == 'off' ) {
 									echo 'huge_it_hide';
 								} ?>"
 								id="<?php echo $row->id ?>"><?php if ( $like_dislike != 'heart' ): ?><?php echo $row->like; ?><?php endif; ?></span>
@@ -73,7 +73,7 @@
 							      } ?>">
 							</span>
 							<span
-								class="huge_it_dislike_count <?php if ( $gallery_default_params['ht_contentsl_rating_count'] == 'off' ) {
+								class="huge_it_dislike_count <?php if ( $gallery_default_params['gallery_img_ht_contentsl_rating_count'] == 'off' ) {
 									echo 'huge_it_hide';
 								} ?>" id="<?php echo $row->id ?>"><?php echo $row->dislike; ?></span>
 						</span>
@@ -94,7 +94,7 @@
 							   title="<?php echo esc_attr( str_replace( '__5_5_5__', '%', $row->name ) ); ?>"><img
 									alt="<?php echo esc_attr( str_replace( '__5_5_5__', '%', $row->name ) ); ?>" class="main-image"
 									src="<?php echo esc_url( gallery_img_get_image_by_sizes_and_src( $imgurl[0], array(
-										$gallery_default_params[ 'ht_view5_main_image_width' ],
+										$gallery_default_params[ 'gallery_img_ht_view5_main_image_width' ],
 										''
 									), false ) ); ?>"/></a>
 						<?php } else { ?>
@@ -140,7 +140,7 @@
 				<div class="right-block">                    <?php if ( $row->name != '' && $row->name != null ) { ?>
 						<div><h2 class="title"><?php echo str_replace( '__5_5_5__', '%', $row->name ); ?></h2>
 						</div>                    <?php } ?>
-					<?php if ( $gallery_default_params["ht_view5_show_description"] == 'on' ) { ?>
+					<?php if ( $gallery_default_params["gallery_img_ht_view5_show_description"] == 'on' ) { ?>
 						<div
 							class="description"><?php echo str_replace( '__5_5_5__', '%', $row->description ); ?></div><?php } ?>
 					<?php if ( $like_dislike != 'off' && $like_dislike != 'heart' ): ?>
@@ -166,7 +166,7 @@
 							<?php endif; ?>
 							</span>
 							<span
-								class="huge_it_like_count <?php if ( $gallery_default_params['ht_contentsl_rating_count'] == 'off' ) {
+								class="huge_it_like_count <?php if ( $gallery_default_params['gallery_img_ht_contentsl_rating_count'] == 'off' ) {
 									echo 'huge_it_hide';
 								} ?>"
 								id="<?php echo $row->id ?>"><?php if ( $like_dislike != 'heart' ): ?><?php echo $row->like; ?><?php endif; ?></span>
@@ -186,7 +186,7 @@
 							      } ?>">
 							</span>
 							<span
-								class="huge_it_dislike_count <?php if ( $gallery_default_params['ht_contentsl_rating_count'] == 'off' ) {
+								class="huge_it_dislike_count <?php if ( $gallery_default_params['gallery_img_ht_contentsl_rating_count'] == 'off' ) {
 									echo 'huge_it_hide';
 								} ?>" id="<?php echo $row->id ?>"><?php echo $row->dislike; ?></span>
 						</span>
@@ -194,12 +194,12 @@
 							<?php endif; ?>
 						</div>
 					<?php endif; ?>
-					<?php if ( $gallery_default_params["ht_view5_show_linkbutton"] == 'on' ) {
+					<?php if ( $gallery_default_params["gallery_img_ht_view5_show_linkbutton"] == 'on' ) {
 						if ( $link != '' ) { ?>
 							<div class="button-block">
 								<a href="<?php echo $link; ?>" <?php if ( $row->link_target == "on" ) {
 									echo 'target="_blank"';
-								} ?>><?php echo $gallery_default_params["ht_view5_linkbutton_text"]; ?></a>
+								} ?>><?php echo $gallery_default_params["gallery_img_ht_view5_linkbutton_text"]; ?></a>
 							</div>
 							<?php
 						}

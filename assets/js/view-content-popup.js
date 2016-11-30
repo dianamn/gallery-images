@@ -10,8 +10,8 @@ function Gallery_Img_Content_Popup(id) {
     _this.container = jQuery('#' + id + '.view-content-popup');
     _this.content = _this.container.parent();
     _this.element = _this.container.find('.element');
-    _this.defaultBlockHeight = param_obj.ht_view2_element_height;
-    _this.defaultBlockWidth = param_obj.ht_view2_element_width;
+    _this.defaultBlockHeight = param_obj.gallery_img_ht_view2_element_height;
+    _this.defaultBlockWidth = param_obj.gallery_img_ht_view2_element_width;
     _this.imageOverlay = _this.element.find('.gallery-image-overlay a');
     _this.popupList = _this.content.next();
     _this.popupCloseButton = _this.popupList.find('a.close');
@@ -30,7 +30,7 @@ function Gallery_Img_Content_Popup(id) {
         var options = {
             itemSelector: _this.element,
             masonry: {
-                columnWidth: _this.defaultBlockWidth + 20 + param_obj.ht_view2_element_border_width * 2,
+                columnWidth: _this.defaultBlockWidth + 20 + param_obj.gallery_img_ht_view2_element_border_width * 2,
             },
             masonryHorizontal: {
                 rowHeight: 300 + 20
@@ -68,7 +68,7 @@ function Gallery_Img_Content_Popup(id) {
     _this.showCenter = function () {
         if (_this.isCentered) {
             var count = _this.element.length;
-            var elementwidth = _this.defaultBlockWidth + 10 + param_obj.ht_view2_element_border_width * 2;
+            var elementwidth = _this.defaultBlockWidth + 10 + param_obj.gallery_img_ht_view2_element_border_width * 2;
             var enterycontent = _this.content.width();
             var whole = ~~(enterycontent / (elementwidth));
             if (whole > count) whole = count;
@@ -271,11 +271,11 @@ function Gallery_Img_Content_Popup(id) {
             var pagenum = parseInt(_this.content.find(".pagenum:last").val()) + 1;
             var perpage = gallery_obj[0].content_per_page;
             var galleryid = gallery_obj[0].id;
-            var linkbutton = param_obj.ht_view2_element_linkbutton_text;
-            var showbutton = param_obj.ht_view2_element_show_linkbutton;
+            var linkbutton = param_obj.gallery_img_ht_view2_element_linkbutton_text;
+            var showbutton = param_obj.gallery_img_ht_view2_element_show_linkbutton;
             var pID = postID;
             var likeStyle = _this.ratingType;
-            var ratingCount = param_obj.ht_popup_rating_count;
+            var ratingCount = param_obj.gallery_img_ht_popup_rating_count;
             _this.getResult(pagenum, perpage, galleryid, linkbutton, showbutton, pID, likeStyle, ratingCount,contentLoadNonce);
         } else {
             _this.loadMoreBtn.hide();
@@ -309,12 +309,12 @@ function Gallery_Img_Content_Popup(id) {
                     }, 100);
 
                     _this.container.children().find('img').on('load', function () {
-                        var defaultBlockHeight = param_obj.ht_view2_element_height + 37;
-                        var defaultBlockWidth = param_obj.ht_view2_element_width;
+                        var defaultBlockHeight = param_obj.gallery_img_ht_view2_element_height + 37;
+                        var defaultBlockWidth = param_obj.gallery_img_ht_view2_element_width;
                         var options2 = {
                             itemSelector: '.element',
                             masonry: {
-                                columnWidth: defaultBlockWidth + 20 + param_obj.ht_view2_element_border_width * 2
+                                columnWidth: defaultBlockWidth + 20 + param_obj.gallery_img_ht_view2_element_border_width * 2
                             },
                             masonryHorizontal: {
                                 rowHeight: defaultBlockHeight + 20
@@ -346,7 +346,7 @@ function Gallery_Img_Content_Popup(id) {
                             }
                         };
                         galleryImgIsotope(_this.container.children(), options2);
-                        if (param_obj.ht_view2_content_in_center == 'on') {
+                        if (param_obj.gallery_img_ht_view2_content_in_center == 'on') {
                             _this.showCenter();
                         }
                     });
@@ -356,7 +356,7 @@ function Gallery_Img_Content_Popup(id) {
                         _this.loadMoreBtn.hide();
                     }
                     galleryImgRatingCountsOptimize(_this.container, _this.ratingType);
-                    if (param_obj.image_natural_size_contentpopup == 'natural') {
+                    if (param_obj.gallery_img_image_natural_size_contentpopup == 'natural') {
                         setTimeout(function () {
                             _this.imagesBehavior();
                         }, 100);

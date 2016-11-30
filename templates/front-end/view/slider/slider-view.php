@@ -579,7 +579,7 @@
 		if(sliderwidth>bodyWidth){sliderwidth=bodyWidth;}
 		var str=(<?php echo $sliderheight;?>/staticsliderwidth);
 
-		jQuery('.huge_it_slideshow_image_wrap_gallery_<?php echo $galleryID; ?>').css({'max-height':parentWidth*str-2*<?php echo $gallery_default_params['slider_slideshow_border_size']; ?>});
+		jQuery('.huge_it_slideshow_image_wrap_gallery_<?php echo $galleryID; ?>').css({'max-height':parentWidth*str-2*<?php echo $gallery_default_params['gallery_img_slider_slideshow_border_size']; ?>});
 
 	}
 	jQuery(window).load(function () {
@@ -704,7 +704,7 @@
 			?>
 		</div>
 		<?php
-		if ( $gallery_default_params['slider_show_arrows'] == "on" ) {
+		if ( $gallery_default_params['gallery_img_slider_show_arrows'] == "on" ) {
 			?>
 			<a id="huge_it_slideshow_left_gallery_<?php echo $galleryID; ?>" href="#"
 			   onclick="huge_it_change_image_gallery_<?php echo $galleryID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $galleryID; ?>').val()), (parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $galleryID; ?>').val()) - iterator_gallery_<?php echo $galleryID; ?>()) >= 0 ? (parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $galleryID; ?>').val()) - iterator_gallery_<?php echo $galleryID; ?>()) % data_gallery_<?php echo $galleryID; ?>.length : data_gallery_<?php echo $galleryID; ?>.length - 1, data_gallery_<?php echo $galleryID; ?>,false,true);return false;">
@@ -793,7 +793,7 @@
 											<?php endif; ?>
 											</span>
 											<span
-												class="huge_it_like_count <?php if ( $gallery_default_params['ht_slider_rating_count'] == 'off' ) {
+												class="huge_it_like_count <?php if ( $gallery_default_params['gallery_img_ht_slider_rating_count'] == 'off' ) {
 													echo 'huge_it_hide';
 												} ?>"
 												id="<?php echo $image_row->id ?>"><?php if ( $like_dislike != 'heart' ): ?><?php echo $image_row->like; ?><?php endif; ?></span>
@@ -813,7 +813,7 @@
 											      } ?>">
 											</span>
 											<span
-												class="huge_it_dislike_count <?php if ( $gallery_default_params['ht_slider_rating_count'] == 'off' ) {
+												class="huge_it_dislike_count <?php if ( $gallery_default_params['gallery_img_ht_slider_rating_count'] == 'off' ) {
 													echo 'huge_it_hide';
 												} ?>"
 												id="<?php echo $image_row->id ?>"><?php echo $image_row->dislike; ?></span>
@@ -882,7 +882,7 @@
 											<?php endif; ?>
 											</span>
 												<span
-													class="huge_it_like_count <?php if ( $gallery_default_params['ht_slider_rating_count'] == 'off' ) {
+													class="huge_it_like_count <?php if ( $gallery_default_params['gallery_img_ht_slider_rating_count'] == 'off' ) {
 														echo 'huge_it_hide';
 													} ?>"
 													id="<?php echo $image_row->id ?>"><?php if ( $like_dislike != 'heart' ): ?><?php echo $image_row->like; ?><?php endif; ?></span>
@@ -902,7 +902,7 @@
 											      } ?>">
 											</span>
 											<span
-												class="huge_it_dislike_count <?php if ( $gallery_default_params['ht_slider_rating_count'] == 'off' ) {
+												class="huge_it_dislike_count <?php if ( $gallery_default_params['gallery_img_ht_slider_rating_count'] == 'off' ) {
 													echo 'huge_it_hide';
 												} ?>"
 												id="<?php echo $image_row->id ?>"><?php echo $image_row->dislike; ?></span>

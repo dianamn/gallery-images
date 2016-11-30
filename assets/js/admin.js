@@ -25,9 +25,6 @@ jQuery(document).ready(function () {
 		clearTimeout(setTimeoutConst);
 		jQuery('#gallery-image-zoom').fadeOut('3000');
 	});
-	setTimeout(function () {
-		galleryImgResizeAdminImages();
-	},200);
     jQuery('.huge-it-editnewuploader .button-edit').click(function(e) {
         var send_attachment_bkp = wp.media.editor.send.attachment;
         var button = jQuery(this);
@@ -175,10 +172,16 @@ jQuery(document).ready(function () {
 			}
 		},
 		change: function(event, ui) {
-			
+			var start_pos = ui.item.data('start_pos');
+			var index = ui.placeholder.index();
+			if (start_pos < index + 2) {
+				jQuery('#images-list > li:nth-child(' + index + ')').addClass('highlights');
+			} else {
+				jQuery('#images-list > li:eq(' + (index + 1) + ')').addClass('highlights');
+			}
 		},
 		update: function(event, ui) {
-			
+			jQuery('#sortable li').removeClass('highlights');
 		},
 		revert: true
 	});
@@ -243,6 +246,13 @@ jQuery(document).ready(function () {
 });
 
 jQuery(window).resize(function () {
+	galleryImgResizeAdminImages();
+});
+
+jQuery(window).load(function(){
+	if(galleryImgGetCookie('gallery_deleted')){
+		galleryImgSetCookie( 'gallery_deleted', 'success', {expires:-1} );
+	}
 	galleryImgResizeAdminImages();
 });
 
@@ -370,5 +380,16 @@ function galleryImgPopupSizes(checkbox){
 		jQuery('.lightbox-options-block .fixed-size').css({'display':'none'});
 		jQuery('.lightbox-options-block .not-fixed-size').css({'display':'block'});
 	}
+}
+function galleryImgGetCookie (name) {
+	var cookie, allcookie = document.cookie.split(';');
+	for (var i = 0; i < allcookie.length; i++) {
+		cookie = allcookie[i].split('=');
+		cookie[0] = cookie[0].replace(/ +/g,'');
+		if (cookie[0] == name) {
+			return decodeURIComponent(cookie[1]);
+		}
+	}
+	return false;
 }
 

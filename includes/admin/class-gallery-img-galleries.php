@@ -64,11 +64,11 @@ class Gallery_Img_Galleries {
 		if ( isset( $_COOKIE['gallery_deleted'] ) ) {
 			if ( $_COOKIE['gallery_deleted'] == 'success' ) {
 				?>
-				<div class="updated"><p><strong><?php _e( 'Item Deleted.' ); ?></strong></p></div>
+				<div class="updated"><p><strong><?php _e( 'Item Deleted.', 'gallery-img' ); ?></strong></p></div>
 				<?php
 			} elseif ( $_COOKIE["gallery_deleted"] == 'fail' ) {
 				?>
-				<div id="message" class="error"><p>Gallery Not Deleted</p></div>
+				<div id="message" class="error"><p><?php _e('Gallery Not Deleted','gallery-img'); ?></p></div>
 			<?php }
 		}
 		global $wpdb;
@@ -181,13 +181,8 @@ INSERT INTO
 	 */
 	function save_gallery_data( $id ) {
 		global $wpdb;
-		if ( ! is_numeric( $id ) ) {
-			echo 'insert numerc id';
-
-			return '';
-		}
 		if ( ! ( isset( $_POST['sl_width'] ) && isset( $_POST["name"] ) ) ) {
-			echo '';
+			return false;
 		}
 		$cat_row = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_gallerys WHERE id!= %d ", $id ) );
 		$max_ord = $wpdb->get_var( 'SELECT MAX(ordering) FROM ' . $wpdb->prefix . 'huge_itgallery_gallerys' );
@@ -289,10 +284,18 @@ INSERT INTO
 ( '', '" . $row->id . "', '', '" . $imagesnewupload . "', '', 'image', 'on', 'par_TV', 2, '1' )";
 					$wpdb->query( $sql_2 );
 				}
+				$query            = $wpdb->prepare( "SELECT * FROM " . $table_name . " WHERE gallery_id=%d ORDER BY ordering", $id );
+				$gallery_images = $wpdb->get_results( $query );
+				$i                = 0;
+				foreach ( $gallery_images as $gallery_image ) {
+					$wpdb->update(
+						$table_name,
+						array( 'ordering' => $i ),
+						array( 'id' => $gallery_image->id )
+					);
+					$i ++;
+				}
 			}
-		}
-		if ( isset( $_POST["posthuge-it-description-length"] ) ) {
-			$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_gallerys SET  published = %d WHERE id = %d ", $_POST["posthuge-it-description-length"], $_GET['id'] ) );
 		}
 		?>
 		<div class="updated"><p><strong><?php _e( 'Item Saved' ); ?></strong></p></div>

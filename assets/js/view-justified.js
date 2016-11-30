@@ -8,7 +8,7 @@ function Gallery_Img_Justified(id) {
     _this.body = jQuery('body');
     _this.container = jQuery('#' + id + '.view-justified');
     _this.content = _this.container.parent();
-    _this.defaultBlockWidth = param_obj.ht_view6_width;
+    _this.defaultBlockWidth = param_obj.gallery_img_ht_view6_width;
     _this.ratingType = _this.content.data('rating-type');
     _this.likeContent = jQuery('.huge_it_gallery_like_cont');
     _this.likeCountContainer = jQuery('.huge_it_like_count');
@@ -36,7 +36,7 @@ function Gallery_Img_Justified(id) {
             var galleryid = gallery_obj[0].id;
             var pID = postID;
             var likeStyle = _this.ratingType;
-            var ratingCount = param_obj.ht_just_rating_count;
+            var ratingCount = param_obj.gallery_img_ht_just_rating_count;
             _this.getResult(pagenum, perpage, galleryid, pID, likeStyle, ratingCount, justifiedLoadNonce);
         } else {
             _this.loadMoreBtn.hide();

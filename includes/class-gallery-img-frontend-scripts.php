@@ -34,7 +34,7 @@ class Gallery_Img_Frontend_Scripts {
 		wp_register_style( 'fontawesome-css', plugins_url( '../assets/style/css/font-awesome.css', __FILE__ ) );
 		wp_enqueue_style( 'fontawesome-css' );
 
-		wp_enqueue_style( 'gallery_img_colorbox_css', untrailingslashit( Gallery_Img()->plugin_url() ) . '/assets/style/colorbox-' . $gallery_default_params[ 'light_box_style' ] . '.css' );
+		wp_enqueue_style( 'gallery_img_colorbox_css', untrailingslashit( Gallery_Img()->plugin_url() ) . '/assets/style/colorbox-' . $gallery_default_params[ 'gallery_img_light_box_style' ] . '.css' );
 
 		if ( $gallery_view == '1' ) {
 			wp_register_style( 'animate-css', plugins_url( '../assets/style/animate-min.css', __FILE__ ) ) ;
@@ -128,63 +128,63 @@ class Gallery_Img_Frontend_Scripts {
 
 		$gallery_view = $gallery[0]->huge_it_sl_effects;
 		$lightbox     = array(
-			'lightbox_transition'     => $gallery_default_params[ 'light_box_transition' ],
-			'lightbox_speed'          => $gallery_default_params[ 'light_box_speed' ],
-			'lightbox_fadeOut'        => $gallery_default_params[ 'light_box_fadeout' ],
-			'lightbox_title'          => $gallery_default_params[ 'light_box_title' ],
-			'lightbox_scalePhotos'    => $gallery_default_params[ 'light_box_scalephotos' ],
-			'lightbox_scrolling'      => $gallery_default_params[ 'light_box_scrolling' ],
-			'lightbox_opacity'        => ( $gallery_default_params[ 'light_box_opacity' ] / 100 ) + 0.001,
-			'lightbox_open'           => $gallery_default_params[ 'light_box_open' ],
-			'lightbox_returnFocus'    => $gallery_default_params[ 'light_box_returnfocus' ],
-			'lightbox_trapFocus'      => $gallery_default_params[ 'light_box_trapfocus' ],
-			'lightbox_fastIframe'     => $gallery_default_params[ 'light_box_fastiframe' ],
-			'lightbox_preloading'     => $gallery_default_params[ 'light_box_preloading' ],
-			'lightbox_overlayClose'   => $gallery_default_params[ 'light_box_overlayclose' ],
-			'lightbox_escKey'         => $gallery_default_params[ 'light_box_esckey' ],
-			'lightbox_arrowKey'       => $gallery_default_params[ 'light_box_arrowkey' ],
-			'lightbox_loop'           => $gallery_default_params[ 'light_box_loop' ],
-			'lightbox_closeButton'    => $gallery_default_params[ 'light_box_closebutton' ],
-			'lightbox_previous'       => $gallery_default_params[ 'light_box_previous' ],
-			'lightbox_next'           => $gallery_default_params[ 'light_box_next' ],
-			'lightbox_close'          => $gallery_default_params[ 'light_box_close' ],
-			'lightbox_html'           => $gallery_default_params[ 'light_box_html' ],
-			'lightbox_photo'          => $gallery_default_params[ 'light_box_photo' ],
-			'lightbox_innerWidth'     => $gallery_default_params[ 'light_box_innerwidth' ],
-			'lightbox_innerHeight'    => $gallery_default_params[ 'light_box_innerheight' ],
-			'lightbox_initialWidth'   => $gallery_img_get_option[ 'light_box_initialwidth' ],
-			'lightbox_initialHeight'  => $gallery_img_get_option[ 'light_box_initialheight' ],
-			'lightbox_slideshow'      => $gallery_default_params[ 'light_box_slideshow' ],
-			'lightbox_slideshowSpeed' => $gallery_default_params[ 'light_box_slideshowspeed' ],
-			'lightbox_slideshowAuto'  => $gallery_default_params[ 'light_box_slideshowauto' ],
-			'lightbox_slideshowStart' => $gallery_default_params[ 'light_box_slideshowstart' ],
-			'lightbox_slideshowStop'  => $gallery_default_params[ 'light_box_slideshowstop' ],
-			'lightbox_fixed'          => $gallery_default_params[ 'light_box_fixed' ],
-			'lightbox_reposition'     => $gallery_default_params[ 'light_box_reposition' ],
-			'lightbox_retinaImage'    => $gallery_default_params[ 'light_box_retinaimage' ],
-			'lightbox_retinaUrl'      => $gallery_default_params[ 'light_box_retinaurl' ],
-			'lightbox_retinaSuffix'   => $gallery_default_params[ 'light_box_retinasuffix'
+			'lightbox_transition'     => $gallery_default_params[ 'gallery_img_light_box_transition' ],
+			'lightbox_speed'          => $gallery_default_params[ 'gallery_img_light_box_speed' ],
+			'lightbox_fadeOut'        => $gallery_default_params[ 'gallery_img_light_box_fadeout' ],
+			'lightbox_title'          => $gallery_default_params[ 'gallery_img_light_box_title' ],
+			'lightbox_scalePhotos'    => $gallery_default_params[ 'gallery_img_light_box_scalephotos' ],
+			'lightbox_scrolling'      => $gallery_default_params[ 'gallery_img_light_box_scrolling' ],
+			'lightbox_opacity'        => ( $gallery_default_params[ 'gallery_img_light_box_opacity' ] / 100 ) + 0.001,
+			'lightbox_open'           => $gallery_default_params[ 'gallery_img_light_box_open' ],
+			'lightbox_returnFocus'    => $gallery_default_params[ 'gallery_img_light_box_returnfocus' ],
+			'lightbox_trapFocus'      => $gallery_default_params[ 'gallery_img_light_box_trapfocus' ],
+			'lightbox_fastIframe'     => $gallery_default_params[ 'gallery_img_light_box_fastiframe' ],
+			'lightbox_preloading'     => $gallery_default_params[ 'gallery_img_light_box_preloading' ],
+			'lightbox_overlayClose'   => $gallery_default_params[ 'gallery_img_light_box_overlayclose' ],
+			'lightbox_escKey'         => $gallery_default_params[ 'gallery_img_light_box_esckey' ],
+			'lightbox_arrowKey'       => $gallery_default_params[ 'gallery_img_light_box_arrowkey' ],
+			'lightbox_loop'           => $gallery_default_params[ 'gallery_img_light_box_loop' ],
+			'lightbox_closeButton'    => $gallery_default_params[ 'gallery_img_light_box_closebutton' ],
+			'lightbox_previous'       => $gallery_default_params[ 'gallery_img_light_box_previous' ],
+			'lightbox_next'           => $gallery_default_params[ 'gallery_img_light_box_next' ],
+			'lightbox_close'          => $gallery_default_params[ 'gallery_img_light_box_close' ],
+			'lightbox_html'           => $gallery_default_params[ 'gallery_img_light_box_html' ],
+			'lightbox_photo'          => $gallery_default_params[ 'gallery_img_light_box_photo' ],
+			'lightbox_innerWidth'     => $gallery_default_params[ 'gallery_img_light_box_innerwidth' ],
+			'lightbox_innerHeight'    => $gallery_default_params[ 'gallery_img_light_box_innerheight' ],
+			'lightbox_initialWidth'   => $gallery_img_get_option[ 'gallery_img_light_box_initialwidth' ],
+			'lightbox_initialHeight'  => $gallery_img_get_option[ 'gallery_img_light_box_initialheight' ],
+			'lightbox_slideshow'      => $gallery_default_params[ 'gallery_img_light_box_slideshow' ],
+			'lightbox_slideshowSpeed' => $gallery_default_params[ 'gallery_img_light_box_slideshowspeed' ],
+			'lightbox_slideshowAuto'  => $gallery_default_params[ 'gallery_img_light_box_slideshowauto' ],
+			'lightbox_slideshowStart' => $gallery_default_params[ 'gallery_img_light_box_slideshowstart' ],
+			'lightbox_slideshowStop'  => $gallery_default_params[ 'gallery_img_light_box_slideshowstop' ],
+			'lightbox_fixed'          => $gallery_default_params[ 'gallery_img_light_box_fixed' ],
+			'lightbox_reposition'     => $gallery_default_params[ 'gallery_img_light_box_reposition' ],
+			'lightbox_retinaImage'    => $gallery_default_params[ 'gallery_img_light_box_retinaimage' ],
+			'lightbox_retinaUrl'      => $gallery_default_params[ 'gallery_img_light_box_retinaurl' ],
+			'lightbox_retinaSuffix'   => $gallery_default_params[ 'gallery_img_light_box_retinasuffix'
             ],
-			'lightbox_maxWidth'       => $gallery_img_get_option[ 'light_box_maxwidth' ],
-			'lightbox_maxHeight'      => $gallery_img_get_option[ 'light_box_maxheight' ],
-			'lightbox_sizeFix'        => $gallery_img_get_option[ 'light_box_size_fix'],
+			'lightbox_maxWidth'       => $gallery_img_get_option[ 'gallery_img_light_box_maxwidth' ],
+			'lightbox_maxHeight'      => $gallery_img_get_option[ 'gallery_img_light_box_maxheight' ],
+			'lightbox_sizeFix'        => $gallery_img_get_option[ 'gallery_img_light_box_size_fix'],
 			'galleryID'				  => $id,
 			'liquidSliderInterval'	  => $gallery[0]->description
 		);
 
-		if ( $gallery_img_get_option[ 'light_box_size_fix' ] == 'false' ) {
+		if ( $gallery_img_get_option[ 'gallery_img_light_box_size_fix' ] == 'false' ) {
 			$lightbox['lightbox_width'] = '';
 		} else {
-			$lightbox['lightbox_width'] = $gallery_img_get_option[ 'light_box_width' ];
+			$lightbox['lightbox_width'] = $gallery_img_get_option[ 'gallery_img_light_box_width' ];
 		}
 
-		if ( $gallery_img_get_option[ 'light_box_size_fix' ] == 'false' ) {
+		if ( $gallery_img_get_option[ 'gallery_img_light_box_size_fix' ] == 'false' ) {
 			$lightbox['lightbox_height'] = '';
 		} else {
-			$lightbox['lightbox_height'] = $gallery_img_get_option[ 'light_box_height' ];
+			$lightbox['lightbox_height'] = $gallery_img_get_option[ 'gallery_img_light_box_height' ];
 		}
 
-		$pos = $gallery_default_params[ 'lightbox_open_position' ];
+		$pos = $gallery_default_params[ 'gallery_img_lightbox_open_position' ];
 		switch ( $pos ) {
 			case 1:
 				$lightbox['lightbox_top']    = '10%';
@@ -243,13 +243,13 @@ class Gallery_Img_Frontend_Scripts {
 		}
 
 		$justified        = array(
-			'imagemargin'            => $gallery_default_params[ 'ht_view8_element_padding' ],
-			'imagerandomize'         => $gallery_default_params[ 'ht_view8_element_randomize' ],
-			'imagecssAnimation'      => $gallery_default_params[ 'ht_view8_element_cssAnimation' ],
-			'imagecssAnimationSpeed' => $gallery_default_params[ 'ht_view8_element_animation_speed' ],
-			'imageheight'            => $gallery_default_params[ 'ht_view8_element_height' ],
-			'imagejustify'           => $gallery_default_params[ 'ht_view8_element_justify' ],
-			'imageshowcaption'       => $gallery_default_params[ 'ht_view8_element_show_caption' ]
+			'imagemargin'            => $gallery_default_params[ 'gallery_img_ht_view8_element_padding' ],
+			'imagerandomize'         => $gallery_default_params[ 'gallery_img_ht_view8_element_randomize' ],
+			'imagecssAnimation'      => $gallery_default_params[ 'gallery_img_ht_view8_element_cssAnimation' ],
+			'imagecssAnimationSpeed' => $gallery_default_params[ 'gallery_img_ht_view8_element_animation_speed' ],
+			'imageheight'            => $gallery_default_params[ 'gallery_img_ht_view8_element_height' ],
+			'imagejustify'           => $gallery_default_params[ 'gallery_img_ht_view8_element_justify' ],
+			'imageshowcaption'       => $gallery_default_params[ 'gallery_img_ht_view8_element_show_caption' ]
 		);
 		$justified_params = array();
 		foreach ( $justified as $name => $value ) {

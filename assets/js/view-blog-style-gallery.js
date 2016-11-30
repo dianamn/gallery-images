@@ -27,7 +27,7 @@ function Gallery_Img_Blog_Style_Gallery(id) {
             var galleryid = gallery_obj[0].id;
             var pID = postID;
             var likeStyle = _this.ratingType;
-            var ratingCount = param_obj.ht_lightbox_rating_count;
+            var ratingCount = param_obj.gallery_img_ht_lightbox_rating_count;
             _this.getResult(pagenum, perpage, galleryid, pID, likeStyle, ratingCount, blogLoadNonce);
         } else {
             _this.loadMoreBtn.hide();

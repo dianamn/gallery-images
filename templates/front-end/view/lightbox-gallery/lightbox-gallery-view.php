@@ -1,7 +1,7 @@
 <section id="huge_it_gallery_content_<?php echo $galleryID; ?>" class="gallery-img-content"
          data-rating-type="<?php echo $like_dislike; ?>">
 	<div id="huge_it_gallery_container_<?php echo $galleryID; ?>"
-	     data-show-center="<?php echo $gallery_default_params[ 'ht_view6_content_in_center' ]; ?>"
+	     data-show-center="<?php echo $gallery_default_params[ 'gallery_img_ht_view6_content_in_center' ]; ?>"
 	     class="huge_it_gallery_container super-list variable-sizes clearfix view-<?php echo $view_slug; ?>">
 		<div id="huge_it_gallery_container_moving_<?php echo $galleryID; ?>" class="super-list variable-sizes clearfix">
 			<input type="hidden" class="pagenum" value="1"/>
@@ -47,7 +47,7 @@
 										title="<?php echo esc_attr( str_replace( '__5_5_5__', '%', $row->name ) ); ?>"
 										src="<?php echo esc_url( gallery_img_get_image_by_sizes_and_src(
 											$imgurl[0], array(
-											$gallery_default_params[ 'ht_view6_width' ],
+											$gallery_default_params[ 'gallery_img_ht_view6_width' ],
 											''
 										), false
 										) ); ?>"/></a>
@@ -114,7 +114,7 @@
 							<?php endif; ?>
 							</span>
 							<span
-								class="huge_it_like_count <?php if ( $gallery_default_params['ht_lightbox_rating_count'] == 'off' ) {
+								class="huge_it_like_count <?php if ( $gallery_default_params['gallery_img_ht_lightbox_rating_count'] == 'off' ) {
 									echo 'huge_it_hide';
 								} ?>"
 								id="<?php echo $row->id ?>"><?php if ( $like_dislike != 'heart' ): ?><?php echo $row->like; ?><?php endif; ?></span>
@@ -134,7 +134,7 @@
 							      } ?>">
 							</span>
 							<span
-								class="huge_it_dislike_count <?php if ( $gallery_default_params['ht_lightbox_rating_count'] == 'off' ) {
+								class="huge_it_dislike_count <?php if ( $gallery_default_params['gallery_img_ht_lightbox_rating_count'] == 'off' ) {
 									echo 'huge_it_hide';
 								} ?>"
 								id="<?php echo $row->id ?>"><?php echo $row->dislike; ?></span>
@@ -186,14 +186,14 @@
 		?>
 		<div class="load_more4">
 			<div class="load_more_button4"
-			     data-lightbox-nonce-value="<?php echo $gallery_img_lightbox_load_nonce; ?>"><?= $gallery_default_params['video_ht_view4_loadmore_text']; ?></div>
-			<div class="loading4"><img src="<?php if ( $gallery_default_params['video_ht_view4_loading_type'] == '1' ) {
+			     data-lightbox-nonce-value="<?php echo $gallery_img_lightbox_load_nonce; ?>"><?= $gallery_default_params['gallery_img_video_ht_view4_loadmore_text']; ?></div>
+			<div class="loading4"><img src="<?php if ( $gallery_default_params['gallery_img_video_ht_view4_loading_type'] == '1' ) {
 					echo GALLERY_IMG_IMAGES_URL . '/front_images/arrows/loading1.gif';
-				} elseif ( $gallery_default_params['video_ht_view4_loading_type'] == '2' ) {
+				} elseif ( $gallery_default_params['gallery_img_video_ht_view4_loading_type'] == '2' ) {
 					echo GALLERY_IMG_IMAGES_URL . '/front_images/arrows/loading4.gif';
-				} elseif ( $gallery_default_params['video_ht_view4_loading_type'] == '3' ) {
+				} elseif ( $gallery_default_params['gallery_img_video_ht_view4_loading_type'] == '3' ) {
 					echo GALLERY_IMG_IMAGES_URL . '/front_images/arrows/loading36.gif';
-				} elseif ( $gallery_default_params['video_ht_view4_loading_type'] == '4' ) {
+				} elseif ( $gallery_default_params['gallery_img_video_ht_view4_loading_type'] == '4' ) {
 					echo GALLERY_IMG_IMAGES_URL . '/front_images/arrows/loading51.gif';
 				} ?>"></div>
 		</div>

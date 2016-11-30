@@ -1,33 +1,33 @@
 <style>
 .element_<?php echo $galleryID; ?> {
 	width: 100%;
-	max-width: <?php echo $gallery_default_params['ht_view2_element_width']+2*$gallery_default_params['ht_view2_element_border_width']; ?>px;
-	height: <?php echo $gallery_default_params['ht_view2_element_height']+45+2*$gallery_default_params['ht_view2_element_border_width']; ?>px;
+	max-width: <?php echo $gallery_default_params['gallery_img_ht_view2_element_width']+2*$gallery_default_params['gallery_img_ht_view2_element_border_width']; ?>px;
+	height: <?php echo $gallery_default_params['gallery_img_ht_view2_element_height']+45+2*$gallery_default_params['gallery_img_ht_view2_element_border_width']; ?>px;
 	margin: 0 10px 10px 0;
-	background: #<?php echo $gallery_default_params['ht_view2_element_background_color']; ?>;
-	border: <?php echo $gallery_default_params['ht_view2_element_border_width']; ?>px solid #<?php echo $gallery_default_params['ht_view2_element_border_color']; ?>;
+	background: #<?php echo $gallery_default_params['gallery_img_ht_view2_element_background_color']; ?>;
+	border: <?php echo $gallery_default_params['gallery_img_ht_view2_element_border_width']; ?>px solid #<?php echo $gallery_default_params['gallery_img_ht_view2_element_border_color']; ?>;
 	outline: none;
 }
 .element_<?php echo $galleryID; ?>.no-title{
-	height: <?php echo $gallery_default_params['ht_view2_element_height']+2*$gallery_default_params['ht_view2_element_border_width']; ?>px;
+	height: <?php echo $gallery_default_params['gallery_img_ht_view2_element_height']+2*$gallery_default_params['gallery_img_ht_view2_element_border_width']; ?>px;
 }
 .element_<?php echo $galleryID; ?> .image-block_<?php echo $galleryID; ?> {
-<?php if($gallery_default_params['image_natural_size_contentpopup']=='resize'){?> position: relative;
+<?php if($gallery_default_params['gallery_img_image_natural_size_contentpopup']=='resize'){?> position: relative;
 	width: 100%;
-<?php }elseif($gallery_default_params['image_natural_size_contentpopup']=='natural'){?> position: relative;
+<?php }elseif($gallery_default_params['gallery_img_image_natural_size_contentpopup']=='natural'){?> position: relative;
 	width: 100%;
 	overflow: hidden;
-	height: <?php echo $gallery_default_params['ht_view2_element_height']; ?>px !important;
+	height: <?php echo $gallery_default_params['gallery_img_ht_view2_element_height']; ?>px !important;
 <?php }?>
 }
 
 .element_<?php echo $galleryID; ?> .image-block_<?php echo $galleryID; ?> img {
-<?php if($gallery_default_params['image_natural_size_contentpopup']=='resize'){?> width: 100% !important;
-	height: <?php echo $gallery_default_params['ht_view2_element_height']; ?>px !important;
+<?php if($gallery_default_params['gallery_img_image_natural_size_contentpopup']=='resize'){?> width: 100% !important;
+	height: <?php echo $gallery_default_params['gallery_img_ht_view2_element_height']; ?>px !important;
 	display: block;
 	border-radius: 0 !important;
 	box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
-<?php }elseif($gallery_default_params['image_natural_size_contentpopup']=='natural'){?> display: block;
+<?php }elseif($gallery_default_params['gallery_img_image_natural_size_contentpopup']=='natural'){?> display: block;
 	max-width: none !important;
 	border-radius: 0 !important;
 	box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
@@ -41,8 +41,8 @@
 	width: 100%;
 	height: 100%;
 	background: <?php
-			list($r,$g,$b) = array_map('hexdec',str_split($gallery_default_params['ht_view2_element_overlay_color'],2));
-				$titleopacity=$gallery_default_params["ht_view2_element_overlay_transparency"]/100;
+			list($r,$g,$b) = array_map('hexdec',str_split($gallery_default_params['gallery_img_ht_view2_element_overlay_color'],2));
+				$titleopacity=$gallery_default_params["gallery_img_ht_view2_element_overlay_transparency"]/100;
 				echo 'rgba('.$r.','.$g.','.$b.','.$titleopacity.')  !important';
 	?>;
 	display: none;
@@ -60,7 +60,7 @@
 	width: 100%;
 	height: 100%;
 	box-shadow: none !important;
-	background: url('<?php echo  GALLERY_IMG_IMAGES_URL.'/admin_images/zoom.'.$gallery_default_params["ht_view2_zoombutton_style"].'.png'; ?>') center center no-repeat;
+	background: url('<?php echo  GALLERY_IMG_IMAGES_URL.'/admin_images/zoom.'.$gallery_default_params["gallery_img_ht_view2_zoombutton_style"].'.png'; ?>') center center no-repeat;
 }
 
 .element_<?php echo $galleryID; ?> .title-block_<?php echo $galleryID; ?> {
@@ -81,9 +81,9 @@
 	overflow: hidden;
 	white-space: nowrap;
 	font-weight: normal;
-	font-size: <?php echo $gallery_default_params["ht_view2_element_title_font_size"]; ?>px !important;
-	line-height: <?php echo $gallery_default_params["ht_view2_popup_title_font_size"]; ?>px !important;
-	color: #<?php echo $gallery_default_params["ht_view2_element_title_font_color"]; ?>;
+	font-size: <?php echo $gallery_default_params["gallery_img_ht_view2_element_title_font_size"]; ?>px !important;
+	line-height: <?php echo $gallery_default_params["gallery_img_ht_view2_popup_title_font_size"]; ?>px !important;
+	color: #<?php echo $gallery_default_params["gallery_img_ht_view2_element_title_font_color"]; ?>;
 }
 
 .element_<?php echo $galleryID; ?> .title-block_<?php echo $galleryID; ?> .button-block {
@@ -108,18 +108,18 @@
 	vertical-align: middle;
 	padding: 3px 10px 3px 10px;
 	border-radius: 3px;
-	font-size: <?php echo $gallery_default_params["ht_view2_element_linkbutton_font_size"]; ?>px;
-	background: #<?php echo $gallery_default_params["ht_view2_element_linkbutton_background_color"]; ?>;
-	color: #<?php echo $gallery_default_params["ht_view2_element_linkbutton_color"]; ?>;
+	font-size: <?php echo $gallery_default_params["gallery_img_ht_view2_element_linkbutton_font_size"]; ?>px;
+	background: #<?php echo $gallery_default_params["gallery_img_ht_view2_element_linkbutton_background_color"]; ?>;
+	color: #<?php echo $gallery_default_params["gallery_img_ht_view2_element_linkbutton_color"]; ?>;
 	text-decoration: none !important;
 }
 
 .load_more5 {
 	margin: 10px 0;
 	position: relative;
-	text-align: <?php if($gallery_default_params['video_ht_view1_loadmore_position'] == 'left') {echo 'left';}
-			elseif ($gallery_default_params['video_ht_view1_loadmore_position'] == 'center') { echo 'center'; }
-			elseif($gallery_default_params['video_ht_view1_loadmore_position'] == 'right') { echo 'right'; }?>;
+	text-align: <?php if($gallery_default_params['gallery_img_video_ht_view1_loadmore_position'] == 'left') {echo 'left';}
+			elseif ($gallery_default_params['gallery_img_video_ht_view1_loadmore_position'] == 'center') { echo 'center'; }
+			elseif($gallery_default_params['gallery_img_video_ht_view1_loadmore_position'] == 'right') { echo 'right'; }?>;
 	width: 100%;
 }
 
@@ -127,15 +127,15 @@
 	border-radius: 10px;
 	display: inline-block;
 	padding: 5px 15px;
-	font-size: <?php echo $gallery_default_params['video_ht_view1_loadmore_fontsize']; ?>px !important;;
-	color: <?php echo '#'.$gallery_default_params['video_ht_view1_loadmore_font_color']; ?> !important;;
-	background: <?php echo '#'.$gallery_default_params['video_ht_view1_button_color']; ?> !important;
+	font-size: <?php echo $gallery_default_params['gallery_img_video_ht_view1_loadmore_fontsize']; ?>px !important;;
+	color: <?php echo '#'.$gallery_default_params['gallery_img_video_ht_view1_loadmore_font_color']; ?> !important;;
+	background: <?php echo '#'.$gallery_default_params['gallery_img_video_ht_view1_button_color']; ?> !important;
 	cursor: pointer;
 }
 
 .load_more_button5:hover {
-	color: <?php echo '#'.$gallery_default_params['video_ht_view1_loadmore_font_color_hover']; ?> !important;
-	background: <?php echo '#'.$gallery_default_params['video_ht_view1_button_color_hover']; ?> !important;
+	color: <?php echo '#'.$gallery_default_params['gallery_img_video_ht_view1_loadmore_font_color_hover']; ?> !important;
+	background: <?php echo '#'.$gallery_default_params['gallery_img_video_ht_view1_button_color_hover']; ?> !important;
 }
 
 .loading5 {
@@ -143,9 +143,9 @@
 }
 
 .paginate5 {
-	font-size: <?php echo $gallery_default_params['video_ht_view1_paginator_fontsize']; ?>px !important;
-	color: <?php echo '#'.$gallery_default_params['video_ht_view1_paginator_color']; ?> !important;
-	text-align: <?php echo $gallery_default_params['video_ht_view1_paginator_position']; ?>;
+	font-size: <?php echo $gallery_default_params['gallery_img_video_ht_view1_paginator_fontsize']; ?>px !important;
+	color: <?php echo '#'.$gallery_default_params['gallery_img_video_ht_view1_paginator_color']; ?> !important;
+	text-align: <?php echo $gallery_default_params['gallery_img_video_ht_view1_paginator_position']; ?>;
 	margin-top: 15px;
 }
 
@@ -154,8 +154,8 @@
 }
 
 .icon-style5 {
-	font-size: <?php echo $gallery_default_params['video_ht_view1_paginator_icon_size']; ?>px !important;
-	color: <?php echo '#'.$gallery_default_params['video_ht_view1_paginator_icon_color']; ?> !important;
+	font-size: <?php echo $gallery_default_params['gallery_img_video_ht_view1_paginator_icon_size']; ?>px !important;
+	color: <?php echo '#'.$gallery_default_params['gallery_img_video_ht_view1_paginator_icon_color']; ?> !important;
 }
 
 .clear {
@@ -188,7 +188,7 @@
 	padding: 40px 0 20px 0;
 	min-height: 100%;
 	position: relative;
-	background: #<?php echo $gallery_default_params["ht_view2_popup_background_color"]; ?>;
+	background: #<?php echo $gallery_default_params["gallery_img_ht_view2_popup_background_color"]; ?>;
 }
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> li.pupup-element.active {
@@ -211,7 +211,7 @@
 	width: 40px;
 	height: 40px;
 	display: block;
-	background: url('<?php echo  GALLERY_IMG_IMAGES_URL.'/admin_images/close.popup.'.$gallery_default_params["ht_view2_popup_closebutton_style"].'.png'; ?>') center center no-repeat;
+	background: url('<?php echo  GALLERY_IMG_IMAGES_URL.'/admin_images/close.popup.'.$gallery_default_params["gallery_img_ht_view2_popup_closebutton_style"].'.png'; ?>') center center no-repeat;
 	border-left: 1px solid #ccc;
 	opacity: .65;
 }
@@ -229,7 +229,7 @@
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .popup-wrapper_<?php echo $galleryID; ?> .image-block_<?php echo $galleryID; ?> {
 	width: 55%;
-<?php if($gallery_default_params['ht_view2_popup_full_width'] == 'off') { echo "height:100%;"; }
+<?php if($gallery_default_params['gallery_img_ht_view2_popup_full_width'] == 'off') { echo "height:100%;"; }
 	else { echo "height:100%;"; }?> position: relative;
 	float: left;
 	margin-right: 2%;
@@ -240,7 +240,7 @@
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .popup-wrapper_<?php echo $galleryID; ?> .image-block_<?php echo $galleryID; ?> img {
 <?php
-	if($gallery_default_params['ht_view2_popup_full_width'] == 'off') { echo "max-width:100% !important; max-height:100% !important;margin: 0 auto !important; position:relative !important; display:block;"; }
+	if($gallery_default_params['gallery_img_ht_view2_popup_full_width'] == 'off') { echo "max-width:100% !important; max-height:100% !important;margin: 0 auto !important; position:relative !important; display:block;"; }
 	else { echo "width:100% !important;"; }
 ?> display: block;
 	padding: 0 !important;
@@ -263,7 +263,7 @@
 	padding-top: 10px;
 	padding-right: 4%;
 	margin-bottom: 10px;
-<?php if($gallery_default_params['ht_view2_show_separator_lines'] == "on") {?> background: url('<?php echo  GALLERY_IMG_IMAGES_URL.'/admin_images/divider.line.png'; ?>') center top repeat-x;
+<?php if($gallery_default_params['gallery_img_ht_view2_show_separator_lines'] == "on") {?> background: url('<?php echo  GALLERY_IMG_IMAGES_URL.'/admin_images/divider.line.png'; ?>') center top repeat-x;
 <?php } ?>
 }
 
@@ -275,9 +275,9 @@
 	position: relative;
 	display: block;
 	margin: 0 0 10px 0 !important;
-	font-size: <?php echo $gallery_default_params["ht_view2_popup_title_font_size"]; ?>px !important;
-	line-height: <?php echo $gallery_default_params["ht_view2_popup_title_font_size"]; ?>px !important;
-	color: #<?php echo $gallery_default_params["ht_view2_popup_title_font_color"]; ?>;
+	font-size: <?php echo $gallery_default_params["gallery_img_ht_view2_popup_title_font_size"]; ?>px !important;
+	line-height: <?php echo $gallery_default_params["gallery_img_ht_view2_popup_title_font_size"]; ?>px !important;
+	color: #<?php echo $gallery_default_params["gallery_img_ht_view2_popup_title_font_color"]; ?>;
 }
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .popup-wrapper_<?php echo $galleryID; ?> .right-block .description {
@@ -285,8 +285,8 @@
 	position: relative;
 	font-weight: normal;
 	text-align: justify;
-	font-size: <?php echo $gallery_default_params["ht_view2_description_font_size"]; ?>px !important;
-	color: #<?php echo $gallery_default_params["ht_view2_description_color"]; ?>;
+	font-size: <?php echo $gallery_default_params["gallery_img_ht_view2_description_font_size"]; ?>px !important;
+	color: #<?php echo $gallery_default_params["gallery_img_ht_view2_description_color"]; ?>;
 }
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .popup-wrapper_<?php echo $galleryID; ?> .right-block .description h1,
@@ -321,8 +321,8 @@
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .popup-wrapper_<?php echo $galleryID; ?> .right-block ul.thumbs-list li {
 	display: block;
 	float: left;
-	width: <?php echo $gallery_default_params["ht_view2_thumbs_width"]; ?>px;
-	height: <?php echo $gallery_default_params["ht_view2_thumbs_height"]; ?>px;
+	width: <?php echo $gallery_default_params["gallery_img_ht_view2_thumbs_width"]; ?>px;
+	height: <?php echo $gallery_default_params["gallery_img_ht_view2_thumbs_height"]; ?>px;
 	margin: 0 2% 5px 1% !important;
 	opacity: 0.45;
 }
@@ -336,8 +336,8 @@
 }
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .popup-wrapper_<?php echo $galleryID; ?> .right-block ul.thumbs-list li img {
-	width: <?php echo $gallery_default_params["ht_view2_thumbs_width"]; ?>px !important;
-	height: <?php echo $gallery_default_params["ht_view2_thumbs_height"]; ?>px !important;
+	width: <?php echo $gallery_default_params["gallery_img_ht_view2_thumbs_width"]; ?>px !important;
+	height: <?php echo $gallery_default_params["gallery_img_ht_view2_thumbs_height"]; ?>px !important;
 }
 
 /**/
@@ -385,15 +385,15 @@
 	position: relative;
 	display: inline-block;
 	padding: 6px 12px;
-	background: #<?php echo $gallery_default_params["ht_view2_popup_linkbutton_background_color"]; ?>;
-	color: #<?php echo $gallery_default_params["ht_view2_popup_linkbutton_color"]; ?>;
-	font-size: <?php echo $gallery_default_params["ht_view2_popup_linkbutton_font_size"]; ?>px;
+	background: #<?php echo $gallery_default_params["gallery_img_ht_view2_popup_linkbutton_background_color"]; ?>;
+	color: #<?php echo $gallery_default_params["gallery_img_ht_view2_popup_linkbutton_color"]; ?>;
+	font-size: <?php echo $gallery_default_params["gallery_img_ht_view2_popup_linkbutton_font_size"]; ?>px;
 	text-decoration: none;
 }
 
 .pupup-element .button-block a:hover, .pupup-element .button-block a:focus, .pupup-element .button-block a:active {
-	background: #<?php echo $gallery_default_params["ht_view2_popup_linkbutton_background_hover_color"]; ?>;
-	color: #<?php echo $gallery_default_params["ht_view2_popup_linkbutton_font_hover_color"]; ?>;
+	background: #<?php echo $gallery_default_params["gallery_img_ht_view2_popup_linkbutton_background_hover_color"]; ?>;
+	color: #<?php echo $gallery_default_params["gallery_img_ht_view2_popup_linkbutton_font_hover_color"]; ?>;
 }
 
 #huge-popup-overlay-image {
@@ -404,8 +404,8 @@
 	height: 100%;
 	z-index: 199;
 	background: <?php
-			list($r,$g,$b) = array_map('hexdec',str_split($gallery_default_params['ht_view2_popup_overlay_color'],2));
-				$titleopacity=$gallery_default_params["ht_view2_popup_overlay_transparency_color"]/100;
+			list($r,$g,$b) = array_map('hexdec',str_split($gallery_default_params['gallery_img_ht_view2_popup_overlay_color'],2));
+				$titleopacity=$gallery_default_params["gallery_img_ht_view2_popup_overlay_transparency_color"]/100;
 				echo 'rgba('.$r.','.$g.','.$b.','.$titleopacity.')  !important';
 	?>
 }
@@ -464,15 +464,15 @@ case "dislike":
 /*/////Like/Dislike Styles BEGIN//////Dislike//////*/
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> {
 	float: right;
-	color: #<?php echo $gallery_default_params['ht_popup_likedislike_font_color']; ?>;
+	color: #<?php echo $gallery_default_params['gallery_img_ht_popup_likedislike_font_color']; ?>;
 }
 
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper,
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_dislike_wrapper {
 	position: relative;
 	background: <?php
-			list($r,$g,$b) = array_map('hexdec',str_split($gallery_default_params['ht_popup_likedislike_bg'],2));
-				$titleopacity=$gallery_default_params["ht_popup_likedislike_bg_trans"]/100;
+			list($r,$g,$b) = array_map('hexdec',str_split($gallery_default_params['gallery_img_ht_popup_likedislike_bg'],2));
+				$titleopacity=$gallery_default_params["gallery_img_ht_popup_likedislike_bg_trans"]/100;
 				echo 'rgba('.$r.','.$g.','.$b.','.$titleopacity.')  !important';
 	?>;
 	display: inline-block;
@@ -532,7 +532,7 @@ case "dislike":
 	position: absolute;
 	top: 5px;
 	left: 4px;
-	color: #<?php echo $gallery_default_params['ht_popup_likedislike_thumb_color']; ?>;
+	color: #<?php echo $gallery_default_params['gallery_img_ht_popup_likedislike_thumb_color']; ?>;
 }
 
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .dislike_thumb_down {
@@ -540,7 +540,7 @@ case "dislike":
 	position: absolute;
 	top: 4px;
 	left: 4px;
-	color: #<?php echo $gallery_default_params['ht_popup_likedislike_thumb_color']; ?>;
+	color: #<?php echo $gallery_default_params['gallery_img_ht_popup_likedislike_thumb_color']; ?>;
 }
 
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_hide {
@@ -548,42 +548,42 @@ case "dislike":
 }
 
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .like_thumb_active {
-	color: #<?php echo $gallery_default_params['ht_popup_likedislike_thumb_active_color']; ?> !important;
+	color: #<?php echo $gallery_default_params['gallery_img_ht_popup_likedislike_thumb_active_color']; ?> !important;
 }
 
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .like_font_active {
-	color: #<?php echo $gallery_default_params['ht_popup_active_font_color']; ?> !important;
+	color: #<?php echo $gallery_default_params['gallery_img_ht_popup_active_font_color']; ?> !important;
 }
 
 @media screen and (min-width: 768px) {
 	#huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper:hover .huge_it_like {
-		color: #<?php echo $gallery_default_params['ht_popup_active_font_color']; ?> !important;
+		color: #<?php echo $gallery_default_params['gallery_img_ht_popup_active_font_color']; ?> !important;
 	}
 
 	#huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper:hover .like_thumb_up {
-		color: #<?php echo $gallery_default_params['ht_popup_likedislike_thumb_active_color']; ?> !important;
+		color: #<?php echo $gallery_default_params['gallery_img_ht_popup_likedislike_thumb_active_color']; ?> !important;
 	}
 
 	#huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_dislike_wrapper:hover .huge_it_dislike {
-		color: #<?php echo $gallery_default_params['ht_popup_active_font_color']; ?> !important;
+		color: #<?php echo $gallery_default_params['gallery_img_ht_popup_active_font_color']; ?> !important;
 	}
 
 	#huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_dislike_wrapper:hover .dislike_thumb_down {
-		color: #<?php echo $gallery_default_params['ht_popup_likedislike_thumb_active_color']; ?> !important;
+		color: #<?php echo $gallery_default_params['gallery_img_ht_popup_likedislike_thumb_active_color']; ?> !important;
 	}
 }
 
 /*///////////////////POPUP////////////////*/
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> {
-	color: #<?php echo $gallery_default_params['ht_popup_likedislike_font_color']; ?>;
+	color: #<?php echo $gallery_default_params['gallery_img_ht_popup_likedislike_font_color']; ?>;
 }
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper,
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_dislike_wrapper {
 	position: relative;
 	background: <?php
-			list($r,$g,$b) = array_map('hexdec',str_split($gallery_default_params['ht_popup_likedislike_bg'],2));
-				$titleopacity=$gallery_default_params["ht_popup_likedislike_bg_trans"]/100;
+			list($r,$g,$b) = array_map('hexdec',str_split($gallery_default_params['gallery_img_ht_popup_likedislike_bg'],2));
+				$titleopacity=$gallery_default_params["gallery_img_ht_popup_likedislike_bg_trans"]/100;
 				echo 'rgba('.$r.','.$g.','.$b.','.$titleopacity.')  !important';
 	?>;
 	display: inline-block;
@@ -643,7 +643,7 @@ case "dislike":
 	position: absolute;
 	top: 5px;
 	left: 4px;
-	color: #<?php echo $gallery_default_params['ht_popup_likedislike_thumb_color']; ?>;
+	color: #<?php echo $gallery_default_params['gallery_img_ht_popup_likedislike_thumb_color']; ?>;
 }
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .dislike_thumb_down {
@@ -651,7 +651,7 @@ case "dislike":
 	position: absolute;
 	top: 4px;
 	left: 4px;
-	color: #<?php echo $gallery_default_params['ht_popup_likedislike_thumb_color']; ?>;
+	color: #<?php echo $gallery_default_params['gallery_img_ht_popup_likedislike_thumb_color']; ?>;
 }
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_hide {
@@ -659,28 +659,28 @@ case "dislike":
 }
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .like_thumb_active {
-	color: #<?php echo $gallery_default_params['ht_popup_likedislike_thumb_active_color']; ?> !important;
+	color: #<?php echo $gallery_default_params['gallery_img_ht_popup_likedislike_thumb_active_color']; ?> !important;
 }
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .like_font_active {
-	color: #<?php echo $gallery_default_params['ht_popup_active_font_color']; ?> !important;
+	color: #<?php echo $gallery_default_params['gallery_img_ht_popup_active_font_color']; ?> !important;
 }
 
 @media screen and (min-width: 768px) {
 	#huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper:hover .huge_it_like {
-		color: #<?php echo $gallery_default_params['ht_popup_active_font_color']; ?> !important;
+		color: #<?php echo $gallery_default_params['gallery_img_ht_popup_active_font_color']; ?> !important;
 	}
 
 	#huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper:hover .like_thumb_up {
-		color: #<?php echo $gallery_default_params['ht_popup_likedislike_thumb_active_color']; ?> !important;
+		color: #<?php echo $gallery_default_params['gallery_img_ht_popup_likedislike_thumb_active_color']; ?> !important;
 	}
 
 	#huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_dislike_wrapper:hover .huge_it_dislike {
-		color: #<?php echo $gallery_default_params['ht_popup_active_font_color']; ?> !important;
+		color: #<?php echo $gallery_default_params['gallery_img_ht_popup_active_font_color']; ?> !important;
 	}
 
 	#huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_dislike_wrapper:hover .dislike_thumb_down {
-		color: #<?php echo $gallery_default_params['ht_popup_likedislike_thumb_active_color']; ?> !important;
+		color: #<?php echo $gallery_default_params['gallery_img_ht_popup_likedislike_thumb_active_color']; ?> !important;
 	}
 }
 
@@ -697,8 +697,8 @@ case "dislike":
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper {
 	position: relative;
 	background: <?php
-			list($r,$g,$b) = array_map('hexdec',str_split($gallery_default_params['ht_popup_likedislike_bg'],2));
-				$titleopacity=$gallery_default_params["ht_popup_likedislike_bg_trans"]/100;
+			list($r,$g,$b) = array_map('hexdec',str_split($gallery_default_params['gallery_img_ht_popup_likedislike_bg'],2));
+				$titleopacity=$gallery_default_params["gallery_img_ht_popup_likedislike_bg_trans"]/100;
 				echo 'rgba('.$r.','.$g.','.$b.','.$titleopacity.')  !important';
 	?>;
 	display: inline-block;
@@ -707,7 +707,7 @@ case "dislike":
 }
 
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper:hover {
-	background: #<?php echo $gallery_default_params['ht_popup_heart_hov_bg_color']; ?>;
+	background: #<?php echo $gallery_default_params['gallery_img_ht_popup_heart_hov_bg_color']; ?>;
 }
 
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper {
@@ -722,10 +722,10 @@ case "dislike":
 	display: block;
 	float: left;
 <?php $heartCount='';
-if($gallery_default_params['ht_popup_rating_count'] == 'off'){
+if($gallery_default_params['gallery_img_ht_popup_rating_count'] == 'off'){
 	$heartCount="transparent";
 }else{
-	$heartCount='#'.$gallery_default_params['ht_popup_likedislike_font_color'];
+	$heartCount='#'.$gallery_default_params['gallery_img_ht_popup_likedislike_font_color'];
 }
 ?> color: <?php echo $heartCount.';'; ?> width: 38px;
 	height: 38px;
@@ -751,7 +751,7 @@ if($gallery_default_params['ht_popup_rating_count'] == 'off'){
 
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_like .likeheart {
 	font-size: 32px;
-	color: #<?php echo $gallery_default_params['ht_popup_heart_likedislike_thumb_color']; ?>;
+	color: #<?php echo $gallery_default_params['gallery_img_ht_popup_heart_likedislike_thumb_color']; ?>;
 	position: absolute;
 	top: 4px;
 	left: 3px;
@@ -759,22 +759,22 @@ if($gallery_default_params['ht_popup_rating_count'] == 'off'){
 }
 
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .like_thumb_active {
-	color: #<?php echo $gallery_default_params['ht_popup_heart_likedislike_thumb_active_color']; ?> !important;
+	color: #<?php echo $gallery_default_params['gallery_img_ht_popup_heart_likedislike_thumb_active_color']; ?> !important;
 }
 
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .like_font_active {
-<?php if($gallery_default_params['ht_popup_rating_count']!='off'):?> color: #<?php echo $gallery_default_params['ht_popup_active_font_color']; ?> !important;
+<?php if($gallery_default_params['gallery_img_ht_popup_rating_count']!='off'):?> color: #<?php echo $gallery_default_params['gallery_img_ht_popup_active_font_color']; ?> !important;
 <?php endif; ?>
 }
 
 @media screen and (min-width: 768px) {
 	#huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper:hover .huge_it_like_thumb {
-	<?php if($gallery_default_params['ht_popup_rating_count']!='off'):?> color: #<?php echo $gallery_default_params['ht_popup_active_font_color']; ?> !important;
+	<?php if($gallery_default_params['gallery_img_ht_popup_rating_count']!='off'):?> color: #<?php echo $gallery_default_params['gallery_img_ht_popup_active_font_color']; ?> !important;
 	<?php endif; ?>
 	}
 
 	#huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper:hover .likeheart {
-		color: #<?php echo $gallery_default_params['ht_popup_heart_likedislike_thumb_active_color']; ?> !important;
+		color: #<?php echo $gallery_default_params['gallery_img_ht_popup_heart_likedislike_thumb_active_color']; ?> !important;
 	}
 }
 
@@ -788,8 +788,8 @@ if($gallery_default_params['ht_popup_rating_count'] == 'off'){
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper {
 	position: relative;
 	background: <?php
-			list($r,$g,$b) = array_map('hexdec',str_split($gallery_default_params['ht_popup_likedislike_bg'],2));
-				$titleopacity=$gallery_default_params["ht_popup_likedislike_bg_trans"]/100;
+			list($r,$g,$b) = array_map('hexdec',str_split($gallery_default_params['gallery_img_ht_popup_likedislike_bg'],2));
+				$titleopacity=$gallery_default_params["gallery_img_ht_popup_likedislike_bg_trans"]/100;
 				echo 'rgba('.$r.','.$g.','.$b.','.$titleopacity.')  !important';
 	?>;
 	display: inline-block;
@@ -798,7 +798,7 @@ if($gallery_default_params['ht_popup_rating_count'] == 'off'){
 }
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper:hover {
-	background: #<?php echo $gallery_default_params['ht_popup_heart_hov_bg_color']; ?>;
+	background: #<?php echo $gallery_default_params['gallery_img_ht_popup_heart_hov_bg_color']; ?>;
 }
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper {
@@ -813,10 +813,10 @@ if($gallery_default_params['ht_popup_rating_count'] == 'off'){
 	display: block;
 	float: left;
 <?php $heartCount='';
-if($gallery_default_params['ht_popup_rating_count'] == 'off'){
+if($gallery_default_params['gallery_img_ht_popup_rating_count'] == 'off'){
 	$heartCount="transparent";
 }else{
-	$heartCount='#'.$gallery_default_params['ht_popup_likedislike_font_color'];
+	$heartCount='#'.$gallery_default_params['gallery_img_ht_popup_likedislike_font_color'];
 }
 ?> color: <?php echo $heartCount.';'; ?> width: 38px;
 	height: 38px;
@@ -842,7 +842,7 @@ if($gallery_default_params['ht_popup_rating_count'] == 'off'){
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_like .likeheart {
 	font-size: 32px;
-	color: #<?php echo $gallery_default_params['ht_popup_heart_likedislike_thumb_color']; ?>;
+	color: #<?php echo $gallery_default_params['gallery_img_ht_popup_heart_likedislike_thumb_color']; ?>;
 	position: absolute;
 	top: 4px;
 	left: 3px;
@@ -850,22 +850,22 @@ if($gallery_default_params['ht_popup_rating_count'] == 'off'){
 }
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .like_thumb_active {
-	color: #<?php echo $gallery_default_params['ht_popup_heart_likedislike_thumb_active_color']; ?> !important;
+	color: #<?php echo $gallery_default_params['gallery_img_ht_popup_heart_likedislike_thumb_active_color']; ?> !important;
 }
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .like_font_active {
-<?php if($gallery_default_params['ht_popup_rating_count'] != 'off'):?> color: #<?php echo $gallery_default_params['ht_popup_active_font_color']; ?> !important;
+<?php if($gallery_default_params['gallery_img_ht_popup_rating_count'] != 'off'):?> color: #<?php echo $gallery_default_params['gallery_img_ht_popup_active_font_color']; ?> !important;
 <?php endif; ?>
 }
 
 @media screen and (min-width: 768px) {
 	#huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper:hover .huge_it_like_thumb {
-	<?php if($gallery_default_params['ht_popup_rating_count'] != 'off'):?> color: #<?php echo $gallery_default_params['ht_popup_active_font_color']; ?> !important;
+	<?php if($gallery_default_params['gallery_img_ht_popup_rating_count'] != 'off'):?> color: #<?php echo $gallery_default_params['gallery_img_ht_popup_active_font_color']; ?> !important;
 	<?php endif; ?>
 	}
 
 	#huge_it_gallery_popup_list_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper:hover .likeheart {
-		color: #<?php echo $gallery_default_params['ht_popup_heart_likedislike_thumb_active_color']; ?> !important;
+		color: #<?php echo $gallery_default_params['gallery_img_ht_popup_heart_likedislike_thumb_active_color']; ?> !important;
 	}
 }
 
