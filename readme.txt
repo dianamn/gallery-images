@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, lightbox gallery, wordpress gallery, photo gallery, content gallery, media gallery, youtube gallery, images gallery, responsive gallery, thumbnail gallery,
 Requires at least: 3.0.1
 Tested up to: 4.6.1
-Stable tag: 2.0.6
+Stable tag: 2.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,9 +79,9 @@ Install plugin and see the result of your creativeness.
 
 = Pro Key Features =
 
-* **General Options** - Each view of the Iplugin has unique customizable options. The options are called general because every gallery with certain type will have the same customization.
+* **General Options** - Each view of the Iplugin has unique customizable options. The options are called general because every gallery with certain type will have the same customization
 
-* **General Options Views** - Has 7 wonderful views, can be customized according to your taste and needs from General Options section.
+* **General Options Views** - Has 7 wonderful views, can be customized according to your taste and needs from General Options section
 
 * **Lightbox Options** - Lightbox is given with plugin, and being a part of plugin. Using it within your items you can make them come up individually. And that way to create a desirable style of your website. Show your images and videos with the help.
 
@@ -884,6 +884,12 @@ The commercial version users can do unlimited customization, if your images/vide
 
 
 == Changelog ==
+
+= 2.0.7 =
+* 1) Made additional changes and edits in unique prefixes in options
+* 2) Removed unreadable codes, and replaced with documented codes
+* 3) Updated licensing page with more vivid options of Pro features of the plugin
+* 4) Fixed translation strings
 
 = 2.0.6 =
 *  Fixed issues with nonce tokens in the plugin for all _POST, _GET requests
