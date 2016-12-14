@@ -50,6 +50,11 @@ class Gallery_Img_Frontend_Scripts {
 			wp_register_style( 'thumb_view-css', plugins_url( '../assets/style/justifiedGallery.css', __FILE__ ) );
 			wp_enqueue_style( 'thumb_view-css' );
 		}
+		if ($gallery_view == '10') {
+			wp_register_style('elastic-grid-css', plugins_url('../assets/style/elastic_grid.css', __FILE__));
+			wp_enqueue_style('elastic-grid-css');
+		}
+
 	}
 
 	/**
@@ -92,7 +97,18 @@ class Gallery_Img_Frontend_Scripts {
 			wp_register_script( 'jusiifed-js', plugins_url( '../assets/js/justifiedGallery.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'jusiifed-js' );
 		}
-
+		if ($gallery_view == '10') {
+			wp_register_script('modernizr.custom-js', plugins_url('../assets/js/modernizr.custom.js', __FILE__), array('jquery'), '1.0.0', false);
+			wp_enqueue_script('modernizr.custom-js');
+			wp_register_script('classie-js', plugins_url('../assets/js/classie.js', __FILE__), array('jquery'), '1.3.0', false);
+			wp_enqueue_script('classie-js');
+			wp_register_script('jquery.elastislide-js', plugins_url('../assets/js/jquery.elastislide.js', __FILE__), array('jquery'), '1.0.0', false);
+			wp_enqueue_script('jquery.elastislide-js');
+			wp_register_script('jquery.hoverdir-js', plugins_url('../assets/js/jquery.hoverdir.js', __FILE__), array('jquery'), '1.0.0', false);
+			wp_enqueue_script('jquery.hoverdir-js');
+			wp_register_script('elastic_grid-js', plugins_url('../assets/js/elastic_grid.js', __FILE__), array('jquery'), '1.3.0', false);
+			wp_enqueue_script('elastic_grid-js');
+		}
 	}
 
 	public function localize_scripts( $id ) {
@@ -237,6 +253,73 @@ class Gallery_Img_Frontend_Scripts {
 			$justified_params[ $name ] = $value;
 		}
 
+		$num          = absint($gallery[0]->content_per_page);
+		$query       = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_images where gallery_id = '%d' and sl_type!='video' ORDER BY ordering ASC",$id);
+		$all_images = $wpdb->get_results($query);
+		$total        = intval( ( ( count( $all_images ) - 1 ) / $num ) + 1 );
+		$disp_type = $gallery[0]->display_type;
+		if ( isset( $_GET[ 'page-img' . $id . $pID ] ) ) {
+			$page = absint( $_GET[ 'page-img' . $id . $pID ] );
+		} else {
+			$page = '';
+		}
+		if ( empty( $page ) or $page < 0 ) {
+			$page = 1;
+		}
+		if ( $page > $total ) {
+			$page = $total;
+		}
+		$start       = $page * $num - $num;
+		$query       = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_images where gallery_id = '%d' and sl_type!='video'  order by ordering ASC LIMIT " . $start . "," . $num, $id );
+		$images[$id] = $wpdb->get_results( $query );
+		if ( $disp_type != 0 ) {
+			$images[$id] = $all_images;
+		}
+
+		$images_obj = array();
+		foreach ($images[$id] as $image) {
+			$thumbnail = $image->image_url;
+			$thumbs = array();
+			$larg_images = array();
+			if (gallery_img_youtube_or_vimeo($thumbnail) == 'image') {
+				$smal_img = esc_url(gallery_img_get_image_by_sizes_and_src($thumbnail, 'medium', false));
+				$big_img = $thumbnail;
+			} elseif (gallery_img_youtube_or_vimeo($thumbnail) == 'youtube') {
+				$videourl = gallery_img_get_video_id_from_url($thumbnail);
+				$smal_img = esc_url("//img.youtube.com/vi/" . $videourl[0] . "/mqdefault.jpg");
+				$videourl = gallery_img_get_video_id_from_url($thumbnail);
+				$big_img = "https://www.youtube.com/embed/" . $videourl[0];
+			} elseif (gallery_img_youtube_or_vimeo($thumbnail) == 'vimeo') {
+				$videourl = gallery_img_get_video_id_from_url($thumbnail);
+				$hash = unserialize(wp_remote_fopen("http://vimeo.com/api/v2/video/" . $videourl[0] . ".php"));
+				$smal_img = esc_url($hash[0]['thumbnail_large']);
+				$videourl = gallery_img_get_video_id_from_url($thumbnail);
+				$big_img = "http://player.vimeo.com/video/" . $videourl[0];
+			}
+			array_push($thumbs, $smal_img);
+			array_push($larg_images, $big_img);
+			if ($image->link_target == 'on') {
+				$target = '_blank';
+			} else {
+				$target = '';
+			}
+			$images_parent_obj = array(
+				'title' => $image->name,
+				'description' => $image->description,
+				'thumbnail' => $thumbs,
+				'large' => $larg_images,
+				'button_list' => array(
+					array(
+						'title' => $gallery_default_params['gallery_img_ht_view10_expand_block_button_text'],
+						'url' => $image->sl_url,
+						'new_window' => $target
+					),
+				),
+				'tags' => array()
+			);
+			array_push($images_obj, $images_parent_obj);
+		}
+
 		wp_localize_script( 'front-end-js-'.$view_slug, 'param_obj', $gallery_default_params );
 		wp_localize_script( 'front-end-js-'.$view_slug, 'gallery_obj', $gallery );
 		wp_localize_script( 'front-end-js-'.$view_slug, 'adminUrl', $admin_url );
@@ -245,6 +328,8 @@ class Gallery_Img_Frontend_Scripts {
 		wp_localize_script( 'jquery.gicolorbox-js', 'lightbox_obj', $lightbox );
 		wp_localize_script( 'custom-js', 'galleryId', $id );
 		wp_localize_script( 'jusiifed-js', 'justified_obj', $justified );
+		wp_localize_script('front-end-js-' . $view_slug, 'gallery_images_obj_' . $id, $images_obj);
+		wp_localize_script('elastic_grid-js', 'elements_margin', $gallery_default_params['gallery_img_ht_view10_element_margin']);
 	}
 }
 

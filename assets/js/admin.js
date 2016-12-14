@@ -6,6 +6,11 @@ var  name_changeTop = function(e) {
 };
 
 jQuery(document).ready(function () {
+	jQuery('.close-christmas').on('click',function (e) {
+		e.preventDefault();
+		jQuery(".backend-christmas-banner").css("display","none");
+		galleryImgSetCookie( 'galleryImgChristmasShow', 'no', {expires:345600} );
+	});
 	galleryImgPopupSizes(jQuery('#light_box_size_fix'));
 	jQuery('#light_box_size_fix').change(function(){
 		galleryImgPopupSizes(jQuery(this));
@@ -227,8 +232,15 @@ jQuery(document).ready(function () {
 		
 		jQuery('.gallery-current-options').removeClass('active');
 		jQuery('#gallery-current-options-'+jQuery(this).val()).addClass('active');
-	});
+		if(jQuery(this).val() == 10){
+			jQuery('#rating').parent().hide();
+		}
+		else{
+			jQuery('#rating').parent().show();
+		}
 
+	});
+	jQuery('#huge_it_sl_effects').change();
 	jQuery(".close_gallery_free_banner").on("click",function(){
 		jQuery(".gallery_free_version_banner").css("display","none");
 		galleryImgSetCookie( 'hgGalleryFreeBannerShow', 'no', {expires:86400} );

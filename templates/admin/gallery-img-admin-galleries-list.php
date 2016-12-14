@@ -8,6 +8,7 @@ $gallery_wp_nonce_add_gallery    = wp_create_nonce( 'gallery_wp_nonce_add_galler
 
 <div class="wrap">
 	<?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-free-banner.php' ); ?>
+	<?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-christmas-banner-html.php' ); ?>
 	<?php $path_site = plugins_url( "../images", __FILE__ ); ?>
 	<div style="clear: both;"></div>
 	<div id="poststuff">
