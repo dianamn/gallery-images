@@ -27,6 +27,6 @@ class Gallery_Img_General_Options
      */
     public function show_page()
     {
-        require(GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-general-options-html.php');
+        require(GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'general-options-html.php');
     }
 }

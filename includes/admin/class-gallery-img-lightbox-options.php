@@ -47,6 +47,6 @@ class Gallery_Img_Lightbox_Options {
 	public function show_page() {
 		$gallery_img_get_option = gallery_img_get_option();
 		$gallery_img_get_default_options = gallery_img_get_default_options();
-		require( GALLERY_IMG_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'gallery-img-admin-lightbox-options-html.php' );
+		require( GALLERY_IMG_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'lightbox-options-html.php' );
 	}
 }

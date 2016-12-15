@@ -5,8 +5,8 @@ if (!defined('ABSPATH')) {
 ?>
 
 <div class="wrap" >
-    <?php require(GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-free-banner.php'); ?>
-    <?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-christmas-banner-html.php' ); ?>
+    <?php require(GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'free-banner.php'); ?>
+    <?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'christmas-banner-html.php' ); ?>
     <div style="clear:both;"></div>
     <div id="post-body-heading">
         <h3 id="gen_option_title"><?php echo __( 'Lightbox Options', 'gallery-img' ); ?></h3>

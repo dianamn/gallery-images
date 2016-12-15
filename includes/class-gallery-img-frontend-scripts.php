@@ -22,36 +22,36 @@ class Gallery_Img_Frontend_Scripts {
 	 */
 	public function frontend_styles( $id, $gallery_view ) {
         $gallery_default_params = gallery_img_get_default_options();
-		wp_register_style( 'gallery-all-css', plugins_url( '../assets/style/gallery-all.css', __FILE__ ) );
+		wp_register_style( 'gallery-all-css', Gallery_Img()->plugin_url(). '/assets/style/gallery-all.css' );
 		wp_enqueue_style( 'gallery-all-css' );
 
-		wp_register_style( 'style2-os-css', plugins_url( '../assets/style/style2-os.css', __FILE__ ) );
+		wp_register_style( 'style2-os-css', Gallery_Img()->plugin_url(). '/assets/style/style2-os.css' );
 		wp_enqueue_style( 'style2-os-css' );
 
-		wp_register_style( 'lightbox-css', plugins_url( '../assets/style/lightbox.css', __FILE__ ) );
+		wp_register_style( 'lightbox-css', Gallery_Img()->plugin_url(). '/assets/style/lightbox.css' );
 		wp_enqueue_style( 'lightbox-css' );
 
-		wp_register_style( 'fontawesome-css', plugins_url( '../assets/style/css/font-awesome.css', __FILE__ ) );
+		wp_register_style( 'fontawesome-css', Gallery_Img()->plugin_url(). '/assets/style/css/font-awesome.css' );
 		wp_enqueue_style( 'fontawesome-css' );
 
 		wp_enqueue_style( 'gallery_img_colorbox_css', untrailingslashit( Gallery_Img()->plugin_url() ) . '/assets/style/colorbox-' . $gallery_default_params[ 'gallery_img_light_box_style' ] . '.css' );
 
 		if ( $gallery_view == '1' ) {
-			wp_register_style( 'animate-css', plugins_url( '../assets/style/animate-min.css', __FILE__ ) ) ;
+			wp_register_style( 'animate-css', Gallery_Img()->plugin_url(). '/assets/style/animate-min.css' ) ;
 			wp_enqueue_style( 'animate-css' );
-			wp_register_style( 'liquid-slider-css', plugins_url( '../assets/style/liquid-slider.css', __FILE__ ) );
+			wp_register_style( 'liquid-slider-css', Gallery_Img()->plugin_url(). '/assets/style/liquid-slider.css' );
 			wp_enqueue_style( 'liquid-slider-css' );
 		}
 		if ( $gallery_view == '4' ) {
-			wp_register_style( 'thumb_view-css', plugins_url( '../assets/style/thumb_view.css', __FILE__ ) );
+			wp_register_style( 'thumb_view-css', Gallery_Img()->plugin_url(). '/assets/style/thumb_view.css' );
 			wp_enqueue_style( 'thumb_view-css' );
 		}
 		if ( $gallery_view == '6' ) {
-			wp_register_style( 'thumb_view-css', plugins_url( '../assets/style/justifiedGallery.css', __FILE__ ) );
+			wp_register_style( 'thumb_view-css', Gallery_Img()->plugin_url(). '/assets/style/justifiedGallery.css' );
 			wp_enqueue_style( 'thumb_view-css' );
 		}
 		if ($gallery_view == '10') {
-			wp_register_style('elastic-grid-css', plugins_url('../assets/style/elastic_grid.css', __FILE__));
+			wp_register_style('elastic-grid-css', Gallery_Img()->plugin_url().'/assets/style/elastic_grid.css');
 			wp_enqueue_style('elastic-grid-css');
 		}
 
@@ -67,46 +67,46 @@ class Gallery_Img_Frontend_Scripts {
 			wp_enqueue_script( 'jquery' );
 		}
 
-		wp_register_script( 'jquery.gicolorbox-js', plugins_url( '../assets/js/jquery.colorbox.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+		wp_register_script( 'jquery.gicolorbox-js', Gallery_Img()->plugin_url(). '/assets/js/jquery.colorbox.js', array( 'jquery' ), '1.0.0', true );
 		wp_enqueue_script( 'jquery.gicolorbox-js' );
 
-		wp_register_script( 'gallery-hugeitmicro-min-js', plugins_url( '../assets/js/jquery.hugeitmicro.min.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+		wp_register_script( 'gallery-hugeitmicro-min-js', Gallery_Img()->plugin_url(). '/assets/js/jquery.hugeitmicro.min.js', array( 'jquery' ), '1.0.0', true );
 		wp_enqueue_script( 'gallery-hugeitmicro-min-js' );
 
-		wp_register_script( 'front-end-js-'.$view_slug, plugins_url( '../assets/js/view-' . $view_slug . '.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+		wp_register_script( 'front-end-js-'.$view_slug, Gallery_Img()->plugin_url(). '/assets/js/view-' . $view_slug . '.js', array( 'jquery' ), '1.0.0', true );
 		wp_enqueue_script( 'front-end-js-'.$view_slug );
 
-		wp_register_script( 'custom-js', plugins_url( '../assets/js/custom.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+		wp_register_script( 'custom-js', Gallery_Img()->plugin_url(). '/assets/js/custom.js', array( 'jquery' ), '1.0.0', true );
 		wp_enqueue_script( 'custom-js' );
 
 		if ( $gallery_view == '1' ) {
-			wp_register_script( 'easing-js', plugins_url( '../assets/js/jquery.easing.min.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+			wp_register_script( 'easing-js', Gallery_Img()->plugin_url(). '/assets/js/jquery.easing.min.js', array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'easing-js' );
-			wp_register_script( 'touch_swipe-js', plugins_url( '../assets/js/jquery.touchSwipe.min.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+			wp_register_script( 'touch_swipe-js', Gallery_Img()->plugin_url(). '/assets/js/jquery.touchSwipe.min.js', array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'touch_swipe-js' );
-			wp_register_script( 'liquid-slider-js', plugins_url( '../assets/js/jquery.liquid-slider.min.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+			wp_register_script( 'liquid-slider-js', Gallery_Img()->plugin_url(). '/assets/js/jquery.liquid-slider.min.js', array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'liquid-slider-js' );
 		}
 		if ( $gallery_view == '4' ) {
-			wp_register_script( 'thumb-view-js', plugins_url( '../assets/js/thumb_view.min.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+			wp_register_script( 'thumb-view-js', Gallery_Img()->plugin_url(). '/assets/js/thumb_view.min.js', array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'thumb-view-js' );
-			wp_register_script( 'lazyload-min-js', plugins_url( '../assets/js/jquery.lazyload.min.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+			wp_register_script( 'lazyload-min-js', Gallery_Img()->plugin_url(). '/assets/js/jquery.lazyload.min.js', array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'lazyload--min-js' );
 		}
 		if ( $gallery_view == '6' ) {
-			wp_register_script( 'jusiifed-js', plugins_url( '../assets/js/justifiedGallery.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+			wp_register_script( 'jusiifed-js', Gallery_Img()->plugin_url(). '/assets/js/justifiedGallery.js', array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'jusiifed-js' );
 		}
 		if ($gallery_view == '10') {
-			wp_register_script('modernizr.custom-js', plugins_url('../assets/js/modernizr.custom.js', __FILE__), array('jquery'), '1.0.0', false);
+			wp_register_script('modernizr.custom-js', Gallery_Img()->plugin_url().'/assets/js/modernizr.custom.js',  array('jquery'), '1.0.0', false);
 			wp_enqueue_script('modernizr.custom-js');
-			wp_register_script('classie-js', plugins_url('../assets/js/classie.js', __FILE__), array('jquery'), '1.3.0', false);
+			wp_register_script('classie-js', Gallery_Img()->plugin_url().'/assets/js/classie.js',  array('jquery'), '1.3.0', false);
 			wp_enqueue_script('classie-js');
-			wp_register_script('jquery.elastislide-js', plugins_url('../assets/js/jquery.elastislide.js', __FILE__), array('jquery'), '1.0.0', false);
+			wp_register_script('jquery.elastislide-js', Gallery_Img()->plugin_url().'/assets/js/jquery.elastislide.js',  array('jquery'), '1.0.0', false);
 			wp_enqueue_script('jquery.elastislide-js');
-			wp_register_script('jquery.hoverdir-js', plugins_url('../assets/js/jquery.hoverdir.js', __FILE__), array('jquery'), '1.0.0', false);
+			wp_register_script('jquery.hoverdir-js', Gallery_Img()->plugin_url().'/assets/js/jquery.hoverdir.js',  array('jquery'), '1.0.0', false);
 			wp_enqueue_script('jquery.hoverdir-js');
-			wp_register_script('elastic_grid-js', plugins_url('../assets/js/elastic_grid.js', __FILE__), array('jquery'), '1.3.0', false);
+			wp_register_script('elastic_grid-js', Gallery_Img()->plugin_url().'/assets/js/elastic_grid.js',  array('jquery'), '1.3.0', false);
 			wp_enqueue_script('elastic_grid-js');
 		}
 	}

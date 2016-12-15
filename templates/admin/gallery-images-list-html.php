@@ -14,8 +14,8 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 	<img src=""/>
 </div>
 <div class="wrap">
-	<?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-free-banner.php' ); ?>
-	<?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-christmas-banner-html.php' ); ?>
+	<?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'free-banner.php' ); ?>
+	<?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'christmas-banner-html.php' ); ?>
 	<?php
 		$path_site = plugins_url( "../images", __FILE__ );
 		$save_data_nonce = wp_create_nonce('huge_it_gallery_nonce_save_data' . $id);
@@ -660,5 +660,5 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 	</form>
 </div>
 <?php
-require_once( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-video-add-html.php' );
+require_once( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'video-add-html.php' );
 ?>

@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <section id="huge_it_gallery_container_<?php echo $galleryID; ?>" data-image-object-name="<?php echo "gallery_images_obj_".$galleryID; ?>">
 	<div id="huge_it_gallery_content_<?php echo $galleryID; ?>"
-		 class="gallery-img-content elastic_grid view-<?php echo $view_slug ?>"
-         data-pages-count="<?php echo $total; ?>"
-         data-content-per-page="<?php echo $num; ?>"
+		 class="gallery-img-content elastic_grid view-<?php echo esc_attr($view_slug); ?>"
+         data-pages-count="<?php echo esc_attr($total); ?>"
+         data-content-per-page="<?php echo esc_attr($num); ?>"
          data-current-page="2"
-		 data-image-behaviour="<?php echo $gallery_default_params['gallery_img_ht_view10_image_behaviour']; ?>">
+		 data-image-behaviour="<?php echo esc_attr($gallery_default_params['gallery_img_ht_view10_image_behaviour']); ?>">
 
 	</div>
 	<?php

@@ -16,7 +16,6 @@ class Gallery_Img_Template_Loader {
 	 * @param $images
 	 * @param $gallery_default_params
 	 * @param $gallery
-	 * @param $title
 	 */
 	public function load_front_end( $images, $gallery_default_params, $gallery ) {
 		global $post;
