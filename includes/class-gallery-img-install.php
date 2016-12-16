@@ -155,8 +155,8 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
 		////////////////////////////////////////
 		$imagesAllFieldsInArray2 = $wpdb->get_results( "DESCRIBE " . $wpdb->prefix . "huge_itgallery_gallerys", ARRAY_A );
 		$fornewUpdate            = 0;
-		foreach ( $imagesAllFieldsInArray2 as $portfoliosField2 ) {
-			if ( $portfoliosField2['Field'] == 'display_type' ) {
+		foreach ( $imagesAllFieldsInArray2 as $galleriesField2 ) {
+			if ( $galleriesField2['Field'] == 'display_type' ) {
 				$fornewUpdate = 1;
 			}
 		}
@@ -167,8 +167,8 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
 		///////////////////////////////////////////////////////////////////////
 		$imagesAllFieldsInArray3 = $wpdb->get_results( "DESCRIBE " . $wpdb->prefix . "huge_itgallery_images", ARRAY_A );
 		$fornewUpdate2           = 0;
-		foreach ( $imagesAllFieldsInArray3 as $portfoliosField3 ) {
-			if ( $portfoliosField3['Field'] == 'sl_url' && $portfoliosField3['Type'] == 'text' ) {
+		foreach ( $imagesAllFieldsInArray3 as $galleriesField3 ) {
+			if ( $galleriesField3['Field'] == 'sl_url' && $galleriesField3['Type'] == 'text' ) {
 				$fornewUpdate2 = 1;
 			}
 		}
@@ -179,8 +179,8 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
 		///////////////////////////////////////////////////////////////////////
 		$imagesAllFieldsInArray4 = $wpdb->get_results( "DESCRIBE " . $wpdb->prefix . "huge_itgallery_images", ARRAY_A );
 		$fornewUpdate3           = 0;
-		foreach ( $imagesAllFieldsInArray4 as $portfoliosField4 ) {
-			if ( $portfoliosField4['Field'] == 'like' ) {
+		foreach ( $imagesAllFieldsInArray4 as $galleriesField4 ) {
+			if ( $galleriesField4['Field'] == 'like' ) {
 				$fornewUpdate3 = 1;
 			}
 		}
@@ -191,8 +191,8 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
 		//ADDING Rating COLUMNS
 		$imagesAllFieldsInArray5 = $wpdb->get_results( "DESCRIBE " . $wpdb->prefix . "huge_itgallery_gallerys", ARRAY_A );
 		$fornewUpdate4           = 0;
-		foreach ( $imagesAllFieldsInArray5 as $portfoliosField5 ) {
-			if ( $portfoliosField5['Field'] == 'rating' ) {
+		foreach ( $imagesAllFieldsInArray5 as $galleriesField5 ) {
+			if ( $galleriesField5['Field'] == 'rating' ) {
 				$fornewUpdate4 = 1;
 			}
 		}
@@ -202,8 +202,8 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
 		/////////////////////////////////////////////
 		$imagesAllFieldsInArray6 = $wpdb->get_results( "DESCRIBE " . $wpdb->prefix . "huge_itgallery_gallerys", ARRAY_A );
 		$fornewUpdate5           = 0;
-		foreach ( $imagesAllFieldsInArray6 as $portfoliosField6 ) {
-			if ( $portfoliosField5['Field'] == 'autoslide' ) {
+		foreach ( $imagesAllFieldsInArray6 as $galleriesField6 ) {
+			if ( $galleriesField5['Field'] == 'autoslide' ) {
 				$fornewUpdate5 = 1;
 			}
 		}

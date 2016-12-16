@@ -1,9 +1,12 @@
 <?php
 /**
- * @var $portfolioID int
+ * @var $galleryID int
+ * @var $total int
+ * @var $num int
+ * @var $disp_type string
  * @var $view_slug string
- * @var $portfolioShowLoading
- * @var $portfolio_gallery_get_options
+ * @var $gallery_default_params
+ * @var $pID int
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly

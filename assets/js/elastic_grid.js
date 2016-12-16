@@ -225,7 +225,7 @@ jQuery(function() {
                 //initial default photo
                 imgObject = jQuery('<img/>');
                 imgObject.attr('src', item.thumbnail[0]);
-                if(portfolioGalleryYoutubeParser(item.large[0]) == false) {
+                if(galleryImgYoutubeParser(item.large[0]) == false) {
                     imgObject.attr('data-largesrc', item.large[0]);
                 }
                 else{
@@ -638,7 +638,7 @@ jQuery(function() {
                                 ObjImg.addClass('selected');
                             }
                             ObjImg.attr("src", gthumbs[i]);
-                            if(portfolioGalleryYoutubeParser(glarge[i]) == false) {
+                            if(galleryImgYoutubeParser(glarge[i]) == false) {
                                 ObjImg.attr("data-large", glarge[i]);
                             }
                             else{
@@ -844,7 +844,7 @@ jQuery(function() {
     jQuery(window).trigger('elastic-grid:ready');
 })
 
-function portfolioGalleryYoutubeParser(url) {
+function galleryImgYoutubeParser(url) {
     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
     var match = url.match(regExp);
     var match_vimeo = /vimeo.*\/(\d+)/i.exec(url);
