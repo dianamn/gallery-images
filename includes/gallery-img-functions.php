@@ -423,7 +423,12 @@ function gallery_img_get_default_options() {
 		'gallery_img_ht_view10_expand_block_button_font_size'              => '11',
 		'gallery_img_ht_view10_expand_block_button_text'                   => 'View More',
 		'gallery_img_ht_view10_show_center'                   			   => 'on',
-		'gallery_img_ht_view10_expand_width'                               => '100'
+		'gallery_img_ht_view10_expand_width'                               => '100',
+		'gallery_img_ht_view10_paginator_fontsize'                         => '22',
+		'gallery_img_ht_view10_paginator_color'                            => '1046B3',
+		'gallery_img_ht_view10_paginator_icon_color'                       => '1046B3',
+		'gallery_img_ht_view10_paginator_icon_size'                        => '18',
+		'gallery_img_ht_view10_paginator_position'                         => 'center'
 	);
 
 	return $gallery_default__params;

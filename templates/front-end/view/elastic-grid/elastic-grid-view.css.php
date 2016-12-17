@@ -5,9 +5,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <style>
 
+#huge_it_gallery_container_<?php echo $galleryID; ?> .paginate {
+    font-size: <?php echo $gallery_default_params['gallery_img_ht_view10_paginator_fontsize']; ?>px !important;
+    color: <?php echo '#'.$gallery_default_params['gallery_img_ht_view10_paginator_color']; ?> !important;
+    text-align: <?php echo $gallery_default_params['gallery_img_ht_view10_paginator_position']; ?>;
+    margin-top: 15px;
+}
+
+#huge_it_gallery_container_<?php echo $galleryID; ?> .paginate5  {
+    border-bottom: none !important;
+}
+
+#huge_it_gallery_container_<?php echo $galleryID; ?> .icon-style {
+    font-size: <?php echo $gallery_default_params['gallery_img_ht_view10_paginator_icon_size']; ?>px !important;
+    color: <?php echo '#'.$gallery_default_params['gallery_img_ht_view10_paginator_icon_color']; ?> !important;
+}
+
 #huge_it_gallery_container_<?php echo $galleryID; ?> {
     position: relative;
     display: inline-block;
+    width: 100%;
+}
+
+#huge_it_gallery_container_<?php echo $galleryID; ?> {
+    position: relative;
+    display: inline-block;
+    width: 100%;
 }
 
 #huge_it_gallery_content_<?php echo $galleryID; ?> .wagwep-container {
