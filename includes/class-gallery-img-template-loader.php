@@ -16,7 +16,6 @@ class Gallery_Img_Template_Loader {
 	 * @param $images
 	 * @param $gallery_default_params
 	 * @param $gallery
-	 * @param $title
 	 */
 	public function load_front_end( $images, $gallery_default_params, $gallery ) {
 		global $post;
@@ -97,6 +96,11 @@ class Gallery_Img_Template_Loader {
                 require GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'front-end' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'blog-style-gallery' . DIRECTORY_SEPARATOR . 'blog-style-gallery-view.php';
                 require GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'front-end' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'blog-style-gallery' . DIRECTORY_SEPARATOR . 'blog-style-gallery-view.css.php';
                 break;
+			case 10:
+				$view_slug = gallery_img_get_view_slag_by_id( $galleryID );
+				require GALLERY_IMG_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'front-end'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'elastic-grid'.DIRECTORY_SEPARATOR.'elastic-grid-view.php';
+				require GALLERY_IMG_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'front-end'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'elastic-grid'.DIRECTORY_SEPARATOR.'elastic-grid-view.css.php';
+				break;
 		}
 
 

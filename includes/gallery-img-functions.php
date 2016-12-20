@@ -4,6 +4,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Change hex color more bright or more dark
+ *
+ * @param $hex
+ * @param $steps
+ *
+ * @return string
+ */
+function gallery_img_adjust_brightness($hex, $steps) {
+	// Steps should be between -255 and 255. Negative = darker, positive = lighter
+	$steps = max(-255, min(255, $steps));
+
+	// Normalize into a six character long hex string
+	$hex = str_replace('#', '', $hex);
+	if (strlen($hex) == 3) {
+		$hex = str_repeat(substr($hex,0,1), 2).str_repeat(substr($hex,1,1), 2).str_repeat(substr($hex,2,1), 2);
+	}
+
+	// Split into three parts: R, G and B
+	$color_parts = str_split($hex, 2);
+	$new_color = '';
+
+	foreach ($color_parts as $color) {
+		$color   = hexdec($color); // Convert to decimal
+		$color   = max(0,min(255,$color + $steps)); // Adjust color
+		$new_color .= str_pad(dechex($color), 2, '0', STR_PAD_LEFT); // Make two char hex code
+	}
+
+	return $new_color;
+}
+
+/**
  * Get all default general options parameters in a single array
  *
  * @return array Array of all general options
@@ -357,7 +388,47 @@ function gallery_img_get_default_options() {
 		'gallery_img_ht_blog_heart_likedislike_thumb_color'             => 'D63E48',
 		'gallery_img_ht_blog_heart_likedislike_thumb_active_color'      => 'E00000',
 		'gallery_img_admin_image_hover_preview'                         => 'on',
-		'gallery_img_ht_view2_popup_mobile_position_at_top'             => 'on'
+		'gallery_img_ht_view2_popup_mobile_position_at_top'             => 'on',
+		'gallery_img_ht_view10_image_behaviour'                            => 'crop',
+		'gallery_img_ht_view10_element_width'                              => '250',
+		'gallery_img_ht_view10_element_height'                             => '250',
+		'gallery_img_ht_view10_element_margin'                             => '10',
+		'gallery_img_ht_view10_element_border_width'                       => '0',
+		'gallery_img_ht_view10_element_border_color'                       => 'DEDEDE',
+		'gallery_img_ht_view10_element_overlay_background_color_'          => '484848',
+		'gallery_img_ht_view10_element_overlay_opacity'                    => '70',
+		'gallery_img_ht_view10_element_hover_effect'                       => 'true',
+		'gallery_img_ht_view10_hover_effect_delay'                         => '0',
+		'gallery_img_ht_view10_hover_effect_inverse'                       => 'false',
+		'gallery_img_ht_view10_expanding_speed'                            => '500',
+		'gallery_img_ht_view10_expand_block_height'                        => '500',
+		'gallery_img_ht_view10_element_title_font_size'                    => '16',
+		'gallery_img_ht_view10_element_title_font_color'                   => 'FFFFFF',
+		'gallery_img_ht_view10_element_title_align'                        => 'center',
+		'gallery_img_ht_view10_element_title_border_width'                 => '1',
+		'gallery_img_ht_view10_element_title_border_color'                 => 'FFFFFF',
+		'gallery_img_ht_view10_element_title_margin_top'                   => '40',
+		'gallery_img_ht_view10_element_title_padding_top_bottom'           => '10',
+		'gallery_img_ht_view10_expand_block_background_color'              => '222222',
+		'gallery_img_ht_view10_expand_block_opacity'                       => '100',
+		'gallery_img_ht_view10_expand_block_title_color'                   => 'd6d6d6',
+		'gallery_img_ht_view10_expand_block_title_font_size'               => '35',
+		'gallery_img_ht_view10_expand_block_description_font_size'         => '13',
+		'gallery_img_ht_view10_expand_block_description_font_color'        => '999',
+		'gallery_img_ht_view10_expand_block_description_font_hover_color'  => '999',
+		'gallery_img_ht_view10_expand_block_description_text_align'        => 'left',
+		'gallery_img_ht_view10_expand_block_button_background_color'       => '454545',
+		'gallery_img_ht_view10_expand_block_button_background_hover_color' => '454545',
+		'gallery_img_ht_view10_expand_block_button_text_color'             => '9f9f9f',
+		'gallery_img_ht_view10_expand_block_button_font_size'              => '11',
+		'gallery_img_ht_view10_expand_block_button_text'                   => 'View More',
+		'gallery_img_ht_view10_show_center'                   			   => 'on',
+		'gallery_img_ht_view10_expand_width'                               => '100',
+		'gallery_img_ht_view10_paginator_fontsize'                         => '22',
+		'gallery_img_ht_view10_paginator_color'                            => '1046B3',
+		'gallery_img_ht_view10_paginator_icon_color'                       => '1046B3',
+		'gallery_img_ht_view10_paginator_icon_size'                        => '18',
+		'gallery_img_ht_view10_paginator_position'                         => 'center'
 	);
 
 	return $gallery_default__params;
@@ -413,6 +484,9 @@ function gallery_img_get_view_slag_by_id( $id ) {
 			break;
 		case 7:
 			$slug = 'blog-style-gallery';
+			break;
+		case 10:
+			$slug = 'elastic-grid';
 			break;
 	}
 

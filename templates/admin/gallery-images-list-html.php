@@ -14,7 +14,8 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 	<img src=""/>
 </div>
 <div class="wrap">
-	<?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-free-banner.php' ); ?>
+	<?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'free-banner.php' ); ?>
+	<?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'christmas-banner-html.php' ); ?>
 	<?php
 		$path_site = plugins_url( "../images", __FILE__ );
 		$save_data_nonce = wp_create_nonce('huge_it_gallery_nonce_save_data' . $id);
@@ -244,6 +245,10 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 											echo 'selected';
 										} ?>
 											value="7"><?php echo __( 'Blog Style Gallery', 'gallery-images' ); ?></option>
+										<option <?php if ( $row->huge_it_sl_effects == '10' ) {
+											echo 'selected';
+										} ?>
+											value="10"><?php echo __( 'Elastic Grid', 'gallery-img' ); ?></option>
 									</select>
 								</li>
 								<div id="gallery-current-options-0"
@@ -550,6 +555,37 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 										</li>
 									</ul>
 								</div>
+								<div id="gallery-current-options-10"
+									 class="gallery-current-options <?php if ( $row->huge_it_sl_effects == 10 ) {
+										 echo ' active';
+									 } ?>">
+									<ul id="view10">
+
+										<li>
+											<label
+												for="display_type"><?php echo __( 'Displaying Content', 'gallery-img' ); ?></label>
+											<select id="display_type" name="display_type">
+
+												<option <?php if ( $row->display_type == 0 ) {
+													echo 'selected';
+												} ?>
+													value="0"><?php echo __( 'Pagination', 'gallery-img' ); ?></option>
+												<option <?php if ( $row->display_type == 2 ) {
+													echo 'selected';
+												} ?>
+													value="2"><?php echo __( 'Show All', 'gallery-img' ); ?></option>
+
+											</select>
+										</li>
+										<li id="content_per_page">
+											<label
+												for="content_per_page"><?php echo __( 'Images Per Page', 'gallery-img' ); ?></label>
+											<input type="text" name="content_per_page" id="content_per_page"
+												   value="<?php echo esc_attr( $row->content_per_page ); ?>"
+												   class="text_area"/>
+										</li>
+									</ul>
+								</div>
 								<li class="for_slider">
 									<label
 										for="pause_on_hover"><?php echo __( 'Pause on hover', 'gallery-images' ); ?></label>
@@ -624,5 +660,5 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 	</form>
 </div>
 <?php
-require_once( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-video-add-html.php' );
+require_once( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'video-add-html.php' );
 ?>

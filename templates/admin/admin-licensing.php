@@ -76,6 +76,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<ol>
 		<li><?php _e('Deactivate Huge IT Gallery Plugin','gallery-img'); ?></li>
 		<li><?php _e('Delete Huge IT Gallery Plugin','gallery-img'); ?></li>
-		<li><?php _e('Install the downloaded commercial version of the plugin','portfolio-gallery'); ?></li>
+		<li><?php _e('Install the downloaded commercial version of the plugin','gallery-img'); ?></li>
 	</ol>
 </div>

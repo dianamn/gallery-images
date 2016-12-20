@@ -15,7 +15,7 @@ class Gallery_Img_Widgets{
 	}
 
 	/**
-	 * Register Huge-IT Portfolio Gallery Widget
+	 * Register Huge-IT Gallery Widget
 	 */
 	public function register_widget(){
 		register_widget( 'Huge_it_gallery_Widget' );

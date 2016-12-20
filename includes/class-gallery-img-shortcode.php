@@ -89,7 +89,7 @@ class Gallery_Img_Shortcode {
 	 * Inline popup contents
 	 */
 	public function inline_popup_content() {
-		require GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-inline-popup-content-html.php';
+		require GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'inline-popup-content-html.php';
 	}
 
 

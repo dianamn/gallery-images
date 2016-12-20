@@ -108,7 +108,7 @@ GROUP BY " . $wpdb->prefix . "huge_itgallery_images.gallery_id ";
 		$sort    = '';
 		$cat_row = gallery_img_open_cat_in_tree( $cat_row );
 
-		require_once( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-galleries-list.php' );
+		require_once( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'galleries-list.php' );
 
 	}
 
@@ -169,7 +169,7 @@ INSERT INTO
 				$postsbycat = $rowsposts1;
 			}
 		}
-		require_once( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-gallery-images-list-html.php' );
+		require_once( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-images-list-html.php' );
 	}
 
 	/**
@@ -310,7 +310,7 @@ INSERT INTO
 	 * @param $id
 	 */
 	function insert_gallery_img_video( $id ) {
-		require_once( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'gallery-img-admin-video-add-html.php' );
+		require_once( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'video-add-html.php' );
 	}
 
 	/**
