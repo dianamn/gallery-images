@@ -3,8 +3,8 @@ Contributors: Huge-IT
 Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, lightbox gallery, wordpress gallery, photo gallery, content gallery, media gallery, youtube gallery, images gallery, responsive gallery, thumbnail gallery,
 Requires at least: 3.0.1
-Tested up to: 4.6.1
-Stable tag: 2.0.7
+Tested up to: 4.7
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -884,6 +884,10 @@ The commercial version users can do unlimited customization, if your images/vide
 
 
 == Changelog ==
+
+= 2.1.0 =
+* 1) Added a new responsive view called Elastic Grid.
+* 2) Made some php code optimization in the back end of the plugin.
 
 = 2.0.7 =
 * 1) Made additional changes and edits in unique prefixes in options
