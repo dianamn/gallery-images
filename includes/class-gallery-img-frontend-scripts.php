@@ -321,7 +321,6 @@ class Gallery_Img_Frontend_Scripts {
 		}
 
 		wp_localize_script( 'front-end-js-'.$view_slug, 'param_obj', $gallery_default_params );
-		wp_localize_script( 'front-end-js-'.$view_slug, 'gallery_obj', $gallery );
 		wp_localize_script( 'front-end-js-'.$view_slug, 'adminUrl', $admin_url );
 		wp_localize_script( 'front-end-js-'.$view_slug, 'postID', $pID );
 		wp_localize_script( 'front-end-js-'.$view_slug, 'postID', $pID );

@@ -54,7 +54,7 @@ class Gallery_Img_Template_Loader {
 			$page = $total;
 		}
 		$start       = $page * $num - $num;
-		$query       = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_images where gallery_id = '%d' order by ordering ASC LIMIT " . $start . "," . $num, $galleryID );
+		$query       = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_images where gallery_id = '%d' and sl_type!='video' order by ordering ASC LIMIT " . $start . "," . $num, $galleryID );
 		$page_images = $wpdb->get_results( $query );
 		if ( $disp_type == 2 ) {
 			$page_images = $images;

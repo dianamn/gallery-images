@@ -775,7 +775,7 @@ jQuery(function() {
                     self.$previewEl.css( 'height', detailsHeight+imgHeight+60);
                     self.itemHeight = self.$item.data( 'height' ) + detailsHeight+imgHeight + 90;
                 }
-                self.$item.css( 'height', self.itemHeight ).on( transEndEventName, onEndFn );console.log(self.itemHeight);
+                self.$item.css( 'height', self.itemHeight ).on( transEndEventName, onEndFn );
 
                 if( !support ) {
                     onEndFn.call();

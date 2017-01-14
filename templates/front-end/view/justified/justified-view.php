@@ -1,4 +1,5 @@
 <div id="mygallery_wrapper_<?php echo $galleryID; ?>" class="clearfix gallery-img-content"
+	 data-gallery-id="<?php echo $galleryID; ?>" data-content-per-page="<?php echo $num; ?>"
      data-rating-type="<?php echo $like_dislike; ?>">
 	<div id="mygallery_<?php echo $galleryID; ?>" class="mygallery clearfix view-<?php echo $view_slug; ?>">
 		<?php
@@ -357,5 +358,5 @@
 		echo $pervpage . $page . '/' . $total . $nextpage;
 		?>
 	</div>
+	<?php } ?>
 </div>
-<?php } ?>

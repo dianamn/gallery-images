@@ -1,4 +1,6 @@
 <section id="huge_it_gallery_content_<?php echo $galleryID; ?>" class="gallery-img-content"
+		 data-gallery-id="<?php echo $galleryID; ?>"
+		 data-content-per-page="<?php echo $num; ?>"
          data-rating-type="<?php echo $like_dislike; ?>">
 	<div id="huge_it_gallery_container_<?php echo $galleryID; ?>"
 	     data-show-center="<?php echo $gallery_default_params[ 'gallery_img_ht_view6_content_in_center' ]; ?>"

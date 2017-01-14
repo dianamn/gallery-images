@@ -1,5 +1,5 @@
 <style>
-section #huge_it_gallery {
+section #huge_it_gallery<?php echo $galleryID; ?> {
     padding: <?php echo $gallery_default_params['gallery_img_thumb_box_padding']; ?>px !important;
     min-width: 100%;
     width: 100%;
@@ -10,7 +10,7 @@ section #huge_it_gallery {
 <?php if($gallery_default_params["gallery_img_thumb_box_has_background"] == 'on'){ ?>  background-color: #<?php echo $gallery_default_params["gallery_img_thumb_box_background"]; ?>; <?php } ?>
 <?php if($gallery_default_params["gallery_img_thumb_box_use_shadow"] == 'on'){ echo 'box-shadow: 0 0 10px;'; } ?>
 }
-#huge_it_gallery .huge_it_big_li {
+#huge_it_gallery<?php echo $galleryID; ?> .huge_it_big_li {
 <?php if($gallery_default_params["gallery_img_image_natural_size_thumbnail"] == 'resize'){?>
     overflow:hidden;
     width: 100%;
@@ -33,7 +33,7 @@ elseif($gallery_default_params["gallery_img_image_natural_size_thumbnail"] == 'n
     border: <?php echo $gallery_default_params["gallery_img_thumb_image_border_width"]; ?>px solid #<?php echo $gallery_default_params["gallery_img_thumb_image_border_color"]; ?>;
     box-sizing: border-box;
 }
-#huge_it_gallery li img {
+#huge_it_gallery<?php echo $galleryID; ?> li img {
 <?php if($gallery_default_params["gallery_img_image_natural_size_thumbnail"] == 'resize'){?>
     width: 100%;
     max-width: <?php echo $gallery_default_params["gallery_img_thumb_image_width"]; ?>px;
@@ -47,16 +47,16 @@ elseif($gallery_default_params["gallery_img_image_natural_size_thumbnail"] == 'n
 <?php }?>
     border-radius: <?php  if($gallery_default_params["gallery_img_thumb_image_border_width"] == 0) echo $gallery_default_params["gallery_img_thumb_image_border_radius"]; else echo 0; ?>px;
 }
-section #huge_it_gallery li .overLayer ul li h2,
-section #huge_it_gallery li .infoLayer ul li h2 {
+section #huge_it_gallery<?php echo $galleryID; ?> li .overLayer ul li h2,
+section #huge_it_gallery<?php echo $galleryID; ?> li .infoLayer ul li h2 {
     font-size: <?php echo $gallery_default_params["gallery_img_thumb_title_font_size"]; ?>px;
     color: #<?php echo $gallery_default_params["gallery_img_thumb_title_font_color"]; ?>;
 }
-section #huge_it_gallery li .infoLayer ul li p {
+section #huge_it_gallery<?php echo $galleryID; ?> li .infoLayer ul li p {
     color: #<?php echo $gallery_default_params["gallery_img_thumb_title_font_color"]; ?>;
 }
-section #huge_it_gallery li .overLayer,
-section #huge_it_gallery li .infoLayer {
+section #huge_it_gallery<?php echo $galleryID; ?> li .overLayer,
+section #huge_it_gallery<?php echo $galleryID; ?> li .infoLayer {
     -webkit-transition: opacity 0.3s linear;
     -moz-transition: opacity 0.3s linear;
     -ms-transition: opacity 0.3s linear;
@@ -74,7 +74,7 @@ section #huge_it_gallery li .infoLayer {
     max-height: 100%;
     border-radius: <?php  if($gallery_default_params["gallery_img_thumb_image_border_width"] == 0) echo $gallery_default_params["gallery_img_thumb_image_border_radius"]; else echo 0; ?>px;
 }
-section #huge_it_gallery li a {
+section #huge_it_gallery<?php echo $galleryID; ?> li a {
     position: absolute;
     display: block;
     width: 100%;
@@ -124,7 +124,7 @@ section #huge_it_gallery li a {
 .clear{
     clear:both;
 }
-section #huge_it_gallery li:hover .overLayer {
+section #huge_it_gallery<?php echo $galleryID; ?> li:hover .overLayer {
     -webkit-transition: opacity 0.3s linear;
     -moz-transition: opacity 0.3s linear;
     -ms-transition: opacity 0.3s linear;
@@ -134,7 +134,7 @@ section #huge_it_gallery li:hover .overLayer {
     display: block;
     background: #<?php echo $gallery_default_params["gallery_img_thumb_title_background_color"]; ?>;
 }
-section #huge_it_gallery li:hover .infoLayer {
+section #huge_it_gallery<?php echo $galleryID; ?> li:hover .infoLayer {
     -webkit-transition: opacity 0.3s linear;
     -moz-transition: opacity 0.3s linear;
     -ms-transition: opacity 0.3s linear;
@@ -143,7 +143,7 @@ section #huge_it_gallery li:hover .infoLayer {
     opacity: 1;
     display: block;
 }
-section #huge_it_gallery p {text-align:center;}
+section #huge_it_gallery<?php echo $galleryID; ?> p {text-align:center;}
 <?php	switch ($like_dislike) {
 case "dislike":
     ?>
@@ -156,7 +156,7 @@ case "dislike":
     display: none;
     color: #<?php echo $gallery_default_params['gallery_img_ht_thumb_likedislike_font_color']; ?>;
 }
-#huge_it_gallery .huge_it_big_li:hover .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?>{
+#huge_it_gallery<?php echo $galleryID; ?> .huge_it_big_li:hover .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?>{
     display: table;
 }
 .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper ,
@@ -259,7 +259,7 @@ case "dislike":
     z-index: 99;
     display: none;
 }
-#huge_it_gallery .huge_it_big_li:hover .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?>{
+#huge_it_gallery<?php echo $galleryID; ?> .huge_it_big_li:hover .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?>{
     display: block;
 }
 .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper  {

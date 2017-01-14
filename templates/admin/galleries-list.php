@@ -8,7 +8,6 @@ $gallery_wp_nonce_add_gallery    = wp_create_nonce( 'gallery_wp_nonce_add_galler
 
 <div class="wrap">
 	<?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'free-banner.php' ); ?>
-	<?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'christmas-banner-html.php' ); ?>
 	<?php $path_site = plugins_url( "../images", __FILE__ ); ?>
 	<div style="clear: both;"></div>
 	<div id="poststuff">
@@ -124,7 +123,6 @@ $gallery_wp_nonce_add_gallery    = wp_create_nonce( 'gallery_wp_nonce_add_galler
 						} else {
 							$pr_count = 0;
 						}
-						$huge_it_gallery_nonce_galleries = wp_create_nonce( 'huge_it_gallery_nonce_galleries'. $rows[ $i ]->id);
 						$huge_it_gallery_nonce_remove_gallery = wp_create_nonce( 'huge_it_gallery_nonce_remove_gallery' . $rows[ $i ]->id );
 						$huge_it_gallery_nonce_duplicate_gallery = wp_create_nonce('huge_it_gallery_nonce_duplicate_gallery'.$rows[$i]->id);
 						?>
@@ -133,7 +131,7 @@ $gallery_wp_nonce_add_gallery    = wp_create_nonce( 'gallery_wp_nonce_add_galler
 						} ?>>
 							<td><?php echo $rows[ $i ]->id; ?></td>
 							<td>
-								<a href="admin.php?page=galleries_huge_it_gallery&task=edit_cat&id=<?php echo $rows[ $i ]->id ?>&huge_it_gallery_nonce_galleries=<?php echo $huge_it_gallery_nonce_galleries; ?>"><?php echo esc_html( stripslashes( $rows[ $i ]->name ) ); ?></a>
+								<a href="admin.php?page=galleries_huge_it_gallery&task=edit_cat&id=<?php echo $rows[ $i ]->id ?>"><?php echo esc_html( stripslashes( $rows[ $i ]->name ) ); ?></a>
 							</td>
 							<td>(<?php if ( ! ( $pr_count ) ) {
 									echo '0';

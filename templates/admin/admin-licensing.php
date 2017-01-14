@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		advanced features, settings to customize every area of the plugin, then check out the Full License plugin. The
 		full version of the plugin is available in 3 different packages of one-time payment.','gallery-img'); ?>
 	</p>
+	<a  target="_blank" href="http://huge-it.com/wordpress-gallery/" class="button-primary" target="_blank"><?php _e('Purchase a License', 'gallery-img' ); ?></a>
 </div>
 
 <div class="image-gallery">
