@@ -9,7 +9,7 @@
 	outline: none;
 }
 .element_<?php echo $galleryID; ?>.no-title{
-	height: <?php echo $gallery_default_params['gallery_img_ht_view2_element_height']+2*$gallery_default_params['gallery_img_ht_view2_element_border_width']; ?>px;
+	height: <?php echo $gallery_default_params['gallery_img_ht_view2_element_height']; ?>px;
 }
 .element_<?php echo $galleryID; ?> .image-block_<?php echo $galleryID; ?> {
 <?php if($gallery_default_params['gallery_img_image_natural_size_contentpopup']=='resize'){?> position: relative;
