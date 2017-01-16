@@ -15,7 +15,6 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 </div>
 <div class="wrap">
 	<?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'free-banner.php' ); ?>
-	<?php require( GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'christmas-banner-html.php' ); ?>
 	<?php
 		$path_site = plugins_url( "../images", __FILE__ );
 		$save_data_nonce = wp_create_nonce('huge_it_gallery_nonce_save_data' . $id);
@@ -32,11 +31,10 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 					<?php
 					foreach ( $rowsld as $rowsldires ) {
 						if ( $rowsldires->id != $row->id ) {
-							$huge_it_gallery_nonce_galleries = wp_create_nonce( 'huge_it_gallery_nonce_galleries'. $rowsldires->id );
 							?>
 							<li>
 								<a href="#"
-								   onclick="window.location.href='admin.php?page=galleries_huge_it_gallery&task=edit_cat&id=<?php echo $rowsldires->id; ?>&huge_it_gallery_nonce_galleries=<?php echo $huge_it_gallery_nonce_galleries; ?>'"><?php echo $rowsldires->name; ?></a>
+								   onclick="window.location.href='admin.php?page=galleries_huge_it_gallery&task=edit_cat&id=<?php echo $rowsldires->id; ?>'"><?php echo esc_html($rowsldires->name); ?></a>
 							</li>
 							<?php
 						} else { ?>

@@ -27,9 +27,6 @@ class Gallery_Img_Galleries {
 				}
 				break;
 			case 'edit_cat':
-				if ( ! isset( $_REQUEST['huge_it_gallery_nonce_galleries'] ) || ! wp_verify_nonce( $_REQUEST['huge_it_gallery_nonce_galleries'], 'huge_it_gallery_nonce_galleries' . $id ) ) {
-					wp_die( 'Security check fail' );
-				}
 				if ( $id ) {
 					$this->edit_gallery( $id );
 				} else {

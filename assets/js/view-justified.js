@@ -32,8 +32,8 @@ function Gallery_Img_Justified(id) {
         var justifiedLoadNonce = jQuery(this).attr('data-justified-nonce-value');
         if (parseInt(_this.content.find(".pagenum:last").val()) < parseInt(_this.content.find("#total").val())) {
             var pagenum = parseInt(_this.content.find(".pagenum:last").val()) + 1;
-            var perpage = gallery_obj[0].content_per_page;
-            var galleryid = gallery_obj[0].id;
+            var perpage = _this.content.attr('data-content-per-page');
+            var galleryid = _this.content.attr('data-gallery-id');
             var pID = postID;
             var likeStyle = _this.ratingType;
             var ratingCount = param_obj.gallery_img_ht_just_rating_count;

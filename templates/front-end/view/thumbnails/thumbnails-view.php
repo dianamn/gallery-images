@@ -1,8 +1,8 @@
-<section id="thumbwrapper<?= $galleryID; ?>" class="gallery-img-content"
+<section id="thumbwrapper<?php echo $galleryID; ?>" class="gallery-img-content"
          data-gallery-id="<?php echo $galleryID; ?>" data-content-per-page="<?php echo $num; ?>"
          data-rating-type="<?php echo $like_dislike; ?>">
 	<input type="hidden" class="pagenum" value="1"/>
-	<ul id="huge_it_gallery" class="huge_it_gallery view-<?php echo $view_slug; ?>">
+	<ul id="huge_it_gallery<?php echo $galleryID; ?>" class="huge_it_gallery view-<?php echo $view_slug; ?>">
 		<li id="fullPreview"></li>
 		<?php
 		global $wpdb;

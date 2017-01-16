@@ -32,7 +32,7 @@ class Gallery_Img_Shortcode {
 		global $wpdb;
 		$query        = $wpdb->prepare( "SELECT huge_it_sl_effects FROM " . $wpdb->prefix . "huge_itgallery_gallerys WHERE id=%d", $attrs['id'] );
 		$gallery_view = $wpdb->get_var( $query );
-		$query = $wpdb->prepare( "SELECT image_url FROM " . $wpdb->prefix . "huge_itgallery_images WHERE gallery_id=%d", $attrs['id'] );
+		$query = $wpdb->prepare( "SELECT image_url FROM " . $wpdb->prefix . "huge_itgallery_images WHERE gallery_id=%d and sl_type!='video'", $attrs['id'] );
 		$images       = $wpdb->get_col( $query );
 
 		do_action( 'gallery_img_shortcode_scripts', $attrs['id'], $gallery_view );
@@ -51,7 +51,7 @@ class Gallery_Img_Shortcode {
 	protected function init_frontend( $id ) {
 		global $wpdb;
 
-		$query  = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_images where gallery_id = '%d' order by ordering ASC", $id );
+		$query  = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_images where gallery_id = '%d' and sl_type!='video' order by ordering ASC", $id );
 		$images = $wpdb->get_results( $query );
 
 		$query   = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_gallerys where id = '%d' order by id ASC", $id );

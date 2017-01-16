@@ -114,6 +114,10 @@ jQuery(document).ready(function () {
 				jQuery(this).find('ul li input[name="content_per_page"]').attr('name', '');
 				jQuery(this).find('ul li select[name="display_type"]').attr('name', '');
 			}
+			else{
+				jQuery(this).find('ul li input#content_per_page').attr('name', 'content_per_page');
+				jQuery(this).find('ul li select#display_type').attr('name', 'display_type');
+			}
 		});
 	});
 
