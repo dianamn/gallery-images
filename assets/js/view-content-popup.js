@@ -62,7 +62,8 @@ function Gallery_Img_Content_Popup(id) {
                 }
             }
         };
-        galleryImgIsotope(_this.container.children(), options);
+        galleryImgIsotope(_this.container.children().first());
+        galleryImgIsotope(_this.container.children().first(), options);
         galleryImgRatingCountsOptimize(_this.container, _this.ratingType);
         galleryImgRatingCountsOptimize(_this.popupList, _this.ratingType);
     };
@@ -86,7 +87,7 @@ function Gallery_Img_Content_Popup(id) {
                 "overflow": "hidden"
             });
             var loadInterval = setInterval(function(){
-                galleryImgIsotope(_this.container.children(), 'reLayout');
+                galleryImgIsotope(_this.container.children(), 'layout');
             },100);
             setTimeout(function(){clearInterval(loadInterval);},7000);
         }
@@ -245,7 +246,7 @@ function Gallery_Img_Content_Popup(id) {
     _this.resizeEvent = function () {
         var iframeHeight = _this.popupList.find('.popup-wrapper .image-block').width() * 0.5;
         _this.popupList.find('.popup-wrapper .image-block iframe').height(iframeHeight);
-        galleryImgIsotope(_this.container.children(), 'reLayout');
+        galleryImgIsotope(_this.container.children(), 'layout');
         _this.showCenter();
 
     };
@@ -309,9 +310,10 @@ function Gallery_Img_Content_Popup(id) {
                     _this.container.children().first().append($objnewitems);
                     galleryImgIsotope(_this.container.children().first());
                     setTimeout(function () {
+                        galleryImgIsotope(_this.container.children().first());
                         galleryImgIsotope(_this.container.children().first(), 'reloadItems');
                         galleryImgIsotope(_this.container.children().first(), {sortBy: 'original-order'});
-                        galleryImgIsotope(_this.container.children().first(), 'reLayout');
+                        galleryImgIsotope(_this.container.children().first(), 'layout');
                     }, 100);
 
                     _this.container.children().find('img').on('load', function () {
