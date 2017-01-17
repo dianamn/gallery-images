@@ -3,8 +3,8 @@ Contributors: Huge-IT
 Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, lightbox gallery, wordpress gallery, photo gallery, content gallery, media gallery, youtube gallery, images gallery, responsive gallery, thumbnail gallery,
 Requires at least: 3.0.1
-Tested up to: 4.7
-Stable tag: 2.1.0
+Tested up to: 4.7.1
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -884,6 +884,12 @@ The commercial version users can do unlimited customization, if your images/vide
 
 
 == Changelog ==
+
+= 2.1.1 =
+* Fixed the issue with overuse of nonces in edit pages.
+* Fix issue with WP themes that included isotope js and brought conflict.
+* Fixed the load more button with 5 views of the plugin.
+* Fixed display content option bug that did not save changes.
 
 = 2.1.0 =
 * 1) Added a new responsive view called Elastic Grid.
