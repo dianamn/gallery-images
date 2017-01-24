@@ -8,18 +8,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Gallery_Img_Widgets{
 
 	/**
-	 * Gallery_Img_Widgets constructor.
-	 */
-	public function __construct() {
-		add_action( 'widgets_init', array($this,'register_widget'));
-	}
-
-	/**
 	 * Register Huge-IT Gallery Widget
 	 */
-	public function register_widget(){
-		register_widget( 'Huge_it_gallery_Widget' );
+	public static function init(){
+		register_widget( 'Gallery_Img__Widget' );
 	}
 }
 
-new Gallery_Img_Widgets();

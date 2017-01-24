@@ -38,5 +38,3 @@ class Gallery_Img_Admin_Assets {
 	}
 
 }
-
-new Gallery_Img_Admin_Assets();

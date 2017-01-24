@@ -30,6 +30,25 @@ class Gallery_Img_Shortcode {
 		), $attrs );
 
 		global $wpdb;
+
+		$query        = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_gallerys WHERE id=%d", $attrs['id'] );
+		$gallery = $wpdb->get_results( $query );
+		if( !$gallery ){
+			ob_start();
+			printf( __( "Gallery with ID %s doesn't exist.","gallery-img" ), $attrs['id'] );
+			return ob_get_clean();
+			return;
+		}
+
+		$query        = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_images WHERE gallery_id=%d", $attrs['id'] );
+		$images_row   = $wpdb->get_results( $query );
+		if( !$images_row ){
+			ob_start();
+			printf( __( "Gallery with ID %s is empty.","gallery-img" ), $attrs['id'] );
+			return ob_get_clean();
+			return;
+		}
+
 		$query        = $wpdb->prepare( "SELECT huge_it_sl_effects FROM " . $wpdb->prefix . "huge_itgallery_gallerys WHERE id=%d", $attrs['id'] );
 		$gallery_view = $wpdb->get_var( $query );
 		$query = $wpdb->prepare( "SELECT image_url FROM " . $wpdb->prefix . "huge_itgallery_images WHERE gallery_id=%d and sl_type!='video'", $attrs['id'] );
@@ -94,5 +113,3 @@ class Gallery_Img_Shortcode {
 
 
 }
-
-new Gallery_Img_Shortcode();

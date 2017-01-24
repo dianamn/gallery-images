@@ -51,20 +51,8 @@ class Gallery_Img_Admin {
 	 * Gallery_Img_Admin constructor.
 	 */
 	public function __construct() {
-		$this->init();
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'wp_loaded', array( $this, 'wp_loaded' ) );
-	}
-
-	/**
-	 * Initialize Image Gallery's admin
-	 */
-	protected function init() {
-		$this->general_options  = new Gallery_Img_General_Options();
-		$this->galleries        = new Gallery_Img_Galleries();
-		$this->lightbox_options = new Gallery_Img_Lightbox_Options();
-		$this->featured_plugins = new Gallery_Img_Featured_Plugins();
-		$this->licensing        = new Gallery_Img_Licensing();
 	}
 
 	/**
@@ -72,29 +60,29 @@ class Gallery_Img_Admin {
 	 */
 	public function admin_menu() {
 		$this->pages[] = add_menu_page( __( 'Huge-IT  Gallery', 'gallery-images' ), __( 'Huge-IT Gallery', 'gallery-images' ), 'delete_pages', 'galleries_huge_it_gallery', array(
-			Gallery_Img()->admin->galleries,
+			Gallery_Img()->galleries,
 			'load_gallery_page'
 		), GALLERY_IMG_IMAGES_URL . "/admin_images/huge-it-gallery-logo-for-menu.png" );
 		$this->pages[] = add_submenu_page( 'galleries_huge_it_gallery', __( 'Galleries', 'gallery-images' ), __( 'Galleries', 'gallery-images' ), 'delete_pages', 'galleries_huge_it_gallery', array(
-			Gallery_Img()->admin->galleries,
+			Gallery_Img()->galleries,
 			'load_gallery_page'
 		) );
 
 		$this->pages[] = add_submenu_page( 'galleries_huge_it_gallery', __( 'Advanced Features PRO', 'gallery-images' ), __( 'Advanced Features PRO', 'gallery-images' ), 'delete_pages', 'Options_gallery_styles', array(
-			Gallery_Img()->admin->general_options,
+			Gallery_Img()->general_options,
 			'load_page'
 		) );
 		$this->pages[] = add_submenu_page( 'galleries_huge_it_gallery', __( 'Lightbox Options', 'gallery-images' ), __( 'Lightbox Options', 'gallery-images' ), 'delete_pages', 'Options_gallery_lightbox_styles', array(
-			Gallery_Img()->admin->lightbox_options,
+			Gallery_Img()->lightbox_options,
 			'load_page'
 		) );
 
 		$this->pages[] = add_submenu_page( 'galleries_huge_it_gallery', __( 'Featured Plugins', 'gallery-images' ), __( 'Featured Plugins', 'gallery-images' ), 'delete_pages', 'huge_it_gallery_featured_plugins', array(
-			Gallery_Img()->admin->featured_plugins,
+			Gallery_Img()->featured_plugins,
 			'show_page'
 		) );
 		$this->pages[] = add_submenu_page( 'galleries_huge_it_gallery', __( 'Licensing', 'gallery-images' ), __( 'Licensing', 'gallery-images' ), 'delete_pages', 'huge_it_gallery_licensing', array(
-			Gallery_Img()->admin->licensing,
+			Gallery_Img()->licensing,
 			'show_page'
 		) );
 	}

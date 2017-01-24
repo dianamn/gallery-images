@@ -14,6 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
+include_once( 'config.php' );
+
 if ( ! class_exists( 'Gallery_Img' ) ) :
 
     final class Gallery_Img {
@@ -29,6 +31,47 @@ if ( ! class_exists( 'Gallery_Img' ) ) :
          * @var Gallery_Img_Admin instance
          */
         public $admin = null;
+
+        /**
+         * The single instance of the class.
+         *
+         * @var Gallery_Img
+         */
+
+        /**
+         * Instance of Gallery_Img_General_Options class
+         *
+         * @var Gallery_Img_General_Options
+         */
+        public $general_options = null;
+
+        /**
+         * Instance of Gallery_Img_Galleries class
+         *
+         * @var Gallery_Img_Galleries
+         */
+        public $galleries = null;
+
+        /**
+         * Instance of Gallery_Img_Lightbox_Options class
+         *
+         * @var Gallery_Img_Lightbox_Options
+         */
+        public $lightbox_options = null;
+
+        /**
+         * Instance of Gallery_Img_Featured_Plugins class
+         *
+         * @var Gallery_Img_Featured_Plugins
+         */
+        public $featured_plugins = null;
+
+        /**
+         * Instance of Gallery_Img_Featured_Plugins class
+         *
+         * @var Gallery_Img_Licensing
+         */
+        public $licensing = null;
 
         /**
          * Instance of Gallery_Img_Template_Loader class to manage admin
@@ -90,6 +133,7 @@ if ( ! class_exists( 'Gallery_Img' ) ) :
             register_activation_hook( __FILE__, array( 'Gallery_Img_Install', 'install' ) );
             add_action( 'init', array( $this, 'init' ), 0 );
             add_action( 'plugins_loaded', array($this,'load_plugin_textdomain') );
+            add_action( 'widgets_init', array( 'Gallery_Img_Widgets', 'init' ) );
         }
 
         /**
@@ -188,9 +232,30 @@ if ( ! class_exists( 'Gallery_Img' ) ) :
             do_action( 'before_Gallery_Img_init' );
 
             $this->template_loader = new Gallery_Img_Template_Loader();
+
             if ( $this->is_request( 'admin' ) ) {
+
                 $this->admin = new Gallery_Img_Admin();
+
+                $this->general_options = new Gallery_Img_General_Options();
+
+                $this->galleries = new Gallery_Img_Galleries();
+
+                $this->lightbox_options = new Gallery_Img_Lightbox_Options();
+
+                $this->featured_plugins = new Gallery_Img_Featured_Plugins();
+
+                $this->licensing = new Gallery_Img_Licensing();
+
+                new Gallery_Img_Admin_Assets();
+
             }
+
+            new Gallery_Img_Frontend_Scripts();
+
+            new Gallery_Img_Ajax();
+
+            new Gallery_Img_Shortcode();
 
             // Init action.
             do_action( 'Gallery_Img_init' );

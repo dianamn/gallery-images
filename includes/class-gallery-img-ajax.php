@@ -895,5 +895,3 @@ class Gallery_Img_Ajax {
 		die();
 	}
 }
-
-new Gallery_Img_Ajax();
