@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, lightbox gallery, wordpress gallery, photo gallery, content gallery, media gallery, youtube gallery, images gallery, responsive gallery, thumbnail gallery,
 Requires at least: 3.0.1
 Tested up to: 4.7.1
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -796,9 +796,9 @@ Usage:
 * Heart Icon Color and Rated Icon Color: Set Heart icon color
 
 *   **Pagination Styles**
-* Pagination Font Size and Color: Set the font size and color for the pagination
-* Pagination Icons Size and Color: Set pagination icon size and color
-* Pagination Position: Set the pagination position
+* Pagination Font Size and Color: Set the font size and color for the pagination.
+* Pagination Icons Size and Color: Set pagination icon size and color.
+* Pagination Position: Set the pagination position.
 
 *    **Load More Styles**
 * Load More Text and Position:Write whatever you need in this field and select the position of Load More
@@ -884,6 +884,11 @@ The commercial version users can do unlimited customization, if your images/vide
 
 
 == Changelog ==
+
+= 2.1.2 =
+* 1) Added auto-loader
+* 2) Fixed CSS bug on front end
+* 3) Added demo links to galleries in the back-end of the plugin
 
 = 2.1.1 =
 * Fixed the issue with overuse of nonces in edit pages.
