@@ -37,7 +37,6 @@ class Gallery_Img_Shortcode {
 			ob_start();
 			printf( __( "Gallery with ID %s doesn't exist.","gallery-img" ), $attrs['id'] );
 			return ob_get_clean();
-			return;
 		}
 
 		$query        = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_images WHERE gallery_id=%d", $attrs['id'] );
@@ -46,7 +45,6 @@ class Gallery_Img_Shortcode {
 			ob_start();
 			printf( __( "Gallery with ID %s is empty.","gallery-img" ), $attrs['id'] );
 			return ob_get_clean();
-			return;
 		}
 
 		$query        = $wpdb->prepare( "SELECT huge_it_sl_effects FROM " . $wpdb->prefix . "huge_itgallery_gallerys WHERE id=%d", $attrs['id'] );
