@@ -193,9 +193,9 @@ class Gallery_Img_Admin {
 		foreach ( $galleries as $key => $gallery ) {
 			$new_gallery = "('";
 			$new_gallery .= $gallery->name . "','" . $last_key . "','" . $gallery->description . "','" . $gallery->image_url . "','" .
-			                $gallery->sl_url . "','" . $gallery->sl_type . "','" . $gallery->link_target . "','" . $gallery->ordering . "','" .
-			                $gallery->published . "','" . $gallery->published_in_sl_width . "','" . $gallery->like . "','" .
-			                $gallery->dislike . "')";
+				$gallery->sl_url . "','" . $gallery->sl_type . "','" . $gallery->link_target . "','" . $gallery->ordering . "','" .
+				$gallery->published . "','" . $gallery->published_in_sl_width . "','" . $gallery->like . "','" .
+				$gallery->dislike . "')";
 			$galleries_list .= $new_gallery . ",";
 		}
 		$galleries_list = substr( $galleries_list, 0, strlen( $galleries_list ) - 1 );

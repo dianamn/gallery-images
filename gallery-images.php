@@ -14,6 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
+include_once( 'config.php' );
+
 if ( ! class_exists( 'Gallery_Img' ) ) :
 
     final class Gallery_Img {
@@ -90,6 +92,7 @@ if ( ! class_exists( 'Gallery_Img' ) ) :
             register_activation_hook( __FILE__, array( 'Gallery_Img_Install', 'install' ) );
             add_action( 'init', array( $this, 'init' ), 0 );
             add_action( 'plugins_loaded', array($this,'load_plugin_textdomain') );
+            add_action( 'widgets_init', array( 'Gallery_Img_Widgets', 'init' ) );
         }
 
         /**
@@ -143,22 +146,8 @@ if ( ! class_exists( 'Gallery_Img' ) ) :
         public function includes() {
             include_once( 'includes/gallery-img-functions.php' );
             include_once( 'includes/gallery-img-video-function.php' );
-            include_once( 'includes/class-gallery-img-install.php' );
-            include_once( 'includes/class-gallery-img-template-loader.php' );
-            include_once( 'includes/class-gallery-img-ajax.php' );
-            include_once( 'includes/class-gallery-img-widgets.php' );
-            include_once( 'includes/class-gallery-img-huge-it-gallery-widget.php' );
-            include_once( 'includes/class-gallery-img-shortcode.php' );
-            include_once( 'includes/class-gallery-img-frontend-scripts.php' );
             if ( $this->is_request( 'admin' ) ) {
                 include_once( 'includes/admin/gallery-img-admin-functions.php' );
-                include_once( 'includes/admin/class-gallery-img-admin.php' );
-                include_once( 'includes/admin/class-gallery-img-admin-assets.php' );
-                include_once( 'includes/admin/class-gallery-img-general-options.php' );
-                include_once( 'includes/admin/class-gallery-img-galleries.php' );
-                include_once( 'includes/admin/class-gallery-img-lightbox-options.php' );
-                include_once( 'includes/admin/class-gallery-img-featured-plugins.php' );
-                include_once( 'includes/admin/class-gallery-img-licensing.php' );
             }
             if ( $this->is_request( 'frontend' ) ) {
                 $this->frontend_includes();
@@ -188,9 +177,20 @@ if ( ! class_exists( 'Gallery_Img' ) ) :
             do_action( 'before_Gallery_Img_init' );
 
             $this->template_loader = new Gallery_Img_Template_Loader();
+
             if ( $this->is_request( 'admin' ) ) {
+
                 $this->admin = new Gallery_Img_Admin();
+
+                new Gallery_Img_Admin_Assets();
+
             }
+
+            new Gallery_Img_Frontend_Scripts();
+
+            new Gallery_Img_Ajax();
+
+            new Gallery_Img_Shortcode();
 
             // Init action.
             do_action( 'Gallery_Img_init' );

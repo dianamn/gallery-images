@@ -36,6 +36,9 @@ if (!defined('ABSPATH')) {
                         <li>
                             <a href="#gallery-view-options-6"><?php echo __('Blog Style Gallery', 'gallery-images'); ?></a>
                         </li>
+	                    <li>
+                            <a href="#gallery-view-options-7"><?php echo __('Elastic Grid', 'gallery-images'); ?></a>
+                        </li>
                     </ul>
                     <ul class="options-block" id="gallery-view-tabs-contents">
                         <div class="gallery_options_grey_overlay"></div>
@@ -67,6 +70,10 @@ if (!defined('ABSPATH')) {
                             <img style="width: 100%;margin-top: -12px;"
                                  src='<?php echo GALLERY_IMG_IMAGES_URL . '/admin_images/block-tab-7.png'; ?>'>
                         </li>
+	                    <li class="gallery-view-options-7">
+		                    <img style="width: 100%;margin-top: -12px;"
+		                         src='<?php echo GALLERY_IMG_IMAGES_URL . '/admin_images/elastic-options.jpg'; ?>'>
+	                    </li>
                     </ul>
                 </div>
             </div>

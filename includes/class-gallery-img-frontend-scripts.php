@@ -253,7 +253,12 @@ class Gallery_Img_Frontend_Scripts {
 			$justified_params[ $name ] = $value;
 		}
 
-		$num          = absint($gallery[0]->content_per_page);
+		if( $gallery[0]->content_per_page ) {
+			$num = absint( $gallery[0]->content_per_page );
+		}
+		else{
+			$num = 999;
+		}
 		$query       = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_images where gallery_id = '%d' and sl_type!='video' ORDER BY ordering ASC",$id);
 		$all_images = $wpdb->get_results($query);
 		$total        = intval( ( ( count( $all_images ) - 1 ) / $num ) + 1 );
@@ -331,5 +336,3 @@ class Gallery_Img_Frontend_Scripts {
 		wp_localize_script('elastic_grid-js', 'elements_margin', $gallery_default_params['gallery_img_ht_view10_element_margin']);
 	}
 }
-
-new Gallery_Img_Frontend_Scripts();

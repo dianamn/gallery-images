@@ -1,137 +1,201 @@
-.element {
-    position: relative;
-    width:93%;
-    margin:5px 0px 5px 0px;
-    padding:2%;
-    clear:both;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i');
+
+.huge-plugins {
+    background-color: #eeeeee;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.huge-plugins a:focus {
+    box-shadow: none;
+}
+
+.huge-plugins .plaings-block {
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.huge-plugins .plaings-block .plugin {
+    border-radius: 3px;
     overflow: hidden;
-    border:1px solid #DEDEDE;
-    background:#F9F9F9;
+    width: 300px;
+    margin: 0 15px;
+    margin-bottom: 30px;
 }
-.element > div {
-    display:table-cell;
+
+.huge-plugins .plaings-block .plugin .image-block{
+    width: 300px;
+    height: 197px;
+    background-repeat: no-repeat;
+    background-image: url(../images/admin_images/sprite-featured.png);
+    position: relative;
 }
-.element div.left-block {
-    padding-right:10px;
+
+.huge-plugins .plaings-block .plugin .image-block a:hover:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    background-color: #fff;
+    opacity: 0.12;
 }
-.element div.left-block .main-image-block {
-    clear:both;
+
+.huge-plugins .plaings-block .plugin .image-block a {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
-.element div.left-block .thumbs-block {
-    position:relative;
-    margin-top:10px;
+
+.huge-plugins .plaings-block .plugin .image-block.gallery {
+    background-color: #dab246;
+    background-position: 71px -349px;
 }
-.element div.left-block .thumbs-block ul {
-    width:240px;
-    height:auto;
-    display:table;
-    margin:0px;
-    padding:0px;
-    list-style:none;
+
+.huge-plugins .plaings-block .plugin .image-block.portfolio-gallery {
+    background-color: #ff4444;
+    background-position: 87px -758px;
 }
-.element div.left-block .thumbs-block ul li {
-    margin:0px 3px 0px 2px;
-    padding:0px;
-    width:75px;
-    height:75px;
-    float:left;
+
+.huge-plugins .plaings-block .plugin .image-block.responsive-slider {
+    background-color: #64cf05;
+    background-position: 50px -4182px;
 }
-.element div.left-block .thumbs-block ul li a {
-    display:block;
-    width:75px;
-    height:75px;
+
+.huge-plugins .plaings-block .plugin .image-block.forms {
+    background-color: #328fe6;
+    background-position: 50px -4548px;
 }
-.element div.left-block .thumbs-block ul li a img {
-    width:75px;
-    height:75px;
+
+.huge-plugins .plaings-block .plugin .image-block.slider {
+    background-color: #00508a;
+    background-position: 70px -2444px;
 }
-.element div.right-block {
-    width:100%;
-    vertical-align:top;
+
+.huge-plugins .plaings-block .plugin .image-block.google-map {
+    background-color: #1fb11c;
+    background-position: 70px -2003px;
 }
-.element div.right-block > div {
-    width:100%;
-    padding-bottom:10px;
-    margin-top:10px;
+
+.huge-plugins .plaings-block .plugin .image-block.video-gallery {
+    background-color: #35a9d0;
+    background-position: 75px 39px;
 }
-.element div.right-block > div:last-child {
-    background:none;
+
+.huge-plugins .plaings-block .plugin .image-block.login {
+    background-color: #6d429a;
+    background-position: 84px -5019px;
 }
-.element div.right-block .title-block  {
-    margin-top:3px;
+
+.huge-plugins .plaings-block .plugin .image-block.catalog {
+    background-color: #3e4268;
+    background-position: 75px -2814px;
 }
-.element div.right-block .title-block h3 {
-    margin:0px;
-    padding:0px;
-    font-weight:normal;
-    font-size:18px !important;
-    line-height:18px !important;
-    color:#0074A2;
+
+.huge-plugins .plaings-block .plugin .image-block.video-player {
+    background-color: #c30000;
+    background-position: 69px -3492px
 }
-.element div.right-block .description-block p,.element div.right-block .description-block * {
-    margin:0px;
-    padding:0px;
-    font-weight:normal;
-    font-size:14px;
-    color:#555555;
+
+.huge-plugins .plaings-block .plugin .image-block.lightbox {
+    background-color: #0b9394;
+    background-position: 74px -1140px;
 }
-.element div.right-block .description-block h1,
-.element div.right-block .description-block h2,
-.element div.right-block .description-block h3,
-.element div.right-block .description-block h4,
-.element div.right-block .description-block h5,
-.element div.right-block .description-block h6,
-.element div.right-block .description-block p,
-.element div.right-block .description-block strong,
-.element div.right-block .description-block span {
-    padding:2px !important;
-    margin:0px !important;
+
+.huge-plugins .plaings-block .plugin .image-block.princing-table {
+    background-color: #117389;
+    background-position: 36px -3904px;
 }
-.element div.right-block .description-block ul,
-.element div.right-block .description-block li {
-    padding:2px 0px 2px 5px;
-    margin:0px 0px 0px 8px;
+
+.huge-plugins .plaings-block .plugin .image-block.colorbox {
+    background-color: #ff2f2f;
+    background-position: 46px -3200px;
 }
-.element .button-block {
-    position:relative;
+
+.huge-plugins .plaings-block .plugin .image-block.share-buttons {
+    background-color: #fa4800;
+    background-position: 70px -1599px;
 }
-.element div.right-block .button-block a,.element div.right-block .button-block a:link,.element div.right-block .button-block a:visited {
-    position:relative;
-    display:inline-block;
-    padding:6px 12px;
-    background:#2EA2CD;
-    color:#FFFFFF;
-    font-size:14px;
-    text-decoration:none;
+
+.huge-plugins .plaings-block .plugin .image-block.builder {
+    background-color: #3bc6b8;
+    background-position: -1663px -16px;
 }
-.element div.right-block .button-block a:hover,.pupup-elemen.element div.right-block .button-block a:focus,.element div.right-block .button-block a:active {
-    background:#0074A2;
-    color:#FFFFFF;
+
+.huge-plugins .plaings-block .plugin .image-block.photo-gallery {
+    background-color: #fe7b46;
+    background-position: -1649px -475px;
 }
-.button-block a {
-    float: right;
+
+.huge-plugins .plaings-block .plugin .info-block {
+    text-align: center;
+    padding: 15px 25px 33px 25px;
+    border: 1px solid #cfcfcf;
+    border-top: none;
+    background-color: #fcfdff;
 }
-.description-block p {
-    text-align: justify !important;
+
+
+.huge-plugins .plaings-block .plugin .info-block h2 a {
+    text-decoration: none;
+    font-size: 26px;
+    color: #262626;
+    outline:none;
+    font-weight: normal;
 }
-@media only screen and (max-width: 767px) {
-    .element > div {
-        display:block;
-        width:100%;
-        clear:both;
-    }
-    .element div.left-block {
-        padding-right:0px;
-    }
-    .element div.left-block .main-image-block {
-        clear:both;
-        width:100%;
-    }
-    .element div.left-block .main-image-block img {
-        width:100% !important;
-        height:auto;
-    }
-    .element div.left-block .thumbs-block ul {
-        width:100%;
-    }
+
+.huge-plugins .plaings-block .plugin .info-block h2 a:focus {
+    box-shadow: none;
 }
+
+.huge-plugins .plaings-block .plugin .info-block p{
+    color: #787878;
+    margin-top: 18px;
+    font-size: 14px;
+    min-height: 79px;
+    max-height: 76px;
+    overflow: hidden;
+    display: flex;
+    line-height: 20px;
+}
+
+.huge-plugins .plaings-block .plugin .info-block .view{
+    width: 154px;
+    height: 36px;
+    background-color: #1c90c0;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    display: block;
+    line-height: 36px;
+    margin: 0 auto;
+    margin-top: 22px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.huge-plugins .plaings-block .plugin .info-block .view:hover {
+    background-color: #1fa6de;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

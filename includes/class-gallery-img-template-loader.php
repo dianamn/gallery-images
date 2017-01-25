@@ -23,7 +23,12 @@ class Gallery_Img_Template_Loader {
 		$galleryID    = $gallery[0]->id;
 		$view         = $gallery[0]->huge_it_sl_effects;
 		$disp_type    = $gallery[0]->display_type;
-		$num          = $gallery[0]->content_per_page;
+		if( $gallery[0]->content_per_page ) {
+			$num = $gallery[0]->content_per_page;
+		}
+		else{
+			$num = 999;
+		}
 		$like_dislike = $gallery[0]->rating;
 		$total        = intval( ( ( count( $images ) - 1 ) / $num ) + 1 );
 		$pattern      = '/-/';
