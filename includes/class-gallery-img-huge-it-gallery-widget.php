@@ -3,16 +3,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 /**
- * Class Gallery_Img__Widget
+ * Class Gallery_Img_Widget
  */
-class Gallery_Img__Widget extends WP_Widget {
+class Gallery_Img_Widget extends WP_Widget {
 
 	/**
-	 * Gallery_Img__Widget constructor.
+	 * Gallery_Img_Widget constructor.
 	 */
 	public function __construct() {
 		parent::__construct(
-			'Gallery_Img__Widget',
+			'Gallery_Img_Widget',
 			'Huge IT Gallery',
 			array( 'description' => __( 'Huge IT Gallery', 'Huge IT Gallery' ), )
 		);

@@ -33,47 +33,6 @@ if ( ! class_exists( 'Gallery_Img' ) ) :
         public $admin = null;
 
         /**
-         * The single instance of the class.
-         *
-         * @var Gallery_Img
-         */
-
-        /**
-         * Instance of Gallery_Img_General_Options class
-         *
-         * @var Gallery_Img_General_Options
-         */
-        public $general_options = null;
-
-        /**
-         * Instance of Gallery_Img_Galleries class
-         *
-         * @var Gallery_Img_Galleries
-         */
-        public $galleries = null;
-
-        /**
-         * Instance of Gallery_Img_Lightbox_Options class
-         *
-         * @var Gallery_Img_Lightbox_Options
-         */
-        public $lightbox_options = null;
-
-        /**
-         * Instance of Gallery_Img_Featured_Plugins class
-         *
-         * @var Gallery_Img_Featured_Plugins
-         */
-        public $featured_plugins = null;
-
-        /**
-         * Instance of Gallery_Img_Featured_Plugins class
-         *
-         * @var Gallery_Img_Licensing
-         */
-        public $licensing = null;
-
-        /**
          * Instance of Gallery_Img_Template_Loader class to manage admin
          * @var Gallery_Img_Template_Loader instance
          */
@@ -187,22 +146,8 @@ if ( ! class_exists( 'Gallery_Img' ) ) :
         public function includes() {
             include_once( 'includes/gallery-img-functions.php' );
             include_once( 'includes/gallery-img-video-function.php' );
-            include_once( 'includes/class-gallery-img-install.php' );
-            include_once( 'includes/class-gallery-img-template-loader.php' );
-            include_once( 'includes/class-gallery-img-ajax.php' );
-            include_once( 'includes/class-gallery-img-widgets.php' );
-            include_once( 'includes/class-gallery-img-huge-it-gallery-widget.php' );
-            include_once( 'includes/class-gallery-img-shortcode.php' );
-            include_once( 'includes/class-gallery-img-frontend-scripts.php' );
             if ( $this->is_request( 'admin' ) ) {
                 include_once( 'includes/admin/gallery-img-admin-functions.php' );
-                include_once( 'includes/admin/class-gallery-img-admin.php' );
-                include_once( 'includes/admin/class-gallery-img-admin-assets.php' );
-                include_once( 'includes/admin/class-gallery-img-general-options.php' );
-                include_once( 'includes/admin/class-gallery-img-galleries.php' );
-                include_once( 'includes/admin/class-gallery-img-lightbox-options.php' );
-                include_once( 'includes/admin/class-gallery-img-featured-plugins.php' );
-                include_once( 'includes/admin/class-gallery-img-licensing.php' );
             }
             if ( $this->is_request( 'frontend' ) ) {
                 $this->frontend_includes();
@@ -236,16 +181,6 @@ if ( ! class_exists( 'Gallery_Img' ) ) :
             if ( $this->is_request( 'admin' ) ) {
 
                 $this->admin = new Gallery_Img_Admin();
-
-                $this->general_options = new Gallery_Img_General_Options();
-
-                $this->galleries = new Gallery_Img_Galleries();
-
-                $this->lightbox_options = new Gallery_Img_Lightbox_Options();
-
-                $this->featured_plugins = new Gallery_Img_Featured_Plugins();
-
-                $this->licensing = new Gallery_Img_Licensing();
 
                 new Gallery_Img_Admin_Assets();
 
