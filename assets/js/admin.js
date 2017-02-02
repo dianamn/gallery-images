@@ -6,6 +6,34 @@ var  name_changeTop = function(e) {
 };
 
 jQuery(document).ready(function () {
+	if(jQuery('#rating').val()=='off'){
+		jQuery('.like_dislike_wrapper').css('display','none');
+		jQuery('.heart_wrapper').css('display','none');
+	}else if (jQuery('#rating').val()=='dislike'){
+		jQuery('.like_dislike_wrapper').css('display','block');
+		jQuery('.heart_wrapper').css('display','none');
+		jQuery('.heart_wrapper').find('input').removeAttr('name');
+	}else if (jQuery('#rating').val()=='heart'){
+		jQuery('.heart_wrapper').css('display','block');
+	}
+
+	jQuery('#rating').on('change',function(){
+		if(jQuery(this).val()=='off'){
+			jQuery('.like_dislike_wrapper').css('display','none');
+			jQuery('.heart_wrapper').css('display','none');
+		}else if (jQuery(this).val()=='dislike'){
+			jQuery('.like_dislike_wrapper').css('display','block');
+			jQuery('.heart_wrapper').css('display','none');
+			jQuery('.heart_wrapper').find('input').removeAttr('name');
+		}else if (jQuery(this).val()=='heart'){
+			jQuery('.heart_wrapper').css('display','block');
+			jQuery('.like_dislike_wrapper').css('display','none');
+			jQuery('.heart_wrapper').each(function(){
+				var num=jQuery(this).find('input').attr('num');
+				jQuery(this).find('input').attr('name','like_'+num);
+			});
+		}
+	});
 	jQuery('.close-christmas').on('click',function (e) {
 		e.preventDefault();
 		jQuery(".backend-christmas-banner").css("display","none");

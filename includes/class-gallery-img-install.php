@@ -67,6 +67,11 @@ class Gallery_Img_Install {
 				array( 'option_name' => $option_name )
 			);
 		}
+
+		if ( ! get_option( 'gallery_img_disable_right_click' ) ) {
+			update_option( 'gallery_img_disable_right_click', 'off' );
+		}
+		
 	}
 
 	private static function create_tables() {

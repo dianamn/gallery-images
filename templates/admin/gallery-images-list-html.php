@@ -623,6 +623,19 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 
 									</select>
 								</li>
+								<li>
+									<label for="disable_right_click"><?php echo __( 'Disable Image Right Click', 'gallery-img' ); ?></label>
+									<select id="disable_right_click" name="disable_right_click">
+
+										<option <?php if ( get_option( 'gallery_img_disable_right_click' ) == 'on' ) {
+											echo 'selected';
+										} ?> value="on"><?php echo __( 'On', 'gallery-img' ); ?></option>
+										<option <?php if ( get_option( 'gallery_img_disable_right_click' ) == 'off' ) {
+											echo 'selected';
+										} ?>
+											value="off"><?php echo __( 'Off', 'gallery-img' ); ?></option>
+									</select>
+								</li>
 							</ul>
 							<div id="major-publishing-actions">
 								<div id="publishing-action">
