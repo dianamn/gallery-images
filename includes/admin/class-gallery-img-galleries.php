@@ -206,6 +206,7 @@ INSERT INTO
 				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_gallerys SET  ordering = '1'  WHERE id = %d ", $id ) );
 				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_gallerys SET  rating = %s  WHERE id = %d ", sanitize_text_field( $_POST["rating"] ), $id ) );
 				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_gallerys SET  autoslide = %s  WHERE id = %d ", sanitize_text_field( $_POST["autoslide"] ), $id ) );
+				update_option( 'gallery_img_disable_right_click', sanitize_text_field( $_POST["disable_right_click"] ), $id ) ;
 			}
 		}
 		if ( isset( $_POST["name"] ) ) {
@@ -222,6 +223,7 @@ INSERT INTO
 				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_gallerys SET  rating = %s  WHERE id = %d ", sanitize_text_field( $_POST["rating"] ), $id ) );
 				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_gallerys SET  ordering = '1'  WHERE id = %d ", $id ) );
 				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itgallery_gallerys SET  autoslide = %s  WHERE id = %d ", sanitize_text_field( $_POST["autoslide"] ), $id ) );
+				update_option( 'gallery_img_disable_right_click', sanitize_text_field( $_POST["disable_right_click"] ), $id ) ;
 			}
 		}
 		$query = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itgallery_gallerys WHERE id = %d", $id );

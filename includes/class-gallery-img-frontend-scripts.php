@@ -334,5 +334,7 @@ class Gallery_Img_Frontend_Scripts {
 		wp_localize_script( 'jusiifed-js', 'justified_obj', $justified );
 		wp_localize_script('front-end-js-' . $view_slug, 'gallery_images_obj_' . $id, $images_obj);
 		wp_localize_script('elastic_grid-js', 'elements_margin', $gallery_default_params['gallery_img_ht_view10_element_margin']);
+		wp_localize_script( 'custom-js', 'galleryImgDisableRightClick', get_option( 'gallery_img_disable_right_click' ) );
+		wp_localize_script( 'custom-js', 'galleryImgDisableRightClickElastic', get_option( 'gallery_img_disable_right_click' ) );
 	}
 }

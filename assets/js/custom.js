@@ -365,7 +365,19 @@ function galleryImglightboxInit() {
     jQuery('.retina').removeClass('cboxElement').removeClass('cboxElement').gicolorbox({rel: 'group5', transition: 'none', retinaImage: true, retinaUrl: true});
 }
 jQuery(document).ready(function () {
+    
     jQuery('.gallery-img-content').on("click tap", '.huge_it_gallery_like_wrapper', galleryImgRatingClick);
     jQuery('.gallery-img-content').on("click tap", '.huge_it_gallery_dislike_wrapper', galleryImgDislikeClick);
     galleryImglightboxInit();
+
+    if(galleryImgDisableRightClick == 'on') {
+        jQuery('.gallery-img-content img').each(function () {
+            jQuery(this).bind('contextmenu', function () {
+                return false;
+            });
+        });
+        jQuery('#gicolorbox').bind('contextmenu', '#gicboxLoadedContent img', function () {
+            return false;
+        });
+    }
 });
