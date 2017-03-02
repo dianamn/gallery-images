@@ -315,7 +315,8 @@
 			<div
 				class="load_more_button2 load_more_button_<?php echo $galleryID; ?>"
 				data-justified-nonce-value="<?php echo $gallery_img_justified_load_nonce; ?>"><?php echo $gallery_default_params['gallery_img_video_ht_view8_loadmore_text']; ?></div>
-			<div class="loading2 loading_<?php echo $galleryID; ?>"><img
+			<div class="loading2 loading_<?php echo $galleryID; ?>">
+				<img
 					src="<?php if ( $gallery_default_params['gallery_img_video_ht_view8_loading_type'] == '1' ) {
 						echo GALLERY_IMG_IMAGES_URL . '/front_images/arrows/loading1.gif';
 					} elseif ( $gallery_default_params['gallery_img_video_ht_view8_loading_type'] == '2' ) {
@@ -324,7 +325,8 @@
 						echo GALLERY_IMG_IMAGES_URL . '/front_images/arrows/loading36.gif';
 					} elseif ( $gallery_default_params['gallery_img_video_ht_view8_loading_type'] == '4' ) {
 						echo GALLERY_IMG_IMAGES_URL . '/front_images/arrows/loading51.gif';
-					} ?>"></div>
+					} ?>">
+			</div>
 		</div>
 		<?php
 	} elseif ( $a == 0 ) {
@@ -357,6 +359,6 @@
 		}
 		echo $pervpage . $page . '/' . $total . $nextpage;
 		?>
-	</div>
-	<?php } ?>
+
+	<?php } ?></div>
 </div>

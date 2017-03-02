@@ -6,6 +6,7 @@ var  name_changeTop = function(e) {
 };
 
 jQuery(document).ready(function () {
+	
 	if(jQuery('#rating').val()=='off'){
 		jQuery('.like_dislike_wrapper').css('display','none');
 		jQuery('.heart_wrapper').css('display','none');
@@ -16,6 +17,23 @@ jQuery(document).ready(function () {
 	}else if (jQuery('#rating').val()=='heart'){
 		jQuery('.heart_wrapper').css('display','block');
 	}
+
+	jQuery('#lightbox_type input').change(function () {
+		jQuery('#lightbox_type input').parent().removeClass('active');
+		jQuery(this).parent().addClass('active');
+		if(jQuery(this).val() == 'old_type'){
+			jQuery('#lightbox-options-list').addClass('active');
+			jQuery('#new-lightbox-options-list').removeClass('active');
+		}
+		else{
+			jQuery('#lightbox-options-list').removeClass('active');
+			jQuery('#new-lightbox-options-list').addClass('active');
+		}
+		jQuery('#lightbox_type input').prop('checked',false);
+		if(!jQuery(this).prop('checked')){
+			jQuery(this).prop('checked',true);
+		}
+	});
 
 	jQuery('#rating').on('change',function(){
 		if(jQuery(this).val()=='off'){
@@ -259,20 +277,31 @@ jQuery(document).ready(function () {
                 liID=liID.replace('.','');
 		jQuery('#adminForm').attr('action',"admin.php?page=Options_gallery_styles&task=save#"+liID);
 	});
-	
-	jQuery('#huge_it_sl_effects').change(function(){
-		
-		jQuery('.gallery-current-options').removeClass('active');
-		jQuery('#gallery-current-options-'+jQuery(this).val()).addClass('active');
-		if(jQuery(this).val() == 10){
-			jQuery('#rating').parent().hide();
-		}
-		else{
-			jQuery('#rating').parent().show();
-		}
 
-	});
-	jQuery('#huge_it_sl_effects').change();
+    jQuery('#huge_it_sl_effects').change(function(){
+
+        jQuery('.gallery-current-options').removeClass('active');
+        jQuery('#gallery-current-options-'+jQuery(this).val()).addClass('active');
+        if(jQuery(this).val() == 10){
+            jQuery('#rating').parent().hide();
+            jQuery("#display_type option[value=1]").hide();
+        }
+        else{
+            jQuery('#rating').parent().show();
+            jQuery("#display_type option[value=1]").show();
+        }
+
+        jQuery('#gallery-current-options-0').hide();
+        jQuery('#rating_inp').hide();
+        if( !(jQuery(this).val() == 1) && !(jQuery(this).val() == 3) ){
+            jQuery('#gallery-current-options-0').show();
+        }
+        if( !(jQuery(this).val() == 10) && !(jQuery(this).val() == 3) ){
+            jQuery('#rating_inp').show();
+        }
+
+    });
+   	jQuery('#huge_it_sl_effects').change();
 	jQuery(".close_gallery_free_banner").on("click",function(){
 		jQuery(".gallery_free_version_banner").css("display","none");
 		galleryImgSetCookie( 'hgGalleryFreeBannerShow', 'no', {expires:86400} );
@@ -367,6 +396,12 @@ function galleryImgSubmitbutton(pressbutton) {
 		alert("Name is required.");
 		return;
 	}
+	console.log(jQuery('#content_per_page').val());
+	if (jQuery('#content_per_page').val()<1) {
+		/*alert("Images Per Page must be greater than 0.");
+		return;*/
+	}
+
 	galleryImgFilterInputs();
 	document.getElementById("adminForm").action = document.getElementById("adminForm").action + "&task=" + pressbutton;
 	document.getElementById("adminForm").submit();
