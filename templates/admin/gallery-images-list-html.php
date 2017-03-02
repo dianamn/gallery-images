@@ -436,7 +436,7 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 									       class="text_area"/>
 								</li>
                                 <?php
-                                if ( !($sl_effects == 3) && !($sl_effects == 10) ) { ?>
+                                if ( !($row->huge_it_sl_effects == 3) && !($row->huge_it_sl_effects == 10) ) { ?>
 
 
                                     <ul id="rating_inp">
