@@ -127,7 +127,7 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                     </div>
                 </label>
                 <input type="number"
-                       value="<?php echo $portfolio_defaultoptions['gallery_img_lightbox_width_new']; ?>"
+                       value="<?php echo $gallery_default__params['gallery_img_lightbox_width_new']; ?>"
                        class="text">
                 <span>%</span>
             </div>
@@ -141,7 +141,7 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                     </div>
                 </label>
                 <input type="number"
-                       value="<?php echo $portfolio_defaultoptions['gallery_img_lightbox_height_new']; ?>"
+                       value="<?php echo $gallery_default__params['gallery_img_lightbox_height_new']; ?>"
                        class="text">
                 <span>%</span>
             </div>
@@ -155,7 +155,7 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                     </div>
                 </label>
                 <input type="number"
-                       value="<?php echo $portfolio_defaultoptions['gallery_img_lightbox_videoMaxWidth']; ?>"
+                       value="<?php echo $gallery_default__params['gallery_img_lightbox_videoMaxWidth']; ?>"
                        class="text">
                 <span>px</span>
             </div>
@@ -174,7 +174,7 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                 </label>
                 <input type="hidden" value="false" name="params[gallery_img_lightbox_slideshow_new]"/>
                 <input type="checkbox"
-                       id="gallery_img_lightbox_slideshow_new" <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_slideshow_new'] == 'true' ) {
+                       id="gallery_img_lightbox_slideshow_new" <?php if ( $gallery_default__params['gallery_img_lightbox_slideshow_new'] == 'true' ) {
                     echo 'checked="checked"';
                 } ?> name="params[gallery_img_lightbox_slideshow_new]" value="true"/>
             </div>
@@ -189,7 +189,7 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                 </label>
                 <input type="hidden" value="false" name="params[gallery_img_lightbox_slideshow_auto_new]"/>
                 <input type="checkbox"
-                       id="gallery_img_lightbox_slideshow_auto_new" <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_slideshow_auto_new'] == 'true' ) {
+                       id="gallery_img_lightbox_slideshow_auto_new" <?php if ( $gallery_default__params['gallery_img_lightbox_slideshow_auto_new'] == 'true' ) {
                     echo 'checked="checked"';
                 } ?> name="params[gallery_img_lightbox_slideshow_auto_new]" value="true"/>
             </div>
@@ -204,7 +204,7 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                 </label>
                 <input type="number" name="params[gallery_img_lightbox_slideshow_speed_new]"
                        id="gallery_img_lightbox_slideshow_speed_new"
-                       value="<?php echo $portfolio_defaultoptions['gallery_img_lightbox_slideshow_speed_new']; ?>"
+                       value="<?php echo $gallery_default__params['gallery_img_lightbox_slideshow_speed_new']; ?>"
                        class="text">
                 <span>ms</span>
             </div>
@@ -295,11 +295,11 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                 </label>
                 <input type="text"
                        style="width: 13%"
-                       value="<?php echo $portfolio_defaultoptions['gallery_img_lightbox_sequence_info']; ?>"
+                       value="<?php echo $gallery_default__params['gallery_img_lightbox_sequence_info']; ?>"
                        class="text">
                 X <input type="text"
                          style="width: 13%"
-                         value="<?php echo $portfolio_defaultoptions['gallery_img_lightbox_sequenceInfo']; ?>"
+                         value="<?php echo $gallery_default__params['gallery_img_lightbox_sequenceInfo']; ?>"
                          class="text">
                 XX
             </div>
@@ -313,31 +313,31 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                     </div>
                 </label>
                 <select id="gallery_img_lightbox_slideAnimationType" >
-                    <option <?php selected( 'effect_1', $portfolio_defaultoptions['gallery_img_lightbox_slideAnimationType'] ); ?>
+                    <option <?php selected( 'effect_1', $gallery_default__params['gallery_img_lightbox_slideAnimationType'] ); ?>
                             value="effect_1">Effect 1
                     </option>
-                    <option <?php selected( 'effect_2', $portfolio_defaultoptions['gallery_img_lightbox_slideAnimationType'] ); ?>
+                    <option <?php selected( 'effect_2', $gallery_default__params['gallery_img_lightbox_slideAnimationType'] ); ?>
                             value="effect_2">Effect 2
                     </option>
-                    <option <?php selected( 'effect_3', $portfolio_defaultoptions['gallery_img_lightbox_slideAnimationType'] ); ?>
+                    <option <?php selected( 'effect_3', $gallery_default__params['gallery_img_lightbox_slideAnimationType'] ); ?>
                             value="effect_3">Effect 3
                     </option>
-                    <option <?php selected( 'effect_4', $portfolio_defaultoptions['gallery_img_lightbox_slideAnimationType'] ); ?>
+                    <option <?php selected( 'effect_4', $gallery_default__params['gallery_img_lightbox_slideAnimationType'] ); ?>
                             value="effect_4">Effect 4
                     </option>
-                    <option <?php selected( 'effect_5', $portfolio_defaultoptions['gallery_img_lightbox_slideAnimationType'] ); ?>
+                    <option <?php selected( 'effect_5', $gallery_default__params['gallery_img_lightbox_slideAnimationType'] ); ?>
                             value="effect_5">Effect 5
                     </option>
-                    <option <?php selected( 'effect_6', $portfolio_defaultoptions['gallery_img_lightbox_slideAnimationType'] ); ?>
+                    <option <?php selected( 'effect_6', $gallery_default__params['gallery_img_lightbox_slideAnimationType'] ); ?>
                             value="effect_6">Effect 6
                     </option>
-                    <option <?php selected( 'effect_7', $portfolio_defaultoptions['gallery_img_lightbox_slideAnimationType'] ); ?>
+                    <option <?php selected( 'effect_7', $gallery_default__params['gallery_img_lightbox_slideAnimationType'] ); ?>
                             value="effect_7">Effect 7
                     </option>
-                    <option <?php selected( 'effect_8', $portfolio_defaultoptions['gallery_img_lightbox_slideAnimationType'] ); ?>
+                    <option <?php selected( 'effect_8', $gallery_default__params['gallery_img_lightbox_slideAnimationType'] ); ?>
                             value="effect_8">Effect 8
                     </option>
-                    <option <?php selected( 'effect_9', $portfolio_defaultoptions['gallery_img_lightbox_slideAnimationType'] ); ?>
+                    <option <?php selected( 'effect_9', $gallery_default__params['gallery_img_lightbox_slideAnimationType'] ); ?>
                             value="effect_9">Effect 9
                     </option>
                 </select>
@@ -368,7 +368,7 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                     </div>
                 </label>
                 <input type="text"  id="gallery_img_lightbox_watermark_text"
-                       value="<?php echo $portfolio_defaultoptions['gallery_img_lightbox_watermark_text']; ?>"
+                       value="<?php echo $gallery_default__params['gallery_img_lightbox_watermark_text']; ?>"
                        class="text">
             </div>
             <div class="has-background">
@@ -381,7 +381,7 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                     </div>
                 </label>
                 <input type="text" class="color" id="gallery_img_lightbox_watermark_textColor"
-                       value="#<?php echo $portfolio_defaultoptions['gallery_img_lightbox_watermark_textColor']; ?>"
+                       value="#<?php echo $gallery_default__params['gallery_img_lightbox_watermark_textColor']; ?>"
                        size="10"/>
             </div>
             <div>
@@ -395,7 +395,7 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                 </label>
                 <input type="number"
                        id="gallery_img_lightbox_watermark_textFontSize"
-                       value="<?php echo $portfolio_defaultoptions['gallery_img_lightbox_watermark_textFontSize']; ?>"
+                       value="<?php echo $gallery_default__params['gallery_img_lightbox_watermark_textFontSize']; ?>"
                        class="text">
                 <span>px</span>
             </div>
@@ -409,7 +409,7 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                     </div>
                 </label>
                 <input type="text" class="color" id="gallery_img_lightbox_watermark_containerBackground"
-                       value="#<?php echo $portfolio_defaultoptions['gallery_img_lightbox_watermark_containerBackground']; ?>"
+                       value="#<?php echo $gallery_default__params['gallery_img_lightbox_watermark_containerBackground']; ?>"
                        size="10"/>
             </div>
             <div>
@@ -424,8 +424,8 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                 <div class="slider-container">
                     <input id="gallery_img_lightbox_watermark_containerOpacity" data-slider-highlight="true"
                            data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true"
-                           value="<?php echo $portfolio_defaultoptions['gallery_img_lightbox_watermark_containerOpacity']; ?>"/>
-                    <span><?php echo $portfolio_defaultoptions['gallery_img_lightbox_watermark_containerOpacity']; ?>
+                           value="<?php echo $gallery_default__params['gallery_img_lightbox_watermark_containerOpacity']; ?>"/>
+                    <span><?php echo $gallery_default__params['gallery_img_lightbox_watermark_containerOpacity']; ?>
                         %</span>
                 </div>
             </div>
@@ -440,7 +440,7 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                 </label>
                 <input type="number"
                        id="gallery_img_lightbox_watermark_containerWidth"
-                       value="<?php echo $portfolio_defaultoptions['gallery_img_lightbox_watermark_containerWidth']; ?>"
+                       value="<?php echo $gallery_default__params['gallery_img_lightbox_watermark_containerWidth']; ?>"
                        class="text">
                 <span>px</span>
             </div>
@@ -458,43 +458,43 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                         <tbody>
                         <tr>
                             <td><input type="radio" value="1" id="watermark_top-left"
-                                    <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_watermark_position_new'] == '1' ) {
+                                    <?php if ( $gallery_default__params['gallery_img_lightbox_watermark_position_new'] == '1' ) {
                                         echo 'checked="checked"';
                                     } ?> /></td>
                             <td><input type="radio" value="2" id="watermark_top-center"
-                                    <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_watermark_position_new'] == '2' ) {
+                                    <?php if ( $gallery_default__params['gallery_img_lightbox_watermark_position_new'] == '2' ) {
                                         echo 'checked="checked"';
                                     } ?> /></td>
                             <td><input type="radio" value="3" id="watermark_top-right"
-                                    <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_watermark_position_new'] == '3' ) {
+                                    <?php if ( $gallery_default__params['gallery_img_lightbox_watermark_position_new'] == '3' ) {
                                         echo 'checked="checked"';
                                     } ?> /></td>
                         </tr>
                         <tr>
                             <td><input type="radio" value="4" id="watermark_middle-left"
-                                    <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_watermark_position_new'] == '4' ) {
+                                    <?php if ( $gallery_default__params['gallery_img_lightbox_watermark_position_new'] == '4' ) {
                                         echo 'checked="checked"';
                                     } ?> /></td>
                             <td><input type="radio" value="5" id="watermark_middle-center"
-                                    <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_watermark_position_new'] == '5' ) {
+                                    <?php if ( $gallery_default__params['gallery_img_lightbox_watermark_position_new'] == '5' ) {
                                         echo 'checked="checked"';
                                     } ?> /></td>
                             <td><input type="radio" value="6" id="watermark_middle-right"
-                                    <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_watermark_position_new'] == '6' ) {
+                                    <?php if ( $gallery_default__params['gallery_img_lightbox_watermark_position_new'] == '6' ) {
                                         echo 'checked="checked"';
                                     } ?> /></td>
                         </tr>
                         <tr>
                             <td><input type="radio" value="7" id="watermark_bottom-left"
-                                    <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_watermark_position_new'] == '7' ) {
+                                    <?php if ( $gallery_default__params['gallery_img_lightbox_watermark_position_new'] == '7' ) {
                                         echo 'checked="checked"';
                                     } ?> /></td>
                             <td><input type="radio" value="8" id="watermark_bottom-center"
-                                    <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_watermark_position_new'] == '8' ) {
+                                    <?php if ( $gallery_default__params['gallery_img_lightbox_watermark_position_new'] == '8' ) {
                                         echo 'checked="checked"';
                                     } ?> /></td>
                             <td><input type="radio" value="9" id="watermark_bottom-right"
-                                    <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_watermark_position_new'] == '9' ) {
+                                    <?php if ( $gallery_default__params['gallery_img_lightbox_watermark_position_new'] == '9' ) {
                                         echo 'checked="checked"';
                                     } ?> /></td>
                         </tr>
@@ -513,7 +513,7 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                 </label>
                 <input type="number"
                        id="gallery_img_lightbox_watermark_margin"
-                       value="<?php echo $portfolio_defaultoptions['gallery_img_lightbox_watermark_margin']; ?>"
+                       value="<?php echo $gallery_default__params['gallery_img_lightbox_watermark_margin']; ?>"
                        class="text">
                 <span>px</span>
             </div>
@@ -529,8 +529,8 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                 <div class="slider-container">
                     <input id="gallery_img_lightbox_watermark_opacity" data-slider-highlight="true"
                            data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true"
-                           value="<?php echo $portfolio_defaultoptions['gallery_img_lightbox_watermark_opacity']; ?>"/>
-                    <span><?php echo $portfolio_defaultoptions['gallery_img_lightbox_watermark_opacity']; ?>%</span>
+                           value="<?php echo $gallery_default__params['gallery_img_lightbox_watermark_opacity']; ?>"/>
+                    <span><?php echo $gallery_default__params['gallery_img_lightbox_watermark_opacity']; ?>%</span>
                 </div>
             </div>
             <div style="height:auto;">
@@ -542,12 +542,12 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                         </div>
                     </div>
                 </label>
-                <img src="<?php echo $portfolio_defaultoptions['gallery_img_lightbox_watermark_img_src_new']; ?>"
+                <img src="<?php echo $gallery_default__params['gallery_img_lightbox_watermark_img_src_new']; ?>"
                      id="watermark_image_new" style="width:120px;height:auto;">
                 <input type="button" class="button wp-media-buttons-icon"
                        style="margin-left: 63%;width: auto;display: inline-block;" id="watermark_image_btn_new"
                        value="Change Image">
-                <input type="hidden" id="img_watermark_hidden_new" value="<?php echo $portfolio_defaultoptions['gallery_img_lightbox_watermark_img_src_new']; ?>">
+                <input type="hidden" id="img_watermark_hidden_new" value="<?php echo $gallery_default__params['gallery_img_lightbox_watermark_img_src_new']; ?>">
             </div>
         </div>
         <div class="lightbox-options-block gallery_img_lightbox_options_grey_overlay" style="margin-top: -325px;">
@@ -579,28 +579,28 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                             <td>
                                 <label for="gallery_img_lightbox_facebookButton">Facebook
                                     <input type="checkbox"
-                                           id="gallery_img_lightbox_facebookButton" <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_facebookButton'] == 'true' ) {
+                                           id="gallery_img_lightbox_facebookButton" <?php if ( $gallery_default__params['gallery_img_lightbox_facebookButton'] == 'true' ) {
                                         echo 'checked="checked"';
                                     } ?>  value="true"/></label>
                             </td>
                             <td>
                                 <label for="gallery_img_lightbox_twitterButton">Twitter
                                     <input type="checkbox"
-                                           id="gallery_img_lightbox_twitterButton" <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_twitterButton'] == 'true' ) {
+                                           id="gallery_img_lightbox_twitterButton" <?php if ( $gallery_default__params['gallery_img_lightbox_twitterButton'] == 'true' ) {
                                         echo 'checked="checked"';
                                     } ?>  value="true"/></label>
                             </td>
                             <td>
                                 <label for="gallery_img_lightbox_googleplusButton">Google Plus
                                     <input type="checkbox"
-                                           id="gallery_img_lightbox_googleplusButton" <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_googleplusButton'] == 'true' ) {
+                                           id="gallery_img_lightbox_googleplusButton" <?php if ( $gallery_default__params['gallery_img_lightbox_googleplusButton'] == 'true' ) {
                                         echo 'checked="checked"';
                                     } ?>  value="true"/></label>
                             </td>
                             <td>
                                 <label for="gallery_img_lightbox_pinterestButton">Pinterest
                                     <input type="checkbox"
-                                           id="gallery_img_lightbox_pinterestButton" <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_pinterestButton'] == 'true' ) {
+                                           id="gallery_img_lightbox_pinterestButton" <?php if ( $gallery_default__params['gallery_img_lightbox_pinterestButton'] == 'true' ) {
                                         echo 'checked="checked"';
                                     } ?>  value="true"/></label>
                             </td>
@@ -609,28 +609,28 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                             <td>
                                 <label for="gallery_img_lightbox_linkedinButton">Linkedin
                                     <input type="checkbox"
-                                           id="gallery_img_lightbox_linkedinButton" <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_linkedinButton'] == 'true' ) {
+                                           id="gallery_img_lightbox_linkedinButton" <?php if ( $gallery_default__params['gallery_img_lightbox_linkedinButton'] == 'true' ) {
                                         echo 'checked="checked"';
                                     } ?>  value="true"/></label>
                             </td>
                             <td>
                                 <label for="gallery_img_lightbox_tumblrButton">Tumblr
                                     <input type="checkbox"
-                                           id="gallery_img_lightbox_tumblrButton" <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_tumblrButton'] == 'true' ) {
+                                           id="gallery_img_lightbox_tumblrButton" <?php if ( $gallery_default__params['gallery_img_lightbox_tumblrButton'] == 'true' ) {
                                         echo 'checked="checked"';
                                     } ?>  value="true"/></label>
                             </td>
                             <td>
                                 <label for="gallery_img_lightbox_redditButton">Reddit
                                     <input type="checkbox"
-                                           id="gallery_img_lightbox_redditButton" <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_redditButton'] == 'true' ) {
+                                           id="gallery_img_lightbox_redditButton" <?php if ( $gallery_default__params['gallery_img_lightbox_redditButton'] == 'true' ) {
                                         echo 'checked="checked"';
                                     } ?>  value="true"/></label>
                             </td>
                             <td>
                                 <label for="gallery_img_lightbox_bufferButton">Buffer
                                     <input type="checkbox"
-                                           id="gallery_img_lightbox_bufferButton" <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_bufferButton'] == 'true' ) {
+                                           id="gallery_img_lightbox_bufferButton" <?php if ( $gallery_default__params['gallery_img_lightbox_bufferButton'] == 'true' ) {
                                         echo 'checked="checked"';
                                     } ?>  value="true"/></label>
                             </td>
@@ -639,21 +639,21 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                             <td>
                                 <label for="gallery_img_lightbox_vkButton">Vkontakte
                                     <input type="checkbox"
-                                           id="gallery_img_lightbox_vkButton" <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_vkButton'] == 'true' ) {
+                                           id="gallery_img_lightbox_vkButton" <?php if ( $gallery_default__params['gallery_img_lightbox_vkButton'] == 'true' ) {
                                         echo 'checked="checked"';
                                     } ?>  value="true"/></label>
                             </td>
                             <td>
                                 <label for="gallery_img_lightbox_yummlyButton">Yumly
                                     <input type="checkbox"
-                                           id="gallery_img_lightbox_yummlyButton" <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_yummlyButton'] == 'true' ) {
+                                           id="gallery_img_lightbox_yummlyButton" <?php if ( $gallery_default__params['gallery_img_lightbox_yummlyButton'] == 'true' ) {
                                         echo 'checked="checked"';
                                     } ?>  value="true"/></label>
                             </td>
                             <td>
                                 <label for="gallery_img_lightbox_diggButton">Digg
                                     <input type="checkbox"
-                                           id="gallery_img_lightbox_diggButton" <?php if ( $portfolio_defaultoptions['gallery_img_lightbox_diggButton'] == 'true' ) {
+                                           id="gallery_img_lightbox_diggButton" <?php if ( $gallery_default__params['gallery_img_lightbox_diggButton'] == 'true' ) {
                                         echo 'checked="checked"';
                                     } ?>  value="true"/></label>
                             </td>
