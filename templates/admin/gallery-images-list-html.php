@@ -276,7 +276,7 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
                                                         value="2"><?php echo __( 'Show All', 'gallery-img' ); ?></option>
                                             </select>
                                         </li>
-                                        <li id="content_per_page">
+                                        <li id="content_per_page_li">
                                             <label
                                                     for="content_per_page"><?php echo __( 'Images Per Page', 'gallery-img' ); ?></label>
                                             <input type="text" name="content_per_page" id="content_per_page"
@@ -287,10 +287,6 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 
                                     </ul>
                                 </li>
-
-
-
-
 
 								<li id="gallery-current-options-3"
 								     class="gallery-current-options <?php if ( $row->huge_it_sl_effects == 3 ) {
@@ -435,10 +431,6 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
 									       value="<?php echo esc_html( stripslashes( $row->param ) ); ?>"
 									       class="text_area"/>
 								</li>
-                                <?php
-                                if ( !($row->huge_it_sl_effects == 3) && !($row->huge_it_sl_effects == 10) ) { ?>
-
-
                                     <ul id="rating_inp">
                                         <li  >
                                             <label for="rating"><?php echo __( 'Ratings', 'gallery-img' ); ?></label>
@@ -458,8 +450,6 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
                                             </select>
                                         </li>
                                     </ul>
-
-                                <?php } ?>
 								<li>
 									<label for="disable_right_click"><?php echo __( 'Disable Image Right Click', 'gallery-img' ); ?></label>
 									<select id="disable_right_click" name="disable_right_click">

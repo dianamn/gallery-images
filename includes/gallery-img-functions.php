@@ -126,7 +126,7 @@ function gallery_img_get_default_options() {
 		'gallery_img_light_box_data'                                    => 'false',
 		'gallery_img_light_box_classname'                               => 'false',
 		'gallery_img_light_box_fadeout'                                 => '300',
-		'gallery_img_light_box_closebutton'                             => 'false',
+		'gallery_img_light_box_closebutton'                             => 'true',
 		'gallery_img_light_box_current'                                 => 'image',
 		'gallery_img_light_box_previous'                                => 'previous',
 		'gallery_img_light_box_next'                                    => 'next',

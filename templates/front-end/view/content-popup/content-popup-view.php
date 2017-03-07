@@ -179,10 +179,6 @@
 
 	if ( ($a == 1)&&(count($images)>$num) ) {
 		$gallery_img_content_load_nonce = wp_create_nonce( 'gallery_img_content_load_nonce' );
-
-
-
-
 		?>
 		<div class="load_more5">
 			<div class="load_more_button5"
