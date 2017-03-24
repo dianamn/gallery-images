@@ -13,7 +13,7 @@ class Gallery_Img_Ajax {
 	public function callback() {
 		$gallery_default_params = gallery_img_get_default_options();
 		if ( isset( $_POST['task'] ) ) {
-			$task = $_POST['task'] ;
+			$task = sanitize_text_field($_POST['task']) ;
 			switch ( $task ) {
 				case 'load_images_content':
 					$this->load_content_popup();

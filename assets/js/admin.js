@@ -393,11 +393,11 @@ function galleryImgFilterInputs() {
         jQuery(this).find('select').removeAttr('name');
     });
 };
-function galleryImgSubmitbutton(pressbutton) {
-    if (!document.getElementById('name').value) {
-        alert("Name is required.");
-        return;
-    }
+    function galleryImgSubmitbutton(pressbutton) {
+        if (!document.getElementById('name').value) {
+            alert("Name is required.");
+            return;
+        }
         if (jQuery('#content_per_page').val() < 1) {
             alert("Images Per Page must be greater than 0.");
             return;

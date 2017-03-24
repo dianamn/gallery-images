@@ -60,4 +60,19 @@ function gallery_img_autoload( $classname ) {
 	}
 }
 
-spl_autoload_register( 'gallery_img_autoload' );
+/**
+ * Autoloader check
+ *
+ */
+    if ( function_exists( 'spl_autoload_register' ) ){
+
+        spl_autoload_register( 'gallery_img_autoload' );
+
+    } elseif ( isset( $GLOBALS['_wp_spl_autoloaders'] ) ){
+
+        array_push ($GLOBALS['_wp_spl_autoloaders'], 'gallery_img_autoload');
+
+    } else {
+
+        throw new Exception ( 'We recommend you to update your php version that appears to be a really old one which is not compatible with this version of the Gallery.' );
+    }
