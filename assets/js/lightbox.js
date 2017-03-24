@@ -570,6 +570,7 @@
     };
 
     Lightbox.prototype.socialShare = function () {
+        return false;
         var $object = this;
 
         var shareButtons = '<ul class="rwd-share-buttons">';
