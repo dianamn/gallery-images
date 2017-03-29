@@ -1,10 +1,10 @@
-=== Gallery ===
+=== Gallery - Photo Gallery ===
 Contributors: Huge-IT
 Donate link: https://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, lightbox gallery, wordpress gallery, photo gallery, content gallery, media gallery, youtube gallery, images gallery, responsive gallery, thumbnail gallery,
 Requires at least: 3.0.1
 Tested up to: 4.7.3
-Stable tag: 2.1.4
+Stable tag: 2.1.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -885,6 +885,10 @@ The commercial version users can do unlimited customization, if your images/vide
 
 
 == Changelog ==
+
+= 2.1.5 =
+* 1) Added an error message when autoloader works incorrect on older versions of php
+* 2) Optimized the lazy CSS and moved to correct folders 
 
 = 2.1.4 =
 * We have optimized the front end of the Gallery by moving the lazy CSS from templates. This will help with SEO and page load.
