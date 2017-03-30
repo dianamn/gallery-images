@@ -852,4 +852,7 @@ break;
 .entry-content a{
     border-bottom: none !important;
 }
+.gallery-img-content .noneDisplay {
+    display: block;
+}
 </style>

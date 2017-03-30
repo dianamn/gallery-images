@@ -172,7 +172,7 @@
 				<?php
 			} ?>
 		</div>
-		<div style="clear:both;"></div>
+		<div class="clear"></div>
 	</div>
 	<?php
 	$a = $disp_type;
@@ -246,7 +246,7 @@
 		?>
 		<li class="pupup-element" id="huge_it_gallery_pupup_element_<?php echo $row->id; ?>">
 			<div class="heading-navigation heading-navigation_<?php echo $galleryID; ?>">
-				<div style="display: inline-block; float: left;">
+				<div class="inlineLeft">
 					<div class="left-change"><a href="#<?php echo $changePopup - 1; ?>"
 					                            data-popupid="#<?php echo $row->id; ?>">&lt;</a></div>
 					<div class="right-change"><a href="#<?php echo $changePopup + 1; ?>"
@@ -254,7 +254,7 @@
 				</div>
 				<?php $changePopup = $changePopup + 1; ?>
 				<a href="#close" class="close"></a>
-				<div style="clear:both;"></div>
+				<div class="clear"></div>
 			</div>
 			<div class="popup-wrapper popup-wrapper_<?php echo $galleryID; ?>">
 				<div class="image-block image-block_<?php echo $galleryID; ?>">
@@ -424,9 +424,9 @@
 					<?php if ( $gallery_default_params["gallery_img_ht_view2_show_popup_linkbutton"] == 'on' ) { ?>
 						<?php echo $viwMoreButton; ?>
 					<?php } ?>
-					<div style="clear:both;"></div>
+					<div class="clear"></div>
 				</div>
-				<div style="clear:both;"></div>
+				<div class="clear"></div>
 			</div>
 		</li>
 		<?php

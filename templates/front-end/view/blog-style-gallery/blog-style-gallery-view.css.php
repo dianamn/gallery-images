@@ -1,4 +1,7 @@
 <style>
+.tview9_container .noBorder {
+    border: 0;
+}
 .view9_container:nth-last-child(3){
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;

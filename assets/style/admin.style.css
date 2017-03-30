@@ -1458,3 +1458,16 @@ a.delete-link {
         margin-top: 40px;
     }
 }
+/*lazy css optimize*/
+#gallery-options-list .blockMarg1 {
+    margin-top: 45px;
+}
+.noneDisplay {
+    display: none;
+}
+.adminWidth{
+    width: 95%;
+}
+.numb_area {
+    width: 150px;
+}

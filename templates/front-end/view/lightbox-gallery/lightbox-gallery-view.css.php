@@ -1,4 +1,7 @@
 <style>
+.gallery-img-content .clear {
+    clear: both;
+}
 .gallery-img-content a{
     border-bottom: none;
 }

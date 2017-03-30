@@ -279,9 +279,9 @@ if ( isset( $_GET['id'] ) && $_GET['id'] != '' ) {
                                         <li id="content_per_page_li">
                                             <label
                                                     for="content_per_page"><?php echo __( 'Images Per Page', 'gallery-img' ); ?></label>
-                                            <input type="text" name="content_per_page" id="content_per_page"
+                                            <input type="number" name="content_per_page" id="content_per_page"
                                                    value="<?php echo esc_attr( $row->content_per_page ); ?>"
-                                                   class="text_area"/>
+                                                   class="numb_area"/>
                                         </li>
 
 

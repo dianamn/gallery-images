@@ -163,7 +163,7 @@
 				<?php
 			} ?>
 		</div>
-		<div style="clear:both;"></div>
+		<div class="clear"></div>
 	</div>
 	<?php
 	$a = $disp_type;
