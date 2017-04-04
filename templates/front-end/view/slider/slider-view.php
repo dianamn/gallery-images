@@ -807,7 +807,7 @@
 											     src="https://i.ytimg.com/vi/<?php echo $video_thumb_url; ?>/hqdefault.jpg">
 											<div class="playbutton <?php echo $icon; ?>-icon"></div>
 										</div>
-										<div id="thevideo" style="display: block;">
+										<div id="thevideo" class="noneDisplay" >
 											<div id="video_id_gallery_<?php echo $galleryID; ?>_<?php echo $key; ?>"
 											     class="huge_it_video_frame_gallery_<?php echo $galleryID; ?>"></div>
 										</div>

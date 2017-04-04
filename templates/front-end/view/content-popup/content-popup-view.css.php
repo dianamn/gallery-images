@@ -1,4 +1,8 @@
 <style>
+.inlineLeft{
+    display: inline-block;
+    float: left;
+}
 .element_<?php echo $galleryID; ?> {
 	width: 100%;
 	max-width: <?php echo $gallery_default_params['gallery_img_ht_view2_element_width']+2*$gallery_default_params['gallery_img_ht_view2_element_border_width']; ?>px;

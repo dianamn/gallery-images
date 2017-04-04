@@ -3,7 +3,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 ?>
-<div id="huge_it_gallery_add_videos" style="display: none;">
+<div id="huge_it_gallery_add_videos" class="noneDisplay">
     <div id="huge_it_gallery_add_videos_wrap">
         <h2><?php echo __('Add Video URL From Youtube or Vimeo', 'gallery-img'); ?></h2>
         <div class="control-panel">

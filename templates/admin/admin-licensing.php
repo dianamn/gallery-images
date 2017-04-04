@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
-<div style="width: 95%;">
+<div class="adminWidth">
 	<p>
 		<?php _e('You are using the Lite version of the Gallery Image for WordPress. If you want to get more awesome options,
 		advanced features, settings to customize every area of the plugin, then check out the Full License plugin. The
@@ -72,7 +72,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 </div>
 
-<div style="width: 95%;">
+<div class="adminWidth">
 	<p><?php _e('After the purchasing the commercial version follow this steps:','gallery-img'); ?></p>
 	<ol>
 		<li><?php _e('Deactivate Huge IT Gallery Plugin','gallery-img'); ?></li>

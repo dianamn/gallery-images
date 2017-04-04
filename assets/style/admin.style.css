@@ -62,7 +62,6 @@
 
 #lightbox_type {
     border-bottom: 1px solid #ddd;
-    //margin: 10px 0 0 1% !important;
     height: 30px;
 }
 
@@ -1458,4 +1457,17 @@ a.delete-link {
     .gallery_free_version_banner .description_text {
         margin-top: 40px;
     }
+}
+/*lazy css optimize*/
+#gallery-options-list .blockMarg1 {
+    margin-top: 45px;
+}
+.noneDisplay {
+    display: none;
+}
+.adminWidth{
+    width: 95%;
+}
+.numb_area {
+    width: 150px;
 }

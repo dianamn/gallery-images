@@ -1,7 +1,7 @@
-<div id="mygallery_wrapper_<?php echo $galleryID; ?>" class="gallery-img-content" style="clear: both"
+<div id="mygallery_wrapper_<?php echo $galleryID; ?>" class="gallery-img-content clear"
 	 data-gallery-id="<?php echo $galleryID; ?>" data-content-per-page="<?php echo $num; ?>"
      data-rating-type="<?php echo $like_dislike; ?>">
-	<div id="mygallery_<?php echo $galleryID; ?>" class="mygallery view-<?php echo $view_slug; ?>" style="clear: both">
+	<div id="mygallery_<?php echo $galleryID; ?>" class="mygallery view-<?php echo $view_slug; ?> clear">
 		<?php
 		global $wpdb;
 		?>

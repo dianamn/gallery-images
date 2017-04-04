@@ -387,9 +387,9 @@
 						if ( $gallery_default_params['gallery_img_view9_image_position'] == 1 ) :
 							?>
 							<div class="view9_container">
-								<div class="iframe_cont">
+								<div class="iframe_cont noBorder">
 									<iframe class="video_blog_view"
-									        src="//www.youtube.com/embed/<?php echo $videourl[0]; ?>" style="border: 0;"
+									        src="//www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 									        allowfullscreen></iframe>
 									<?php if ( $like_dislike == 'heart' ): ?>
 										<div class="huge_it_gallery_like_cont_<?php echo $galleryID . $pID; ?>">
@@ -507,8 +507,8 @@
 							<div class="view9_container">
 								<h1 class="new_view_title"><?php echo $img_name; ?></h1>
 								<div class="iframe_cont">
-									<iframe class="video_blog_view"
-									        src="//www.youtube.com/embed/<?php echo $videourl[0]; ?>" style="border: 0;"
+									<iframe class="video_blog_view noBorder"
+									        src="//www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 									        allowfullscreen></iframe>
 									<?php if ( $like_dislike == 'heart' ): ?>
 										<div class="huge_it_gallery_like_cont_<?php echo $galleryID . $pID; ?>">
@@ -626,8 +626,8 @@
 								<h1 class="new_view_title"><?php echo $img_name; ?></h1>
 								<div class="new_view_desc"><?php echo $img_desc; ?></div>
 								<div class="iframe_cont">
-									<iframe class="video_blog_view"
-									        src="//www.youtube.com/embed/<?php echo $videourl[0]; ?>" style="border: 0;"
+									<iframe class="video_blog_view noBorder"
+									        src="//www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 									        allowfullscreen></iframe>
 									<?php if ( $like_dislike == 'heart' ): ?>
 										<div class="huge_it_gallery_like_cont_<?php echo $galleryID . $pID; ?>">
@@ -746,9 +746,9 @@
 							?>
 							<div class="view9_container">
 								<div class="iframe_cont">
-									<iframe class="video_blog_view"
+									<iframe class="video_blog_view noBorder"
 									        src="//player.vimeo.com/video/<?php echo $videourl[0]; ?>"
-									        style="border: 0;" allowfullscreen></iframe>
+									        allowfullscreen></iframe>
 									<?php if ( $like_dislike == 'heart' ): ?>
 										<div class="huge_it_gallery_like_cont_<?php echo $galleryID . $pID; ?>">
 											<div class="huge_it_gallery_like_wrapper">
@@ -865,9 +865,9 @@
 							<div class="view9_container">
 								<h1 class="new_view_title"><?php echo $img_name; ?></h1>
 								<div class="iframe_cont">
-									<iframe class="video_blog_view"
+									<iframe class="video_blog_view noBorder"
 									        src="//player.vimeo.com/video/<?php echo $videourl[0]; ?>"
-									        style="border: 0;" allowfullscreen></iframe>
+									        allowfullscreen></iframe>
 									<?php if ( $like_dislike == 'heart' ): ?>
 										<div class="huge_it_gallery_like_cont_<?php echo $galleryID . $pID; ?>">
 											<div class="huge_it_gallery_like_wrapper">
@@ -984,9 +984,9 @@
 								<h1 class="new_view_title"><?php echo $img_name; ?></h1>
 								<div class="new_view_desc"><?php echo $img_desc; ?></div>
 								<div class="iframe_cont">
-									<iframe class="video_blog_view"
+									<iframe class="video_blog_view noBorder"
 									        src="//player.vimeo.com/video/<?php echo $videourl[0]; ?>"
-									        style="border: 0;" allowfullscreen></iframe>
+									        allowfullscreen></iframe>
 									<?php if ( $like_dislike == 'heart' ): ?>
 										<div class="huge_it_gallery_like_cont_<?php echo $galleryID . $pID; ?>">
 											<div class="huge_it_gallery_like_wrapper">
