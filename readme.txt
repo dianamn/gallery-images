@@ -1,16 +1,18 @@
-=== Gallery - Photo Gallery ===
+=== Image Gallery - Responsive Photo Gallery ===
 Contributors: Huge-IT
 Donate link: https://huge-it.com/wordpress-gallery/
-Tags: gallery, image gallery, gallery image, lightbox gallery, wordpress gallery, photo gallery, content gallery, media gallery, youtube gallery, images gallery, responsive gallery, thumbnail gallery,
+Tags: gallery, image gallery, lightbox gallery, wordpress gallery, photo gallery,
 Requires at least: 3.0.1
 Tested up to: 4.7.3
-Stable tag: 2.1.5
+Stable tag: 2.1.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Gallery image is the best gallery plugin to use if you want to be original with your website. Responsive image gallery with many views.
 
 == Description ==
+
+https://www.youtube.com/watch?v=fNz0hW01k3k
 
 **Gallery - Image Gallery**
 
@@ -23,8 +25,6 @@ Gallery image is the best gallery plugin to use if you want to be original with 
 * [Image Gallery Support](https://huge-it.com/contact-us/)
 * [Image Gallery Forum](https://huge-it.com/forums/forum/wordpress/wordpress-gallery/)
 * [Image Gallery Github Project](https://github.com/Huge-IT/gallery-images)
-
-https://www.youtube.com/watch?v=fNz0hW01k3k
 
 = Image Gallery is the best plugin among WordPress gallery plugins. You can create the most beautiful gallery in a few minutes and enjoy the result. =
 
@@ -885,6 +885,13 @@ The commercial version users can do unlimited customization, if your images/vide
 
 
 == Changelog ==
+
+= 2.1.6 =
+* 1) We have fixed 3 major bugs in the gallery on different views 
+* 2) Added an error message when autoloader works incorrect on older versions of php
+* 3) Made code optimization in the admin panel
+* 4) Optimized the lazy CSS and moved to correct folders
+* 5) Images per page issue where it saves zero value
 
 = 2.1.5 =
 * 1) Added an error message when autoloader works incorrect on older versions of php
