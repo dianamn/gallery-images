@@ -1,10 +1,10 @@
 === Image Gallery - Responsive Photo Gallery ===
-Contributors: Huge-IT
+Contributors: Huge-IT, galleryteam
 Donate link: https://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, lightbox gallery, wordpress gallery, photo gallery,
 Requires at least: 3.0.1
 Tested up to: 4.7.3
-Stable tag: 2.1.6
+Stable tag: 2.1.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -885,6 +885,10 @@ The commercial version users can do unlimited customization, if your images/vide
 
 
 == Changelog ==
+
+= 2.1.7 =
+* Fixed CSS bug.
+* It has been reported about this bug in our forums.
 
 = 2.1.6 =
 * 1) We have fixed 3 major bugs in the gallery on different views 
