@@ -611,7 +611,13 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
             <h3><?php echo __( 'Dimensions', 'gallery-img' ); ?></h3>
 
             <div class="has-background">
-                <label for="light_box_size_fix"><?php echo __( 'Popup size fix', 'gallery-img' ); ?></label>
+                <label for="light_box_size_fix"><?php echo __( 'Popup size fix', 'gallery-img' ); ?><div class="help">?
+                        <div class="help-block">
+                            <span class="pnt"></span>
+                            <p>Set lightbox popup size fixed</p>
+                        </div>
+                    </div>
+                </label>
                 <input type="hidden" value="false" name="params[gallery_img_light_box_size_fix]"/>
                 <input type="checkbox"
                        id="light_box_size_fix" <?php if ( $gallery_img_get_option[ 'gallery_img_light_box_size_fix' ] == 'true' ) {
@@ -620,7 +626,12 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
             </div>
 
             <div class="fixed-size">
-                <label for="light_box_width"><?php echo __( 'Popup width', 'gallery-img' ); ?></label>
+                <label for="light_box_width"><?php echo __( 'Popup width', 'gallery-img' ); ?><div class="help">?
+                        <div class="help-block">
+                            <span class="pnt"></span>
+                            <p>Set lightbox maximum width</p>
+                        </div>
+                    </div></label>
                 <input type="number" name="params[gallery_img_light_box_width]" id="light_box_width"
                        value="<?php echo $gallery_img_get_option[ 'gallery_img_light_box_width' ]; ?>" class="text">
                 <span>px</span>
@@ -634,28 +645,48 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
             </div>
 
             <div class="not-fixed-size">
-                <label for="light_box_maxwidth"><?php echo __( 'Popup maxWidth', 'gallery-img' ); ?></label>
+                <label for="light_box_maxwidth"><?php echo __( 'Popup maxWidth', 'gallery-img' ); ?><div class="help">?
+                        <div class="help-block">
+                            <span class="pnt"></span>
+                            <p>Set lightbox maximum width</p>
+                        </div>
+                    </div></label>
                 <input type="number" name="params[gallery_img_light_box_maxwidth]" id="light_box_maxwidth"
                        value="<?php echo $gallery_img_get_option[ 'gallery_img_light_box_maxwidth' ]; ?>" class="text">
                 <span>px</span>
             </div>
             <div class="has-background not-fixed-size">
                 <label
-                        for="light_box_maxheight"><?php echo __( 'Popup maxHeight', 'gallery-img' ); ?></label>
+                        for="light_box_maxheight"><?php echo __( 'Popup maxHeight', 'gallery-img' ); ?><div class="help">?
+                        <div class="help-block">
+                            <span class="pnt"></span>
+                            <p>Set lightbox maximum height</p>
+                        </div>
+                    </div></label>
                 <input type="number" name="params[gallery_img_light_box_maxheight]" id="light_box_maxheight"
                        value="<?php echo $gallery_img_get_option[ 'gallery_img_light_box_maxheight' ]; ?>" class="text">
                 <span>px</span>
             </div>
             <div>
                 <label
-                        for="light_box_initialwidth"><?php echo __( 'Popup initial width', 'gallery-img' ); ?></label>
+                        for="light_box_initialwidth"><?php echo __( 'Popup initial width', 'gallery-img' ); ?><div class="help">?
+                        <div class="help-block">
+                            <span class="pnt"></span>
+                            <p>Set lightbox initial width</p>
+                        </div>
+                    </div></label>
                 <input type="number" name="params[gallery_img_light_box_initialwidth]" id="light_box_initialwidth"
                        value="<?php echo $gallery_img_get_option[ 'gallery_img_light_box_initialwidth' ]; ?>" class="text">
                 <span>px</span>
             </div>
             <div class="has-background">
                 <label
-                        for="light_box_initialheight"><?php echo __( 'Popup initial height', 'gallery-img' ); ?></label>
+                        for="light_box_initialheight"><?php echo __( 'Popup initial height', 'gallery-img' ); ?><div class="help">?
+                        <div class="help-block">
+                            <span class="pnt"></span>
+                            <p>Set lightbox initial height</p>
+                        </div>
+                    </div></label>
                 <input type="number" name="params[gallery_img_light_box_initialheight]" id="light_box_initialheight"
                        value="<?php echo $gallery_img_get_option[ 'gallery_img_light_box_initialheight' ]; ?>" class="text">
                 <span>px</span>

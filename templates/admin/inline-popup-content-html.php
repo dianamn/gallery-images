@@ -7,7 +7,7 @@
         })
     });
 </script>
-<div id="huge_it_gallery" class="noneDisplay">
+<div id="huge_it_gallery" style="display:none;width:500px">
     <h3><?php echo __('Select Huge IT Gallery to insert into post', 'gallery-images'); ?></h3>
     <?php
     global $wpdb;
