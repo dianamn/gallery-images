@@ -1,8 +1,7 @@
 function galleryImgIsotope(elem,option){
     if(typeof elem.isotope == 'function'){
         elem.isotope(option);
-    }
-    else{
+    } else {
         elem.hugeitmicro(option);
     }
 }
@@ -242,6 +241,14 @@ function galleryImgRatingClick(e) {
             }
         }
     });
+    if ( jQuery('.g-main-slider').length ) {
+        if ( jQuery('.g-main-slider').data('autoslide')=='on') {
+            setTimeout(function(){
+                jQuery('.ls-nav-left-arrow,.ls-nav-right-arrow').click();
+            },4000);
+        }
+    }
+
     return false;
 }
 function galleryImgDislikeClick() {
@@ -322,6 +329,15 @@ function galleryImgDislikeClick() {
             }
         }
     });
+    if ( jQuery('.g-main-slider').length ) {
+        if ( jQuery('.g-main-slider').data('autoslide')=='on') {
+            setTimeout(function(){
+                jQuery('.ls-nav-left-arrow,.ls-nav-right-arrow').click();
+            },4000);
+        }
+    }
+
+
     return false;
 }
 function galleryImglightboxInit() {
