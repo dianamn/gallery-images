@@ -40,6 +40,8 @@ function Gallery_Img_Content_Slider(id) {
         _this.addEventListeners();
     };
     this.init();
+    jQuery('.huge_it_like_thumb').on('click', function() { setTimeout(_this.autoslide,4000);});
+    jQuery('.huge_it_dislike_thumb').on('click', function() { setTimeout(_this.autoslide,4000);});
 }
 var galleries = [];
 jQuery(document).ready(function () {
