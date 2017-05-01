@@ -1,8 +1,7 @@
 function galleryImgIsotope(elem,option){
     if(typeof elem.isotope == 'function'){
         elem.isotope(option);
-    }
-    else{
+    } else {
         elem.hugeitmicro(option);
     }
 }
@@ -242,6 +241,8 @@ function galleryImgRatingClick(e) {
             }
         }
     });
+
+
     return false;
 }
 function galleryImgDislikeClick() {
@@ -322,6 +323,7 @@ function galleryImgDislikeClick() {
             }
         }
     });
+
     return false;
 }
 function galleryImglightboxInit() {

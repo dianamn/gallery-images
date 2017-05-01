@@ -150,7 +150,7 @@ if ( ! class_exists( 'Gallery_Img' ) ) :
                 include_once( 'includes/admin/gallery-img-admin-functions.php' );
             }
             if ( $this->is_request( 'frontend' ) ) {
-                $this->frontend_includes();
+                    $this->frontend_includes();
             }
 
         }

@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="paginate">
 		<?php
 		$protocol    = stripos( $_SERVER['SERVER_PROTOCOL'], 'https' ) === true ? 'https://' : 'http://';
-		$actual_link = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . "";
+        $actual_link = esc_url($protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . "");
 		$checkREQ    = '';
 		$pattern     = "/\?p=/";
 		$pattern2    = "/&page-img[0-9]+=[0-9]+/";

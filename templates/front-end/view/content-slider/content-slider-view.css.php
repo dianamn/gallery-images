@@ -50,6 +50,7 @@
 #g-main-slider_<?php echo $galleryID; ?> .slider-content-wrapper .image-block_<?php echo $galleryID; ?>  .play-icon.vimeo-icon {background:url(<?php echo GALLERY_IMG_IMAGES_URL.'/admin_images/play.vimeo.png'; ?>) center center no-repeat;}
 #g-main-slider_<?php echo $galleryID; ?> .slider-content-wrapper .right-block {
 	display:table-cell;
+    min-width: 210px;
 }
 #g-main-slider_<?php echo $galleryID; ?> .slider-content-wrapper .right-block > div {
 	padding-bottom:10px;

@@ -127,6 +127,18 @@ function Gallery_Img_Lightbox_Gallery(id) {
         jQuery.post(adminUrl, data, function (response) {
                 if (response.success) {
                     var $objnewitems = jQuery(response.success);
+                    for(var i = 0; i < $objnewitems.length; i++){
+                        var $obj, $top, $left;
+                        $obj = $objnewitems[i];
+                        $top = jQuery('div[id*=huge_it_gallery_container_moving_]').height();
+                        $left = 0;
+                        jQuery($obj).css({
+                            'position': 'absolute',
+                            'top': $top + 'px',
+                            'left': $left + 'px'
+                        });
+                    }
+
                     _this.container.children().first().append($objnewitems);
                     _this.container.children().find('img').on('load', function () {
                         setTimeout(function(){
