@@ -1,10 +1,10 @@
 === Image Gallery - Responsive Photo Gallery ===
-Contributors: Huge-IT, galleryteam
+Contributors: Huge-IT
 Donate link: https://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, lightbox gallery, wordpress gallery, photo gallery,
 Requires at least: 3.0.1
-Tested up to: 4.7.3
-Stable tag: 2.1.7
+Tested up to: 4.7.4
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +23,7 @@ https://www.youtube.com/watch?v=fNz0hW01k3k
 * [FAQ Image Gallery](https://huge-it.com/wordpress-gallery-faq/)
 * [User Manual Image Gallery](https://huge-it.com/wordpress-gallery-user-manual/)
 * [Image Gallery Support](https://huge-it.com/contact-us/)
-* [Image Gallery Forum](https://huge-it.com/forums/forum/wordpress/wordpress-gallery/)
+* [Image Gallery Forum](https://wordpress.org/support/plugin/gallery-images)
 * [Image Gallery Github Project](https://github.com/Huge-IT/gallery-images)
 
 = Image Gallery is the best plugin among WordPress gallery plugins. You can create the most beautiful gallery in a few minutes and enjoy the result. =
@@ -885,6 +885,10 @@ The commercial version users can do unlimited customization, if your images/vide
 
 
 == Changelog ==
+
+= 2.2.0 =
+* 1) Fixed the issue in Content Slider where after clicking Ratings LikeDislike,Hearts options slider would stop.
+* 2) We have added and fixed the tooltips of the plugin, now users can read the details about the options before changing anything.
 
 = 2.1.7 =
 * Fixed CSS bug.
