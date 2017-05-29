@@ -308,7 +308,9 @@ function Gallery_Img_Content_Popup(id) {
         jQuery.post(adminUrl, data, function (response) {
                 if (response.success) {
                     var $objnewitems = jQuery(response.success);
-                    for (var i = 0; i < $objnewitems.length; i++) {
+
+                    for(var i = 0; i < $objnewitems.length; i++){
+
                         var $obj, $top, $left;
                         $obj = $objnewitems[i];
                         $top = jQuery('div[id*=huge_it_gallery_container_moving_]').height();
