@@ -155,7 +155,7 @@ case "dislike":
 /*/////Like/Dislike Styles BEGIN//////like/dislike//////*/
 .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?>{
     position: absolute;
-    top: 80%;
+    top: 0;
     right: 10px;
     z-index: 999;
     display: none;
@@ -189,7 +189,7 @@ case "dislike":
 .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_like .huge_it_like_thumb {
     display:block;
     float:left;
-    padding:4px 4px 4px 18px;
+    padding:0;
     font-size: 12px;
     font-weight: 700;
     position:relative;
@@ -199,7 +199,7 @@ case "dislike":
 .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_dislike_count{
     display:block;
     float:left;
-    padding:4px 4px 4px 4px;
+    padding:0;
     font-size: 12px;
     font-weight: 700;
 }
@@ -209,7 +209,7 @@ case "dislike":
 .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_dislike .huge_it_dislike_thumb {
     display:block;
     float:left;
-    padding:4px 4px 4px 18px;
+    padding:0;
     font-size: 12px;
     font-weight: 700;
     position:relative;
@@ -340,4 +340,6 @@ if($gallery_default_params['gallery_img_ht_thumb_rating_count'] == 'off'){
 <?php
           break;
           }?>
+
+.view {float:none;}
 </style>

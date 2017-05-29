@@ -319,4 +319,10 @@ if($gallery_default_params['gallery_img_ht_lightbox_rating_count'] == 'off'){
         max-width:100% !important;
     }
 }
+
+
+.view-wrapper img{
+    height:auto;
+}
+
 </style>
