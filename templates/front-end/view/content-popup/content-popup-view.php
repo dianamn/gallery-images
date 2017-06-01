@@ -493,3 +493,4 @@ switch ($gallery[0]->hover_effect) {
         });
     </script>
 <?php } ?>
+
