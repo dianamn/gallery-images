@@ -1,5 +1,5 @@
-function galleryImgIsotope(elem,option){
-    if(typeof elem.isotope == 'function'){
+function galleryImgIsotope(elem, option) {
+    if (typeof elem.isotope == 'function') {
         elem.isotope(option);
     } else {
         elem.hugeitmicro(option);
@@ -42,7 +42,7 @@ function galleryImgDelCookie(name) {
 function galleryImgRatingCountsOptimize(container, ratingType) {
     if (ratingType != 'heart') {
         container.find('.huge_it_like_count').each(function () {
-            if (jQuery(this).text() < 0)jQuery(this).text(0);
+            if (jQuery(this).text() < 0) jQuery(this).text(0);
             if ((jQuery(this).text().length > 3 || jQuery(this).text().length > 4 || jQuery(this).text().length > 5) && jQuery(this).text().length < 7) {
                 jQuery(this).text(function (_, txt) {
                     return txt.slice(0, -3) + 'k'
@@ -60,7 +60,7 @@ function galleryImgRatingCountsOptimize(container, ratingType) {
             }
         });
         container.find('.huge_it_dislike_count').each(function () {
-            if (jQuery(this).text() < 0)jQuery(this).text(0);
+            if (jQuery(this).text() < 0) jQuery(this).text(0);
             if ((jQuery(this).text().length > 3 || jQuery(this).text().length > 4 || jQuery(this).text().length > 5) && jQuery(this).text().length < 7) {
                 jQuery(this).text(function (_, txt) {
                     return txt.slice(0, -3) + 'k'
@@ -80,7 +80,7 @@ function galleryImgRatingCountsOptimize(container, ratingType) {
     }
     if (ratingType == 'heart') {
         container.find('.huge_it_like_thumb').each(function () {
-            if (jQuery(this).text() < 0)jQuery(this).text(0);
+            if (jQuery(this).text() < 0) jQuery(this).text(0);
             var currentNum = jQuery(this).text();
             var resNum = jQuery.trim(currentNum);
             if ((resNum.length > 3 || resNum.length > 4 || resNum.length > 5) && resNum.length < 7) {
@@ -131,10 +131,10 @@ function galleryImgRatingClick(e) {
         if (resStatus == 'unliked') {
             jQuery("span.huge_it_like_thumb[id='" + image_id + "']").parent().find('.likeheart').addClass('like_thumb_active');
             jQuery("span.huge_it_like_thumb[id='" + image_id + "']").parent().find('.huge_it_like_thumb').addClass('like_font_active');
-		} else if (resStatus == 'liked') {
+        } else if (resStatus == 'liked') {
             jQuery("span.huge_it_like_thumb[id='" + image_id + "']").parent().find('.likeheart').removeClass('like_thumb_active').addClass('likeheart');
             jQuery("span.huge_it_like_thumb[id='" + image_id + "']").parent().find('.huge_it_like_thumb').removeClass('like_font_active');
-		}
+        }
     }
     /////////////////////////////
     if (resStatus2 == undefined) {
@@ -197,16 +197,16 @@ function galleryImgRatingClick(e) {
                 response.dislike = dislikeNumber;
             }
             if (ratingType != 'heart') {
-                if (response.like < 0)response.like = 0;
+                if (response.like < 0) response.like = 0;
                 jQuery("span.huge_it_like_count[id='" + image_id + "']").text(response.like);
             }
             if (ratingType == 'heart') {
-                if (response.like < 0)response.like = 0;
+                if (response.like < 0) response.like = 0;
                 jQuery("span.huge_it_like_thumb[id='" + image_id + "']").text(response.like);
             }
-            if (response.dislike < 0)response.dislike = 0;
+            if (response.dislike < 0) response.dislike = 0;
             jQuery("span.huge_it_dislike_count[id='" + image_id + "']").text(response.dislike);
-			if (ratingType == 'heart') {
+            if (ratingType == 'heart') {
                 if (response.statLike == 'Liked') {
                     jQuery("span.huge_it_like_thumb[id='" + image_id + "']").parent().find('.likeheart').addClass('like_thumb_active');
                     jQuery("span.huge_it_like_thumb[id='" + image_id + "']").parent().find('.huge_it_like_thumb').addClass('like_font_active');
@@ -297,9 +297,9 @@ function galleryImgDislikeClick() {
                 }
                 response.dislike = dislikeNumber;
             }
-            if (response.like < 0)response.like = 0;
+            if (response.like < 0) response.like = 0;
             jQuery("span.huge_it_like_count[id='" + image_id + "']").text(response.like);
-            if (response.dislike < 0)response.dislike = 0;
+            if (response.dislike < 0) response.dislike = 0;
             jQuery("span.huge_it_dislike_count[id='" + image_id + "']").text(response.dislike);
             if (response.statLike == 'Liked') {
                 jQuery("span.huge_it_like_thumb[id='" + image_id + "']").parent().find('.like_thumb_up').addClass('like_thumb_active');
@@ -327,7 +327,7 @@ function galleryImgDislikeClick() {
     return false;
 }
 function galleryImglightboxInit() {
-    if(galleryImgLigtboxType == 'old_type') {
+    if (galleryImgLigtboxType == 'old_type') {
         jQuery(".gallery-img-content a[href$='.jpg'], .gallery-img-content a[href$='.jpeg'], .gallery-img-content a[href$='.png'], .gallery-img-content a[href$='.gif']").addClass('gallery_group' + galleryId);
         jQuery(".gallery_group" + galleryId).removeClass('cboxElement').removeClass('cboxElement').gicolorbox({rel: 'gallery_group' + galleryId});
         jQuery(".giyoutube").removeClass('cboxElement').removeClass('cboxElement').gicolorbox({
@@ -390,15 +390,15 @@ function galleryImglightboxInit() {
             retinaUrl: true
         });
     }
-    else if(galleryImgLigtboxType == 'new_type') {
-        var watermark_class='',imgsrc;
-        if(is_watermark){
-            watermark_class='watermark';
+    else if (galleryImgLigtboxType == 'new_type') {
+        var watermark_class = '', imgsrc;
+        if (is_watermark) {
+            watermark_class = 'watermark';
         }
 
         jQuery(".gallery-img-content a[href$='.jpg'], .gallery-img-content a[href$='.jpeg'], .gallery-img-content a[href$='.png'], .gallery-img-content a[href$='.gif']").addClass('gallery_responsive_lightbox');
         jQuery(".gallery-img-content a.gallery_responsive_lightbox > img").addClass(watermark_class).attr('data-src', '');
-        jQuery(".gallery-img-content a.gallery_responsive_lightbox").each(function(){
+        jQuery(".gallery-img-content a.gallery_responsive_lightbox").each(function () {
             imgsrc = jQuery(this).attr('href');
             jQuery(this).find('img').attr('data-imgsrc', imgsrc);
         });
@@ -408,12 +408,21 @@ function galleryImglightboxInit() {
 
 
 jQuery(document).ready(function () {
-    
+
     jQuery('.gallery-img-content').on("click tap", '.huge_it_gallery_like_wrapper', galleryImgRatingClick);
     jQuery('.gallery-img-content').on("click tap", '.huge_it_gallery_dislike_wrapper', galleryImgDislikeClick);
     galleryImglightboxInit();
 
-    if(galleryImgDisableRightClick == 'on') {
+    disableRightClick();
+});
+
+jQuery(document).ajaxComplete(function (event, xhr, settings) {
+    disableRightClick();
+});
+
+
+function disableRightClick() {
+    if (galleryImgDisableRightClick == 'on') {
         jQuery('.gallery-img-content img').each(function () {
             jQuery(this).bind('contextmenu', function () {
                 return false;
@@ -423,4 +432,4 @@ jQuery(document).ready(function () {
             return false;
         });
     }
-});
+}

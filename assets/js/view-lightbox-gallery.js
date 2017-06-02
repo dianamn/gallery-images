@@ -80,7 +80,7 @@ function Gallery_Img_Lightbox_Gallery(id) {
                 "overflow": "hidden"
             });
             setInterval(function () {
-                galleryImgIsotope(_this.container.children().first(),'layout');
+                galleryImgIsotope(_this.container.children().first(), 'layout');
             });
         }
     };
@@ -91,7 +91,7 @@ function Gallery_Img_Lightbox_Gallery(id) {
         jQuery(window).resize(_this.resizeEvent);
     };
     _this.resizeEvent = function () {
-        galleryImgIsotope(_this.container.children().first(),'layout');
+        galleryImgIsotope(_this.container.children().first(), 'layout');
         _this.showCenter();
 
     };
@@ -120,14 +120,17 @@ function Gallery_Img_Lightbox_Gallery(id) {
             pID: pID,
             likeStyle: likeStyle,
             ratingCount: ratingCount,
-            galleryImgLightboxLoadNonce:lightboxLoadNonce
+            galleryImgLightboxLoadNonce: lightboxLoadNonce,
+            view_style: jQuery("input[name='view_style']").val()
         };
         _this.loadingIcon.show();
         _this.loadMoreBtn.hide();
         jQuery.post(adminUrl, data, function (response) {
                 if (response.success) {
                     var $objnewitems = jQuery(response.success);
+
                     for(var i = 0; i < $objnewitems.length; i++){
+
                         var $obj, $top, $left;
                         $obj = $objnewitems[i];
                         $top = jQuery('div[id*=huge_it_gallery_container_moving_]').height();
@@ -141,47 +144,47 @@ function Gallery_Img_Lightbox_Gallery(id) {
 
                     _this.container.children().first().append($objnewitems);
                     _this.container.children().find('img').on('load', function () {
-                        setTimeout(function(){
-							var options2 = {
-								itemSelector: '.element',
-								masonry: {
-									columnWidth: _this.defaultBlockWidth + 10 + param_obj.gallery_img_ht_view6_border_width * 2,
-								},
-								masonryHorizontal: {
-									rowHeight: 300 + 20 +  + param_obj.gallery_img_ht_view6_border_width * 2
-								},
-								cellsByRow: {
-									columnWidth: 300 + 20,
-									rowHeight: 'auto'
-								},
-								cellsByColumn: {
-									columnWidth: 300 + 20,
-									rowHeight: 'auto'
-								},
-								getSortData: {
-									symbol: function ($elem) {
-										return $elem.attr('data-symbol');
-									},
-									category: function ($elem) {
-										return $elem.attr('data-category');
-									},
-									number: function ($elem) {
-										return parseInt($elem.find('.number').text(), 10);
-									},
-									weight: function ($elem) {
-										return parseFloat($elem.find('.weight').text().replace(/[\(\)]/g, ''));
-									},
-									id: function ($elem) {
-										return $elem.find('.id').text();
-									}
-								}
-							};
+                        setTimeout(function () {
+                            var options2 = {
+                                itemSelector: '.element',
+                                masonry: {
+                                    columnWidth: _this.defaultBlockWidth + 10 + param_obj.gallery_img_ht_view6_border_width * 2,
+                                },
+                                masonryHorizontal: {
+                                    rowHeight: 300 + 20 + +param_obj.gallery_img_ht_view6_border_width * 2
+                                },
+                                cellsByRow: {
+                                    columnWidth: 300 + 20,
+                                    rowHeight: 'auto'
+                                },
+                                cellsByColumn: {
+                                    columnWidth: 300 + 20,
+                                    rowHeight: 'auto'
+                                },
+                                getSortData: {
+                                    symbol: function ($elem) {
+                                        return $elem.attr('data-symbol');
+                                    },
+                                    category: function ($elem) {
+                                        return $elem.attr('data-category');
+                                    },
+                                    number: function ($elem) {
+                                        return parseInt($elem.find('.number').text(), 10);
+                                    },
+                                    weight: function ($elem) {
+                                        return parseFloat($elem.find('.weight').text().replace(/[\(\)]/g, ''));
+                                    },
+                                    id: function ($elem) {
+                                        return $elem.find('.id').text();
+                                    }
+                                }
+                            };
                             galleryImgIsotope(_this.container.children().first());
-							galleryImgIsotope(_this.container.children().first(),options2);
-							galleryImgIsotope(_this.container.children().first(),'reloadItems');
-							galleryImgIsotope(_this.container.children().first(),{sortBy: 'original-order'});
-							galleryImgIsotope(_this.container.children().first(),'layout');
-						},50);
+                            galleryImgIsotope(_this.container.children().first(), options2);
+                            galleryImgIsotope(_this.container.children().first(), 'reloadItems');
+                            galleryImgIsotope(_this.container.children().first(), {sortBy: 'original-order'});
+                            galleryImgIsotope(_this.container.children().first(), 'layout');
+                        }, 50);
                         if (_this.isCentered) {
                             _this.showCenter();
                         }
@@ -192,7 +195,10 @@ function Gallery_Img_Lightbox_Gallery(id) {
                         _this.loadMoreBtn.hide();
                     }
                     galleryImglightboxInit();
-                    galleryImgRatingCountsOptimize(_this.container,_this.ratingType);
+                    galleryImgRatingCountsOptimize(_this.container, _this.ratingType);
+                    jQuery('.view-fifth ').each(function () {
+                        jQuery(this).hoverdir();
+                    });
                 } else {
                     alert("no");
                 }

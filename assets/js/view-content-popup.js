@@ -86,7 +86,7 @@ function Gallery_Img_Content_Popup(id) {
                 "margin": "0px auto",
                 "overflow": "hidden"
             });
-            var loadInterval = setInterval(function(){
+            var loadInterval = setInterval(function () {
                 galleryImgIsotope(_this.container.children(), 'layout');
             },100);
             setTimeout(function(){clearInterval(loadInterval);},7000);
@@ -112,7 +112,7 @@ function Gallery_Img_Content_Popup(id) {
         var height = jQuery(window).height();
         var width = jQuery(window).width();
         if (width <= 767) {
-            if(_this.popupMobilePositionAtTop == 'on') {
+            if (_this.popupMobilePositionAtTop == 'on') {
                 jQuery(window).scrollTop(0);
             } else {
                 _this.popupList.css({top: jQuery(window).scrollTop()});
@@ -282,13 +282,13 @@ function Gallery_Img_Content_Popup(id) {
             var pID = postID;
             var likeStyle = _this.ratingType;
             var ratingCount = param_obj.gallery_img_ht_popup_rating_count;
-            _this.getResult(pagenum, perpage, galleryid, linkbutton, showbutton, pID, likeStyle, ratingCount,contentLoadNonce);
+            _this.getResult(pagenum, perpage, galleryid, linkbutton, showbutton, pID, likeStyle, ratingCount, contentLoadNonce);
         } else {
             _this.loadMoreBtn.hide();
         }
         return false;
     };
-    _this.getResult = function (pagenum, perpage, galleryid, linkbutton, showbutton, pID, likeStyle, ratingCount,contentLoadNonce) {
+    _this.getResult = function (pagenum, perpage, galleryid, linkbutton, showbutton, pID, likeStyle, ratingCount, contentLoadNonce) {
         var data = {
             action: "huge_it_gallery_ajax",
             task: 'load_images_content',
@@ -300,14 +300,17 @@ function Gallery_Img_Content_Popup(id) {
             pID: pID,
             likeStyle: likeStyle,
             ratingCount: ratingCount,
-            galleryImgContentLoadNonce:contentLoadNonce
+            galleryImgContentLoadNonce: contentLoadNonce,
+            view_style: jQuery("input[name='view_style']").val()
         };
         _this.loadingIcon.show();
         _this.loadMoreBtn.hide();
         jQuery.post(adminUrl, data, function (response) {
                 if (response.success) {
                     var $objnewitems = jQuery(response.success);
+
                     for(var i = 0; i < $objnewitems.length; i++){
+
                         var $obj, $top, $left;
                         $obj = $objnewitems[i];
                         $top = jQuery('div[id*=huge_it_gallery_container_moving_]').height();
@@ -381,6 +384,9 @@ function Gallery_Img_Content_Popup(id) {
                         }, 100);
                     }
                     ;
+                    jQuery('.view-fifth ').each(function () {
+                        jQuery(this).hoverdir();
+                    });
                 }
                 else {
                     alert("no");

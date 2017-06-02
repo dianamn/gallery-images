@@ -49,12 +49,13 @@ function Gallery_Img_Thumbnails(id) {
             pID: pID,
             likeStyle: likeStyle,
             ratingCount: ratingCount,
-            galleryImgThumbnailLoadNonce: thumbnailLoadNonce
+            galleryImgThumbnailLoadNonce: thumbnailLoadNonce,
+            view_style: jQuery("input[name='view_style']").val()
         };
         _this.loadingIcon.show();
         _this.loadMoreBtn.hide();
         jQuery.post(adminUrl, data, function (response) {
-         if(response.success) {
+                if (response.success) {
                     var $objnewitems = jQuery(response.success);
                     _this.container.append($objnewitems);
                     _this.loadMoreBtn.show();
@@ -69,6 +70,9 @@ function Gallery_Img_Thumbnails(id) {
                             _this.naturalImageThumb();
                         }
                     }, 200);
+                    jQuery('.view-fifth ').each(function () {
+                        jQuery(this).hoverdir();
+                    });
                 } else {
                     alert("no");
                 }
