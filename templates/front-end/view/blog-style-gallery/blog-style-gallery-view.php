@@ -6,7 +6,7 @@
 		<?php
 		global $wpdb;
 		?>
-		<input type="hidden" id="total" value="<?= $total; ?>"/>
+		<input type="hidden" id="total" value="<?php echo $total; ?>"/>
 		<?php
 		foreach ( $page_images as $key => $row ) {
 			if ( ! isset( $_COOKIE[ 'Like_' . $row->id . '' ] ) ) {
@@ -1112,7 +1112,7 @@
         ?>
 		<div class="load_more">
 			<div class="load_more_button"
-			     data-blog-nonce-value="<?php echo $gallery_img_blog_load_nonce; ?>"><?= $gallery_default_params['gallery_img_video_ht_view9_loadmore_text']; ?></div>
+			     data-blog-nonce-value="<?php echo $gallery_img_blog_load_nonce; ?>"><?php echo $gallery_default_params['gallery_img_video_ht_view9_loadmore_text']; ?></div>
 			<div class="loading"><img src="<?php if ( $gallery_default_params['gallery_img_loading_type'] == '1' ) {
 					echo GALLERY_IMG_IMAGES_URL . '/front_images/arrows/loading1.gif';
 				} elseif ( $gallery_default_params['gallery_img_loading_type'] == '2' ) {

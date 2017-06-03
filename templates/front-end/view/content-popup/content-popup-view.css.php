@@ -1,4 +1,4 @@
-<?= "<style>" ?>
+<?php echo "<style>"; ?>
 
 .inlineLeft {
     display: inline-block;
@@ -887,7 +887,7 @@ if($gallery_default_params['gallery_img_ht_popup_rating_count'] == 'off'){
 <?php break;
 }?>
 
-<?= "</style>" ?>
+<?php echo "</style>"; ?>
 
 
 

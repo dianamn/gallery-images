@@ -5900,7 +5900,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                     color</label>
                                                 <input name="params[gallery_img_ht_album_image_scale_color]" type="text"
                                                        class="color" id="gallery_img_ht_album_image_scale_color"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_image_scale_color"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_image_scale_color"]; ?>"
                                                        size="10" autocomplete="off"
                                                        style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
                                             </div>
@@ -5912,7 +5912,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                        min="0"
                                                        max="100"
                                                        id="gallery_img_ht_album_image_scale_opacity"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_image_scale_opacity"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_image_scale_opacity"]; ?>"
                                                        size="10" autocomplete="off">
                                             </div>
                                             <div class="for_scale_hover">
@@ -5921,7 +5921,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <input name="params[gallery_img_ht_album_image_scale_text_color]"
                                                        type="text"
                                                        class="color" id="gallery_img_ht_album_image_scale_text_color"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_image_scale_text_color"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_image_scale_text_color"]; ?>"
                                                        size="10" autocomplete="off"
                                                        style="background-color: rgb(33, 33, 33); color: rgb(255, 255, 255);">
                                             </div>
@@ -5932,7 +5932,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <input name="params[gallery_img_ht_album_image_bottom_hover_color]"
                                                        type="text"
                                                        class="color" id="gallery_img_ht_album_image_bottom_hover_color"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_image_bottom_hover_color"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_image_bottom_hover_color"]; ?>"
                                                        size="10" autocomplete="off"
                                                        style="background-color: rgb(33, 33, 33); color: rgb(255, 255, 255);">
                                             </div>
@@ -5944,7 +5944,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                        type="text"
                                                        class="color"
                                                        id="gallery_img_ht_album_image_bottom_hover_text_color"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_image_bottom_hover_text_color"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_image_bottom_hover_text_color"]; ?>"
                                                        size="10" autocomplete="off"
                                                        style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
                                             </div>
@@ -6182,7 +6182,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <input type="number" min="0"
                                                        id="gallery_img_ht_album_thumbnail_width_in_px"
                                                        name="params[gallery_img_ht_album_thumbnail_width_in_px]"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_thumbnail_width_in_px"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_thumbnail_width_in_px"]; ?>"
                                                        autocmplete="off" size="10">
                                             </div>
                                             <div class="has-background for_thumb_view">
@@ -6190,7 +6190,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <input type="number" min="0"
                                                        id="gallery_img_ht_album_thumbnail_height_in_px"
                                                        name="params[gallery_img_ht_album_thumbnail_height_in_px]"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_thumbnail_height_in_px"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_thumbnail_height_in_px"]; ?>"
                                                        autocmplete="off" size="10">
                                             </div>
                                             <div class="for_thumb_view">
@@ -6198,7 +6198,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <input name="params[gallery_img_ht_album_thumbnail_background]"
                                                        type="text"
                                                        class="color" id="gallery_img_ht_album_thumbnail_background"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_thumbnail_background"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_thumbnail_background"]; ?>"
                                                        size="10" autocomplete="off"
                                                        style="background-color: rgb(51, 51, 51); color: rgb(255, 255, 255);">
                                             </div>
@@ -6207,7 +6207,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <input type="number" min="0"
                                                        id="gallery_img_ht_album_thumbnail_image_border_width"
                                                        name="params[gallery_img_ht_album_thumbnail_image_border_width]"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_thumbnail_image_border_width"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_thumbnail_image_border_width"]; ?>"
                                                        autocmplete="off" size="10">
                                             </div>
                                             <div class="for_thumb_view">
@@ -6216,7 +6216,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                        type="text"
                                                        class="color"
                                                        id="gallery_img_ht_album_thumbnail_image_border_color"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_thumbnail_image_border_color"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_thumbnail_image_border_color"]; ?>"
                                                        size="10" autocomplete="off"
                                                        style="background-color: rgb(51, 51, 51); color: rgb(255, 255, 255);">
                                             </div>
@@ -6225,7 +6225,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <input type="number" min="0"
                                                        id="gallery_img_ht_album_thumbnail_image_border_radius"
                                                        name="params[gallery_img_ht_album_thumbnail_image_border_radius]"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_thumbnail_image_border_radius"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_thumbnail_image_border_radius"]; ?>"
                                                        autocmplete="off" size="10">
                                             </div>
 
@@ -6236,7 +6236,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <input type="number" min="2" max="10"
                                                        id="gallery_img_ht_album_mosaic_image_column_count"
                                                        name="params[gallery_img_ht_album_mosaic_image_column_count]"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_mosaic_image_column_count"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_mosaic_image_column_count"]; ?>"
                                                        autocmplete="off" size="10">
                                             </div>
                                             <div class="has-background for_mosaic_view">
@@ -6244,7 +6244,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <input type="number" min="0"
                                                        id="gallery_img_ht_album_mosaic_image_margin_bottom_in_px"
                                                        name="params[gallery_img_ht_album_mosaic_image_margin_bottom_in_px]"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_mosaic_image_margin_bottom_in_px"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_mosaic_image_margin_bottom_in_px"]; ?>"
                                                        autocmplete="off" size="10">
                                             </div>
                                             <div class="for_mosaic_view">
@@ -6252,7 +6252,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <input type="number" min="0"
                                                        id="gallery_img_ht_album_mosaic_image_margin_right_in_px"
                                                        name="params[gallery_img_ht_album_mosaic_image_margin_right_in_px]"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_mosaic_image_margin_right_in_px"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_mosaic_image_margin_right_in_px"]; ?>"
                                                        autocmplete="off" size="10">
                                             </div>
                                             <div class="has-background for_mosaic_view">
@@ -6260,7 +6260,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <input type="number" min="0"
                                                        id="gallery_img_ht_album_mosaic_image_border_width_in_px"
                                                        name="params[gallery_img_ht_album_mosaic_image_border_width_in_px]"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_mosaic_image_border_width_in_px"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_mosaic_image_border_width_in_px"]; ?>"
                                                        autocmplete="off" size="10">
                                             </div>
                                             <div class="for_mosaic_view">
@@ -6269,7 +6269,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <input name="params[gallery_img_ht_album_image_border_color]"
                                                        type="text"
                                                        class="color" id="gallery_img_ht_album_image_border_color"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_image_border_color"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_image_border_color"]; ?>"
                                                        size="10" autocomplete="off"
                                                        style="background-color: rgb(51, 51, 51); color: rgb(255, 255, 255);">
                                             </div>
@@ -6278,7 +6278,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <input type="number" min="0"
                                                        id="gallery_img_ht_album_mosaic_image_border_radius"
                                                        name="params[gallery_img_ht_album_mosaic_image_border_radius]"
-                                                       value="<?= $gallery_img_get_option["gallery_img_ht_album_mosaic_image_border_radius"] ?>"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_mosaic_image_border_radius"]; ?>"
                                                        autocmplete="off" size="10">
                                             </div>
 

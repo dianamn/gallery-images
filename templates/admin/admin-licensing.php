@@ -56,11 +56,11 @@ $license = array(
     <?php foreach ($license as $key => $val) { ?>
         <div class="col column_1_of_3">
             <div class="header">
-                <div class="col-icon" style="background-position: <?= $val["icon"] ?>; ">
+                <div class="col-icon" style="background-position: <?php echo $val["icon"]; ?>; ">
                 </div>
-                <?= $val["title"] ?>
+                <?php echo $val["title"]; ?>
             </div>
-            <p><?= $val["text"] ?></p>
+            <p><?php echo $val["text"]; ?></p>
             <div class="col-footer">
                 <a href="https://goo.gl/NmLZX2" class="a-upgrate">Upgrade</a>
             </div>
