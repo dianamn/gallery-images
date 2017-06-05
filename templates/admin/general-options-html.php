@@ -3,13 +3,15 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 $path_site = plugins_url("../../assets/images/front_images", __FILE__);
+$path_album = plugins_url("../../assets/images/albums", __FILE__);
 ?>
 
 <div class="wrap">
-    <?php require(GALLERY_IMG_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'free-banner.php');?>
+    <?php require(GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'free-banner.php'); ?>
     <p class="pro_info">
         <?php echo __('These features are available in the Professional version of the plugin only.', 'gallery-images'); ?>
-        <a href="http://huge-it.com/wordpress-gallery/" target="_blank" class="button button-primary"><?php echo __('Enable','gallery-images'); ?></a>
+        <a href="http://huge-it.com/wordpress-gallery/" target="_blank"
+           class="button button-primary"><?php echo __('Enable', 'gallery-images'); ?></a>
     </p>
     <div>
         <div id="poststuff">
@@ -18,22 +20,39 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                 <div id="post-body-content" class="gallery-options">
                     <div id="post-body-heading" class="for_general_">
                         <h3><?php echo __('General Options', 'gallery-img'); ?></h3>
-                        <a onclick="document.getElementById('adminForm').submit()" class="save-gallery-options button-primary"><?php echo __('Save', 'gallery-img'); ?></a>
+                        <a onclick="document.getElementById('adminForm').submit()"
+                           class="save-gallery-options button-primary"><?php echo __('Save', 'gallery-img'); ?></a>
                     </div>
                     <form action="" method="post" id="adminForm" name="adminForm">
                         <div id="gallery-options-list">
                             <ul id="gallery-view-tabs">
-                                <li><a href="#gallery-view-options-0"><?php echo __('Gallery/Content-Popup', 'gallery-img'); ?></a></li>
-                                <li><a href="#gallery-view-options-1"><?php echo __('Content Slider', 'gallery-img'); ?></a></li>
-                                <li><a href="#gallery-view-options-2"><?php echo __('Lightbox-Gallery', 'gallery-img'); ?></a></li>
-                                <li><a href="#gallery-view-options-3"><?php echo __('Slider', 'gallery-img'); ?></a></li>
-                                <li><a href="#gallery-view-options-4"><?php echo __('Thumbnails', 'gallery-img'); ?></a></li>
-                                <li><a href="#gallery-view-options-5"><?php echo __('Justified', 'gallery-img'); ?></a></li>
-                                <li><a href="#gallery-view-options-6"><?php echo __('Blog Style Gallery', 'gallery-img'); ?></a></li>
-                                <li><a href="#gallery-view-options-7"><?php echo __( 'Elastic Grid', 'gallery-img' ); ?></a></li>
+                                <li>
+                                    <a href="#gallery-view-options-0"><?php echo __('Gallery/Content-Popup', 'gallery-img'); ?></a>
+                                </li>
+                                <li>
+                                    <a href="#gallery-view-options-1"><?php echo __('Content Slider', 'gallery-img'); ?></a>
+                                </li>
+                                <li>
+                                    <a href="#gallery-view-options-2"><?php echo __('Lightbox-Gallery', 'gallery-img'); ?></a>
+                                </li>
+                                <li><a href="#gallery-view-options-3"><?php echo __('Slider', 'gallery-img'); ?></a>
+                                </li>
+                                <li><a href="#gallery-view-options-4"><?php echo __('Thumbnails', 'gallery-img'); ?></a>
+                                </li>
+                                <li><a href="#gallery-view-options-5"><?php echo __('Justified', 'gallery-img'); ?></a>
+                                </li>
+                                <li>
+                                    <a href="#gallery-view-options-6"><?php echo __('Blog Style Gallery', 'gallery-img'); ?></a>
+                                </li>
+                                <li>
+                                    <a href="#gallery-view-options-7"><?php echo __('Elastic Grid', 'gallery-img'); ?></a>
+                                </li>
+                                <li><a href="#gallery-view-options-8"><?php echo __('Albums', 'gallery-img'); ?></a>
+                                </li>
                             </ul>
 
-                            <ul class="options-block lightbox-grey-wrapper widePercents" id="gallery-view-tabs-contents">
+                            <ul class="options-block lightbox-grey-wrapper widePercents"
+                                id="gallery-view-tabs-contents">
 
                                 <li class="gallery-view-options-0">
                                     <div>
@@ -47,8 +66,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_view2_content_in_center]" />
-                                            <input type="checkbox" id="ht_view2_content_in_center"  checked="checked"  name="params[gallery_img_ht_view2_content_in_center]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_view2_content_in_center]"/>
+                                            <input type="checkbox" id="ht_view2_content_in_center" checked="checked"
+                                                   name="params[gallery_img_ht_view2_content_in_center]" value="on"/>
                                         </div>
                                         <h3><?php echo __('Element Styles', 'gallery-img'); ?></h3>
                                         <div class="has-background">
@@ -60,12 +81,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="image_natural_size_contentpopup" name="params[gallery_img_image_natural_size_contentpopup]">
-                                                <option <?php if(get_option('gallery_img_image_natural_size_contentpopup') == 'resize'){ echo 'selected="selected"'; } ?> value="resize"><?php echo __('Resize', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_image_natural_size_contentpopup') == 'natural'){ echo 'selected="selected"'; } ?> value="natural"><?php echo __('Natural', 'gallery-img'); ?></option>
+                                            <select id="image_natural_size_contentpopup"
+                                                    name="params[gallery_img_image_natural_size_contentpopup]">
+                                                <option <?php if (get_option('gallery_img_image_natural_size_contentpopup') == 'resize') {
+                                                    echo 'selected="selected"';
+                                                } ?> value="resize"><?php echo __('Resize', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_image_natural_size_contentpopup') == 'natural') {
+                                                    echo 'selected="selected"';
+                                                } ?> value="natural"><?php echo __('Natural', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
-                                        <div >
+                                        <div>
                                             <label for="ht_view2_element_width"><?php echo __('Element Image Width', 'gallery-img'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -74,7 +100,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view2_element_width]" id="ht_view2_element_width" value="<?php echo get_option('gallery_img_ht_view2_element_width'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view2_element_width]"
+                                                   id="ht_view2_element_width"
+                                                   value="<?php echo get_option('gallery_img_ht_view2_element_width'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div class="has-background">
@@ -86,7 +115,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view2_element_height]" id="ht_view2_element_height" value="<?php echo get_option('gallery_img_ht_view2_element_height'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view2_element_height]"
+                                                   id="ht_view2_element_height"
+                                                   value="<?php echo get_option('gallery_img_ht_view2_element_height'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
 
@@ -99,7 +131,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view2_element_border_color]" type="text" class="color" id="ht_view2_element_border_color" value="#<?php echo get_option('gallery_img_ht_view2_element_border_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view2_element_border_color]" type="text"
+                                                   class="color" id="ht_view2_element_border_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view2_element_border_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div>
                                             <label for="ht_view2_element_overlay_color"><?php echo __('Elements Image Overlay Color', 'gallery-img'); ?>
@@ -110,7 +145,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view2_element_overlay_color]" type="text" class="color" id="ht_view2_element_overlay_color" value="#<?php echo get_option('gallery_img_ht_view2_element_overlay_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view2_element_overlay_color]" type="text"
+                                                   class="color" id="ht_view2_element_overlay_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view2_element_overlay_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="ht_view2_zoombutton_style"><?php echo __('Elements Image Overlay Opacity', 'gallery-img'); ?>
@@ -122,11 +160,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_ht_view2_element_overlay_transparency]" id="ht_view2_element_overlay_transparency" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_ht_view2_element_overlay_transparency'); ?>" />
-                                                <span><?php echo get_option('gallery_img_ht_view2_element_overlay_transparency'); ?>%</span>
+                                                <input name="params[gallery_img_ht_view2_element_overlay_transparency]"
+                                                       id="ht_view2_element_overlay_transparency"
+                                                       data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_ht_view2_element_overlay_transparency'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_ht_view2_element_overlay_transparency'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
-                                        <div >
+                                        <div>
                                             <label for="ht_view2_zoombutton_style"><?php echo __('Zoom Image Style', 'gallery-img'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -135,9 +179,16 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="ht_view2_zoombutton_style" name="params[gallery_img_ht_view2_zoombutton_style]">
-                                                <option <?php if(get_option('gallery_img_ht_view2_zoombutton_style') == 'light'){ echo 'selected="selected"'; } ?> value="light">Light</option>
-                                                <option <?php if(get_option('gallery_img_ht_view2_zoombutton_style') == 'dark'){ echo 'selected="selected"'; } ?> value="dark">Dark</option>
+                                            <select id="ht_view2_zoombutton_style"
+                                                    name="params[gallery_img_ht_view2_zoombutton_style]">
+                                                <option <?php if (get_option('gallery_img_ht_view2_zoombutton_style') == 'light') {
+                                                    echo 'selected="selected"';
+                                                } ?> value="light">Light
+                                                </option>
+                                                <option <?php if (get_option('gallery_img_ht_view2_zoombutton_style') == 'dark') {
+                                                    echo 'selected="selected"';
+                                                } ?> value="dark">Dark
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
@@ -152,7 +203,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view2_element_title_font_size]" id="ht_view2_element_title_font_size" value="<?php echo get_option('gallery_img_ht_view2_element_title_font_size'); ?>" class="text" />
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_view2_element_title_font_size]"
+                                                   id="ht_view2_element_title_font_size"
+                                                   value="<?php echo get_option('gallery_img_ht_view2_element_title_font_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div>
@@ -164,7 +219,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view2_element_title_font_color]" type="text" class="color" id="ht_view2_element_title_font_color" value="#<?php echo get_option('gallery_img_ht_view2_element_title_font_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view2_element_title_font_color]"
+                                                   type="text" class="color" id="ht_view2_element_title_font_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view2_element_title_font_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="ht_view2_element_background_color"><?php echo __('Element Title Background Color', 'gallery-img'); ?>
@@ -175,7 +233,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view2_element_background_color]" type="text" class="color" id="ht_view2_element_background_color" value="#<?php echo get_option('gallery_img_ht_view2_element_background_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view2_element_background_color]"
+                                                   type="text" class="color" id="ht_view2_element_background_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view2_element_background_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                     </div>
                                     <div>
@@ -189,8 +250,13 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_view2_element_show_linkbutton]" />
-                                            <input type="checkbox" id="ht_view2_element_show_linkbutton"  <?php if(get_option('gallery_img_ht_view2_element_show_linkbutton')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view2_element_show_linkbutton]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_view2_element_show_linkbutton]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view2_element_show_linkbutton" <?php if (get_option('gallery_img_ht_view2_element_show_linkbutton') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view2_element_show_linkbutton]"
+                                                   value="on"/>
                                         </div>
                                         <div>
                                             <label for="ht_view2_element_linkbutton_text"><?php echo __('Link Button Text', 'gallery-img'); ?>
@@ -201,7 +267,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view2_element_linkbutton_text]" id="ht_view2_element_linkbutton_text" value="<?php echo esc_attr(get_option('gallery_img_ht_view2_element_linkbutton_text')); ?>" class="text" />
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_view2_element_linkbutton_text]"
+                                                   id="ht_view2_element_linkbutton_text"
+                                                   value="<?php echo esc_attr(get_option('gallery_img_ht_view2_element_linkbutton_text')); ?>"
+                                                   class="text"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="ht_view2_element_linkbutton_font_size"><?php echo __('Link Button Font Size', 'gallery-img'); ?>
@@ -212,7 +282,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view2_element_linkbutton_font_size]" id="ht_view2_element_linkbutton_font_size" value="<?php echo get_option('gallery_img_ht_view2_element_linkbutton_font_size'); ?>" class="text" />
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_view2_element_linkbutton_font_size]"
+                                                   id="ht_view2_element_linkbutton_font_size"
+                                                   value="<?php echo get_option('gallery_img_ht_view2_element_linkbutton_font_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div>
@@ -224,7 +298,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view2_element_linkbutton_color]" type="text" class="color" id="ht_view2_element_linkbutton_color" value="#<?php echo get_option('gallery_img_ht_view2_element_linkbutton_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view2_element_linkbutton_color]"
+                                                   type="text" class="color" id="ht_view2_element_linkbutton_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view2_element_linkbutton_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="ht_view2_element_linkbutton_background_color"><?php echo __('Link Button Background Color', 'gallery-img'); ?>
@@ -235,7 +312,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view2_element_linkbutton_background_color]" type="text" class="color" id="ht_view2_element_linkbutton_background_color" value="#<?php echo get_option('gallery_img_ht_view2_element_linkbutton_background_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view2_element_linkbutton_background_color]"
+                                                   type="text" class="color"
+                                                   id="ht_view2_element_linkbutton_background_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view2_element_linkbutton_background_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                     </div>
                                     <div>
@@ -249,8 +330,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_view2_popup_full_width]" />
-                                            <input type="checkbox" id="ht_view2_popup_full_width"  <?php if(get_option('gallery_img_ht_view2_popup_full_width')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view2_popup_full_width]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_view2_popup_full_width]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view2_popup_full_width" <?php if (get_option('gallery_img_ht_view2_popup_full_width') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view2_popup_full_width]" value="on"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="ht_view2_popup_background_color"><?php echo __('Popup Background Color', 'gallery-img'); ?>
@@ -261,7 +346,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view2_popup_background_color]" type="text" class="color" id="ht_view2_popup_background_color" value="#<?php echo get_option('gallery_img_ht_view2_popup_background_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view2_popup_background_color]"
+                                                   type="text" class="color" id="ht_view2_popup_background_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view2_popup_background_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div>
                                             <label for="ht_view2_popup_overlay_color"><?php echo __('Popup Overlay Color', 'gallery-img'); ?>
@@ -272,7 +360,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view2_popup_overlay_color]" type="text" class="color" id="ht_view2_popup_overlay_color" value="#<?php echo get_option('gallery_img_ht_view2_popup_overlay_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view2_popup_overlay_color]" type="text"
+                                                   class="color" id="ht_view2_popup_overlay_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view2_popup_overlay_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="ht_view2_popup_overlay_transparency_color"><?php echo __('Popup Overlay Opacity', 'gallery-img'); ?>
@@ -284,8 +375,14 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_ht_view2_popup_overlay_transparency_color]" id="ht_view2_popup_overlay_transparency_color" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_ht_view2_popup_overlay_transparency_color'); ?>" />
-                                                <span><?php echo get_option('gallery_img_ht_view2_popup_overlay_transparency_color'); ?>%</span>
+                                                <input name="params[gallery_img_ht_view2_popup_overlay_transparency_color]"
+                                                       id="ht_view2_popup_overlay_transparency_color"
+                                                       data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_ht_view2_popup_overlay_transparency_color'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_ht_view2_popup_overlay_transparency_color'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
                                         <div>
@@ -297,9 +394,14 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="ht_view2_popup_closebutton_style" name="params[gallery_img_ht_view2_popup_closebutton_style]">
-                                                <option <?php if(get_option('gallery_img_ht_view2_popup_closebutton_style') == 'light'){ echo 'selected="selected"'; } ?> value="light"><?php echo __('Light', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_ht_view2_popup_closebutton_style') == 'dark'){ echo 'selected="selected"'; } ?> value="dark"><?php echo __('Dark', 'gallery-img'); ?></option>
+                                            <select id="ht_view2_popup_closebutton_style"
+                                                    name="params[gallery_img_ht_view2_popup_closebutton_style]">
+                                                <option <?php if (get_option('gallery_img_ht_view2_popup_closebutton_style') == 'light') {
+                                                    echo 'selected="selected"';
+                                                } ?> value="light"><?php echo __('Light', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_ht_view2_popup_closebutton_style') == 'dark') {
+                                                    echo 'selected="selected"';
+                                                } ?> value="dark"><?php echo __('Dark', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                         <div class="has-background">
@@ -311,8 +413,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_view2_show_separator_lines]" />
-                                            <input type="checkbox" id="ht_view2_show_separator_lines"  <?php if(get_option('gallery_img_ht_view2_show_separator_lines')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view2_show_separator_lines]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_view2_show_separator_lines]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view2_show_separator_lines" <?php if (get_option('gallery_img_ht_view2_show_separator_lines') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view2_show_separator_lines]" value="on"/>
                                         </div>
                                         <div>
                                             <label for="light_box_arrowkey"><?php echo __('Keyboard navigation', 'gallery-img'); ?>
@@ -323,8 +429,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="false" name="params[gallery_img_light_box_arrowkey]" />
-                                            <input type="checkbox" id="light_box_arrowkey"  <?php if(get_option('gallery_img_light_box_arrowkey')  == 'true'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_light_box_arrowkey]" value="true" />
+                                            <input type="hidden" value="false"
+                                                   name="params[gallery_img_light_box_arrowkey]"/>
+                                            <input type="checkbox"
+                                                   id="light_box_arrowkey" <?php if (get_option('gallery_img_light_box_arrowkey') == 'true') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_light_box_arrowkey]" value="true"/>
                                         </div>
                                     </div>
                                     <div>
@@ -338,7 +448,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view2_popup_title_font_size]" id="ht_view2_element_title_font_size" value="<?php echo get_option('gallery_img_ht_view2_popup_title_font_size'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view2_popup_title_font_size]"
+                                                   id="ht_view2_element_title_font_size"
+                                                   value="<?php echo get_option('gallery_img_ht_view2_popup_title_font_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div>
@@ -350,7 +463,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view2_popup_title_font_color]" type="text" class="color" id="ht_view2_popup_title_font_color" value="#<?php echo get_option('gallery_img_ht_view2_popup_title_font_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view2_popup_title_font_color]"
+                                                   type="text" class="color" id="ht_view2_popup_title_font_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view2_popup_title_font_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                     </div>
                                     <div>
@@ -364,8 +480,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_view2_show_description]" />
-                                            <input type="checkbox" id="ht_view2_show_description"  <?php if(get_option('gallery_img_ht_view2_show_description')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view2_show_description]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_view2_show_description]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view2_show_description" <?php if (get_option('gallery_img_ht_view2_show_description') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view2_show_description]" value="on"/>
                                         </div>
                                         <div>
                                             <label for="ht_view2_description_font_size"><?php echo __('Description Font Size', 'gallery-img'); ?>
@@ -376,7 +496,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view2_description_font_size]" id="ht_view2_description_font_size" value="<?php echo get_option('gallery_img_ht_view2_description_font_size'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view2_description_font_size]"
+                                                   id="ht_view2_description_font_size"
+                                                   value="<?php echo get_option('gallery_img_ht_view2_description_font_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div class="has-background">
@@ -388,7 +511,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view2_description_color]" type="text" class="color" id="ht_view2_description_color" value="#<?php echo get_option('gallery_img_ht_view2_description_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view2_description_color]" type="text"
+                                                   class="color" id="ht_view2_description_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view2_description_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                     </div>
                                     <div style="margin-top: -35px;">
@@ -402,8 +528,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_view2_show_popup_linkbutton]" />
-                                            <input type="checkbox" id="ht_view2_show_popup_linkbutton"  <?php if(get_option('gallery_img_ht_view2_show_popup_linkbutton')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view2_show_popup_linkbutton]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_view2_show_popup_linkbutton]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view2_show_popup_linkbutton" <?php if (get_option('gallery_img_ht_view2_show_popup_linkbutton') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view2_show_popup_linkbutton]" value="on"/>
                                         </div>
                                         <div>
                                             <label for="ht_view2_popup_linkbutton_text"><?php echo __('Link Button Text', 'gallery-img'); ?>
@@ -414,7 +544,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view2_popup_linkbutton_text]" id="ht_view2_popup_linkbutton_text" value="<?php echo esc_attr(get_option('gallery_img_ht_view2_popup_linkbutton_text')); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view2_popup_linkbutton_text]"
+                                                   id="ht_view2_popup_linkbutton_text"
+                                                   value="<?php echo esc_attr(get_option('gallery_img_ht_view2_popup_linkbutton_text')); ?>"
+                                                   class="text"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="ht_view2_popup_linkbutton_font_size"><?php echo __('Link Button Font Size', 'gallery-img'); ?>
@@ -425,7 +558,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view2_popup_linkbutton_font_size]" id="ht_view2_popup_linkbutton_font_size" value="<?php echo get_option('gallery_img_ht_view2_popup_linkbutton_font_size'); ?>" class="text" />
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_view2_popup_linkbutton_font_size]"
+                                                   id="ht_view2_popup_linkbutton_font_size"
+                                                   value="<?php echo get_option('gallery_img_ht_view2_popup_linkbutton_font_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div>
@@ -437,7 +574,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view2_popup_linkbutton_color]" type="text" class="color" id="ht_view2_popup_linkbutton_color" value="#<?php echo get_option('gallery_img_ht_view2_popup_linkbutton_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view2_popup_linkbutton_color]"
+                                                   type="text" class="color" id="ht_view2_popup_linkbutton_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view2_popup_linkbutton_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="ht_view2_popup_linkbutton_font_hover_color"><?php echo __('Link Button Font Hover Color', 'gallery-img'); ?>
@@ -448,7 +588,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view2_popup_linkbutton_font_hover_color]" type="text" class="color" id="ht_view2_popup_linkbutton_font_hover_color" value="#<?php echo get_option('gallery_img_ht_view2_popup_linkbutton_font_hover_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view2_popup_linkbutton_font_hover_color]"
+                                                   type="text" class="color"
+                                                   id="ht_view2_popup_linkbutton_font_hover_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view2_popup_linkbutton_font_hover_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div>
                                             <label for="ht_view2_popup_linkbutton_background_color"><?php echo __('Link Button Background Color', 'gallery-img'); ?>
@@ -459,7 +603,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view2_popup_linkbutton_background_color]" type="text" class="color" id="ht_view2_popup_linkbutton_background_color" value="#<?php echo get_option('gallery_img_ht_view2_popup_linkbutton_background_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view2_popup_linkbutton_background_color]"
+                                                   type="text" class="color"
+                                                   id="ht_view2_popup_linkbutton_background_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view2_popup_linkbutton_background_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="ht_view2_popup_linkbutton_background_hover_color"><?php echo __('Link Button Background Hover Color', 'gallery-img'); ?>
@@ -470,7 +618,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view2_popup_linkbutton_background_hover_color]" type="text" class="color" id="ht_view2_popup_linkbutton_background_hover_color" value="#<?php echo get_option('gallery_img_ht_view2_popup_linkbutton_background_hover_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view2_popup_linkbutton_background_hover_color]"
+                                                   type="text" class="color"
+                                                   id="ht_view2_popup_linkbutton_background_hover_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view2_popup_linkbutton_background_hover_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                     </div>
                                     <div style="margin-top: -290px;">
@@ -484,7 +636,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view1_paginator_fontsize]" id="video_ht_view1_paginator_fontsize" value="<?php echo get_option('gallery_img_video_ht_view1_paginator_fontsize'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view1_paginator_fontsize]"
+                                                   id="video_ht_view1_paginator_fontsize"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view1_paginator_fontsize'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class="  fixed-size">
@@ -496,7 +652,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view1_paginator_color]" class="color" id="video_ht_view1_paginator_color" value="<?php echo get_option('gallery_img_video_ht_view1_paginator_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_video_ht_view1_paginator_color]"
+                                                   class="color" id="video_ht_view1_paginator_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view1_paginator_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size has-background">
@@ -508,7 +667,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view1_paginator_icon_size]" id="video_ht_view1_paginator_icon_size" value="<?php echo get_option('gallery_img_video_ht_view1_paginator_icon_size'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view1_paginator_icon_size]"
+                                                   id="video_ht_view1_paginator_icon_size"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view1_paginator_icon_size'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class=" fixed-size">
@@ -520,7 +683,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view1_paginator_icon_color]" class="color" id="video_ht_view1_paginator_icon_color" value="<?php echo get_option('gallery_img_video_ht_view1_paginator_icon_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view1_paginator_icon_color]"
+                                                   class="color" id="video_ht_view1_paginator_icon_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view1_paginator_icon_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background">
@@ -532,10 +699,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="video_ht_view1_paginator_position" name="params[gallery_img_video_ht_view1_paginator_position]">
-                                                <option <?php if(get_option('gallery_img_video_ht_view1_paginator_position')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view1_paginator_position')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view1_paginator_position')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                            <select id="video_ht_view1_paginator_position"
+                                                    name="params[gallery_img_video_ht_view1_paginator_position]">
+                                                <option <?php if (get_option('gallery_img_video_ht_view1_paginator_position') == 'left') {
+                                                    echo 'selected';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view1_paginator_position') == 'center') {
+                                                    echo 'selected';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view1_paginator_position') == 'right') {
+                                                    echo 'selected';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                     </div>
@@ -550,7 +724,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view1_loadmore_text]" id="video_ht_view1_loadmore_text" value="<?php echo get_option('gallery_img_video_ht_view1_loadmore_text'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_video_ht_view1_loadmore_text]"
+                                                   id="video_ht_view1_loadmore_text"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view1_loadmore_text'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div>
@@ -562,10 +739,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="video_ht_view1_loadmore_position" name="params[gallery_img_video_ht_view1_loadmore_position]">
-                                                <option <?php if(get_option('gallery_img_video_ht_view1_loadmore_position')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view1_loadmore_position')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view1_loadmore_position')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                            <select id="video_ht_view1_loadmore_position"
+                                                    name="params[gallery_img_video_ht_view1_loadmore_position]">
+                                                <option <?php if (get_option('gallery_img_video_ht_view1_loadmore_position') == 'left') {
+                                                    echo 'selected';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view1_loadmore_position') == 'center') {
+                                                    echo 'selected';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view1_loadmore_position') == 'right') {
+                                                    echo 'selected';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                         <div class="has-background fixed-size">
@@ -577,7 +761,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view1_loadmore_fontsize]" id="video_ht_view1_loadmore_fontsize" value="<?php echo get_option('gallery_img_video_ht_view1_loadmore_fontsize'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view1_loadmore_fontsize]"
+                                                   id="video_ht_view1_loadmore_fontsize"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view1_loadmore_fontsize'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class="fixed-size">
@@ -589,7 +777,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view1_loadmore_font_color]" class="color" id="video_ht_view1_loadmore_font_color" value="<?php echo get_option('gallery_img_video_ht_view1_loadmore_font_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view1_loadmore_font_color]"
+                                                   class="color" id="video_ht_view1_loadmore_font_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view1_loadmore_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -601,7 +793,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view1_loadmore_font_color_hover]" class="color" id="video_ht_view1_loadmore_font_color_hover" value="<?php echo get_option('gallery_img_video_ht_view1_loadmore_font_color_hover'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view1_loadmore_font_color_hover]"
+                                                   class="color" id="video_ht_view1_loadmore_font_color_hover"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view1_loadmore_font_color_hover'); ?>"
+                                                   class="text">
                                         </div>
                                         <div class="fixed-size">
                                             <label for="video_ht_view1_button_color"><?php echo __('Load More Button Color', 'gallery-img'); ?>
@@ -612,7 +808,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view1_button_color]" class="color" id="video_ht_view1_button_color" value="<?php echo get_option('gallery_img_video_ht_view1_button_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_video_ht_view1_button_color]"
+                                                   class="color" id="video_ht_view1_button_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view1_button_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size has-background">
@@ -624,7 +823,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view1_button_color_hover]" class="color" id="video_ht_view1_button_color_hover" value="<?php echo get_option('gallery_img_video_ht_view1_button_color_hover'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view1_button_color_hover]"
+                                                   class="color" id="video_ht_view1_button_color_hover"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view1_button_color_hover'); ?>"
+                                                   class="text">
                                         </div>
 
                                         <div class="navigation-type-block has-height">
@@ -640,29 +843,57 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             <div class="has-height has-background clear">
                                                 <div>
                                                     <ul id="arrows-type">
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view1_loading_type')  ==  1){ echo "class='activee'"; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view1_loading_type') == 1) {
+                                                            echo "class='activee'";
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading1.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading1.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view1_loading_type]" value="1" <?php if(get_option('gallery_img_video_ht_view1_loading_type')  ==  1){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view1_loading_type]"
+                                                                   value="1" <?php if (get_option('gallery_img_video_ht_view1_loading_type') == 1) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view1_loading_type')  ==  2){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view1_loading_type') == 2) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading4.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading4.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view1_loading_type]" value="2" <?php if(get_option('gallery_img_video_ht_view1_loading_type')  ==  2){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view1_loading_type]"
+                                                                   value="2" <?php if (get_option('gallery_img_video_ht_view1_loading_type') == 2) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view1_loading_type')  ==  3){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view1_loading_type') == 3) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading36.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading36.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view1_loading_type]" value="3" <?php if(get_option('gallery_img_video_ht_view1_loading_type')  ==  3){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view1_loading_type]"
+                                                                   value="3" <?php if (get_option('gallery_img_video_ht_view1_loading_type') == 3) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view1_loading_type')  ==  4){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view1_loading_type') == 4) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading51.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading51.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view1_loading_type]" value="4" <?php if(get_option('gallery_img_video_ht_view1_loading_type')  ==  4){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view1_loading_type]"
+                                                                   value="4" <?php if (get_option('gallery_img_video_ht_view1_loading_type') == 4) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -680,8 +911,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_popup_rating_count]" />
-                                            <input type="checkbox" id="ht_popup_rating_count"  <?php if(get_option('gallery_img_ht_popup_rating_count')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_popup_rating_count]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_popup_rating_count]"/>
+                                            <input type="checkbox"
+                                                   id="ht_popup_rating_count" <?php if (get_option('gallery_img_ht_popup_rating_count') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_popup_rating_count]" value="on"/>
                                         </div>
                                         <div class="fixed-size">
                                             <label for="ht_popup_likedislike_bg"><?php echo __('Ratings Background Color', 'gallery-img'); ?>
@@ -692,7 +927,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_popup_likedislike_bg]" class="color" id="ht_popup_likedislike_bg" value="<?php echo get_option('gallery_img_ht_popup_likedislike_bg'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_popup_likedislike_bg]"
+                                                   class="color" id="ht_popup_likedislike_bg"
+                                                   value="<?php echo get_option('gallery_img_ht_popup_likedislike_bg'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background">
@@ -705,8 +943,13 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_ht_popup_likedislike_bg_trans]" id="ht_popup_likedislike_bg_trans" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_ht_popup_likedislike_bg_trans'); ?>" />
-                                                <span><?php echo get_option('gallery_img_ht_popup_likedislike_bg_trans'); ?>%</span>
+                                                <input name="params[gallery_img_ht_popup_likedislike_bg_trans]"
+                                                       id="ht_popup_likedislike_bg_trans" data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_ht_popup_likedislike_bg_trans'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_ht_popup_likedislike_bg_trans'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
                                         <div class="fixed-size">
@@ -718,7 +961,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_popup_likedislike_font_color]" class="color" id="ht_popup_likedislike_font_color" value="<?php echo get_option('gallery_img_ht_popup_likedislike_font_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_popup_likedislike_font_color]"
+                                                   class="color" id="ht_popup_likedislike_font_color"
+                                                   value="<?php echo get_option('gallery_img_ht_popup_likedislike_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -730,7 +977,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_popup_active_font_color]" class="color" id="ht_popup_active_font_color" value="<?php echo get_option('gallery_img_ht_popup_active_font_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_popup_active_font_color]"
+                                                   class="color" id="ht_popup_active_font_color"
+                                                   value="<?php echo get_option('gallery_img_ht_popup_active_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
 
@@ -743,7 +993,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_popup_likedislike_thumb_color]" class="color" id="ht_popup_likedislike_thumb_color" value="<?php echo get_option('gallery_img_ht_popup_likedislike_thumb_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_popup_likedislike_thumb_color]"
+                                                   class="color" id="ht_popup_likedislike_thumb_color"
+                                                   value="<?php echo get_option('gallery_img_ht_popup_likedislike_thumb_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -755,7 +1009,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_popup_likedislike_thumb_active_color]" class="color" id="ht_popup_likedislike_thumb_active_color" value="<?php echo get_option('gallery_img_ht_popup_likedislike_thumb_active_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_popup_likedislike_thumb_active_color]"
+                                                   class="color" id="ht_popup_likedislike_thumb_active_color"
+                                                   value="<?php echo get_option('gallery_img_ht_popup_likedislike_thumb_active_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size">
@@ -767,7 +1025,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_popup_heart_likedislike_thumb_color]" class="color" id="ht_popup_heart_likedislike_thumb_color" value="<?php echo get_option('gallery_img_ht_popup_heart_likedislike_thumb_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_popup_heart_likedislike_thumb_color]"
+                                                   class="color" id="ht_popup_heart_likedislike_thumb_color"
+                                                   value="<?php echo get_option('gallery_img_ht_popup_heart_likedislike_thumb_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -779,7 +1041,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_popup_heart_likedislike_thumb_active_color]" class="color" id="ht_popup_heart_likedislike_thumb_active_color" value="<?php echo get_option('gallery_img_ht_popup_heart_likedislike_thumb_active_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_popup_heart_likedislike_thumb_active_color]"
+                                                   class="color" id="ht_popup_heart_likedislike_thumb_active_color"
+                                                   value="<?php echo get_option('gallery_img_ht_popup_heart_likedislike_thumb_active_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                     </div>
@@ -797,7 +1063,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view5_main_image_width]" id="ht_view5_main_image_width" value="<?php echo get_option('gallery_img_ht_view5_main_image_width'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view5_main_image_width]"
+                                                   id="ht_view5_main_image_width"
+                                                   value="<?php echo get_option('gallery_img_ht_view5_main_image_width'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div>
@@ -809,9 +1078,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view5_slider_background_color]" type="text" class="color" id="ht_view5_slider_background_color" value="#<?php echo get_option('gallery_img_ht_view5_slider_background_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view5_slider_background_color]"
+                                                   type="text" class="color" id="ht_view5_slider_background_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view5_slider_background_color'); ?>"
+                                                   size="10"/>
                                         </div>
-                                        <div  class="has-background">
+                                        <div class="has-background">
                                             <label for="ht_view5_icons_style"><?php echo __('Arrow Icons Style', 'gallery-img'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -820,9 +1092,14 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="ht_view5_icons_style" name="params[gallery_img_ht_view5_icons_style]">
-                                                <option <?php if(get_option('gallery_img_ht_view5_icons_style')  ==  'light'){ echo 'selected="selected"'; } ?> value="light"><?php echo __('Light', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_ht_view5_icons_style')  ==  'dark'){ echo 'selected="selected"'; } ?> value="dark"><?php echo __('Dark', 'gallery-img'); ?></option>
+                                            <select id="ht_view5_icons_style"
+                                                    name="params[gallery_img_ht_view5_icons_style]">
+                                                <option <?php if (get_option('gallery_img_ht_view5_icons_style') == 'light') {
+                                                    echo 'selected="selected"';
+                                                } ?> value="light"><?php echo __('Light', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_ht_view5_icons_style') == 'dark') {
+                                                    echo 'selected="selected"';
+                                                } ?> value="dark"><?php echo __('Dark', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                         <div>
@@ -834,8 +1111,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_view5_show_separator_lines]" />
-                                            <input type="checkbox" id="ht_view5_show_separator_lines"  <?php if(get_option('gallery_img_ht_view5_show_separator_lines')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view5_show_separator_lines]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_view5_show_separator_lines]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view5_show_separator_lines" <?php if (get_option('gallery_img_ht_view5_show_separator_lines') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view5_show_separator_lines]" value="on"/>
                                         </div>
                                     </div>
                                     <div>
@@ -849,7 +1130,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view5_title_font_size]" id="ht_view5_title_font_size" value="<?php echo get_option('gallery_img_ht_view5_title_font_size'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view5_title_font_size]"
+                                                   id="ht_view5_title_font_size"
+                                                   value="<?php echo get_option('gallery_img_ht_view5_title_font_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div>
@@ -861,7 +1145,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view5_title_font_color]" type="text" class="color" id="ht_view5_title_font_color" value="#<?php echo get_option('gallery_img_ht_view5_title_font_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view5_title_font_color]" type="text"
+                                                   class="color" id="ht_view5_title_font_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view5_title_font_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                     </div>
                                     <div>
@@ -875,8 +1162,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_view5_show_description]" />
-                                            <input type="checkbox" id="ht_view5_show_description"  <?php if(get_option('gallery_img_ht_view5_show_description')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view5_show_description]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_view5_show_description]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view5_show_description" <?php if (get_option('gallery_img_ht_view5_show_description') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view5_show_description]" value="on"/>
                                         </div>
                                         <div>
                                             <label for="ht_view5_description_font_size"><?php echo __('Description Font Size', 'gallery-img'); ?>
@@ -887,7 +1178,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view5_description_font_size]" id="ht_view5_description_font_size" value="<?php echo get_option('gallery_img_ht_view5_description_font_size'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view5_description_font_size]"
+                                                   id="ht_view5_description_font_size"
+                                                   value="<?php echo get_option('gallery_img_ht_view5_description_font_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div class="has-background">
@@ -899,7 +1193,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view5_description_color]" type="text" class="color" id="ht_view5_description_color" value="#<?php echo get_option('gallery_img_ht_view5_description_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view5_description_color]" type="text"
+                                                   class="color" id="ht_view5_description_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view5_description_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                     </div>
                                     <div style="margin-top:-120px;">
@@ -913,8 +1210,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_view5_show_linkbutton]" />
-                                            <input type="checkbox" id="ht_view5_show_linkbutton"  <?php if(get_option('gallery_img_ht_view5_show_linkbutton')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view5_show_linkbutton]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_view5_show_linkbutton]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view5_show_linkbutton" <?php if (get_option('gallery_img_ht_view5_show_linkbutton') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view5_show_linkbutton]" value="on"/>
                                         </div>
                                         <div>
                                             <label for="ht_view5_linkbutton_text"><?php echo __('Link Button Text', 'gallery-img'); ?>
@@ -925,7 +1226,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view5_linkbutton_text]" id="ht_view5_linkbutton_text" value="<?php echo esc_attr(get_option('gallery_img_ht_view5_linkbutton_text')); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view5_linkbutton_text]"
+                                                   id="ht_view5_linkbutton_text"
+                                                   value="<?php echo esc_attr(get_option('gallery_img_ht_view5_linkbutton_text')); ?>"
+                                                   class="text"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="ht_view5_linkbutton_font_size"><?php echo __('Link Button Font Size', 'gallery-img'); ?>
@@ -936,7 +1240,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view5_linkbutton_font_size]" id="ht_view5_linkbutton_font_size" value="<?php echo get_option('gallery_img_ht_view5_linkbutton_font_size'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view5_linkbutton_font_size]"
+                                                   id="ht_view5_linkbutton_font_size"
+                                                   value="<?php echo get_option('gallery_img_ht_view5_linkbutton_font_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div>
@@ -948,7 +1255,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view5_linkbutton_color]" type="text" class="color" id="ht_view5_linkbutton_color" value="#<?php echo get_option('gallery_img_ht_view5_linkbutton_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view5_linkbutton_color]" type="text"
+                                                   class="color" id="ht_view5_linkbutton_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view5_linkbutton_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="ht_view5_linkbutton_font_hover_color"><?php echo __('Link Button Font Hover Color', 'gallery-img'); ?>
@@ -959,7 +1269,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view5_linkbutton_font_hover_color]" type="text" class="color" id="ht_view5_linkbutton_font_hover_color" value="#<?php echo get_option('gallery_img_ht_view5_linkbutton_font_hover_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view5_linkbutton_font_hover_color]"
+                                                   type="text" class="color" id="ht_view5_linkbutton_font_hover_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view5_linkbutton_font_hover_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div>
                                             <label for="ht_view5_linkbutton_background_color"><?php echo __('Link Button Background Color', 'gallery-img'); ?>
@@ -970,7 +1283,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view5_linkbutton_background_color]" type="text" class="color" id="ht_view5_linkbutton_background_color" value="#<?php echo get_option('gallery_img_ht_view5_linkbutton_background_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view5_linkbutton_background_color]"
+                                                   type="text" class="color" id="ht_view5_linkbutton_background_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view5_linkbutton_background_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="ht_view5_linkbutton_background_hover_color"><?php echo __('Link Button Background Hover Color', 'gallery-img'); ?>
@@ -981,7 +1297,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view5_linkbutton_background_hover_color]" type="text" class="color" id="ht_view5_linkbutton_background_hover_color" value="#<?php echo get_option('gallery_img_ht_view5_linkbutton_background_hover_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view5_linkbutton_background_hover_color]"
+                                                   type="text" class="color"
+                                                   id="ht_view5_linkbutton_background_hover_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view5_linkbutton_background_hover_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                     </div>
                                     <div>
@@ -995,8 +1315,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_contentsl_rating_count]" />
-                                            <input type="checkbox" id="ht_contentsl_rating_count"  <?php if(get_option('gallery_img_ht_contentsl_rating_count')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_contentsl_rating_count]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_contentsl_rating_count]"/>
+                                            <input type="checkbox"
+                                                   id="ht_contentsl_rating_count" <?php if (get_option('gallery_img_ht_contentsl_rating_count') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_contentsl_rating_count]" value="on"/>
                                         </div>
                                         <div class="fixed-size">
                                             <label for="ht_contentsl_likedislike_bg"><?php echo __('Ratings Background Color', 'gallery-img'); ?>
@@ -1007,7 +1331,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_contentsl_likedislike_bg]" class="color" id="ht_contentsl_likedislike_bg" value="<?php echo get_option('gallery_img_ht_contentsl_likedislike_bg'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_contentsl_likedislike_bg]"
+                                                   class="color" id="ht_contentsl_likedislike_bg"
+                                                   value="<?php echo get_option('gallery_img_ht_contentsl_likedislike_bg'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background">
@@ -1020,8 +1347,14 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_ht_contentsl_likedislike_bg_trans]" id="ht_contentsl_likedislike_bg_trans" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_ht_contentsl_likedislike_bg_trans'); ?>" />
-                                                <span><?php echo get_option('gallery_img_ht_contentsl_likedislike_bg_trans'); ?>%</span>
+                                                <input name="params[gallery_img_ht_contentsl_likedislike_bg_trans]"
+                                                       id="ht_contentsl_likedislike_bg_trans"
+                                                       data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_ht_contentsl_likedislike_bg_trans'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_ht_contentsl_likedislike_bg_trans'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
                                         <div class="fixed-size">
@@ -1033,7 +1366,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_contentsl_likedislike_font_color]" class="color" id="ht_contentsl_likedislike_font_color" value="<?php echo get_option('gallery_img_ht_contentsl_likedislike_font_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_contentsl_likedislike_font_color]"
+                                                   class="color" id="ht_contentsl_likedislike_font_color"
+                                                   value="<?php echo get_option('gallery_img_ht_contentsl_likedislike_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -1045,7 +1382,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_contentsl_active_font_color]" class="color" id="ht_contentsl_active_font_color" value="<?php echo get_option('gallery_img_ht_contentsl_active_font_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_contentsl_active_font_color]"
+                                                   class="color" id="ht_contentsl_active_font_color"
+                                                   value="<?php echo get_option('gallery_img_ht_contentsl_active_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
 
@@ -1058,7 +1398,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_contentsl_likedislike_thumb_color]" class="color" id="ht_contentsl_likedislike_thumb_color" value="<?php echo get_option('gallery_img_ht_contentsl_likedislike_thumb_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_contentsl_likedislike_thumb_color]"
+                                                   class="color" id="ht_contentsl_likedislike_thumb_color"
+                                                   value="<?php echo get_option('gallery_img_ht_contentsl_likedislike_thumb_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -1070,7 +1414,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_contentsl_likedislike_thumb_active_color]" class="color" id="ht_contentsl_likedislike_thumb_active_color" value="<?php echo get_option('gallery_img_ht_contentsl_likedislike_thumb_active_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_contentsl_likedislike_thumb_active_color]"
+                                                   class="color" id="ht_contentsl_likedislike_thumb_active_color"
+                                                   value="<?php echo get_option('gallery_img_ht_contentsl_likedislike_thumb_active_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size">
@@ -1082,7 +1430,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_contentsl_heart_likedislike_thumb_color]" class="color" id="ht_contentsl_heart_likedislike_thumb_color" value="<?php echo get_option('gallery_img_ht_contentsl_heart_likedislike_thumb_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_contentsl_heart_likedislike_thumb_color]"
+                                                   class="color" id="ht_contentsl_heart_likedislike_thumb_color"
+                                                   value="<?php echo get_option('gallery_img_ht_contentsl_heart_likedislike_thumb_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -1094,7 +1446,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_contentsl_heart_likedislike_thumb_active_color]" class="color" id="ht_contentsl_heart_likedislike_thumb_active_color" value="<?php echo get_option('gallery_img_ht_contentsl_heart_likedislike_thumb_active_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_contentsl_heart_likedislike_thumb_active_color]"
+                                                   class="color" id="ht_contentsl_heart_likedislike_thumb_active_color"
+                                                   value="<?php echo get_option('gallery_img_ht_contentsl_heart_likedislike_thumb_active_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                     </div>
@@ -1112,8 +1468,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_view6_content_in_center]" />
-                                            <input type="checkbox" id="ht_view6_content_in_center"  <?php if(get_option('gallery_img_ht_view6_content_in_center')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view6_content_in_center]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_view6_content_in_center]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view6_content_in_center" <?php if (get_option('gallery_img_ht_view6_content_in_center') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view6_content_in_center]" value="on"/>
                                         </div>
 
                                         <h3><?php echo __('Image', 'gallery-img'); ?></h3>
@@ -1126,7 +1486,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view6_width]" id="ht_view6_width" value="<?php echo get_option('gallery_img_ht_view6_width'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view6_width]"
+                                                   id="ht_view6_width"
+                                                   value="<?php echo get_option('gallery_img_ht_view6_width'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div>
@@ -1138,7 +1501,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view6_border_width]" id="ht_view6_border_width" value="<?php echo get_option('gallery_img_ht_view6_border_width'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view6_border_width]"
+                                                   id="ht_view6_border_width"
+                                                   value="<?php echo get_option('gallery_img_ht_view6_border_width'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div class="has-background">
@@ -1150,7 +1516,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view6_border_color]" type="text" class="color" id="ht_view6_border_color" value="#<?php echo get_option('gallery_img_ht_view6_border_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view6_border_color]" type="text"
+                                                   class="color" id="ht_view6_border_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view6_border_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div>
                                             <label for="ht_view6_border_radius"><?php echo __('Border Radius', 'gallery-img'); ?>
@@ -1161,7 +1530,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view6_border_radius]" id="ht_view6_border_radius" value="<?php echo get_option('gallery_img_ht_view6_border_radius'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view6_border_radius]"
+                                                   id="ht_view6_border_radius"
+                                                   value="<?php echo get_option('gallery_img_ht_view6_border_radius'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                     </div>
@@ -1177,7 +1549,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view6_title_font_size]" id="ht_view6_title_font_size" value="<?php echo get_option('gallery_img_ht_view6_title_font_size'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view6_title_font_size]"
+                                                   id="ht_view6_title_font_size"
+                                                   value="<?php echo get_option('gallery_img_ht_view6_title_font_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div>
@@ -1189,9 +1564,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view6_title_font_color]" type="text" class="color" id="ht_view6_title_font_color" value="#<?php echo get_option('gallery_img_ht_view6_title_font_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view6_title_font_color]" type="text"
+                                                   class="color" id="ht_view6_title_font_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view6_title_font_color'); ?>"
+                                                   size="10"/>
                                         </div>
-                                        <div  class="has-background">
+                                        <div class="has-background">
                                             <label for="ht_view6_title_font_hover_color"><?php echo __('Title Font Hover Color', 'gallery-img'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -1200,7 +1578,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view6_title_font_hover_color]" type="text" class="color" id="ht_view6_title_font_hover_color" value="#<?php echo get_option('gallery_img_ht_view6_title_font_hover_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view6_title_font_hover_color]"
+                                                   type="text" class="color" id="ht_view6_title_font_hover_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view6_title_font_hover_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div>
                                             <label for="ht_view6_title_background_color"><?php echo __('Title Background Color', 'gallery-img'); ?>
@@ -1211,7 +1592,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view6_title_background_color]" type="text" class="color" id="ht_view6_title_background_color" value="#<?php echo get_option('gallery_img_ht_view6_title_background_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view6_title_background_color]"
+                                                   type="text" class="color" id="ht_view6_title_background_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view6_title_background_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="ht_view6_title_background_transparency"><?php echo __('Title Background Opacity', 'gallery-img'); ?>
@@ -1223,8 +1607,14 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_ht_view6_title_background_transparency]" id="ht_view6_title_background_transparency" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_ht_view6_title_background_transparency'); ?>" />
-                                                <span><?php echo get_option('gallery_img_ht_view6_title_background_transparency'); ?>%</span>
+                                                <input name="params[gallery_img_ht_view6_title_background_transparency]"
+                                                       id="ht_view6_title_background_transparency"
+                                                       data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_ht_view6_title_background_transparency'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_ht_view6_title_background_transparency'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1240,7 +1630,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view4_paginator_fontsize]" id="video_ht_view4_paginator_fontsize" value="<?php echo get_option('gallery_img_video_ht_view4_paginator_fontsize'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view4_paginator_fontsize]"
+                                                   id="video_ht_view4_paginator_fontsize"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view4_paginator_fontsize'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class="  fixed-size">
@@ -1252,7 +1646,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view4_paginator_color]" class="color" id="video_ht_view4_paginator_color" value="<?php echo get_option('gallery_img_video_ht_view4_paginator_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_video_ht_view4_paginator_color]"
+                                                   class="color" id="video_ht_view4_paginator_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view4_paginator_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size has-background">
@@ -1264,7 +1661,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view4_paginator_icon_size]" id="video_ht_view4_paginator_icon_size" value="<?php echo get_option('gallery_img_video_ht_view4_paginator_icon_size'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view4_paginator_icon_size]"
+                                                   id="video_ht_view4_paginator_icon_size"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view4_paginator_icon_size'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class=" fixed-size">
@@ -1276,7 +1677,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view4_paginator_icon_color]" class="color" id="video_ht_view4_paginator_icon_color" value="<?php echo get_option('gallery_img_video_ht_view4_paginator_icon_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view4_paginator_icon_color]"
+                                                   class="color" id="video_ht_view4_paginator_icon_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view4_paginator_icon_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background">
@@ -1288,10 +1693,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="video_ht_view4_paginator_position" name="params[gallery_img_video_ht_view4_paginator_position]">
-                                                <option <?php if(get_option('gallery_img_video_ht_view4_paginator_position')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view4_paginator_position')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view4_paginator_position')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                            <select id="video_ht_view4_paginator_position"
+                                                    name="params[gallery_img_video_ht_view4_paginator_position]">
+                                                <option <?php if (get_option('gallery_img_video_ht_view4_paginator_position') == 'left') {
+                                                    echo 'selected';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view4_paginator_position') == 'center') {
+                                                    echo 'selected';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view4_paginator_position') == 'right') {
+                                                    echo 'selected';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                     </div>
@@ -1306,7 +1718,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view4_loadmore_text]" id="video_ht_view4_loadmore_text" value="<?php echo esc_attr(get_option('gallery_img_video_ht_view4_loadmore_text')); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_video_ht_view4_loadmore_text]"
+                                                   id="video_ht_view4_loadmore_text"
+                                                   value="<?php echo esc_attr(get_option('gallery_img_video_ht_view4_loadmore_text')); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div>
@@ -1318,10 +1733,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="video_ht_view4_loadmore_position" name="params[gallery_img_video_ht_view4_loadmore_position]">
-                                                <option <?php if(get_option('gallery_img_video_ht_view4_loadmore_position')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view4_loadmore_position')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view4_loadmore_position')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                            <select id="video_ht_view4_loadmore_position"
+                                                    name="params[gallery_img_video_ht_view4_loadmore_position]">
+                                                <option <?php if (get_option('gallery_img_video_ht_view4_loadmore_position') == 'left') {
+                                                    echo 'selected';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view4_loadmore_position') == 'center') {
+                                                    echo 'selected';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view4_loadmore_position') == 'right') {
+                                                    echo 'selected';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                         <div class="has-background fixed-size">
@@ -1333,7 +1755,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view4_loadmore_fontsize]" id="video_ht_view4_loadmore_fontsize" value="<?php echo get_option('gallery_img_video_ht_view4_loadmore_fontsize'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view4_loadmore_fontsize]"
+                                                   id="video_ht_view4_loadmore_fontsize"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view4_loadmore_fontsize'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class=" fixed-size">
@@ -1345,7 +1771,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view4_loadmore_font_color]" class="color" id="video_ht_view4_loadmore_font_color" value="<?php echo get_option('gallery_img_video_ht_view4_loadmore_font_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view4_loadmore_font_color]"
+                                                   class="color" id="video_ht_view4_loadmore_font_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view4_loadmore_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -1357,7 +1787,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view4_loadmore_font_color_hover]" class="color" id="video_ht_view4_loadmore_font_color_hover" value="<?php echo get_option('gallery_img_video_ht_view4_loadmore_font_color_hover'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view4_loadmore_font_color_hover]"
+                                                   class="color" id="video_ht_view4_loadmore_font_color_hover"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view4_loadmore_font_color_hover'); ?>"
+                                                   class="text">
                                         </div>
                                         <div class="fixed-size">
                                             <label for="video_ht_view4_button_color"><?php echo __('Load More Button Color', 'gallery-img'); ?>
@@ -1368,7 +1802,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view4_button_color]" class="color" id="video_ht_view4_button_color" value="<?php echo get_option('gallery_img_video_ht_view4_button_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_video_ht_view4_button_color]"
+                                                   class="color" id="video_ht_view4_button_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view4_button_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size has-background">
@@ -1380,7 +1817,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view4_button_color_hover]" class="color" id="video_ht_view4_button_color_hover" value="<?php echo get_option('gallery_img_video_ht_view4_button_color_hover'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view4_button_color_hover]"
+                                                   class="color" id="video_ht_view4_button_color_hover"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view4_button_color_hover'); ?>"
+                                                   class="text">
                                         </div>
                                         <div class="navigation-type-block has-height" style="padding-top:20px;">
                                             <label for=""><?php echo __('Loading Animation', 'gallery-img'); ?>
@@ -1395,29 +1836,57 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             <div class="has-height " style="clear:both;padding:10px 0px 0px 80px;">
                                                 <div>
                                                     <ul id="arrows-type">
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view4_loading_type')  ==  1){ echo "class='activee'"; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view4_loading_type') == 1) {
+                                                            echo "class='activee'";
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading1.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading1.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view4_loading_type]" value="1" <?php if(get_option('gallery_img_video_ht_view4_loading_type')  ==  1){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view4_loading_type]"
+                                                                   value="1" <?php if (get_option('gallery_img_video_ht_view4_loading_type') == 1) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view4_loading_type')  ==  2){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view4_loading_type') == 2) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading4.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading4.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view4_loading_type]" value="2" <?php if(get_option('gallery_img_video_ht_view4_loading_type')  ==  2){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view4_loading_type]"
+                                                                   value="2" <?php if (get_option('gallery_img_video_ht_view4_loading_type') == 2) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view4_loading_type')  ==  3){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view4_loading_type') == 3) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading36.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading36.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view4_loading_type]" value="3" <?php if(get_option('gallery_img_video_ht_view4_loading_type')  ==  3){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view4_loading_type]"
+                                                                   value="3" <?php if (get_option('gallery_img_video_ht_view4_loading_type') == 3) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view4_loading_type')  ==  4){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view4_loading_type') == 4) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading51.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading51.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view4_loading_type]" value="4" <?php if(get_option('gallery_img_video_ht_view4_loading_type')  ==  4){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view4_loading_type]"
+                                                                   value="4" <?php if (get_option('gallery_img_video_ht_view4_loading_type') == 4) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -1435,8 +1904,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_lightbox_rating_count]" />
-                                            <input type="checkbox" id="ht_lightbox_rating_count"  <?php if(get_option('gallery_img_ht_lightbox_rating_count')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_lightbox_rating_count]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_lightbox_rating_count]"/>
+                                            <input type="checkbox"
+                                                   id="ht_lightbox_rating_count" <?php if (get_option('gallery_img_ht_lightbox_rating_count') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_lightbox_rating_count]" value="on"/>
                                         </div>
                                         <div class="fixed-size">
                                             <label for="ht_lightbox_likedislike_bg"><?php echo __('Ratings Background Color', 'gallery-img'); ?>
@@ -1447,7 +1920,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_lightbox_likedislike_bg]" class="color" id="ht_lightbox_likedislike_bg" value="<?php echo get_option('gallery_img_ht_lightbox_likedislike_bg'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_lightbox_likedislike_bg]"
+                                                   class="color" id="ht_lightbox_likedislike_bg"
+                                                   value="<?php echo get_option('gallery_img_ht_lightbox_likedislike_bg'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background">
@@ -1460,8 +1936,14 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_ht_lightbox_likedislike_bg_trans]" id="ht_lightbox_likedislike_bg_trans" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_ht_lightbox_likedislike_bg_trans'); ?>" />
-                                                <span><?php echo get_option('gallery_img_ht_lightbox_likedislike_bg_trans'); ?>%</span>
+                                                <input name="params[gallery_img_ht_lightbox_likedislike_bg_trans]"
+                                                       id="ht_lightbox_likedislike_bg_trans"
+                                                       data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_ht_lightbox_likedislike_bg_trans'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_ht_lightbox_likedislike_bg_trans'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
                                         <div class="fixed-size">
@@ -1473,7 +1955,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_lightbox_likedislike_font_color]" class="color" id="ht_lightbox_likedislike_font_color" value="<?php echo get_option('gallery_img_ht_lightbox_likedislike_font_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_lightbox_likedislike_font_color]"
+                                                   class="color" id="ht_lightbox_likedislike_font_color"
+                                                   value="<?php echo get_option('gallery_img_ht_lightbox_likedislike_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -1485,7 +1971,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_lightbox_active_font_color]" class="color" id="ht_lightbox_active_font_color" value="<?php echo get_option('gallery_img_ht_lightbox_active_font_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_lightbox_active_font_color]"
+                                                   class="color" id="ht_lightbox_active_font_color"
+                                                   value="<?php echo get_option('gallery_img_ht_lightbox_active_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
 
@@ -1498,7 +1987,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_lightbox_likedislike_thumb_color]" class="color" id="ht_lightbox_likedislike_thumb_color" value="<?php echo get_option('gallery_img_ht_lightbox_likedislike_thumb_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_lightbox_likedislike_thumb_color]"
+                                                   class="color" id="ht_lightbox_likedislike_thumb_color"
+                                                   value="<?php echo get_option('gallery_img_ht_lightbox_likedislike_thumb_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -1510,7 +2003,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_lightbox_likedislike_thumb_active_color]" class="color" id="ht_lightbox_likedislike_thumb_active_color" value="<?php echo get_option('gallery_img_ht_lightbox_likedislike_thumb_active_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_lightbox_likedislike_thumb_active_color]"
+                                                   class="color" id="ht_lightbox_likedislike_thumb_active_color"
+                                                   value="<?php echo get_option('gallery_img_ht_lightbox_likedislike_thumb_active_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size">
@@ -1522,7 +2019,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_lightbox_heart_likedislike_thumb_color]" class="color" id="ht_lightbox_heart_likedislike_thumb_color" value="<?php echo get_option('gallery_img_ht_lightbox_heart_likedislike_thumb_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_lightbox_heart_likedislike_thumb_color]"
+                                                   class="color" id="ht_lightbox_heart_likedislike_thumb_color"
+                                                   value="<?php echo get_option('gallery_img_ht_lightbox_heart_likedislike_thumb_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -1534,7 +2035,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_lightbox_heart_likedislike_thumb_active_color]" class="color" id="ht_lightbox_heart_likedislike_thumb_active_color" value="<?php echo get_option('gallery_img_ht_lightbox_heart_likedislike_thumb_active_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_lightbox_heart_likedislike_thumb_active_color]"
+                                                   class="color" id="ht_lightbox_heart_likedislike_thumb_active_color"
+                                                   value="<?php echo get_option('gallery_img_ht_lightbox_heart_likedislike_thumb_active_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                     </div>
@@ -1553,8 +2058,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <select id="slider_crop_image" name="params[gallery_img_slider_crop_image]">
-                                                <option <?php if(get_option('gallery_img_slider_crop_image')  ==  'crop'){ echo 'selected'; } ?> value="crop"><?php echo __('Natural', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_slider_crop_image')  ==  'resize'){ echo 'selected'; } ?> value="resize"><?php echo __('Resize', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_slider_crop_image') == 'crop') {
+                                                    echo 'selected';
+                                                } ?> value="crop"><?php echo __('Natural', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_slider_crop_image') == 'resize') {
+                                                    echo 'selected';
+                                                } ?> value="resize"><?php echo __('Resize', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                         <div>
@@ -1566,7 +2075,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_slider_slider_background_color]" type="text" class="color" id="slider_slider_background_color" value="#<?php echo get_option('gallery_img_slider_slider_background_color'); ?>" size="10">
+                                            <input name="params[gallery_img_slider_slider_background_color]" type="text"
+                                                   class="color" id="slider_slider_background_color"
+                                                   value="#<?php echo get_option('gallery_img_slider_slider_background_color'); ?>"
+                                                   size="10">
                                         </div>
                                         <div class="has-background">
                                             <label for="slider_slideshow_border_size"><?php echo __('Slider Border Size', 'gallery-img'); ?>
@@ -1577,7 +2089,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_slider_slideshow_border_size]" id="slider_slideshow_border_size" value="<?php echo get_option('gallery_img_slider_slideshow_border_size'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_slider_slideshow_border_size]"
+                                                   id="slider_slideshow_border_size"
+                                                   value="<?php echo get_option('gallery_img_slider_slideshow_border_size'); ?>"
+                                                   class="text"/>
                                         </div>
                                         <div>
                                             <label for="slider_slideshow_border_color"><?php echo __('Slider Border Color', 'gallery-img'); ?>
@@ -1588,7 +2103,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_slider_slideshow_border_color]" type="text" class="color" id="slider_slideshow_border_color" value="#<?php echo get_option('gallery_img_slider_slideshow_border_color'); ?>" size="10">
+                                            <input name="params[gallery_img_slider_slideshow_border_color]" type="text"
+                                                   class="color" id="slider_slideshow_border_color"
+                                                   value="#<?php echo get_option('gallery_img_slider_slideshow_border_color'); ?>"
+                                                   size="10">
                                         </div>
                                         <div class="has-background">
                                             <label for="slider_slideshow_border_radius"><?php echo __('Slider Border radius', 'gallery-img'); ?>
@@ -1599,7 +2117,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_slider_slideshow_border_radius]" id="slider_slideshow_border_radius" value="<?php echo get_option('gallery_img_slider_slideshow_border_radius'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_slider_slideshow_border_radius]"
+                                                   id="slider_slideshow_border_radius"
+                                                   value="<?php echo get_option('gallery_img_slider_slideshow_border_radius'); ?>"
+                                                   class="text"/>
                                         </div>
                                     </div>
                                     <div class="options-block" id="options-block-title">
@@ -1614,8 +2135,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_slider_title_width]" id="title-container-width" data-slider-range="1,100"  type="text" data-slider="true"  data-slider-highlight="true" value="<?php echo get_option('gallery_img_slider_title_width'); ?>" />
-                                                <span><?php echo get_option('gallery_img_slider_title_width'); ?>%</span>
+                                                <input name="params[gallery_img_slider_title_width]"
+                                                       id="title-container-width" data-slider-range="1,100" type="text"
+                                                       data-slider="true" data-slider-highlight="true"
+                                                       value="<?php echo get_option('gallery_img_slider_title_width'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_slider_title_width'); ?>
+                                                    %</span>
                                             </div>
                                             <div class="clear"></div>
                                         </div>
@@ -1628,8 +2153,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_slider_title_has_margin]" />
-                                            <input type="checkbox" id="slider_title_has_margin"  <?php if(get_option('gallery_img_slider_title_has_margin')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_slider_title_has_margin]"  value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_slider_title_has_margin]"/>
+                                            <input type="checkbox"
+                                                   id="slider_title_has_margin" <?php if (get_option('gallery_img_slider_title_has_margin') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_slider_title_has_margin]" value="on"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="slider_title_font_size"><?php echo __('Title Font Size', 'gallery-img'); ?>
@@ -1640,7 +2169,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_slider_title_font_size]" id="slider_title_font_size" value="<?php echo get_option('gallery_img_slider_title_font_size'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_slider_title_font_size]"
+                                                   id="slider_title_font_size"
+                                                   value="<?php echo get_option('gallery_img_slider_title_font_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div>
@@ -1652,9 +2184,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_slider_title_color]" type="text" class="color" id="slider_title_color" value="#<?php echo get_option('gallery_img_slider_title_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_slider_title_color]" type="text"
+                                                   class="color" id="slider_title_color"
+                                                   value="#<?php echo get_option('gallery_img_slider_title_color'); ?>"
+                                                   size="10"/>
                                         </div>
-                                        <div  class="has-background">
+                                        <div class="has-background">
                                             <label for="slider_title_text_align"><?php echo __('Title Text Align', 'gallery-img'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -1663,11 +2198,20 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="slider_title_text_align" name="params[gallery_img_slider_title_text_align]">
-                                                <option <?php if(get_option('gallery_img_slider_title_text_align')  ==  'justify'){ echo 'justify'; } ?> value="justify"><?php echo __('Full width', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_slider_title_text_align')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_slider_title_text_align')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_slider_title_text_align')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                            <select id="slider_title_text_align"
+                                                    name="params[gallery_img_slider_title_text_align]">
+                                                <option <?php if (get_option('gallery_img_slider_title_text_align') == 'justify') {
+                                                    echo 'justify';
+                                                } ?> value="justify"><?php echo __('Full width', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_slider_title_text_align') == 'center') {
+                                                    echo 'selected';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_slider_title_text_align') == 'left') {
+                                                    echo 'selected';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_slider_title_text_align') == 'right') {
+                                                    echo 'selected';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                         <div>
@@ -1680,8 +2224,13 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_slider_title_background_transparency]" id="title-background-transparency" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_slider_title_background_transparency'); ?>" />
-                                                <span><?php echo get_option('gallery_img_slider_title_background_transparency'); ?>%</span>
+                                                <input name="params[gallery_img_slider_title_background_transparency]"
+                                                       id="title-background-transparency" data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_slider_title_background_transparency'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_slider_title_background_transparency'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
                                         <div class="has-background">
@@ -1693,7 +2242,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_slider_title_background_color]" type="text" class="color" id="slider_title_background_color" value="#<?php echo get_option('gallery_img_slider_title_background_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_slider_title_background_color]" type="text"
+                                                   class="color" id="slider_title_background_color"
+                                                   value="#<?php echo get_option('gallery_img_slider_title_background_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div>
                                             <label for="slider_title_border_size"><?php echo __('Title Border Size', 'gallery-img'); ?>
@@ -1704,7 +2256,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_slider_title_border_size]" id="slider_title_border_size" value="<?php echo get_option('gallery_img_slider_title_border_size'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_slider_title_border_size]"
+                                                   id="slider_title_border_size"
+                                                   value="<?php echo get_option('gallery_img_slider_title_border_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div class="has-background">
@@ -1716,7 +2271,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_slider_title_border_color]" type="text" class="color" id="slider_title_border_color" value="#<?php echo get_option('gallery_img_slider_title_border_color'); ?>" size="10">
+                                            <input name="params[gallery_img_slider_title_border_color]" type="text"
+                                                   class="color" id="slider_title_border_color"
+                                                   value="#<?php echo get_option('gallery_img_slider_title_border_color'); ?>"
+                                                   size="10">
                                         </div>
                                         <div>
                                             <label for="slider_title_border_radius"><?php echo __('Title Border Radius', 'gallery-img'); ?>
@@ -1727,7 +2285,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_slider_title_border_radius]" id="slider_title_border_radius" value="<?php echo get_option('gallery_img_slider_title_border_radius'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_slider_title_border_radius]"
+                                                   id="slider_title_border_radius"
+                                                   value="<?php echo get_option('gallery_img_slider_title_border_radius'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div class="has-height has-background">
@@ -1743,19 +2304,55 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 <table class="bws_position_table">
                                                     <tbody>
                                                     <tr>
-                                                        <td><input type="radio" value="left-top" id="slideshow_title_top-left" name="params[gallery_img_slider_title_position]" <?php if(get_option('gallery_img_slider_title_position')  ==  'left-top'){ echo 'checked="checked"'; } ?> /></td>
-                                                        <td><input type="radio" value="center-top" id="slideshow_title_top-center" name="params[gallery_img_slider_title_position]" <?php if(get_option('gallery_img_slider_title_position')  ==  'center-top'){ echo 'checked="checked"'; } ?> /></td>
-                                                        <td><input type="radio" value="right-top" id="slideshow_title_top-right" name="params[gallery_img_slider_title_position]"  <?php if(get_option('gallery_img_slider_title_position')  ==  'right-top'){ echo 'checked="checked"'; } ?> /></td>
+                                                        <td><input type="radio" value="left-top"
+                                                                   id="slideshow_title_top-left"
+                                                                   name="params[gallery_img_slider_title_position]" <?php if (get_option('gallery_img_slider_title_position') == 'left-top') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
+                                                        <td><input type="radio" value="center-top"
+                                                                   id="slideshow_title_top-center"
+                                                                   name="params[gallery_img_slider_title_position]" <?php if (get_option('gallery_img_slider_title_position') == 'center-top') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
+                                                        <td><input type="radio" value="right-top"
+                                                                   id="slideshow_title_top-right"
+                                                                   name="params[gallery_img_slider_title_position]" <?php if (get_option('gallery_img_slider_title_position') == 'right-top') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="radio" value="left-middle" id="slideshow_title_middle-left" name="params[gallery_img_slider_title_position]" <?php if(get_option('gallery_img_slider_title_position')  ==  'left-middle'){ echo 'checked="checked"'; } ?> /></td>
-                                                        <td><input type="radio" value="center-middle" id="slideshow_title_middle-center" name="params[gallery_img_slider_title_position]" <?php if(get_option('gallery_img_slider_title_position')  ==  'center-middle'){ echo 'checked="checked"'; } ?> /></td>
-                                                        <td><input type="radio" value="right-middle" id="slideshow_title_middle-right" name="params[gallery_img_slider_title_position]" <?php if(get_option('gallery_img_slider_title_position')  ==  'right-middle'){ echo 'checked="checked"'; } ?> /></td>
+                                                        <td><input type="radio" value="left-middle"
+                                                                   id="slideshow_title_middle-left"
+                                                                   name="params[gallery_img_slider_title_position]" <?php if (get_option('gallery_img_slider_title_position') == 'left-middle') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
+                                                        <td><input type="radio" value="center-middle"
+                                                                   id="slideshow_title_middle-center"
+                                                                   name="params[gallery_img_slider_title_position]" <?php if (get_option('gallery_img_slider_title_position') == 'center-middle') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
+                                                        <td><input type="radio" value="right-middle"
+                                                                   id="slideshow_title_middle-right"
+                                                                   name="params[gallery_img_slider_title_position]" <?php if (get_option('gallery_img_slider_title_position') == 'right-middle') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="radio" value="left-bottom" id="slideshow_title_bottom-left" name="params[gallery_img_slider_title_position]" <?php if(get_option('gallery_img_slider_title_position')  ==  'left-bottom'){ echo 'checked="checked"'; } ?> /></td>
-                                                        <td><input type="radio" value="center-bottom" id="slideshow_title_bottom-center" name="params[gallery_img_slider_title_position]" <?php if(get_option('gallery_img_slider_title_position')  ==  'center-bottom'){ echo 'checked="checked"'; } ?> /></td>
-                                                        <td><input type="radio" value="right-bottom" id="slideshow_title_bottom-right" name="params[gallery_img_slider_title_position]" <?php if(get_option('gallery_img_slider_title_position')  ==  'right-bottom'){ echo 'checked="checked"'; } ?> /></td>
+                                                        <td><input type="radio" value="left-bottom"
+                                                                   id="slideshow_title_bottom-left"
+                                                                   name="params[gallery_img_slider_title_position]" <?php if (get_option('gallery_img_slider_title_position') == 'left-bottom') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
+                                                        <td><input type="radio" value="center-bottom"
+                                                                   id="slideshow_title_bottom-center"
+                                                                   name="params[gallery_img_slider_title_position]" <?php if (get_option('gallery_img_slider_title_position') == 'center-bottom') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
+                                                        <td><input type="radio" value="right-bottom"
+                                                                   id="slideshow_title_bottom-right"
+                                                                   name="params[gallery_img_slider_title_position]" <?php if (get_option('gallery_img_slider_title_position') == 'right-bottom') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -1774,8 +2371,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_slider_description_width]" id="description-container-width" data-slider-range="1,100"  type="text" data-slider="true"  data-slider-highlight="true" value="<?php echo get_option('gallery_img_slider_description_width'); ?>" />
-                                                <span><?php echo get_option('gallery_img_slider_description_width'); ?>%</span>
+                                                <input name="params[gallery_img_slider_description_width]"
+                                                       id="description-container-width" data-slider-range="1,100"
+                                                       type="text" data-slider="true" data-slider-highlight="true"
+                                                       value="<?php echo get_option('gallery_img_slider_description_width'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_slider_description_width'); ?>
+                                                    %</span>
                                             </div>
                                             <div class="clear"></div>
                                         </div>
@@ -1788,8 +2389,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_slider_description_has_margin]" />
-                                            <input type="checkbox" id="slider_description_has_margin"  <?php if(get_option('gallery_img_slider_description_has_margin')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_slider_description_has_margin]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_slider_description_has_margin]"/>
+                                            <input type="checkbox"
+                                                   id="slider_description_has_margin" <?php if (get_option('gallery_img_slider_description_has_margin') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_slider_description_has_margin]" value="on"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="slider_description_font_size"><?php echo __('Description Font Size', 'gallery-img'); ?>
@@ -1800,7 +2405,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_slider_description_font_size]" id="slider_description_font_size" value="<?php echo get_option('gallery_img_slider_description_font_size'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_slider_description_font_size]"
+                                                   id="slider_description_font_size"
+                                                   value="<?php echo get_option('gallery_img_slider_description_font_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div>
@@ -1812,9 +2420,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_slider_description_color]" type="text" class="color" id="slider_description_color" value="#<?php echo get_option('gallery_img_slider_description_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_slider_description_color]" type="text"
+                                                   class="color" id="slider_description_color"
+                                                   value="#<?php echo get_option('gallery_img_slider_description_color'); ?>"
+                                                   size="10"/>
                                         </div>
-                                        <div  class="has-background">
+                                        <div class="has-background">
                                             <label for="slider_description_text_align"><?php echo __('Description Text Align', 'gallery-img'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -1823,11 +2434,20 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="slider_description_text_align" name="params[gallery_img_slider_description_text_align]">
-                                                <option <?php if(get_option('gallery_img_slider_description_text_align')  ==  'justify'){ echo 'justify'; } ?> value="justify"><?php echo __('Full width', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_slider_description_text_align')  ==  'center'){ echo 'center'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_slider_description_text_align')  ==  'left'){ echo 'left'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_slider_description_text_align')  ==  'right'){ echo 'right'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                            <select id="slider_description_text_align"
+                                                    name="params[gallery_img_slider_description_text_align]">
+                                                <option <?php if (get_option('gallery_img_slider_description_text_align') == 'justify') {
+                                                    echo 'justify';
+                                                } ?> value="justify"><?php echo __('Full width', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_slider_description_text_align') == 'center') {
+                                                    echo 'center';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_slider_description_text_align') == 'left') {
+                                                    echo 'left';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_slider_description_text_align') == 'right') {
+                                                    echo 'right';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                         <div>
@@ -1840,8 +2460,14 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_slider_description_background_transparency]" id="description-background-transparency" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_slider_description_background_transparency'); ?>" />
-                                                <span><?php echo get_option('gallery_img_slider_description_background_transparency'); ?>%</span>
+                                                <input name="params[gallery_img_slider_description_background_transparency]"
+                                                       id="description-background-transparency"
+                                                       data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_slider_description_background_transparency'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_slider_description_background_transparency'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
                                         <div class="has-background">
@@ -1853,7 +2479,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_slider_description_background_color]" type="text" class="color" id="slider_description_background_color" value="#<?php echo get_option('gallery_img_slider_description_background_color'); ?>" size="10">
+                                            <input name="params[gallery_img_slider_description_background_color]"
+                                                   type="text" class="color" id="slider_description_background_color"
+                                                   value="#<?php echo get_option('gallery_img_slider_description_background_color'); ?>"
+                                                   size="10">
                                         </div>
                                         <div>
                                             <label for="slider_description_border_size"><?php echo __('Description Border Size', 'gallery-img'); ?>
@@ -1864,7 +2493,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_slider_description_border_size]" id="slider_description_border_size" value="<?php echo get_option('gallery_img_slider_description_border_size'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_slider_description_border_size]"
+                                                   id="slider_description_border_size"
+                                                   value="<?php echo get_option('gallery_img_slider_description_border_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div class="has-background">
@@ -1876,7 +2508,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_slider_description_border_color]" type="text" class="color" id="slider_description_border_color" value="#<?php echo get_option('gallery_img_slider_description_border_color'); ?>" size="10">
+                                            <input name="params[gallery_img_slider_description_border_color]"
+                                                   type="text" class="color" id="slider_description_border_color"
+                                                   value="#<?php echo get_option('gallery_img_slider_description_border_color'); ?>"
+                                                   size="10">
                                         </div>
                                         <div>
                                             <label for="slider_description_border_radius"><?php echo __('Description Border Radius', 'gallery-img'); ?>
@@ -1887,7 +2522,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_slider_description_border_radius]" id="slider_description_border_radius" value="<?php echo get_option('gallery_img_slider_description_border_radius'); ?>" class="text" />
+                                            <input type="text"
+                                                   name="params[gallery_img_slider_description_border_radius]"
+                                                   id="slider_description_border_radius"
+                                                   value="<?php echo get_option('gallery_img_slider_description_border_radius'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div class="has-height has-background">
@@ -1903,19 +2542,55 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 <table class="bws_position_table">
                                                     <tbody>
                                                     <tr>
-                                                        <td><input type="radio" value="left-top" id="slideshow_description_top-left" name="params[gallery_img_slider_description_position]" <?php if(get_option('gallery_img_slider_description_position')  ==  'left-top'){ echo 'checked="checked"'; } ?> /></td>
-                                                        <td><input type="radio" value="center-top" id="slideshow_description_top-center" name="params[gallery_img_slider_description_position]" <?php if(get_option('gallery_img_slider_description_position')  ==  'center-top'){ echo 'checked="checked"'; } ?> /></td>
-                                                        <td><input type="radio" value="right-top" id="slideshow_description_top-right" name="params[gallery_img_slider_description_position]"  <?php if(get_option('gallery_img_slider_description_position')  ==  'right-top'){ echo 'checked="checked"'; } ?> /></td>
+                                                        <td><input type="radio" value="left-top"
+                                                                   id="slideshow_description_top-left"
+                                                                   name="params[gallery_img_slider_description_position]" <?php if (get_option('gallery_img_slider_description_position') == 'left-top') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
+                                                        <td><input type="radio" value="center-top"
+                                                                   id="slideshow_description_top-center"
+                                                                   name="params[gallery_img_slider_description_position]" <?php if (get_option('gallery_img_slider_description_position') == 'center-top') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
+                                                        <td><input type="radio" value="right-top"
+                                                                   id="slideshow_description_top-right"
+                                                                   name="params[gallery_img_slider_description_position]" <?php if (get_option('gallery_img_slider_description_position') == 'right-top') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="radio" value="left-middle" id="slideshow_description_middle-left" name="params[gallery_img_slider_description_position]" <?php if(get_option('gallery_img_slider_description_position')  ==  'left-middle'){ echo 'checked="checked"'; } ?> /></td>
-                                                        <td><input type="radio" value="center-middle" id="slideshow_description_middle-center" name="params[gallery_img_slider_description_position]" <?php if(get_option('gallery_img_slider_description_position')  ==  'center-middle'){ echo 'checked="checked"'; } ?> /></td>
-                                                        <td><input type="radio" value="right-middle" id="slideshow_description_middle-right" name="params[gallery_img_slider_description_position]" <?php if(get_option('gallery_img_slider_description_position')  ==  'right-middle'){ echo 'checked="checked"'; } ?> /></td>
+                                                        <td><input type="radio" value="left-middle"
+                                                                   id="slideshow_description_middle-left"
+                                                                   name="params[gallery_img_slider_description_position]" <?php if (get_option('gallery_img_slider_description_position') == 'left-middle') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
+                                                        <td><input type="radio" value="center-middle"
+                                                                   id="slideshow_description_middle-center"
+                                                                   name="params[gallery_img_slider_description_position]" <?php if (get_option('gallery_img_slider_description_position') == 'center-middle') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
+                                                        <td><input type="radio" value="right-middle"
+                                                                   id="slideshow_description_middle-right"
+                                                                   name="params[gallery_img_slider_description_position]" <?php if (get_option('gallery_img_slider_description_position') == 'right-middle') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="radio" value="left-bottom" id="slideshow_description_bottom-left" name="params[gallery_img_slider_description_position]" <?php if(get_option('gallery_img_slider_description_position')  ==  'left-bottom'){ echo 'checked="checked"'; } ?> /></td>
-                                                        <td><input type="radio" value="center-bottom" id="slideshow_description_bottom-center" name="params[gallery_img_slider_description_position]" <?php if(get_option('gallery_img_slider_description_position')  ==  'center-bottom'){ echo 'checked="checked"'; } ?> /></td>
-                                                        <td><input type="radio" value="right-bottom" id="slideshow_description_bottom-right" name="params[gallery_img_slider_description_position]" <?php if(get_option('gallery_img_slider_description_position')  ==  'right-bottom'){ echo 'checked="checked"'; } ?> /></td>
+                                                        <td><input type="radio" value="left-bottom"
+                                                                   id="slideshow_description_bottom-left"
+                                                                   name="params[gallery_img_slider_description_position]" <?php if (get_option('gallery_img_slider_description_position') == 'left-bottom') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
+                                                        <td><input type="radio" value="center-bottom"
+                                                                   id="slideshow_description_bottom-center"
+                                                                   name="params[gallery_img_slider_description_position]" <?php if (get_option('gallery_img_slider_description_position') == 'center-bottom') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
+                                                        <td><input type="radio" value="right-bottom"
+                                                                   id="slideshow_description_bottom-right"
+                                                                   name="params[gallery_img_slider_description_position]" <?php if (get_option('gallery_img_slider_description_position') == 'right-bottom') {
+                                                                echo 'checked="checked"';
+                                                            } ?> /></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -1924,7 +2599,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                     </div>
                                     <div class="options-block" id="options-block-navigation">
                                         <h3><?php echo __('Navigation', 'gallery-img'); ?></h3>
-                                        <div  class="has-background">
+                                        <div class="has-background">
                                             <label for="slider_show_arrows"><?php echo __('Show Navigation Arrows', 'gallery-img'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -1933,8 +2608,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_slider_show_arrows]" />
-                                            <input type="checkbox" id="slider_show_arrows" <?php if(get_option('gallery_img_slider_show_arrows')  == 'on'){ echo 'checked="checked"'; } ?> name="params[gallery_img_slider_show_arrows]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_slider_show_arrows]"/>
+                                            <input type="checkbox"
+                                                   id="slider_show_arrows" <?php if (get_option('gallery_img_slider_show_arrows') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_slider_show_arrows]" value="on"/>
                                         </div>
                                         <div>
                                             <label for="slider_dots_position"><?php echo __('Navigation Dots Position / Hide Dots', 'gallery-img'); ?>
@@ -1945,13 +2624,23 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="slider_dots_position" name="params[gallery_img_slider_dots_position]">
-                                                <option <?php if(get_option('gallery_img_slider_dots_position')  ==  'none'){ echo 'selected'; } ?> value="none"><?php echo __('', 'gallery-img'); ?>Dont Show</option>
-                                                <option <?php if(get_option('gallery_img_slider_dots_position')  ==  'top'){ echo 'selected'; } ?> value="top"><?php echo __('', 'gallery-img'); ?>Top</option>
-                                                <option <?php if(get_option('gallery_img_slider_dots_position')  ==  'bottom'){ echo 'selected'; } ?> value="bottom"><?php echo __('', 'gallery-img'); ?>Bottom</option>
+                                            <select id="slider_dots_position"
+                                                    name="params[gallery_img_slider_dots_position]">
+                                                <option <?php if (get_option('gallery_img_slider_dots_position') == 'none') {
+                                                    echo 'selected';
+                                                } ?> value="none"><?php echo __('', 'gallery-img'); ?>Dont Show
+                                                </option>
+                                                <option <?php if (get_option('gallery_img_slider_dots_position') == 'top') {
+                                                    echo 'selected';
+                                                } ?> value="top"><?php echo __('', 'gallery-img'); ?>Top
+                                                </option>
+                                                <option <?php if (get_option('gallery_img_slider_dots_position') == 'bottom') {
+                                                    echo 'selected';
+                                                } ?> value="bottom"><?php echo __('', 'gallery-img'); ?>Bottom
+                                                </option>
                                             </select>
                                         </div>
-                                        <div  class="has-background">
+                                        <div class="has-background">
                                             <label for="slider_dots_color"><?php echo __('Navigation Dots Color', 'gallery-img'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -1960,7 +2649,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" class="color" name="params[gallery_img_slider_dots_color]" id="slider_dots_color" value="<?php echo get_option('gallery_img_slider_dots_color'); ?>" class="text" />
+                                            <input type="text" class="color"
+                                                   name="params[gallery_img_slider_dots_color]" id="slider_dots_color"
+                                                   value="<?php echo get_option('gallery_img_slider_dots_color'); ?>"
+                                                   class="text"/>
                                         </div>
                                         <div>
                                             <label for="slider_active_dot_color"><?php echo __('Navigation Active Dot Color', 'gallery-img'); ?>
@@ -1971,9 +2663,14 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" class="color" name="params[gallery_img_slider_active_dot_color]" id="slider_active_dot_color" value="<?php echo get_option('gallery_img_slider_active_dot_color'); ?>" class="text" />
+                                            <input type="text" class="color"
+                                                   name="params[gallery_img_slider_active_dot_color]"
+                                                   id="slider_active_dot_color"
+                                                   value="<?php echo get_option('gallery_img_slider_active_dot_color'); ?>"
+                                                   class="text"/>
                                         </div>
-                                        <div class="navigation-type-block has-height has-background" style="padding-top:20px;">
+                                        <div class="navigation-type-block has-height has-background"
+                                             style="padding-top:20px;">
                                             <label for=""><?php echo __('Navigation Type', 'gallery-img'); ?> <?php echo get_option('gallery_img_slider_navigation_type'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -1983,99 +2680,205 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
 
-                                            <div class="has-height has-background" style="clear:both;padding:10px 0px 0px 80px;">
+                                            <div class="has-height has-background"
+                                                 style="clear:both;padding:10px 0px 0px 80px;">
                                                 <div>
                                                     <ul id="arrows-type">
-                                                        <li <?php if(get_option('gallery_img_slider_navigation_type')  ==  1){ echo 'class="active"'; } ?>>
+                                                        <li <?php if (get_option('gallery_img_slider_navigation_type') == 1) {
+                                                            echo 'class="active"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.simple.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.simple.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="1" <?php if(get_option('gallery_img_slider_navigation_type')  ==  1){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="1" <?php if (get_option('gallery_img_slider_navigation_type') == 1) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li <?php if(get_option('gallery_img_slider_navigation_type')  ==  2){ echo 'class="active"'; } ?>>
+                                                        <li <?php if (get_option('gallery_img_slider_navigation_type') == 2) {
+                                                            echo 'class="active"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.circle.shadow.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.circle.shadow.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="2" <?php if(get_option('gallery_img_slider_navigation_type')  ==  2){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="2" <?php if (get_option('gallery_img_slider_navigation_type') == 2) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li <?php if(get_option('gallery_img_slider_navigation_type')  ==  3){ echo 'class="active"'; } ?>>
+                                                        <li <?php if (get_option('gallery_img_slider_navigation_type') == 3) {
+                                                            echo 'class="active"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.circle.simple.dark.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.circle.simple.dark.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="3" <?php if(get_option('gallery_img_slider_navigation_type')  ==  3){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="3" <?php if (get_option('gallery_img_slider_navigation_type') == 3) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
 
-                                                        <li <?php if(get_option('gallery_img_slider_navigation_type')  ==  4){ echo 'class="active"'; } ?>>
+                                                        <li <?php if (get_option('gallery_img_slider_navigation_type') == 4) {
+                                                            echo 'class="active"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.cube.dark.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.cube.dark.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="4" <?php if(get_option('gallery_img_slider_navigation_type')  ==  4){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="4" <?php if (get_option('gallery_img_slider_navigation_type') == 4) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li <?php if(get_option('gallery_img_slider_navigation_type')  ==  5 ){ echo 'class="active"'; } ?> >
+                                                        <li <?php if (get_option('gallery_img_slider_navigation_type') == 5) {
+                                                            echo 'class="active"';
+                                                        } ?> >
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.light.blue.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.light.blue.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="5" <?php if(get_option('gallery_img_slider_navigation_type')  ==  5){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="5" <?php if (get_option('gallery_img_slider_navigation_type') == 5) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li <?php if(get_option('gallery_img_slider_navigation_type')  ==  6){ echo 'class="active"'; } ?>>
+                                                        <li <?php if (get_option('gallery_img_slider_navigation_type') == 6) {
+                                                            echo 'class="active"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.light.cube.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.light.cube.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="6" <?php if(get_option('gallery_img_slider_navigation_type')  ==  6){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="6" <?php if (get_option('gallery_img_slider_navigation_type') == 6) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li <?php if(get_option('gallery_img_slider_navigation_type')  ==  8){ echo 'class="active"'; } ?>>
+                                                        <li <?php if (get_option('gallery_img_slider_navigation_type') == 8) {
+                                                            echo 'class="active"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="8" <?php if(get_option('gallery_img_slider_navigation_type')  ==  8){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="8" <?php if (get_option('gallery_img_slider_navigation_type') == 8) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li <?php if(get_option('gallery_img_slider_navigation_type')  ==  9){ echo 'class="active"'; } ?>>
+                                                        <li <?php if (get_option('gallery_img_slider_navigation_type') == 9) {
+                                                            echo 'class="active"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.circle.blue.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.circle.blue.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="9" <?php if(get_option('gallery_img_slider_navigation_type')  ==  9){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="9" <?php if (get_option('gallery_img_slider_navigation_type') == 9) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li <?php if(get_option('gallery_img_slider_navigation_type')  ==  10){ echo 'class="active"'; } ?>>
+                                                        <li <?php if (get_option('gallery_img_slider_navigation_type') == 10) {
+                                                            echo 'class="active"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.circle.green.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.circle.green.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="10" <?php if(get_option('gallery_img_slider_navigation_type')  ==  10){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="10" <?php if (get_option('gallery_img_slider_navigation_type') == 10) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li <?php if(get_option('gallery_img_slider_navigation_type')  ==  11){ echo 'class="active"'; } ?>>
+                                                        <li <?php if (get_option('gallery_img_slider_navigation_type') == 11) {
+                                                            echo 'class="active"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.blue.retro.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.blue.retro.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="11" <?php if(get_option('gallery_img_slider_navigation_type')  ==  11){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="11" <?php if (get_option('gallery_img_slider_navigation_type') == 11) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li <?php if(get_option('gallery_img_slider_navigation_type')  ==  12){ echo 'class="active"'; } ?>>
+                                                        <li <?php if (get_option('gallery_img_slider_navigation_type') == 12) {
+                                                            echo 'class="active"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.green.retro.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.green.retro.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="12" <?php if(get_option('gallery_img_slider_navigation_type')  ==  12){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="12" <?php if (get_option('gallery_img_slider_navigation_type') == 12) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li <?php if(get_option('gallery_img_slider_navigation_type')  ==  13){ echo 'class="active"'; } ?>>
+                                                        <li <?php if (get_option('gallery_img_slider_navigation_type') == 13) {
+                                                            echo 'class="active"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.red.circle.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.red.circle.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="13" <?php if(get_option('gallery_img_slider_navigation_type')  ==  13){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="13" <?php if (get_option('gallery_img_slider_navigation_type') == 13) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li class="color" <?php if(get_option('gallery_img_slider_navigation_type')  ==  14){ echo 'class="active"'; } ?>>
+                                                        <li class="color" <?php if (get_option('gallery_img_slider_navigation_type') == 14) {
+                                                            echo 'class="active"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.triangle.white.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.triangle.white.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="14" <?php if(get_option('gallery_img_slider_navigation_type')  ==  14){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="14" <?php if (get_option('gallery_img_slider_navigation_type') == 14) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li <?php if(get_option('gallery_img_slider_navigation_type')  ==  15){ echo 'class="active"'; } ?>>
+                                                        <li <?php if (get_option('gallery_img_slider_navigation_type') == 15) {
+                                                            echo 'class="active"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.ancient.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.ancient.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="15" <?php if(get_option('gallery_img_slider_navigation_type')  ==  15){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="15" <?php if (get_option('gallery_img_slider_navigation_type') == 15) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li <?php if(get_option('gallery_img_slider_navigation_type')  ==  16){ echo 'class="active"'; } ?>>
+                                                        <li <?php if (get_option('gallery_img_slider_navigation_type') == 16) {
+                                                            echo 'class="active"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.black.out.png" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/arrows.black.out.png"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_slider_navigation_type]" value="16" <?php if(get_option('gallery_img_slider_navigation_type')  ==  16){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_slider_navigation_type]"
+                                                                   value="16" <?php if (get_option('gallery_img_slider_navigation_type') == 16) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -2093,8 +2896,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_slider_rating_count]" />
-                                            <input type="checkbox" id="ht_slider_rating_count"  <?php if(get_option('gallery_img_ht_slider_rating_count')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_slider_rating_count]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_slider_rating_count]"/>
+                                            <input type="checkbox"
+                                                   id="ht_slider_rating_count" <?php if (get_option('gallery_img_ht_slider_rating_count') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_slider_rating_count]" value="on"/>
                                         </div>
                                         <div class="fixed-size">
                                             <label for="ht_slider_likedislike_bg"><?php echo __('Ratings Background Color', 'gallery-img'); ?>
@@ -2105,7 +2912,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_slider_likedislike_bg]" class="color" id="ht_slider_likedislike_bg" value="<?php echo get_option('gallery_img_ht_slider_likedislike_bg'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_slider_likedislike_bg]"
+                                                   class="color" id="ht_slider_likedislike_bg"
+                                                   value="<?php echo get_option('gallery_img_ht_slider_likedislike_bg'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background">
@@ -2118,8 +2928,13 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_ht_slider_likedislike_bg_trans]" id="ht_slider_likedislike_bg_trans" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_ht_slider_likedislike_bg_trans'); ?>" />
-                                                <span><?php echo get_option('gallery_img_ht_slider_likedislike_bg_trans'); ?>%</span>
+                                                <input name="params[gallery_img_ht_slider_likedislike_bg_trans]"
+                                                       id="ht_slider_likedislike_bg_trans" data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_ht_slider_likedislike_bg_trans'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_ht_slider_likedislike_bg_trans'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
                                         <div class="fixed-size">
@@ -2131,7 +2946,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_slider_likedislike_font_color]" class="color" id="ht_slider_likedislike_font_color" value="<?php echo get_option('gallery_img_ht_slider_likedislike_font_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_slider_likedislike_font_color]"
+                                                   class="color" id="ht_slider_likedislike_font_color"
+                                                   value="<?php echo get_option('gallery_img_ht_slider_likedislike_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -2143,7 +2962,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_slider_active_font_color]" class="color" id="ht_slider_active_font_color" value="<?php echo get_option('gallery_img_ht_slider_active_font_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_slider_active_font_color]"
+                                                   class="color" id="ht_slider_active_font_color"
+                                                   value="<?php echo get_option('gallery_img_ht_slider_active_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
 
@@ -2156,7 +2978,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_slider_likedislike_thumb_color]" class="color" id="ht_slider_likedislike_thumb_color" value="<?php echo get_option('gallery_img_ht_slider_likedislike_thumb_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_slider_likedislike_thumb_color]"
+                                                   class="color" id="ht_slider_likedislike_thumb_color"
+                                                   value="<?php echo get_option('gallery_img_ht_slider_likedislike_thumb_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -2168,7 +2994,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_slider_likedislike_thumb_active_color]" class="color" id="ht_slider_likedislike_thumb_active_color" value="<?php echo get_option('gallery_img_ht_slider_likedislike_thumb_active_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_slider_likedislike_thumb_active_color]"
+                                                   class="color" id="ht_slider_likedislike_thumb_active_color"
+                                                   value="<?php echo get_option('gallery_img_ht_slider_likedislike_thumb_active_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size">
@@ -2180,7 +3010,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_slider_heart_likedislike_thumb_color]" class="color" id="ht_slider_heart_likedislike_thumb_color" value="<?php echo get_option('gallery_img_ht_slider_heart_likedislike_thumb_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_slider_heart_likedislike_thumb_color]"
+                                                   class="color" id="ht_slider_heart_likedislike_thumb_color"
+                                                   value="<?php echo get_option('gallery_img_ht_slider_heart_likedislike_thumb_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -2192,7 +3026,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_slider_heart_likedislike_thumb_active_color]" class="color" id="ht_slider_heart_likedislike_thumb_active_color" value="<?php echo get_option('gallery_img_ht_slider_heart_likedislike_thumb_active_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_slider_heart_likedislike_thumb_active_color]"
+                                                   class="color" id="ht_slider_heart_likedislike_thumb_active_color"
+                                                   value="<?php echo get_option('gallery_img_ht_slider_heart_likedislike_thumb_active_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                     </div>
@@ -2210,7 +3048,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_thumb_box_padding]" id="thumb_box_padding" value="<?php echo get_option('gallery_img_thumb_box_padding'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_thumb_box_padding]"
+                                                   id="thumb_box_padding"
+                                                   value="<?php echo get_option('gallery_img_thumb_box_padding'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div>
@@ -2222,7 +3063,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_thumb_box_background]" type="text" class="color" id="thumb_box_background" value="#<?php echo get_option('gallery_img_thumb_box_background'); ?>" size="10" />
+                                            <input name="params[gallery_img_thumb_box_background]" type="text"
+                                                   class="color" id="thumb_box_background"
+                                                   value="#<?php echo get_option('gallery_img_thumb_box_background'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="thumb_box_use_shadow"><?php echo __('Box Use shadow', 'gallery-img'); ?>
@@ -2233,8 +3077,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_thumb_box_use_shadow]" />
-                                            <input type="checkbox" id="thumb_box_use_shadow"  <?php if(get_option('gallery_img_thumb_box_use_shadow')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_thumb_box_use_shadow]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_thumb_box_use_shadow]"/>
+                                            <input type="checkbox"
+                                                   id="thumb_box_use_shadow" <?php if (get_option('gallery_img_thumb_box_use_shadow') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_thumb_box_use_shadow]" value="on"/>
                                         </div>
                                         <div>
                                             <label for="thumb_box_has_background"><?php echo __('Box Has background', 'gallery-img'); ?>
@@ -2245,8 +3093,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_thumb_box_has_background]" />
-                                            <input type="checkbox" id="thumb_box_has_background"  <?php if(get_option('gallery_img_thumb_box_has_background')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_thumb_box_has_background]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_thumb_box_has_background]"/>
+                                            <input type="checkbox"
+                                                   id="thumb_box_has_background" <?php if (get_option('gallery_img_thumb_box_has_background') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_thumb_box_has_background]" value="on"/>
                                         </div>
                                     </div>
                                     <div>
@@ -2260,9 +3112,16 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="image_natural_size_thumbnail" name="params[gallery_img_image_natural_size_thumbnail]">
-                                                <option <?php if(get_option('gallery_img_image_natural_size_thumbnail')  ==  'resize'){ echo 'selected="selected"'; } ?> value="resize">Resize</option>
-                                                <option <?php if(get_option('gallery_img_image_natural_size_thumbnail')  ==  'natural'){ echo 'selected="selected"'; } ?> value="natural">Natural</option>
+                                            <select id="image_natural_size_thumbnail"
+                                                    name="params[gallery_img_image_natural_size_thumbnail]">
+                                                <option <?php if (get_option('gallery_img_image_natural_size_thumbnail') == 'resize') {
+                                                    echo 'selected="selected"';
+                                                } ?> value="resize">Resize
+                                                </option>
+                                                <option <?php if (get_option('gallery_img_image_natural_size_thumbnail') == 'natural') {
+                                                    echo 'selected="selected"';
+                                                } ?> value="natural">Natural
+                                                </option>
                                             </select>
                                         </div>
                                         <div>
@@ -2274,7 +3133,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_thumb_image_width]" id="thumb_image_width" value="<?php echo get_option('gallery_img_thumb_image_width'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_thumb_image_width]"
+                                                   id="thumb_image_width"
+                                                   value="<?php echo get_option('gallery_img_thumb_image_width'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div class="has-background">
@@ -2286,7 +3148,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_thumb_image_height]" id="thumb_image_height" value="<?php echo get_option('gallery_img_thumb_image_height'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_thumb_image_height]"
+                                                   id="thumb_image_height"
+                                                   value="<?php echo get_option('gallery_img_thumb_image_height'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div>
@@ -2298,7 +3163,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_thumb_image_border_width]" id="thumb_image_border_width" value="<?php echo get_option('gallery_img_thumb_image_border_width'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_thumb_image_border_width]"
+                                                   id="thumb_image_border_width"
+                                                   value="<?php echo get_option('gallery_img_thumb_image_border_width'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div class="has-background">
@@ -2310,7 +3178,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_thumb_image_border_color]" type="text" class="color" id="thumb_image_border_color" value="#<?php echo get_option('gallery_img_thumb_image_border_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_thumb_image_border_color]" type="text"
+                                                   class="color" id="thumb_image_border_color"
+                                                   value="#<?php echo get_option('gallery_img_thumb_image_border_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div>
                                             <label for="thumb_image_border_radius"><?php echo __('Border Radius', 'gallery-img'); ?>
@@ -2321,7 +3192,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_thumb_image_border_radius]" id="thumb_image_border_radius" value="<?php echo get_option('gallery_img_thumb_image_border_radius'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_thumb_image_border_radius]"
+                                                   id="thumb_image_border_radius"
+                                                   value="<?php echo get_option('gallery_img_thumb_image_border_radius'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div class="has-background">
@@ -2333,7 +3207,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_thumb_margin_image]" id="thumb_margin_image" value="<?php echo get_option('gallery_img_thumb_margin_image'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_thumb_margin_image]"
+                                                   id="thumb_margin_image"
+                                                   value="<?php echo get_option('gallery_img_thumb_margin_image'); ?>"
+                                                   class="text"/>
                                         </div>
                                     </div>
                                     <div style="margin-top:-110px">
@@ -2347,7 +3224,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_thumb_title_font_size]" id="thumb_title_font_size" value="<?php echo get_option('gallery_img_thumb_title_font_size'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_thumb_title_font_size]"
+                                                   id="thumb_title_font_size"
+                                                   value="<?php echo get_option('gallery_img_thumb_title_font_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div>
@@ -2359,7 +3239,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_thumb_title_font_color]" type="text" class="color" id="thumb_title_font_color" value="#<?php echo get_option('gallery_img_thumb_title_font_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_thumb_title_font_color]" type="text"
+                                                   class="color" id="thumb_title_font_color"
+                                                   value="#<?php echo get_option('gallery_img_thumb_title_font_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div class="has-background">
                                             <label for="thumb_title_background_color"><?php echo __('Overlay Background Color', 'gallery-img'); ?>
@@ -2370,7 +3253,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_thumb_title_background_color]" type="text" class="color" id="thumb_title_background_color" value="#<?php echo get_option('gallery_img_thumb_title_background_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_thumb_title_background_color]" type="text"
+                                                   class="color" id="thumb_title_background_color"
+                                                   value="#<?php echo get_option('gallery_img_thumb_title_background_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div>
                                             <label for="thumb_title_background_transparency"><?php echo __('Title Background Opacity', 'gallery-img'); ?>
@@ -2382,8 +3268,14 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_thumb_title_background_transparency]" id="thumb_title_background_transparency" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_thumb_title_background_transparency'); ?>" />
-                                                <span><?php echo get_option('gallery_img_thumb_title_background_transparency'); ?>%</span>
+                                                <input name="params[gallery_img_thumb_title_background_transparency]"
+                                                       id="thumb_title_background_transparency"
+                                                       data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_thumb_title_background_transparency'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_thumb_title_background_transparency'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
                                         <div class="has-background">
@@ -2395,7 +3287,9 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_thumb_view_text]" type="text" id="thumb_view_text" value="<?php echo get_option('gallery_img_thumb_view_text'); ?>"  />
+                                            <input name="params[gallery_img_thumb_view_text]" type="text"
+                                                   id="thumb_view_text"
+                                                   value="<?php echo get_option('gallery_img_thumb_view_text'); ?>"/>
                                         </div>
                                     </div>
                                     <div>
@@ -2409,7 +3303,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view7_paginator_fontsize]" id="video_ht_view7_paginator_fontsize" value="<?php echo get_option('gallery_img_video_ht_view7_paginator_fontsize'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view7_paginator_fontsize]"
+                                                   id="video_ht_view7_paginator_fontsize"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view7_paginator_fontsize'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class="  fixed-size">
@@ -2421,7 +3319,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view7_paginator_color]" class="color" id="video_ht_view7_paginator_color" value="<?php echo get_option('gallery_img_video_ht_view7_paginator_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_video_ht_view7_paginator_color]"
+                                                   class="color" id="video_ht_view7_paginator_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view7_paginator_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size has-background">
@@ -2433,7 +3334,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view7_paginator_icon_size]" id="video_ht_view7_paginator_icon_size" value="<?php echo get_option('gallery_img_video_ht_view7_paginator_icon_size'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view7_paginator_icon_size]"
+                                                   id="video_ht_view7_paginator_icon_size"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view7_paginator_icon_size'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class=" fixed-size">
@@ -2445,7 +3350,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view7_paginator_icon_color]" class="color" id="video_ht_view7_paginator_icon_color" value="<?php echo get_option('gallery_img_video_ht_view7_paginator_icon_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view7_paginator_icon_color]"
+                                                   class="color" id="video_ht_view7_paginator_icon_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view7_paginator_icon_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background">
@@ -2457,10 +3366,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="video_ht_view7_paginator_position" name="params[gallery_img_video_ht_view7_paginator_position]">
-                                                <option <?php if(get_option('gallery_img_video_ht_view7_paginator_position')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view7_paginator_position')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view7_paginator_position')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                            <select id="video_ht_view7_paginator_position"
+                                                    name="params[gallery_img_video_ht_view7_paginator_position]">
+                                                <option <?php if (get_option('gallery_img_video_ht_view7_paginator_position') == 'left') {
+                                                    echo 'selected';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view7_paginator_position') == 'center') {
+                                                    echo 'selected';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view7_paginator_position') == 'right') {
+                                                    echo 'selected';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                     </div>
@@ -2475,7 +3391,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view7_loadmore_text]" id="video_ht_view7_loadmore_text" value="<?php echo esc_attr(get_option('gallery_img_video_ht_view7_loadmore_text')); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_video_ht_view7_loadmore_text]"
+                                                   id="video_ht_view7_loadmore_text"
+                                                   value="<?php echo esc_attr(get_option('gallery_img_video_ht_view7_loadmore_text')); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div>
@@ -2487,10 +3406,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="video_ht_view7_loadmore_position" name="params[gallery_img_video_ht_view7_loadmore_position]">
-                                                <option <?php if(get_option('gallery_img_video_ht_view7_loadmore_position')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view7_loadmore_position')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view7_loadmore_position')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                            <select id="video_ht_view7_loadmore_position"
+                                                    name="params[gallery_img_video_ht_view7_loadmore_position]">
+                                                <option <?php if (get_option('gallery_img_video_ht_view7_loadmore_position') == 'left') {
+                                                    echo 'selected';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view7_loadmore_position') == 'center') {
+                                                    echo 'selected';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view7_loadmore_position') == 'right') {
+                                                    echo 'selected';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                         <div class="fixed-size has-background">
@@ -2502,7 +3428,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view7_loadmore_fontsize]" id="video_ht_view7_loadmore_fontsize" value="<?php echo get_option('gallery_img_video_ht_view7_loadmore_fontsize'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view7_loadmore_fontsize]"
+                                                   id="video_ht_view7_loadmore_fontsize"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view7_loadmore_fontsize'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class="  fixed-size">
@@ -2514,7 +3444,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view7_loadmore_font_color]" class="color" id="video_ht_view7_loadmore_font_color" value="<?php echo get_option('gallery_img_video_ht_view7_loadmore_font_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view7_loadmore_font_color]"
+                                                   class="color" id="video_ht_view7_loadmore_font_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view7_loadmore_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -2526,7 +3460,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view7_loadmore_font_color_hover]" class="color" id="video_ht_view7_loadmore_font_color_hover" value="<?php echo get_option('gallery_img_video_ht_view7_loadmore_font_color_hover'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view7_loadmore_font_color_hover]"
+                                                   class="color" id="video_ht_view7_loadmore_font_color_hover"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view7_loadmore_font_color_hover'); ?>"
+                                                   class="text">
                                         </div>
                                         <div class="fixed-size">
                                             <label for="video_ht_view7_button_color"><?php echo __('Load More Button Color', 'gallery-img'); ?>
@@ -2537,7 +3475,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view7_button_color]" class="color" id="video_ht_view7_button_color" value="<?php echo get_option('gallery_img_video_ht_view7_button_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_video_ht_view7_button_color]"
+                                                   class="color" id="video_ht_view7_button_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view7_button_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size has-background">
@@ -2549,7 +3490,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view7_button_color_hover]" class="color" id="video_ht_view7_button_color_hover" value="<?php echo get_option('gallery_img_video_ht_view7_button_color_hover'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view7_button_color_hover]"
+                                                   class="color" id="video_ht_view7_button_color_hover"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view7_button_color_hover'); ?>"
+                                                   class="text">
                                         </div>
                                         <div class="navigation-type-block has-height" style="padding-top:20px;">
                                             <label for=""><?php echo __('Loading Animation', 'gallery-img'); ?>
@@ -2564,29 +3509,57 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             <div class="has-height " style="clear:both;padding:10px 0px 0px 80px;">
                                                 <div>
                                                     <ul id="arrows-type">
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view7_loading_type')  ==  1){ echo "class='activee'"; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view7_loading_type') == 1) {
+                                                            echo "class='activee'";
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading1.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading1.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view7_loading_type]" value="1" <?php if(get_option('gallery_img_video_ht_view7_loading_type')  ==  1){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view7_loading_type]"
+                                                                   value="1" <?php if (get_option('gallery_img_video_ht_view7_loading_type') == 1) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view7_loading_type')  ==  2){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view7_loading_type') == 2) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading4.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading4.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view7_loading_type]" value="2" <?php if(get_option('gallery_img_video_ht_view7_loading_type')  ==  2){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view7_loading_type]"
+                                                                   value="2" <?php if (get_option('gallery_img_video_ht_view7_loading_type') == 2) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view7_loading_type')  ==  3){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view7_loading_type') == 3) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading36.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading36.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view7_loading_type]" value="3" <?php if(get_option('gallery_img_video_ht_view7_loading_type')  ==  3){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view7_loading_type]"
+                                                                   value="3" <?php if (get_option('gallery_img_video_ht_view7_loading_type') == 3) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view7_loading_type')  ==  4){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view7_loading_type') == 4) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading51.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading51.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view7_loading_type]" value="4" <?php if(get_option('gallery_img_video_ht_view7_loading_type')  ==  4){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view7_loading_type]"
+                                                                   value="4" <?php if (get_option('gallery_img_video_ht_view7_loading_type') == 4) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -2604,8 +3577,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_thumb_rating_count]" />
-                                            <input type="checkbox" id="ht_thumb_rating_count"  <?php if(get_option('gallery_img_ht_thumb_rating_count')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_thumb_rating_count]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_thumb_rating_count]"/>
+                                            <input type="checkbox"
+                                                   id="ht_thumb_rating_count" <?php if (get_option('gallery_img_ht_thumb_rating_count') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_thumb_rating_count]" value="on"/>
                                         </div>
                                         <div class="fixed-size">
                                             <label for="ht_thumb_likedislike_bg"><?php echo __('Ratings Background Color', 'gallery-img'); ?>
@@ -2616,7 +3593,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_thumb_likedislike_bg]" class="color" id="ht_thumb_likedislike_bg" value="<?php echo get_option('gallery_img_ht_thumb_likedislike_bg'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_thumb_likedislike_bg]"
+                                                   class="color" id="ht_thumb_likedislike_bg"
+                                                   value="<?php echo get_option('gallery_img_ht_thumb_likedislike_bg'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background">
@@ -2629,8 +3609,13 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_ht_thumb_likedislike_bg_trans]" id="ht_thumb_likedislike_bg_trans" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_ht_thumb_likedislike_bg_trans'); ?>" />
-                                                <span><?php echo get_option('gallery_img_ht_thumb_likedislike_bg_trans'); ?>%</span>
+                                                <input name="params[gallery_img_ht_thumb_likedislike_bg_trans]"
+                                                       id="ht_thumb_likedislike_bg_trans" data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_ht_thumb_likedislike_bg_trans'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_ht_thumb_likedislike_bg_trans'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
                                         <div class="fixed-size">
@@ -2642,7 +3627,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_thumb_likedislike_font_color]" class="color" id="ht_thumb_likedislike_font_color" value="<?php echo get_option('gallery_img_ht_thumb_likedislike_font_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_thumb_likedislike_font_color]"
+                                                   class="color" id="ht_thumb_likedislike_font_color"
+                                                   value="<?php echo get_option('gallery_img_ht_thumb_likedislike_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -2654,7 +3643,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_thumb_active_font_color]" class="color" id="ht_thumb_active_font_color" value="<?php echo get_option('gallery_img_ht_thumb_active_font_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_thumb_active_font_color]"
+                                                   class="color" id="ht_thumb_active_font_color"
+                                                   value="<?php echo get_option('gallery_img_ht_thumb_active_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
 
@@ -2667,7 +3659,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_thumb_likedislike_thumb_color]" class="color" id="ht_thumb_likedislike_thumb_color" value="<?php echo get_option('gallery_img_ht_thumb_likedislike_thumb_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_thumb_likedislike_thumb_color]"
+                                                   class="color" id="ht_thumb_likedislike_thumb_color"
+                                                   value="<?php echo get_option('gallery_img_ht_thumb_likedislike_thumb_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -2679,7 +3675,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_thumb_likedislike_thumb_active_color]" class="color" id="ht_thumb_likedislike_thumb_active_color" value="<?php echo get_option('gallery_img_ht_thumb_likedislike_thumb_active_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_thumb_likedislike_thumb_active_color]"
+                                                   class="color" id="ht_thumb_likedislike_thumb_active_color"
+                                                   value="<?php echo get_option('gallery_img_ht_thumb_likedislike_thumb_active_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size">
@@ -2691,7 +3691,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_thumb_heart_likedislike_thumb_color]" class="color" id="ht_thumb_heart_likedislike_thumb_color" value="<?php echo get_option('gallery_img_ht_thumb_heart_likedislike_thumb_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_thumb_heart_likedislike_thumb_color]"
+                                                   class="color" id="ht_thumb_heart_likedislike_thumb_color"
+                                                   value="<?php echo get_option('gallery_img_ht_thumb_heart_likedislike_thumb_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -2703,7 +3707,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_thumb_heart_likedislike_thumb_active_color]" class="color" id="ht_thumb_heart_likedislike_thumb_active_color" value="<?php echo get_option('gallery_img_ht_thumb_heart_likedislike_thumb_active_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_thumb_heart_likedislike_thumb_active_color]"
+                                                   class="color" id="ht_thumb_heart_likedislike_thumb_active_color"
+                                                   value="<?php echo get_option('gallery_img_ht_thumb_heart_likedislike_thumb_active_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                     </div>
@@ -2716,7 +3724,9 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                         <!--                                                    <div class="has-background">
 		                        <label for="ht_view8_element_size_fix">Size fix</label>
 		                        <input type="hidden" value="false" name="params[gallery_img_ht_view8_element_size_fix]" />
-		                        <input type="checkbox" id="ht_view8_element_size_fix"  <?php if(get_option('gallery_img_ht_view8_element_size_fix')  == 'true'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view8_element_size_fix]" value="true" />
+		                        <input type="checkbox" id="ht_view8_element_size_fix"  <?php if (get_option('gallery_img_ht_view8_element_size_fix') == 'true') {
+                                            echo 'checked="checked"';
+                                        } ?>  name="params[gallery_img_ht_view8_element_size_fix]" value="true" />
 		                </div>-->
 
                                         <div class="has-background fixed-size">
@@ -2728,7 +3738,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view8_element_height]" id="ht_view8_element_height" value="<?php echo get_option('gallery_img_ht_view8_element_height'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_view8_element_height]"
+                                                   id="ht_view8_element_height"
+                                                   value="<?php echo get_option('gallery_img_ht_view8_element_height'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
 
@@ -2748,7 +3761,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view8_element_padding]" id="ht_view8_element_border_radius" value="<?php echo get_option('gallery_img_ht_view8_element_padding'); ?>" class="text" />
+                                            <input type="text" name="params[gallery_img_ht_view8_element_padding]"
+                                                   id="ht_view8_element_border_radius"
+                                                   value="<?php echo get_option('gallery_img_ht_view8_element_padding'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
 
@@ -2762,8 +3778,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="false" name="params[gallery_img_ht_view8_element_justify]" />
-                                            <input type="checkbox" id="ht_view8_element_justify"  <?php if(get_option('gallery_img_ht_view8_element_justify')  == 'true'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view8_element_justify]" value="true" />
+                                            <input type="hidden" value="false"
+                                                   name="params[gallery_img_ht_view8_element_justify]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view8_element_justify" <?php if (get_option('gallery_img_ht_view8_element_justify') == 'true') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view8_element_justify]" value="true"/>
                                         </div>
 
                                         <div class="">
@@ -2775,8 +3795,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="false" name="params[gallery_img_ht_view8_element_randomize]" />
-                                            <input type="checkbox" id="ht_view8_element_justify"  <?php if(get_option('gallery_img_ht_view8_element_randomize')  == 'true'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view8_element_randomize]" value="true" />
+                                            <input type="hidden" value="false"
+                                                   name="params[gallery_img_ht_view8_element_randomize]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view8_element_justify" <?php if (get_option('gallery_img_ht_view8_element_randomize') == 'true') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view8_element_randomize]" value="true"/>
                                         </div>
 
                                         <div class="has-background">
@@ -2788,8 +3812,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="false" name="params[gallery_img_ht_view8_element_cssAnimation]" />
-                                            <input type="checkbox" id="ht_view8_element_justify"  <?php if(get_option('gallery_img_ht_view8_element_cssAnimation')  == 'true'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view8_element_cssAnimation]" value="true" />
+                                            <input type="hidden" value="false"
+                                                   name="params[gallery_img_ht_view8_element_cssAnimation]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view8_element_justify" <?php if (get_option('gallery_img_ht_view8_element_cssAnimation') == 'true') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view8_element_cssAnimation]" value="true"/>
                                         </div>
 
                                         <div class="">
@@ -2801,7 +3829,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view8_element_animation_speed]" id="ht_view8_element_animation_speed" value="<?php echo get_option('gallery_img_ht_view8_element_animation_speed'); ?>" class="text" />
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_view8_element_animation_speed]"
+                                                   id="ht_view8_element_animation_speed"
+                                                   value="<?php echo get_option('gallery_img_ht_view8_element_animation_speed'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                     </div>
@@ -2816,8 +3848,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="false" name="params[gallery_img_ht_view8_element_show_caption]" />
-                                            <input type="checkbox" id="ht_view8_element_show_caption"  <?php if(get_option('gallery_img_ht_view8_element_show_caption')  == 'true'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view8_element_show_caption]" value="true" />
+                                            <input type="hidden" value="false"
+                                                   name="params[gallery_img_ht_view8_element_show_caption]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view8_element_show_caption" <?php if (get_option('gallery_img_ht_view8_element_show_caption') == 'true') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view8_element_show_caption]" value="true"/>
                                         </div>
                                         <div>
                                             <label for="ht_view8_element_title_font_size"><?php echo __('Element Title Font Size', 'gallery-img'); ?>
@@ -2828,7 +3864,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view8_element_title_font_size]" id="ht_view8_element_title_font_size" value="<?php echo get_option('gallery_img_ht_view8_element_title_font_size'); ?>" class="text" />
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_view8_element_title_font_size]"
+                                                   id="ht_view8_element_title_font_size"
+                                                   value="<?php echo get_option('gallery_img_ht_view8_element_title_font_size'); ?>"
+                                                   class="text"/>
                                             <span>px</span>
                                         </div>
                                         <div class="has-background">
@@ -2840,7 +3880,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view8_element_title_font_color]" type="text" class="color" id="ht_view8_element_title_font_color" value="#<?php echo get_option('gallery_img_ht_view8_element_title_font_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view8_element_title_font_color]"
+                                                   type="text" class="color" id="ht_view8_element_title_font_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view8_element_title_font_color'); ?>"
+                                                   size="10"/>
                                         </div>
                                         <div>
                                             <label for="ht_view8_element_title_background_color"><?php echo __('Element Title Background Color', 'gallery-img'); ?>
@@ -2851,7 +3894,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input name="params[gallery_img_ht_view8_element_title_background_color]" type="text" class="color" id="ht_view8_element_title_background_color" value="#<?php echo get_option('gallery_img_ht_view8_element_title_background_color'); ?>" size="10" />
+                                            <input name="params[gallery_img_ht_view8_element_title_background_color]"
+                                                   type="text" class="color"
+                                                   id="ht_view8_element_title_background_color"
+                                                   value="#<?php echo get_option('gallery_img_ht_view8_element_title_background_color'); ?>"
+                                                   size="10"/>
                                         </div>
 
                                         <div class="has-background">
@@ -2864,8 +3911,14 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_ht_view8_element_title_overlay_transparency]" id="ht_view8_element_title_overlay_transparency" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_ht_view8_element_title_overlay_transparency'); ?>" />
-                                                <span><?php echo get_option('gallery_img_ht_view8_element_title_overlay_transparency'); ?>%</span>
+                                                <input name="params[gallery_img_ht_view8_element_title_overlay_transparency]"
+                                                       id="ht_view8_element_title_overlay_transparency"
+                                                       data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_ht_view8_element_title_overlay_transparency'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_ht_view8_element_title_overlay_transparency'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
 
@@ -2881,7 +3934,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view8_paginator_fontsize]" id="video_ht_view8_paginator_fontsize" value="<?php echo get_option('gallery_img_video_ht_view8_paginator_fontsize'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view8_paginator_fontsize]"
+                                                   id="video_ht_view8_paginator_fontsize"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view8_paginator_fontsize'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class="  fixed-size">
@@ -2893,7 +3950,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view8_paginator_color]" class="color" id="video_ht_view8_paginator_color" value="<?php echo get_option('gallery_img_video_ht_view8_paginator_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_video_ht_view8_paginator_color]"
+                                                   class="color" id="video_ht_view8_paginator_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view8_paginator_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size has-background">
@@ -2905,7 +3965,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view8_paginator_icon_size]" id="video_ht_view8_paginator_icon_size" value="<?php echo get_option('gallery_img_video_ht_view8_paginator_icon_size'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view8_paginator_icon_size]"
+                                                   id="video_ht_view8_paginator_icon_size"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view8_paginator_icon_size'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class=" fixed-size">
@@ -2917,7 +3981,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view8_paginator_icon_color]" class="color" id="video_ht_view8_paginator_icon_color" value="<?php echo get_option('gallery_img_video_ht_view8_paginator_icon_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view8_paginator_icon_color]"
+                                                   class="color" id="video_ht_view8_paginator_icon_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view8_paginator_icon_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background">
@@ -2929,10 +3997,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="video_ht_view8_paginator_position" name="params[gallery_img_video_ht_view8_paginator_position]">
-                                                <option <?php if(get_option('gallery_img_video_ht_view8_paginator_position')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view8_paginator_position')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view8_paginator_position')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                            <select id="video_ht_view8_paginator_position"
+                                                    name="params[gallery_img_video_ht_view8_paginator_position]">
+                                                <option <?php if (get_option('gallery_img_video_ht_view8_paginator_position') == 'left') {
+                                                    echo 'selected';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view8_paginator_position') == 'center') {
+                                                    echo 'selected';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view8_paginator_position') == 'right') {
+                                                    echo 'selected';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                     </div>
@@ -2947,10 +4022,13 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view8_loadmore_text]" id="video_ht_view8_loadmore_text" value="<?php echo esc_attr(get_option('gallery_img_video_ht_view8_loadmore_text')); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_video_ht_view8_loadmore_text]"
+                                                   id="video_ht_view8_loadmore_text"
+                                                   value="<?php echo esc_attr(get_option('gallery_img_video_ht_view8_loadmore_text')); ?>"
+                                                   class="text">
 
                                         </div>
-                                        <div >
+                                        <div>
                                             <label for="video_ht_view8_loadmore_position"><?php echo __('Load More Position', 'gallery-img'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -2959,10 +4037,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="video_ht_view8_loadmore_position" name="params[gallery_img_video_ht_view8_loadmore_position]">
-                                                <option <?php if(get_option('gallery_img_video_ht_view8_loadmore_position')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view8_loadmore_position')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_ht_view8_loadmore_position')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                            <select id="video_ht_view8_loadmore_position"
+                                                    name="params[gallery_img_video_ht_view8_loadmore_position]">
+                                                <option <?php if (get_option('gallery_img_video_ht_view8_loadmore_position') == 'left') {
+                                                    echo 'selected';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view8_loadmore_position') == 'center') {
+                                                    echo 'selected';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_ht_view8_loadmore_position') == 'right') {
+                                                    echo 'selected';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                         <div class="has-background fixed-size">
@@ -2974,7 +4059,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view8_loadmore_fontsize]" id="video_ht_view8_loadmore_fontsize" value="<?php echo get_option('gallery_img_video_ht_view8_loadmore_fontsize'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view8_loadmore_fontsize]"
+                                                   id="video_ht_view8_loadmore_fontsize"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view8_loadmore_fontsize'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class=" fixed-size">
@@ -2986,7 +4075,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view8_loadmore_font_color]" class="color" id="video_ht_view8_loadmore_font_color" value="<?php echo get_option('gallery_img_video_ht_view8_loadmore_font_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view8_loadmore_font_color]"
+                                                   class="color" id="video_ht_view8_loadmore_font_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view8_loadmore_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -2998,7 +4091,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view8_loadmore_font_color_hover]" class="color" id="video_ht_view8_loadmore_font_color_hover" value="<?php echo get_option('gallery_img_video_ht_view8_loadmore_font_color_hover'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view8_loadmore_font_color_hover]"
+                                                   class="color" id="video_ht_view8_loadmore_font_color_hover"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view8_loadmore_font_color_hover'); ?>"
+                                                   class="text">
                                         </div>
                                         <div class="fixed-size">
                                             <label for="video_ht_view8_button_color"><?php echo __('Load More Background Color', 'gallery-img'); ?>
@@ -3009,7 +4106,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view8_button_color]" class="color" id="video_ht_view8_button_color" value="<?php echo get_option('gallery_img_video_ht_view8_button_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_video_ht_view8_button_color]"
+                                                   class="color" id="video_ht_view8_button_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view8_button_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size has-background">
@@ -3021,9 +4121,14 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view8_button_color_hover]" class="color" id="video_ht_view8_button_color_hover" value="<?php echo get_option('gallery_img_video_ht_view8_button_color_hover'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view8_button_color_hover]"
+                                                   class="color" id="video_ht_view8_button_color_hover"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view8_button_color_hover'); ?>"
+                                                   class="text">
                                         </div>
-                                        <div class="navigation-type-block has-height has-background " style="padding-top:20px;">
+                                        <div class="navigation-type-block has-height has-background "
+                                             style="padding-top:20px;">
                                             <label for=""><?php echo __('Loading Animation', 'gallery-img'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -3036,29 +4141,57 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             <div class="has-height " style="clear:both;padding:10px 0px 0px 80px;">
                                                 <div>
                                                     <ul id="arrows-type">
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view8_loading_type')  ==  1){ echo "class='activee'"; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view8_loading_type') == 1) {
+                                                            echo "class='activee'";
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading1.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading1.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view8_loading_type]" value="1" <?php if(get_option('gallery_img_video_ht_view8_loading_type')  ==  1){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view8_loading_type]"
+                                                                   value="1" <?php if (get_option('gallery_img_video_ht_view8_loading_type') == 1) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view8_loading_type')  ==  2){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view8_loading_type') == 2) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading4.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading4.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view8_loading_type]" value="2" <?php if(get_option('gallery_img_video_ht_view8_loading_type')  ==  2){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view8_loading_type]"
+                                                                   value="2" <?php if (get_option('gallery_img_video_ht_view8_loading_type') == 2) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view8_loading_type')  ==  3){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view8_loading_type') == 3) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading36.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading36.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view8_loading_type]" value="3" <?php if(get_option('gallery_img_video_ht_view8_loading_type')  ==  3){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view8_loading_type]"
+                                                                   value="3" <?php if (get_option('gallery_img_video_ht_view8_loading_type') == 3) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_video_ht_view8_loading_type')  ==  4){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_video_ht_view8_loading_type') == 4) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading51.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading51.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_video_ht_view8_loading_type]" value="4" <?php if(get_option('gallery_img_video_ht_view8_loading_type')  ==  4){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio"
+                                                                   name="params[gallery_img_video_ht_view8_loading_type]"
+                                                                   value="4" <?php if (get_option('gallery_img_video_ht_view8_loading_type') == 4) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -3076,8 +4209,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_just_rating_count]" />
-                                            <input type="checkbox" id="ht_just_rating_count"  <?php if(get_option('gallery_img_ht_just_rating_count')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_just_rating_count]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_just_rating_count]"/>
+                                            <input type="checkbox"
+                                                   id="ht_just_rating_count" <?php if (get_option('gallery_img_ht_just_rating_count') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_just_rating_count]" value="on"/>
                                         </div>
                                         <div class="fixed-size">
                                             <label for="ht_just_likedislike_bg"><?php echo __('Ratings Background Color', 'gallery-img'); ?>
@@ -3088,7 +4225,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_just_likedislike_bg]" class="color" id="ht_just_likedislike_bg" value="<?php echo get_option('gallery_img_ht_just_likedislike_bg'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_just_likedislike_bg]"
+                                                   class="color" id="ht_just_likedislike_bg"
+                                                   value="<?php echo get_option('gallery_img_ht_just_likedislike_bg'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background">
@@ -3101,8 +4241,13 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_ht_just_likedislike_bg_trans]" id="ht_just_likedislike_bg_trans" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_ht_just_likedislike_bg_trans'); ?>" />
-                                                <span><?php echo get_option('gallery_img_ht_just_likedislike_bg_trans'); ?>%</span>
+                                                <input name="params[gallery_img_ht_just_likedislike_bg_trans]"
+                                                       id="ht_just_likedislike_bg_trans" data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_ht_just_likedislike_bg_trans'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_ht_just_likedislike_bg_trans'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
                                         <div class="fixed-size">
@@ -3114,7 +4259,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_just_likedislike_font_color]" class="color" id="ht_just_likedislike_font_color" value="<?php echo get_option('gallery_img_ht_just_likedislike_font_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_just_likedislike_font_color]"
+                                                   class="color" id="ht_just_likedislike_font_color"
+                                                   value="<?php echo get_option('gallery_img_ht_just_likedislike_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -3126,7 +4274,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_just_active_font_color]" class="color" id="ht_just_active_font_color" value="<?php echo get_option('gallery_img_ht_just_active_font_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_just_active_font_color]"
+                                                   class="color" id="ht_just_active_font_color"
+                                                   value="<?php echo get_option('gallery_img_ht_just_active_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
 
@@ -3139,7 +4290,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_just_likedislike_thumb_color]" class="color" id="ht_just_likedislike_thumb_color" value="<?php echo get_option('gallery_img_ht_just_likedislike_thumb_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_just_likedislike_thumb_color]"
+                                                   class="color" id="ht_just_likedislike_thumb_color"
+                                                   value="<?php echo get_option('gallery_img_ht_just_likedislike_thumb_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -3151,7 +4306,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_just_likedislike_thumb_active_color]" class="color" id="ht_just_likedislike_thumb_active_color" value="<?php echo get_option('gallery_img_ht_just_likedislike_thumb_active_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_just_likedislike_thumb_active_color]"
+                                                   class="color" id="ht_just_likedislike_thumb_active_color"
+                                                   value="<?php echo get_option('gallery_img_ht_just_likedislike_thumb_active_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size">
@@ -3163,7 +4322,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_just_heart_likedislike_thumb_color]" class="color" id="ht_just_heart_likedislike_thumb_color" value="<?php echo get_option('gallery_img_ht_just_heart_likedislike_thumb_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_just_heart_likedislike_thumb_color]"
+                                                   class="color" id="ht_just_heart_likedislike_thumb_color"
+                                                   value="<?php echo get_option('gallery_img_ht_just_heart_likedislike_thumb_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -3175,7 +4338,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_just_heart_likedislike_thumb_active_color]" class="color" id="ht_just_heart_likedislike_thumb_active_color" value="<?php echo get_option('gallery_img_ht_just_heart_likedislike_thumb_active_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_just_heart_likedislike_thumb_active_color]"
+                                                   class="color" id="ht_just_heart_likedislike_thumb_active_color"
+                                                   value="<?php echo get_option('gallery_img_ht_just_heart_likedislike_thumb_active_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                     </div>
@@ -3194,11 +4361,16 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_ht_view9_general_width]" id="ht_view9_general_width" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_ht_view9_general_width'); ?>" />
-                                                <span><?php echo get_option('gallery_img_ht_view9_general_width'); ?>%</span>
+                                                <input name="params[gallery_img_ht_view9_general_width]"
+                                                       id="ht_view9_general_width" data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_ht_view9_general_width'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_ht_view9_general_width'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
-                                        <div >
+                                        <div>
                                             <label for="view9_general_position"><?php echo __('Content Position', 'gallery-img'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -3207,10 +4379,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="view9_general_position" name="params[gallery_img_view9_general_position]">
-                                                <option <?php if(get_option('gallery_img_view9_general_position')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_general_position')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_general_position')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                            <select id="view9_general_position"
+                                                    name="params[gallery_img_view9_general_position]">
+                                                <option <?php if (get_option('gallery_img_view9_general_position') == 'left') {
+                                                    echo 'selected';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_general_position') == 'center') {
+                                                    echo 'selected';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_general_position') == 'right') {
+                                                    echo 'selected';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                         <div class="has-background">
@@ -3222,10 +4401,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="view9_image_position" name="params[gallery_img_view9_image_position]">
-                                                <option <?php if(get_option('gallery_img_view9_image_position')  ==  '1'){ echo 'selected'; } ?> value="1"><?php echo __('Before Title', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_image_position')  ==  '2'){ echo 'selected'; } ?> value="2"><?php echo __('After Title', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_image_position')  ==  '3'){ echo 'selected'; } ?> value="3"><?php echo __('After Description', 'gallery-img'); ?></option>
+                                            <select id="view9_image_position"
+                                                    name="params[gallery_img_view9_image_position]">
+                                                <option <?php if (get_option('gallery_img_view9_image_position') == '1') {
+                                                    echo 'selected';
+                                                } ?> value="1"><?php echo __('Before Title', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_image_position') == '2') {
+                                                    echo 'selected';
+                                                } ?> value="2"><?php echo __('After Title', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_image_position') == '3') {
+                                                    echo 'selected';
+                                                } ?> value="3"><?php echo __('After Description', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                         <div class=" fixed-size">
@@ -3237,7 +4423,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view9_general_space]" id="ht_view9_general_space" value="<?php echo get_option('gallery_img_ht_view9_general_space'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_view9_general_space]"
+                                                   id="ht_view9_general_space"
+                                                   value="<?php echo get_option('gallery_img_ht_view9_general_space'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class="has-background">
@@ -3249,13 +4438,26 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="view9_general_separator_style" name="params[gallery_img_view9_general_separator_style]">
-                                                <option <?php if(get_option('gallery_img_view9_general_separator_style')  ==  'none'){ echo 'selected'; } ?> value="none"><?php echo __('None', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_general_separator_style')  ==  'solid'){ echo 'selected'; } ?> value="solid"><?php echo __('Solid', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_general_separator_style')  ==  'dashed'){ echo 'selected'; } ?> value="dashed"><?php echo __('Dashed', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_general_separator_style')  ==  'dotted'){ echo 'selected'; } ?> value="dotted"><?php echo __('Dotted', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_general_separator_style')  ==  'groove'){ echo 'selected'; } ?> value="groove"><?php echo __('Groove', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_general_separator_style')  ==  'double'){ echo 'selected'; } ?> value="double"><?php echo __('Double', 'gallery-img'); ?></option>
+                                            <select id="view9_general_separator_style"
+                                                    name="params[gallery_img_view9_general_separator_style]">
+                                                <option <?php if (get_option('gallery_img_view9_general_separator_style') == 'none') {
+                                                    echo 'selected';
+                                                } ?> value="none"><?php echo __('None', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_general_separator_style') == 'solid') {
+                                                    echo 'selected';
+                                                } ?> value="solid"><?php echo __('Solid', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_general_separator_style') == 'dashed') {
+                                                    echo 'selected';
+                                                } ?> value="dashed"><?php echo __('Dashed', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_general_separator_style') == 'dotted') {
+                                                    echo 'selected';
+                                                } ?> value="dotted"><?php echo __('Dotted', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_general_separator_style') == 'groove') {
+                                                    echo 'selected';
+                                                } ?> value="groove"><?php echo __('Groove', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_general_separator_style') == 'double') {
+                                                    echo 'selected';
+                                                } ?> value="double"><?php echo __('Double', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                         <div class=" fixed-size">
@@ -3267,7 +4469,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view9_general_separator_size]" id="ht_view9_general_separator_size" value="<?php echo get_option('gallery_img_ht_view9_general_separator_size'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_view9_general_separator_size]"
+                                                   id="ht_view9_general_separator_size"
+                                                   value="<?php echo get_option('gallery_img_ht_view9_general_separator_size'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class="has-background fixed-size">
@@ -3279,7 +4485,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view9_general_separator_color]" class="color" id="ht_view9_general_separator_color" value="<?php echo get_option('gallery_img_ht_view9_general_separator_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_view9_general_separator_color]"
+                                                   class="color" id="ht_view9_general_separator_color"
+                                                   value="<?php echo get_option('gallery_img_ht_view9_general_separator_color'); ?>"
+                                                   class="text">
 
                                         </div>
 
@@ -3295,7 +4505,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view9_paginator_fontsize]" id="ht_view9_paginator_fontsize" value="<?php echo get_option('gallery_img_ht_view9_paginator_fontsize'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_view9_paginator_fontsize]"
+                                                   id="ht_view9_paginator_fontsize"
+                                                   value="<?php echo get_option('gallery_img_ht_view9_paginator_fontsize'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class="fixed-size">
@@ -3307,7 +4520,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view9_paginator_color]" class="color" id="ht_view9_paginator_color" value="<?php echo get_option('gallery_img_ht_view9_paginator_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_view9_paginator_color]"
+                                                   class="color" id="ht_view9_paginator_color"
+                                                   value="<?php echo get_option('gallery_img_ht_view9_paginator_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background  fixed-size">
@@ -3319,7 +4535,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view9_paginator_icon_size]" id="ht_view9_paginator_icon_size" value="<?php echo get_option('gallery_img_ht_view9_paginator_icon_size'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_view9_paginator_icon_size]"
+                                                   id="ht_view9_paginator_icon_size"
+                                                   value="<?php echo get_option('gallery_img_ht_view9_paginator_icon_size'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class="fixed-size">
@@ -3331,7 +4550,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view9_paginator_icon_color]" class="color" id="ht_view9_paginator_icon_color" value="<?php echo get_option('gallery_img_ht_view9_paginator_icon_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_view9_paginator_icon_color]"
+                                                   class="color" id="ht_view9_paginator_icon_color"
+                                                   value="<?php echo get_option('gallery_img_ht_view9_paginator_icon_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background">
@@ -3343,10 +4565,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="view9_paginator_position" name="params[gallery_img_view9_paginator_position]">
-                                                <option <?php if(get_option('gallery_img_view9_paginator_position')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_paginator_position')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_paginator_position')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                            <select id="view9_paginator_position"
+                                                    name="params[gallery_img_view9_paginator_position]">
+                                                <option <?php if (get_option('gallery_img_view9_paginator_position') == 'left') {
+                                                    echo 'selected';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_paginator_position') == 'center') {
+                                                    echo 'selected';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_paginator_position') == 'right') {
+                                                    echo 'selected';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                     </div>
@@ -3362,8 +4591,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="false" name="params[gallery_img_ht_view9_element_title_show]" />
-                                            <input type="checkbox" id="ht_view9_element_title_show"  <?php if(get_option('gallery_img_ht_view9_element_title_show')  == 'true'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view9_element_title_show]" value="true" />
+                                            <input type="hidden" value="false"
+                                                   name="params[gallery_img_ht_view9_element_title_show]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view9_element_title_show" <?php if (get_option('gallery_img_ht_view9_element_title_show') == 'true') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view9_element_title_show]" value="true"/>
                                         </div>
                                         <div class="fixed-size">
                                             <label for="ht_view9_title_fontsize"><?php echo __('Font Size', 'gallery-img'); ?>
@@ -3374,7 +4607,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view9_title_fontsize]" id="ht_view9_title_fontsize" value="<?php echo get_option('gallery_img_ht_view9_title_fontsize'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_view9_title_fontsize]"
+                                                   id="ht_view9_title_fontsize"
+                                                   value="<?php echo get_option('gallery_img_ht_view9_title_fontsize'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class="has-background fixed-size">
@@ -3386,7 +4622,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view9_title_color]" class="color" id="ht_view9_title_color" value="<?php echo get_option('gallery_img_ht_view9_title_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_view9_title_color]"
+                                                   class="color" id="ht_view9_title_color"
+                                                   value="<?php echo get_option('gallery_img_ht_view9_title_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size">
@@ -3398,7 +4637,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view9_title_back_color]" class="color" id="ht_view9_title_back_color" value="<?php echo get_option('gallery_img_ht_view9_title_back_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_view9_title_back_color]"
+                                                   class="color" id="ht_view9_title_back_color"
+                                                   value="<?php echo get_option('gallery_img_ht_view9_title_back_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background">
@@ -3411,11 +4653,16 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_ht_view9_title_opacity]" id="ht_view9_title_opacity" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_ht_view9_title_opacity'); ?>" />
-                                                <span><?php echo get_option('gallery_img_ht_view9_title_opacity'); ?>%</span>
+                                                <input name="params[gallery_img_ht_view9_title_opacity]"
+                                                       id="ht_view9_title_opacity" data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_ht_view9_title_opacity'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_ht_view9_title_opacity'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
-                                        <div >
+                                        <div>
                                             <label for="view9_title_textalign"><?php echo __('Text Align', 'gallery-img'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -3424,11 +4671,20 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="view9_title_textalign" name="params[gallery_img_view9_title_textalign]">
-                                                <option <?php if(get_option('gallery_img_view9_title_textalign')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_title_textalign')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_title_textalign')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_title_textalign')  ==  'justify'){ echo 'selected'; } ?> value="justify"><?php echo __('Justify', 'gallery-img'); ?></option>
+                                            <select id="view9_title_textalign"
+                                                    name="params[gallery_img_view9_title_textalign]">
+                                                <option <?php if (get_option('gallery_img_view9_title_textalign') == 'left') {
+                                                    echo 'selected';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_title_textalign') == 'center') {
+                                                    echo 'selected';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_title_textalign') == 'right') {
+                                                    echo 'selected';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_title_textalign') == 'justify') {
+                                                    echo 'selected';
+                                                } ?> value="justify"><?php echo __('Justify', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
 
@@ -3444,8 +4700,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="false" name="params[gallery_img_ht_view9_element_desc_show]" />
-                                            <input type="checkbox" id="ht_view9_element_desc_show"  <?php if(get_option('gallery_img_ht_view9_element_desc_show')  == 'true'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_view9_element_desc_show]" value="true" />
+                                            <input type="hidden" value="false"
+                                                   name="params[gallery_img_ht_view9_element_desc_show]"/>
+                                            <input type="checkbox"
+                                                   id="ht_view9_element_desc_show" <?php if (get_option('gallery_img_ht_view9_element_desc_show') == 'true') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_view9_element_desc_show]" value="true"/>
                                         </div>
                                         <div class="fixed-size">
                                             <label for="ht_view9_desc_fontsize"><?php echo __('Font Size', 'gallery-img'); ?>
@@ -3456,7 +4716,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view9_desc_fontsize]" id="ht_view9_desc_fontsize" value="<?php echo get_option('gallery_img_ht_view9_desc_fontsize'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_view9_desc_fontsize]"
+                                                   id="ht_view9_desc_fontsize"
+                                                   value="<?php echo get_option('gallery_img_ht_view9_desc_fontsize'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class="has-background fixed-size">
@@ -3468,7 +4731,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" class="color" name="params[gallery_img_ht_view9_desc_color]" id="ht_view9_desc_color" value="<?php echo get_option('gallery_img_ht_view9_desc_color'); ?>" class="text">
+                                            <input type="text" class="color"
+                                                   name="params[gallery_img_ht_view9_desc_color]"
+                                                   id="ht_view9_desc_color"
+                                                   value="<?php echo get_option('gallery_img_ht_view9_desc_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size">
@@ -3480,7 +4747,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_view9_desc_back_color]" class="color" id="ht_view9_desc_back_color" value="<?php echo get_option('gallery_img_ht_view9_desc_back_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_view9_desc_back_color]"
+                                                   class="color" id="ht_view9_desc_back_color"
+                                                   value="<?php echo get_option('gallery_img_ht_view9_desc_back_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background">
@@ -3493,11 +4763,16 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_ht_view9_desc_opacity]" id="ht_view9_desc_opacity" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_ht_view9_desc_opacity'); ?>" />
-                                                <span><?php echo get_option('gallery_img_ht_view9_desc_opacity'); ?>%</span>
+                                                <input name="params[gallery_img_ht_view9_desc_opacity]"
+                                                       id="ht_view9_desc_opacity" data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_ht_view9_desc_opacity'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_ht_view9_desc_opacity'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
-                                        <div >
+                                        <div>
                                             <label for="view9_desc_textalign"><?php echo __('Text Align', 'gallery-img'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -3506,16 +4781,25 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="view9_desc_textalign" name="params[gallery_img_view9_desc_textalign]">
-                                                <option <?php if(get_option('gallery_img_view9_desc_textalign')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_desc_textalign')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_desc_textalign')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_view9_desc_textalign')  ==  'justify'){ echo 'selected'; } ?> value="justify"><?php echo __('Justify', 'gallery-img'); ?></option>
+                                            <select id="view9_desc_textalign"
+                                                    name="params[gallery_img_view9_desc_textalign]">
+                                                <option <?php if (get_option('gallery_img_view9_desc_textalign') == 'left') {
+                                                    echo 'selected';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_desc_textalign') == 'center') {
+                                                    echo 'selected';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_desc_textalign') == 'right') {
+                                                    echo 'selected';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_view9_desc_textalign') == 'justify') {
+                                                    echo 'selected';
+                                                } ?> value="justify"><?php echo __('Justify', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
 
                                     </div>
-                                    <div >
+                                    <div>
                                         <h3><?php echo __('Load More Styles', 'gallery-img'); ?></h3>
                                         <div class="fixed-size has-background">
                                             <label for="video_ht_view9_loadmore_text"><?php echo __('Load More Text', 'gallery-img'); ?>
@@ -3526,10 +4810,13 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view9_loadmore_text]" id="video_ht_view9_loadmore_text" value="<?php echo esc_attr(get_option('gallery_img_video_ht_view9_loadmore_text')); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_video_ht_view9_loadmore_text]"
+                                                   id="video_ht_view9_loadmore_text"
+                                                   value="<?php echo esc_attr(get_option('gallery_img_video_ht_view9_loadmore_text')); ?>"
+                                                   class="text">
 
                                         </div>
-                                        <div >
+                                        <div>
                                             <label for="video_view9_loadmore_position"><?php echo __('Load More Position', 'gallery-img'); ?>
                                                 <div class="help">?
                                                     <div class="help-block">
@@ -3538,10 +4825,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <select id="video_view9_loadmore_position" name="params[gallery_img_video_view9_loadmore_position]">
-                                                <option <?php if(get_option('gallery_img_video_view9_loadmore_position')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_view9_loadmore_position')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                <option <?php if(get_option('gallery_img_video_view9_loadmore_position')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                            <select id="video_view9_loadmore_position"
+                                                    name="params[gallery_img_video_view9_loadmore_position]">
+                                                <option <?php if (get_option('gallery_img_video_view9_loadmore_position') == 'left') {
+                                                    echo 'selected';
+                                                } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_view9_loadmore_position') == 'center') {
+                                                    echo 'selected';
+                                                } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                <option <?php if (get_option('gallery_img_video_view9_loadmore_position') == 'right') {
+                                                    echo 'selected';
+                                                } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
                                             </select>
                                         </div>
                                         <div class="has-background fixed-size">
@@ -3553,7 +4847,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view9_loadmore_fontsize]" id="video_ht_view9_loadmore_fontsize" value="<?php echo get_option('gallery_img_video_ht_view9_loadmore_fontsize'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view9_loadmore_fontsize]"
+                                                   id="video_ht_view9_loadmore_fontsize"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view9_loadmore_fontsize'); ?>"
+                                                   class="text">
                                             <span>px</span>
                                         </div>
                                         <div class="  fixed-size">
@@ -3565,7 +4863,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view9_loadmore_font_color]" class="color" id="video_ht_view9_loadmore_font_color" value="<?php echo get_option('gallery_img_video_ht_view9_loadmore_font_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view9_loadmore_font_color]"
+                                                   class="color" id="video_ht_view9_loadmore_font_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view9_loadmore_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -3577,7 +4879,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view9_loadmore_font_color_hover]" class="color" id="video_ht_view9_loadmore_font_color_hover" value="<?php echo get_option('gallery_img_video_ht_view9_loadmore_font_color_hover'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view9_loadmore_font_color_hover]"
+                                                   class="color" id="video_ht_view9_loadmore_font_color_hover"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view9_loadmore_font_color_hover'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size ">
@@ -3589,7 +4895,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view9_button_color]" class="color" id="video_ht_view9_button_color" value="<?php echo get_option('gallery_img_video_ht_view9_button_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_video_ht_view9_button_color]"
+                                                   class="color" id="video_ht_view9_button_color"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view9_button_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size has-background">
@@ -3601,7 +4910,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_video_ht_view9_button_color_hover]" class="color" id="video_ht_view9_button_color_hover" value="<?php echo get_option('gallery_img_video_ht_view9_button_color_hover'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_video_ht_view9_button_color_hover]"
+                                                   class="color" id="video_ht_view9_button_color_hover"
+                                                   value="<?php echo get_option('gallery_img_video_ht_view9_button_color_hover'); ?>"
+                                                   class="text">
 
                                         </div>
 
@@ -3618,29 +4931,53 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             <div class="has-height " style="clear:both;padding:10px 0px 0px 80px;">
                                                 <div>
                                                     <ul id="arrows-type">
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_loading_type')  ==  1){ echo "class='activee'"; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_loading_type') == 1) {
+                                                            echo "class='activee'";
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading1.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading1.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_loading_type]" value="1" <?php if(get_option('gallery_img_loading_type')  ==  1){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio" name="params[gallery_img_loading_type]"
+                                                                   value="1" <?php if (get_option('gallery_img_loading_type') == 1) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_loading_type')  ==  2){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_loading_type') == 2) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading4.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading4.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_loading_type]" value="2" <?php if(get_option('gallery_img_loading_type')  ==  2){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio" name="params[gallery_img_loading_type]"
+                                                                   value="2" <?php if (get_option('gallery_img_loading_type') == 2) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_loading_type')  ==  3){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_loading_type') == 3) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading36.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading36.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_loading_type]" value="3" <?php if(get_option('gallery_img_loading_type')  ==  3){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio" name="params[gallery_img_loading_type]"
+                                                                   value="3" <?php if (get_option('gallery_img_loading_type') == 3) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
-                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if(get_option('gallery_img_loading_type')  ==  4){ echo 'class="activee"'; } ?>>
+                                                        <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_loading_type') == 4) {
+                                                            echo 'class="activee"';
+                                                        } ?>>
                                                             <div class="image-block">
-                                                                <img src="<?php echo $path_site; ?>/arrows/loading51.gif" alt="" />
+                                                                <img src="<?php echo $path_site; ?>/arrows/loading51.gif"
+                                                                     alt=""/>
                                                             </div>
-                                                            <input type="radio" name="params[gallery_img_loading_type]" value="4" <?php if(get_option('gallery_img_loading_type')  ==  4){ echo 'checked="checked"'; } ?>>
+                                                            <input type="radio" name="params[gallery_img_loading_type]"
+                                                                   value="4" <?php if (get_option('gallery_img_loading_type') == 4) {
+                                                                echo 'checked="checked"';
+                                                            } ?>>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -3658,8 +4995,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="hidden" value="off" name="params[gallery_img_ht_blog_rating_count]" />
-                                            <input type="checkbox" id="ht_blog_rating_count"  <?php if(get_option('gallery_img_ht_blog_rating_count')  == 'on'){ echo 'checked="checked"'; } ?>  name="params[gallery_img_ht_blog_rating_count]" value="on" />
+                                            <input type="hidden" value="off"
+                                                   name="params[gallery_img_ht_blog_rating_count]"/>
+                                            <input type="checkbox"
+                                                   id="ht_blog_rating_count" <?php if (get_option('gallery_img_ht_blog_rating_count') == 'on') {
+                                                echo 'checked="checked"';
+                                            } ?> name="params[gallery_img_ht_blog_rating_count]" value="on"/>
                                         </div>
                                         <div class="fixed-size">
                                             <label for="ht_blog_likedislike_bg"><?php echo __('Ratings Background Color', 'gallery-img'); ?>
@@ -3670,7 +5011,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_blog_likedislike_bg]" class="color" id="ht_blog_likedislike_bg" value="<?php echo get_option('gallery_img_ht_blog_likedislike_bg'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_blog_likedislike_bg]"
+                                                   class="color" id="ht_blog_likedislike_bg"
+                                                   value="<?php echo get_option('gallery_img_ht_blog_likedislike_bg'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background">
@@ -3683,8 +5027,13 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </div>
                                             </label>
                                             <div class="slider-container">
-                                                <input name="params[gallery_img_ht_blog_likedislike_bg_trans]" id="ht_blog_likedislike_bg_trans" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo get_option('gallery_img_ht_blog_likedislike_bg_trans'); ?>" />
-                                                <span><?php echo get_option('gallery_img_ht_blog_likedislike_bg_trans'); ?>%</span>
+                                                <input name="params[gallery_img_ht_blog_likedislike_bg_trans]"
+                                                       id="ht_blog_likedislike_bg_trans" data-slider-highlight="true"
+                                                       data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                       data-slider="true"
+                                                       value="<?php echo get_option('gallery_img_ht_blog_likedislike_bg_trans'); ?>"/>
+                                                <span><?php echo get_option('gallery_img_ht_blog_likedislike_bg_trans'); ?>
+                                                    %</span>
                                             </div>
                                         </div>
                                         <div class="fixed-size">
@@ -3696,7 +5045,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_blog_likedislike_font_color]" class="color" id="ht_blog_likedislike_font_color" value="<?php echo get_option('gallery_img_ht_blog_likedislike_font_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_blog_likedislike_font_color]"
+                                                   class="color" id="ht_blog_likedislike_font_color"
+                                                   value="<?php echo get_option('gallery_img_ht_blog_likedislike_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -3708,7 +5060,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_blog_active_font_color]" class="color" id="ht_blog_active_font_color" value="<?php echo get_option('gallery_img_ht_blog_active_font_color'); ?>" class="text">
+                                            <input type="text" name="params[gallery_img_ht_blog_active_font_color]"
+                                                   class="color" id="ht_blog_active_font_color"
+                                                   value="<?php echo get_option('gallery_img_ht_blog_active_font_color'); ?>"
+                                                   class="text">
 
                                         </div>
 
@@ -3721,7 +5076,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_blog_likedislike_thumb_color]" class="color" id="ht_blog_likedislike_thumb_color" value="<?php echo get_option('gallery_img_ht_blog_likedislike_thumb_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_blog_likedislike_thumb_color]"
+                                                   class="color" id="ht_blog_likedislike_thumb_color"
+                                                   value="<?php echo get_option('gallery_img_ht_blog_likedislike_thumb_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -3733,7 +5092,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_blog_likedislike_thumb_active_color]" class="color" id="ht_blog_likedislike_thumb_active_color" value="<?php echo get_option('gallery_img_ht_blog_likedislike_thumb_active_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_blog_likedislike_thumb_active_color]"
+                                                   class="color" id="ht_blog_likedislike_thumb_active_color"
+                                                   value="<?php echo get_option('gallery_img_ht_blog_likedislike_thumb_active_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="fixed-size">
@@ -3745,7 +5108,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_blog_heart_likedislike_thumb_color]" class="color" id="ht_blog_heart_likedislike_thumb_color" value="<?php echo get_option('gallery_img_ht_blog_heart_likedislike_thumb_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_blog_heart_likedislike_thumb_color]"
+                                                   class="color" id="ht_blog_heart_likedislike_thumb_color"
+                                                   value="<?php echo get_option('gallery_img_ht_blog_heart_likedislike_thumb_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                         <div class="has-background fixed-size">
@@ -3757,7 +5124,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     </div>
                                                 </div>
                                             </label>
-                                            <input type="text" name="params[gallery_img_ht_blog_heart_likedislike_thumb_active_color]" class="color" id="ht_blog_heart_likedislike_thumb_active_color" value="<?php echo get_option('gallery_img_ht_blog_heart_likedislike_thumb_active_color'); ?>" class="text">
+                                            <input type="text"
+                                                   name="params[gallery_img_ht_blog_heart_likedislike_thumb_active_color]"
+                                                   class="color" id="ht_blog_heart_likedislike_thumb_active_color"
+                                                   value="<?php echo get_option('gallery_img_ht_blog_heart_likedislike_thumb_active_color'); ?>"
+                                                   class="text">
 
                                         </div>
                                     </div>
@@ -3766,10 +5137,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                 <li class="gallery-view-options-7">
                                     <div class="option-single-column">
                                         <div>
-                                            <h3><?php _e('Content Styles','gallery-img'); ?></h3>
+                                            <h3><?php _e('Content Styles', 'gallery-img'); ?></h3>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_show_center"><?php echo __( 'Show Content In The Center', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_show_center"><?php echo __('Show Content In The Center', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -3784,10 +5155,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                        name="params[gallery_img_ht_view10_show_center]"
                                                        value="on"/>
                                             </div>
-                                            <h3><?php echo __( 'Element Styles', 'gallery-img' ); ?></h3>
+                                            <h3><?php echo __('Element Styles', 'gallery-img'); ?></h3>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_image_behaviour"><?php echo __( "Element's Image Behaviour", 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_image_behaviour"><?php echo __("Element's Image Behaviour", 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -3797,14 +5168,15 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </label>
                                                 <select id="gallery_img_ht_view10_image_behaviour"
                                                         name="params[gallery_img_ht_view10_image_behaviour]">
-                                                    <option selected="selected" value="resize"><?php echo __( 'Resize', 'gallery-img' ); ?></option>
+                                                    <option selected="selected"
+                                                            value="resize"><?php echo __('Resize', 'gallery-img'); ?></option>
 
-                                                            value="crop"><?php echo __( 'Natural', 'gallery-img' ); ?></option>
+                                                    value="crop"><?php echo __('Natural', 'gallery-img'); ?></option>
                                                 </select>
                                             </div>
                                             <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_element_width"><?php echo __( 'Element Image Width', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_width"><?php echo __('Element Image Width', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -3820,7 +5192,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div class="has-background">
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_element_height"><?php echo __( 'Element Image Height', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_height"><?php echo __('Element Image Height', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -3836,7 +5208,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_element_margin"><?php echo __( 'Margin Between Elements', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_margin"><?php echo __('Margin Between Elements', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -3852,7 +5224,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_element_hover_effect"><?php echo __( 'Element Hover Effect', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_hover_effect"><?php echo __('Element Hover Effect', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -3863,14 +5235,14 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 <input type="hidden" value="false"
                                                        name="params[gallery_img_ht_view10_element_hover_effect]"/>
                                                 <input type="checkbox"
-                                                       id="gallery_img_ht_view10_element_hover_effect" <?php if ( get_option('gallery_img_ht_view10_element_hover_effect') == 'true' ) {
+                                                       id="gallery_img_ht_view10_element_hover_effect" <?php if (get_option('gallery_img_ht_view10_element_hover_effect') == 'true') {
                                                     echo 'checked="checked"';
                                                 } ?> name="params[gallery_img_ht_view10_element_hover_effect]"
                                                        value="true"/>
                                             </div>
-                                            <div >
+                                            <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_element_overlay_background_color_"><?php echo __( 'Element Overlay Background Color', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_overlay_background_color_"><?php echo __('Element Overlay Background Color', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -3887,7 +5259,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_element_border_color"><?php echo __( 'Element Border Color', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_border_color"><?php echo __('Element Border Color', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -3903,7 +5275,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_element_border_width"><?php echo __( 'Element Border Width', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_border_width"><?php echo __('Element Border Width', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -3920,7 +5292,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_element_overlay_opacity"><?php echo __( "Element's Image Overlay Opacity", 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_overlay_opacity"><?php echo __("Element's Image Overlay Opacity", 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -3932,7 +5304,8 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     <input name="params[gallery_img_ht_view10_element_overlay_opacity]"
                                                            id="gallery_img_ht_view10_element_overlay_opacity"
                                                            data-slider-highlight="true"
-                                                           data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                           data-slider-values="0,10,20,30,40,50,60,70,80,90,100"
+                                                           type="text"
                                                            data-slider="true"
                                                            value="<?php echo get_option('gallery_img_ht_view10_element_overlay_opacity'); ?>"/>
                                                     <span><?php echo get_option('gallery_img_ht_view10_element_overlay_opacity'); ?>
@@ -3941,7 +5314,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_hover_effect_delay"><?php echo __( 'Element  Hover Effect Delay', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_hover_effect_delay"><?php echo __('Element  Hover Effect Delay', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -3949,7 +5322,8 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                         </div>
                                                     </div>
                                                 </label>
-                                                <input type="text" name="params[gallery_img_ht_view10_hover_effect_delay]"
+                                                <input type="text"
+                                                       name="params[gallery_img_ht_view10_hover_effect_delay]"
                                                        id="gallery_img_ht_view10_hover_effect_delay"
                                                        value="<?php echo get_option('gallery_img_ht_view10_hover_effect_delay'); ?>"
                                                        class="text"/>
@@ -3957,7 +5331,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_hover_effect_inverse"><?php echo __( 'Element Hover Effect Inverse', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_hover_effect_inverse"><?php echo __('Element Hover Effect Inverse', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -3968,17 +5342,17 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 <input type="hidden" value="false"
                                                        name="params[gallery_img_ht_view10_hover_effect_inverse]"/>
                                                 <input type="checkbox"
-                                                       id="gallery_img_ht_view10_hover_effect_inverse" <?php if ( get_option('gallery_img_ht_view10_hover_effect_inverse') == 'true' ) {
+                                                       id="gallery_img_ht_view10_hover_effect_inverse" <?php if (get_option('gallery_img_ht_view10_hover_effect_inverse') == 'true') {
                                                     echo 'checked="checked"';
                                                 } ?> name="params[gallery_img_ht_view10_hover_effect_inverse]"
                                                        value="true"/>
                                             </div>
                                         </div>
                                         <div>
-                                            <h3><?php echo __( 'Expand Options', 'gallery-img' ); ?></h3>
+                                            <h3><?php echo __('Expand Options', 'gallery-img'); ?></h3>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_expanding_speed"><?php echo __( 'Expanding Speed', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expanding_speed"><?php echo __('Expanding Speed', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -3992,9 +5366,9 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                        class="text"/>
                                                 <span>ms</span>
                                             </div>
-                                            <div >
+                                            <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_expand_block_height"><?php echo __( 'Expand Block Initial Height', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expand_block_height"><?php echo __('Expand Block Initial Height', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4002,7 +5376,8 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                         </div>
                                                     </div>
                                                 </label>
-                                                <input type="text" name="params[gallery_img_ht_view10_expand_block_height]"
+                                                <input type="text"
+                                                       name="params[gallery_img_ht_view10_expand_block_height]"
                                                        id="gallery_img_ht_view10_expand_block_height"
                                                        value="<?php echo get_option('gallery_img_ht_view10_expand_block_height'); ?>"
                                                        class="text"/>
@@ -4010,7 +5385,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_expand_width"><?php echo __( 'Expand Block Width', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expand_width"><?php echo __('Expand Block Width', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4026,7 +5401,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_expand_block_opacity"><?php echo __( "Expand Block Opacity", 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expand_block_opacity"><?php echo __("Expand Block Opacity", 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4038,7 +5413,8 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                     <input name="params[gallery_img_ht_view10_expand_block_opacity]"
                                                            id="gallery_img_ht_view10_expand_block_opacity"
                                                            data-slider-highlight="true"
-                                                           data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                                           data-slider-values="0,10,20,30,40,50,60,70,80,90,100"
+                                                           type="text"
                                                            data-slider="true"
                                                            value="<?php echo get_option('gallery_img_ht_view10_expand_block_opacity'); ?>"/>
                                                     <span><?php echo get_option('gallery_img_ht_view10_expand_block_opacity'); ?>
@@ -4047,10 +5423,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                         </div>
                                         <div>
-                                            <h3><?php echo __( 'Expand Title', 'gallery-img' ); ?></h3>
+                                            <h3><?php echo __('Expand Title', 'gallery-img'); ?></h3>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_expand_block_title_color"><?php echo __( 'Expand Description Title Color', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expand_block_title_color"><?php echo __('Expand Description Title Color', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4066,7 +5442,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_expand_block_title_font_size"><?php echo __( 'Expand Title Font Size', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expand_block_title_font_size"><?php echo __('Expand Title Font Size', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4085,10 +5461,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                     </div>
                                     <div class="option-single-column">
                                         <div>
-                                            <h3><?php _e( 'Element Title', 'gallery-img' ); ?></h3>
+                                            <h3><?php _e('Element Title', 'gallery-img'); ?></h3>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_element_title_font_size"><?php echo __( 'Title Font Size', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_title_font_size"><?php echo __('Title Font Size', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4105,7 +5481,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_element_title_font_color"><?php echo __( 'Title Font Color', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_title_font_color"><?php echo __('Title Font Color', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4120,7 +5496,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_element_title_align"><?php echo __( "Title Alignment", 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_title_align"><?php echo __("Title Alignment", 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4130,15 +5506,15 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </label>
                                                 <select id="gallery_img_ht_view10_element_title_align"
                                                         name="params[gallery_img_ht_view10_element_title_align]">
-                                                    <option <?php if ( get_option('gallery_img_ht_view10_element_title_align') == 'left' ) {
+                                                    <option <?php if (get_option('gallery_img_ht_view10_element_title_align') == 'left') {
                                                         echo 'selected="selected"';
                                                     } ?>
-                                                            value="left"><?php echo __( 'Left', 'gallery-img' ); ?></option>
+                                                            value="left"><?php echo __('Left', 'gallery-img'); ?></option>
                                                 </select>
                                             </div>
                                             <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_element_title_border_width"><?php echo __( 'Element Title Bottom Border Width', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_title_border_width"><?php echo __('Element Title Bottom Border Width', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4155,7 +5531,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_element_title_border_color"><?php echo __( 'Element Title Bottom Border Color', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_title_border_color"><?php echo __('Element Title Bottom Border Color', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4170,7 +5546,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_element_title_margin_top"><?php echo __( 'Element Title Margin Top', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_title_margin_top"><?php echo __('Element Title Margin Top', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4187,7 +5563,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_element_title_padding_top_bottom"><?php echo __( 'Element Title Top Bottom Padding', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_element_title_padding_top_bottom"><?php echo __('Element Title Top Bottom Padding', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4203,11 +5579,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 <span>px</span>
                                             </div>
                                         </div>
-                                        <div >
-                                            <h3><?php echo __( 'Expand Description', 'gallery-img' ); ?></h3>
+                                        <div>
+                                            <h3><?php echo __('Expand Description', 'gallery-img'); ?></h3>
                                             <div class="has-background">
                                                 <label
-                                                        for="ht_view0_description_font_size"><?php echo __( 'Expand Description Font Size', 'gallery-img' ); ?>
+                                                        for="ht_view0_description_font_size"><?php echo __('Expand Description Font Size', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4224,7 +5600,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_expand_block_description_font_color"><?php echo __( 'Description Font Color', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expand_block_description_font_color"><?php echo __('Description Font Color', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4241,7 +5617,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_expand_block_background_color"><?php echo __( 'Expand Block Color', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expand_block_background_color"><?php echo __('Expand Block Color', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4257,7 +5633,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_expand_block_description_text_align"><?php echo __( "Expand Description Text Alignment", 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expand_block_description_text_align"><?php echo __("Expand Description Text Alignment", 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4267,18 +5643,18 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 </label>
                                                 <select id="gallery_img_ht_view10_expand_block_description_text_align"
                                                         name="params[gallery_img_ht_view10_expand_block_description_text_align]">
-                                                    <option <?php if ( get_option('gallery_img_ht_view10_expand_block_description_text_align') == 'left' ) {
+                                                    <option <?php if (get_option('gallery_img_ht_view10_expand_block_description_text_align') == 'left') {
                                                         echo 'selected="selected"';
                                                     } ?>
-                                                            value="left"><?php echo __( 'Left', 'gallery-img' ); ?></option>
+                                                            value="left"><?php echo __('Left', 'gallery-img'); ?></option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div>
-                                            <h3><?php echo __( 'Link Button', 'gallery-img' ); ?></h3>
+                                            <h3><?php echo __('Link Button', 'gallery-img'); ?></h3>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_expand_block_button_text"><?php echo __( 'Link Button Text', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expand_block_button_text"><?php echo __('Link Button Text', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4289,12 +5665,12 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                 <input type="text"
                                                        name="params[gallery_img_ht_view10_expand_block_button_text]"
                                                        id="gallery_img_ht_view10_expand_block_button_text"
-                                                       value="<?php echo esc_attr( get_option('gallery_img_ht_view10_expand_block_button_text') ); ?>"
+                                                       value="<?php echo esc_attr(get_option('gallery_img_ht_view10_expand_block_button_text')); ?>"
                                                        class="text"/>
                                             </div>
                                             <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_expand_block_button_font_size"><?php echo __( 'Link Button Font Size', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expand_block_button_font_size"><?php echo __('Link Button Font Size', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4311,7 +5687,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_expand_block_button_text_color"><?php echo __( 'Link Button Font Color', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expand_block_button_text_color"><?php echo __('Link Button Font Color', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4327,7 +5703,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_expand_block_description_font_hover_color"><?php echo __( 'Link Button Font Hover Color', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expand_block_description_font_hover_color"><?php echo __('Link Button Font Hover Color', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4344,7 +5720,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div class="has-background">
                                                 <label
-                                                        for="gallery_img_ht_view10_expand_block_button_background_color"><?php echo __( 'Link Button Background Color', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expand_block_button_background_color"><?php echo __('Link Button Background Color', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4361,7 +5737,7 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                             </div>
                                             <div>
                                                 <label
-                                                        for="gallery_img_ht_view10_expand_block_button_background_hover_color"><?php echo __( 'Link Button Background Hover Color', 'gallery-img' ); ?>
+                                                        for="gallery_img_ht_view10_expand_block_button_background_hover_color"><?php echo __('Link Button Background Hover Color', 'gallery-img'); ?>
                                                     <div class="help">?
                                                         <div class="help-block">
                                                             <span class="pnt"></span>
@@ -4388,7 +5764,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                         </div>
                                                     </div>
                                                 </label>
-                                                <input type="text" name="params[gallery_img_ht_view10_paginator_fontsize]" id="gallery_img_ht_view10_paginator_fontsize" value="<?php echo get_option('gallery_img_ht_view10_paginator_fontsize'); ?>" class="text">
+                                                <input type="text"
+                                                       name="params[gallery_img_ht_view10_paginator_fontsize]"
+                                                       id="gallery_img_ht_view10_paginator_fontsize"
+                                                       value="<?php echo get_option('gallery_img_ht_view10_paginator_fontsize'); ?>"
+                                                       class="text">
                                                 <span>px</span>
                                             </div>
                                             <div class="  fixed-size">
@@ -4400,7 +5780,10 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                         </div>
                                                     </div>
                                                 </label>
-                                                <input type="text" name="params[gallery_img_ht_view10_paginator_color]" class="color" id="gallery_img_ht_view10_paginator_color" value="<?php echo get_option('gallery_img_ht_view10_paginator_color'); ?>" class="text">
+                                                <input type="text" name="params[gallery_img_ht_view10_paginator_color]"
+                                                       class="color" id="gallery_img_ht_view10_paginator_color"
+                                                       value="<?php echo get_option('gallery_img_ht_view10_paginator_color'); ?>"
+                                                       class="text">
 
                                             </div>
                                             <div class="fixed-size has-background">
@@ -4412,7 +5795,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                         </div>
                                                     </div>
                                                 </label>
-                                                <input type="text" name="params[gallery_img_ht_view10_paginator_icon_size]" id="gallery_img_ht_view10_paginator_icon_size" value="<?php echo get_option('gallery_img_ht_view10_paginator_icon_size'); ?>" class="text">
+                                                <input type="text"
+                                                       name="params[gallery_img_ht_view10_paginator_icon_size]"
+                                                       id="gallery_img_ht_view10_paginator_icon_size"
+                                                       value="<?php echo get_option('gallery_img_ht_view10_paginator_icon_size'); ?>"
+                                                       class="text">
                                                 <span>px</span>
                                             </div>
                                             <div class=" fixed-size">
@@ -4424,7 +5811,11 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                         </div>
                                                     </div>
                                                 </label>
-                                                <input type="text" name="params[gallery_img_ht_view10_paginator_icon_color]" class="color" id="gallery_img_ht_view10_paginator_icon_color" value="<?php echo get_option('gallery_img_ht_view10_paginator_icon_color'); ?>" class="text">
+                                                <input type="text"
+                                                       name="params[gallery_img_ht_view10_paginator_icon_color]"
+                                                       class="color" id="gallery_img_ht_view10_paginator_icon_color"
+                                                       value="<?php echo get_option('gallery_img_ht_view10_paginator_icon_color'); ?>"
+                                                       class="text">
 
                                             </div>
                                             <div class="has-background">
@@ -4436,19 +5827,499 @@ $path_site = plugins_url("../../assets/images/front_images", __FILE__);
                                                         </div>
                                                     </div>
                                                 </label>
-                                                <select id="gallery_img_ht_view10_paginator_position" name="params[gallery_img_ht_view10_paginator_position]">
-                                                    <option <?php if(get_option('gallery_img_ht_view10_paginator_position')  ==  'left'){ echo 'selected'; } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
-                                                    <option <?php if(get_option('gallery_img_ht_view10_paginator_position')  ==  'center'){ echo 'selected'; } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
-                                                    <option <?php if(get_option('gallery_img_ht_view10_paginator_position')  ==  'right'){ echo 'selected'; } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
+                                                <select id="gallery_img_ht_view10_paginator_position"
+                                                        name="params[gallery_img_ht_view10_paginator_position]">
+                                                    <option <?php if (get_option('gallery_img_ht_view10_paginator_position') == 'left') {
+                                                        echo 'selected';
+                                                    } ?> value="left"><?php echo __('Left', 'gallery-img'); ?></option>
+                                                    <option <?php if (get_option('gallery_img_ht_view10_paginator_position') == 'center') {
+                                                        echo 'selected';
+                                                    } ?> value="center"><?php echo __('Center', 'gallery-img'); ?></option>
+                                                    <option <?php if (get_option('gallery_img_ht_view10_paginator_position') == 'right') {
+                                                        echo 'selected';
+                                                    } ?> value="right"><?php echo __('Right', 'gallery-img'); ?></option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
+
+                                <li class="gallery-view-options-8">
+                                    <div class="option-single-column">
+                                        <div>
+                                            <h3><?php _e('Album style', 'gallery-img'); ?></h3>
+                                        </div>
+                                        <div class="has-background">
+                                            <label for="gallery_img_ht_album_view_style"><?php echo __("Album style", 'gallery-img'); ?></label>
+                                            <select id="gallery_img_ht_album_view_style"
+                                                    name="params[gallery_img_ht_album_view_style]">
+                                                <option value="1" <?php if ($gallery_img_get_option['gallery_img_ht_album_view_style'] == '1') echo "selected='selected'" ?>>
+                                                    popup view
+                                                </option>
+                                                <option <?php if ($gallery_img_get_option['gallery_img_ht_album_view_style'] == '2') echo "selected='selected'" ?>
+                                                        value="2">page view
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="for_page_view">
+                                            <div class="">
+                                                <label for="gallery_img_ht_album_view_sorting"><?php echo __("Album sorting", 'gallery-img'); ?></label>
+                                                <select id="gallery_img_ht_album_view_sorting"
+                                                        name="params[gallery_img_ht_album_view_sorting]">
+                                                    <option value="0" <?php if ($gallery_img_get_option['gallery_img_ht_album_view_sorting'] == '0') echo "selected='selected'" ?>>
+                                                        by date
+                                                    </option>
+                                                    <option <?php if ($gallery_img_get_option['gallery_img_ht_album_view_sorting'] == '1') echo "selected='selected'" ?>
+                                                            value="1">by name
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="has-background">
+                                                <label for="gallery_img_ht_album_onhover_effects"><?php echo __("On hover effect", 'gallery-img'); ?></label>
+                                                <select id="gallery_img_ht_album_onhover_effects"
+                                                        name="params[gallery_img_ht_album_onhover_effects]">
+                                                    <option value="0" <?php if ($gallery_img_get_option['gallery_img_ht_album_onhover_effects'] == '0') echo "selected='selected'" ?>>
+                                                        dark layer
+                                                    </option>
+                                                    <option value="1" <?php if ($gallery_img_get_option['gallery_img_ht_album_onhover_effects'] == '1') echo "selected='selected'" ?>>
+                                                        blur
+                                                    </option>
+                                                    <option value="2" <?php if ($gallery_img_get_option['gallery_img_ht_album_onhover_effects'] == '2') echo "selected='selected'" ?>>
+                                                        image scale
+                                                    </option>
+                                                    <option value="3" <?php if ($gallery_img_get_option['gallery_img_ht_album_onhover_effects'] == '3') echo "selected='selected'" ?>>
+                                                        content in the bottom
+                                                    </option>
+                                                    <option value="4" <?php if ($gallery_img_get_option['gallery_img_ht_album_onhover_effects'] == '4') echo "selected='selected'" ?>>
+                                                        elastic
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="for_scale_hover">
+                                                <label for="gallery_img_ht_album_image_scale_color">Scale background
+                                                    color</label>
+                                                <input name="params[gallery_img_ht_album_image_scale_color]" type="text"
+                                                       class="color" id="gallery_img_ht_album_image_scale_color"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_image_scale_color"]; ?>"
+                                                       size="10" autocomplete="off"
+                                                       style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
+                                            </div>
+                                            <div class="has-background for_scale_hover">
+                                                <label for="gallery_img_ht_album_image_scale_opacity">Scale background
+                                                    opacity(%)</label>
+                                                <input name="params[gallery_img_ht_album_image_scale_opacity]"
+                                                       type="number"
+                                                       min="0"
+                                                       max="100"
+                                                       id="gallery_img_ht_album_image_scale_opacity"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_image_scale_opacity"]; ?>"
+                                                       size="10" autocomplete="off">
+                                            </div>
+                                            <div class="for_scale_hover">
+                                                <label for="gallery_img_ht_album_image_scale_text_color">Scale text
+                                                    color</label>
+                                                <input name="params[gallery_img_ht_album_image_scale_text_color]"
+                                                       type="text"
+                                                       class="color" id="gallery_img_ht_album_image_scale_text_color"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_image_scale_text_color"]; ?>"
+                                                       size="10" autocomplete="off"
+                                                       style="background-color: rgb(33, 33, 33); color: rgb(255, 255, 255);">
+                                            </div>
+                                            <div class="has-background for_bottom_hover">
+                                                <label for="gallery_img_ht_album_image_bottom_hover_color">Hover place
+                                                    background
+                                                    color</label>
+                                                <input name="params[gallery_img_ht_album_image_bottom_hover_color]"
+                                                       type="text"
+                                                       class="color" id="gallery_img_ht_album_image_bottom_hover_color"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_image_bottom_hover_color"]; ?>"
+                                                       size="10" autocomplete="off"
+                                                       style="background-color: rgb(33, 33, 33); color: rgb(255, 255, 255);">
+                                            </div>
+                                            <div class="for_bottom_hover">
+                                                <label for="gallery_img_ht_album_image_bottom_hover_text_color">Hover
+                                                    place text
+                                                    color</label>
+                                                <input name="params[gallery_img_ht_album_image_bottom_hover_text_color]"
+                                                       type="text"
+                                                       class="color"
+                                                       id="gallery_img_ht_album_image_bottom_hover_text_color"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_image_bottom_hover_text_color"]; ?>"
+                                                       size="10" autocomplete="off"
+                                                       style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <h3><?php _e('Images count style', 'gallery-img'); ?></h3>
+                                        </div>
+                                        <div class="for_page_view has-background">
+                                            <label for="gallery_img_ht_album_show_image_count"><?php _e("Show images count", "gallery-img") ?></label>
+                                            <input type="hidden" value="false"
+                                                   name="params[gallery_img_ht_album_show_image_count]"/>
+                                            <input type="checkbox" <?php if ($gallery_img_get_option['gallery_img_ht_album_show_image_count'] == 'true') echo "checked='checked'" ?>
+                                                   id="gallery_img_ht_album_show_image_count"
+                                                   name="params[gallery_img_ht_album_show_image_count]"
+                                                   value="true" size="10">
+                                        </div>
+
+                                        <div class="has-height has-background clear " style="height: 302px !important;">
+                                            <div class="for_page_view">
+
+                                                <ul id="arrows-type">
+                                                    <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_ht_album_count_style') == 0) {
+                                                        echo "class='activee'";
+                                                    } ?>>
+                                                        <div class="image-block">
+                                                            <img src="<?php echo $path_album; ?>/count/count-0.png"
+                                                                 alt=""/>
+                                                        </div>
+                                                        <input type="radio"
+                                                               name="params[gallery_img_ht_album_count_style]"
+                                                               value="0" <?php if (get_option('gallery_img_ht_album_count_style') == 0) {
+                                                            echo 'checked="checked"';
+                                                        } ?>>
+                                                    </li>
+                                                    <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_ht_album_count_style') == 1) {
+                                                        echo 'class="activee"';
+                                                    } ?>>
+                                                        <div class="image-block">
+                                                            <img src="<?php echo $path_album; ?>/count/count-1.png"
+                                                                 alt=""/>
+                                                        </div>
+                                                        <input type="radio"
+                                                               name="params[gallery_img_ht_album_count_style]"
+                                                               value="1" <?php if (get_option('gallery_img_ht_album_count_style') == 1) {
+                                                            echo 'checked="checked"';
+                                                        } ?>>
+                                                    </li>
+                                                    <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_ht_album_count_style') == 2) {
+                                                        echo 'class="activee"';
+                                                    } ?>>
+                                                        <div class="image-block">
+                                                            <img src="<?php echo $path_album; ?>/count/count-2.png"
+                                                                 alt=""/>
+                                                        </div>
+                                                        <input type="radio"
+                                                               name="params[gallery_img_ht_album_count_style]"
+                                                               value="2" <?php if (get_option('gallery_img_ht_album_count_style') == 2) {
+                                                            echo 'checked="checked"';
+                                                        } ?>>
+                                                    </li>
+                                                    <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_ht_album_count_style') == 3) {
+                                                        echo 'class="activee"';
+                                                    } ?>>
+                                                        <div class="image-block">
+                                                            <img src="<?php echo $path_album; ?>/count/count-3.png"
+                                                                 alt=""/>
+                                                        </div>
+                                                        <input type="radio"
+                                                               name="params[gallery_img_ht_album_count_style]"
+                                                               value="3" <?php if (get_option('gallery_img_ht_album_count_style') == 3) {
+                                                            echo 'checked="checked"';
+                                                        } ?>>
+                                                    </li>
+                                                    <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_ht_album_count_style') == 4) {
+                                                        echo 'class="activee"';
+                                                    } ?>>
+                                                        <div class="image-block">
+                                                            <img src="<?php echo $path_album; ?>/count/count-4.png"
+                                                                 alt=""/>
+                                                        </div>
+                                                        <input type="radio"
+                                                               name="params[gallery_img_ht_album_count_style]"
+                                                               value="4" <?php if (get_option('gallery_img_ht_album_count_style') == 4) {
+                                                            echo 'checked="checked"';
+                                                        } ?>>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+
+                                        </div>
+                                        <div>
+                                            <h3><?php _e('Album category style', 'gallery-img'); ?></h3>
+                                        </div>
+                                        <div class="has-height clear" style="height: 302px !important;">
+
+                                            <div class="for_page_view">
+                                                <ul id="arrows-type">
+                                                    <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_ht_album_category_style') == 0) {
+                                                        echo "class='activee'";
+                                                    } ?>>
+                                                        <div class="image-block">
+                                                            <img src="<?php echo $path_album; ?>/category/0.png"
+                                                                 alt=""/>
+                                                        </div>
+                                                        <input type="radio"
+                                                               name="params[gallery_img_ht_album_category_style]"
+                                                               value="0" <?php if (get_option('gallery_img_ht_album_category_style') == 0) {
+                                                            echo 'checked="checked"';
+                                                        } ?>>
+                                                    </li>
+                                                    <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_ht_album_category_style') == 1) {
+                                                        echo 'class="activee"';
+                                                    } ?>>
+                                                        <div class="image-block">
+                                                            <img src="<?php echo $path_album; ?>/category/1.png"
+                                                                 alt=""/>
+                                                        </div>
+                                                        <input type="radio"
+                                                               name="params[gallery_img_ht_album_category_style]"
+                                                               value="1" <?php if (get_option('gallery_img_ht_album_category_style') == 1) {
+                                                            echo 'checked="checked"';
+                                                        } ?>>
+                                                    </li>
+                                                    <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_ht_album_category_style') == 2) {
+                                                        echo 'class="activee"';
+                                                    } ?>>
+                                                        <div class="image-block">
+                                                            <img src="<?php echo $path_album; ?>/category/2.png"
+                                                                 alt=""/>
+                                                        </div>
+                                                        <input type="radio"
+                                                               name="params[gallery_img_ht_album_category_style]"
+                                                               value="2" <?php if (get_option('gallery_img_ht_album_category_style') == 2) {
+                                                            echo 'checked="checked"';
+                                                        } ?>>
+                                                    </li>
+                                                    <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_ht_album_category_style') == 3) {
+                                                        echo 'class="activee"';
+                                                    } ?>>
+                                                        <div class="image-block">
+                                                            <img src="<?php echo $path_album; ?>/category/3.png"
+                                                                 alt=""/>
+                                                        </div>
+                                                        <input type="radio"
+                                                               name="params[gallery_img_ht_album_category_style]"
+                                                               value="3" <?php if (get_option('gallery_img_ht_album_category_style') == 3) {
+                                                            echo 'checked="checked"';
+                                                        } ?>>
+                                                    </li>
+                                                    <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_ht_album_category_style') == 4) {
+                                                        echo 'class="activee"';
+                                                    } ?>>
+                                                        <div class="image-block">
+                                                            <img src="<?php echo $path_album; ?>/category/4.png"
+                                                                 alt=""/>
+                                                        </div>
+                                                        <input type="radio"
+                                                               name="params[gallery_img_ht_album_category_style]"
+                                                               value="4" <?php if (get_option('gallery_img_ht_album_category_style') == 4) {
+                                                            echo 'checked="checked"';
+                                                        } ?>>
+                                                    </li>
+                                                    <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_ht_album_category_style') == 5) {
+                                                        echo 'class="activee"';
+                                                    } ?>>
+                                                        <div class="image-block">
+                                                            <img src="<?php echo $path_album; ?>/category/5.png"
+                                                                 alt=""/>
+                                                        </div>
+                                                        <input type="radio"
+                                                               name="params[gallery_img_ht_album_category_style]"
+                                                               value="5" <?php if (get_option('gallery_img_ht_album_category_style') == 5) {
+                                                            echo 'checked="checked"';
+                                                        } ?>>
+                                                    </li>
+                                                    <li onclick="jQuery(this).parent().find('li').removeClass('activee');jQuery(this).addClass('activee');" <?php if (get_option('gallery_img_ht_album_category_style') == 6) {
+                                                        echo 'class="activee"';
+                                                    } ?>>
+                                                        <div class="image-block">
+                                                            <img src="<?php echo $path_album; ?>/category/6.png"
+                                                                 alt=""/>
+                                                        </div>
+                                                        <input type="radio"
+                                                               name="params[gallery_img_ht_album_category_style]"
+                                                               value="6" <?php if (get_option('gallery_img_ht_album_category_style') == 6) {
+                                                            echo 'checked="checked"';
+                                                        } ?>>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="option-single-column">
+
+                                        <div class="">
+                                            <div>
+                                                <h3><?php _e('Album content style', 'gallery-img'); ?></h3>
+                                            </div>
+                                        </div>
+                                        <div class="for_page_view">
+                                            <div class="has-background">
+                                                <label for="gallery_img_ht_album_grid_style"><?php echo __("Grid view", 'gallery-img'); ?></label>
+                                                <select id="gallery_img_ht_album_grid_style"
+                                                        name="params[gallery_img_ht_album_grid_style]">
+                                                    <option value="0" <?php if (get_option('gallery_img_ht_album_grid_style') == 0) echo "selected='selected'" ?>>
+                                                        1 column
+                                                    </option>
+                                                    <option value="1" <?php if (get_option('gallery_img_ht_album_grid_style') == 1) echo "selected='selected'" ?>>
+                                                        2 column
+                                                    </option>
+                                                    <option value="2" <?php if (get_option('gallery_img_ht_album_grid_style') == 2) echo "selected='selected'" ?>>
+                                                        3 column
+                                                    </option>
+                                                    <option value="3" <?php if (get_option('gallery_img_ht_album_grid_style') == 3) echo "selected='selected'" ?>>
+                                                        4 column
+                                                    </option>
+                                                    <option value="4" <?php if (get_option('gallery_img_ht_album_grid_style') == 4) echo "selected='selected'" ?>>
+                                                        thumbnail
+                                                    </option>
+                                                    <option value="5" <?php if (get_option('gallery_img_ht_album_grid_style') == 5) echo "selected='selected'" ?>>
+                                                        mosaic
+                                                    </option>
+                                                    <option value="6" <?php if (get_option('gallery_img_ht_album_grid_style') == 6) echo "selected='selected'" ?>>
+                                                        masonry
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <!-- thumbnail -->
+                                            <div class="for_thumb_view">
+                                                <label for="gallery_img_ht_album_thumbnail_width_in_px"><?php echo __("Thumbnail width in px", 'gallery-img'); ?></label>
+                                                <input type="number" min="0"
+                                                       id="gallery_img_ht_album_thumbnail_width_in_px"
+                                                       name="params[gallery_img_ht_album_thumbnail_width_in_px]"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_thumbnail_width_in_px"]; ?>"
+                                                       autocmplete="off" size="10">
+                                            </div>
+                                            <div class="has-background for_thumb_view">
+                                                <label for="gallery_img_ht_album_thumbnail_height_in_px"><?php echo __("Thumbnail height in px", 'gallery-img'); ?></label>
+                                                <input type="number" min="0"
+                                                       id="gallery_img_ht_album_thumbnail_height_in_px"
+                                                       name="params[gallery_img_ht_album_thumbnail_height_in_px]"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_thumbnail_height_in_px"]; ?>"
+                                                       autocmplete="off" size="10">
+                                            </div>
+                                            <div class="for_thumb_view">
+                                                <label for="gallery_img_ht_album_thumbnail_background"><?php echo __("Background box", 'gallery-img'); ?></label>
+                                                <input name="params[gallery_img_ht_album_thumbnail_background]"
+                                                       type="text"
+                                                       class="color" id="gallery_img_ht_album_thumbnail_background"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_thumbnail_background"]; ?>"
+                                                       size="10" autocomplete="off"
+                                                       style="background-color: rgb(51, 51, 51); color: rgb(255, 255, 255);">
+                                            </div>
+                                            <div class="has-background for_thumb_view">
+                                                <label for="gallery_img_ht_album_thumbnail_image_border_width"><?php echo __("Thumbnail border width in px", 'gallery-img'); ?></label>
+                                                <input type="number" min="0"
+                                                       id="gallery_img_ht_album_thumbnail_image_border_width"
+                                                       name="params[gallery_img_ht_album_thumbnail_image_border_width]"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_thumbnail_image_border_width"]; ?>"
+                                                       autocmplete="off" size="10">
+                                            </div>
+                                            <div class="for_thumb_view">
+                                                <label for="gallery_img_ht_album_thumbnail_image_border_color"><?php echo __("Thumbnail border color", 'gallery-img'); ?></label>
+                                                <input name="params[gallery_img_ht_album_thumbnail_image_border_color]"
+                                                       type="text"
+                                                       class="color"
+                                                       id="gallery_img_ht_album_thumbnail_image_border_color"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_thumbnail_image_border_color"]; ?>"
+                                                       size="10" autocomplete="off"
+                                                       style="background-color: rgb(51, 51, 51); color: rgb(255, 255, 255);">
+                                            </div>
+                                            <div class="has-background for_thumb_view">
+                                                <label for="gallery_img_ht_album_thumbnail_image_border_radius"><?php echo __("Thumbnail_border radius in px", 'gallery-img'); ?></label>
+                                                <input type="number" min="0"
+                                                       id="gallery_img_ht_album_thumbnail_image_border_radius"
+                                                       name="params[gallery_img_ht_album_thumbnail_image_border_radius]"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_thumbnail_image_border_radius"]; ?>"
+                                                       autocmplete="off" size="10">
+                                            </div>
+
+                                            <!-- end thumbnail -->
+                                            <!-- mosaic -->
+                                            <div class="for_mosaic_view">
+                                                <label for="gallery_img_ht_album_mosaic_image_column_count"><?php echo __("Column count", 'gallery-img'); ?></label>
+                                                <input type="number" min="2" max="10"
+                                                       id="gallery_img_ht_album_mosaic_image_column_count"
+                                                       name="params[gallery_img_ht_album_mosaic_image_column_count]"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_mosaic_image_column_count"]; ?>"
+                                                       autocmplete="off" size="10">
+                                            </div>
+                                            <div class="has-background for_mosaic_view">
+                                                <label for="gallery_img_ht_album_mosaic_image_margin_bottom_in_px"><?php echo __("Image Margin Bottom in px", 'gallery-img'); ?></label>
+                                                <input type="number" min="0"
+                                                       id="gallery_img_ht_album_mosaic_image_margin_bottom_in_px"
+                                                       name="params[gallery_img_ht_album_mosaic_image_margin_bottom_in_px]"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_mosaic_image_margin_bottom_in_px"]; ?>"
+                                                       autocmplete="off" size="10">
+                                            </div>
+                                            <div class="for_mosaic_view">
+                                                <label for="gallery_img_ht_album_mosaic_image_margin_right_in_px"><?php echo __("Image Margin right in px", 'gallery-img'); ?></label>
+                                                <input type="number" min="0"
+                                                       id="gallery_img_ht_album_mosaic_image_margin_right_in_px"
+                                                       name="params[gallery_img_ht_album_mosaic_image_margin_right_in_px]"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_mosaic_image_margin_right_in_px"]; ?>"
+                                                       autocmplete="off" size="10">
+                                            </div>
+                                            <div class="has-background for_mosaic_view">
+                                                <label for="gallery_img_ht_album_mosaic_image_border_width_in_px"><?php echo __("Image Border Width in px", 'gallery-img'); ?></label>
+                                                <input type="number" min="0"
+                                                       id="gallery_img_ht_album_mosaic_image_border_width_in_px"
+                                                       name="params[gallery_img_ht_album_mosaic_image_border_width_in_px]"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_mosaic_image_border_width_in_px"]; ?>"
+                                                       autocmplete="off" size="10">
+                                            </div>
+                                            <div class="for_mosaic_view">
+                                                <label for="gallery_img_ht_album_image_border_color">Image Border
+                                                    Color</label>
+                                                <input name="params[gallery_img_ht_album_image_border_color]"
+                                                       type="text"
+                                                       class="color" id="gallery_img_ht_album_image_border_color"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_image_border_color"]; ?>"
+                                                       size="10" autocomplete="off"
+                                                       style="background-color: rgb(51, 51, 51); color: rgb(255, 255, 255);">
+                                            </div>
+                                            <div class="has-background for_mosaic_view">
+                                                <label for="gallery_img_ht_album_mosaic_image_border_radius"><?php echo __("Border Radius", 'gallery-img'); ?></label>
+                                                <input type="number" min="0"
+                                                       id="gallery_img_ht_album_mosaic_image_border_radius"
+                                                       name="params[gallery_img_ht_album_mosaic_image_border_radius]"
+                                                       value="<?php echo $gallery_img_get_option["gallery_img_ht_album_mosaic_image_border_radius"]; ?>"
+                                                       autocmplete="off" size="10">
+                                            </div>
+
+                                            <!-- end mosaic -->
+                                            <div class="">
+                                                <label for="gallery_img_ht_album_show_title"><?php echo __("Show title", 'gallery-img'); ?></label>
+                                                <input type="hidden" value="false"
+                                                       name="params[gallery_img_ht_album_show_title]"/>
+                                                <input type="checkbox" <?php if ($gallery_img_get_option['gallery_img_ht_album_show_title'] == 'true') echo "checked='checked'" ?>
+                                                       id="gallery_img_ht_album_show_title"
+                                                       name="params[gallery_img_ht_album_show_title]" value="true"
+                                                       size="10">
+                                            </div>
+                                            <div class="has-background">
+                                                <label for="gallery_img_ht_album_show_description"><?php echo __("Show description", 'gallery-img'); ?></label>
+                                                <input type="hidden" value="false"
+                                                       name="params[gallery_img_ht_album_show_description]"/>
+                                                <input type="checkbox" <?php if ($gallery_img_get_option['gallery_img_ht_album_show_description'] == 'true') echo "checked='checked'" ?>
+                                                       id="gallery_img_ht_album_show_description"
+                                                       name="params[gallery_img_ht_album_show_description]" value="true"
+                                                       size="10">
+                                            </div>
+                                            <div class="">
+                                                <label for="gallery_img_ht_album_show_sharing_buttons"><?php echo __("Show sharing buttons", 'gallery-img'); ?></label>
+                                                <input type="hidden" value="false"
+                                                       name="params[gallery_img_ht_album_show_sharing_buttons]"/>
+                                                <input type="checkbox" <?php if ($gallery_img_get_option['gallery_img_ht_album_show_sharing_buttons'] == 'true') echo "checked='checked'" ?>
+                                                       id="gallery_img_ht_album_show_sharing_buttons"
+                                                       name="params[gallery_img_ht_album_show_sharing_buttons]"
+                                                       value="true"
+                                                       size="10">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
                             </ul>
 
                             <div id="post-body-footer">
-                                <a onclick="document.getElementById('adminForm').submit()" class="save-gallery-options button-primary"><?php echo __('Save', 'gallery-img'); ?></a>
+                                <a onclick="document.getElementById('adminForm').submit()"
+                                   class="save-gallery-options button-primary"><?php echo __('Save', 'gallery-img'); ?></a>
                                 <div class="clear"></div>
                             </div>
                     </form>

@@ -24,7 +24,7 @@ switch ($gallery[0]->hover_effect) {
 
 ?>
 
-<input type="hidden" name="view_style" value="<?= $hover_class ?>">
+<input type="hidden" name="view_style" value="<?php echo $hover_class; ?>">
 
 <section id="huge_it_gallery_content_<?php echo $galleryID; ?>" class="gallery-img-content"
          data-gallery-id="<?php echo $galleryID; ?>"
@@ -57,13 +57,13 @@ switch ($gallery[0]->hover_effect) {
                 $descnohtml = strip_tags(str_replace('__5_5_5__', '%', $row->description));
                 $result = substr($descnohtml, 0, 50);
                 ?>
-                <div class="<?= $hover_class ?> view element element_<?php echo $galleryID; ?> <?php if ($title == '' && $link == '') {
+                <div class="<?php echo $hover_class; ?> view element element_<?php echo $galleryID; ?> <?php if ($title == '' && $link == '') {
                     echo 'no-title';
                 } ?>"
                      tabindex="0"
                      data-symbol="<?php echo esc_attr(str_replace('__5_5_5__', '%', $row->name)); ?>"
                      data-category="alkaline-earth">
-                    <div class="<?= $hover_class ?>-wrapper view-wrapper gallery-image-overlay">
+                    <div class="<?php echo $hover_class; ?>-wrapper view-wrapper gallery-image-overlay">
                         <?php
                         $imagerowstype = $row->sl_type;
                         if ($row->sl_type == '') {
@@ -135,9 +135,9 @@ switch ($gallery[0]->hover_effect) {
                                title="<?php echo esc_attr(str_replace('__5_5_5__', '%', $row->name)); ?>">
                                 <div class="mask-text">
                                     <?php if ($row->name != "") { ?>
-                                    <h2><?= $row->name ?></h2>
+                                    <h2><?php echo $row->name; ?></h2>
                                     <?php } ?>
-                                    <span class="text-category"><?= $row->description ?></span>
+                                    <span class="text-category"><?php echo $row->description; ?></span>
                                 </div>
                             </a>
                             <a href="#<?php echo $row->id; ?>"
