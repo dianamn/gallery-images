@@ -15,6 +15,7 @@ if (!defined('ABSPATH')) {
 }
 
 include_once('config.php');
+require_once "includes/tracking/class-image-gallery-tracking.php";
 
 if (!class_exists('Gallery_Img')) :
 
@@ -103,7 +104,7 @@ if (!class_exists('Gallery_Img')) :
         private function __construct()
         {
 
-            require_once "includes/tracking/class-image-gallery-tracking.php";
+
             $this->tracking = new Hugeit_Image_Gallery_Tracking();
 
             $this->define_constants();

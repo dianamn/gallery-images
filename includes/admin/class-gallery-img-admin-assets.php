@@ -59,7 +59,7 @@ class Gallery_Img_Admin_Assets
     {
 
         wp_enqueue_style('hugeit_image_gallery_tracking', Gallery_Img()->plugin_url() . '/assets/style/admin.tracking.css');
-        if (!Gallery_Img()->tracking->is_opted_in() || Gallery_Img()->tracking->is_opted_out()) {
+        if (!Gallery_Img()->tracking->is_opted_in()) {
             return false;
         }
         wp_enqueue_script('hugeit_modal', Gallery_Img()->plugin_url() . '/assets/js/hugeit-modal.js', array('jquery'));
