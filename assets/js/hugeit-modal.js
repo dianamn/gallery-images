@@ -1,7 +1,10 @@
 /**
  * Created by User on 6/17/2017.
  */
-var hugeitModal = {
+
+
+var hugeitModalGallery = {
+
     show: function (elementId, args) {
         var el = jQuery('#' + elementId);
         console.log(el);
@@ -18,6 +21,6 @@ var hugeitModal = {
 
 jQuery(document).ready(function () {
     jQuery('body').on('click', '.-hugeit-modal-close', function () {
-        hugeitModal.hide(jQuery(this).closest('.-hugeit-modal').attr('id'));
+        hugeitModalGallery.hide(jQuery(this).closest('.-hugeit-modal').attr('id'));
     });
 });

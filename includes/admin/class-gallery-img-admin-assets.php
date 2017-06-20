@@ -62,9 +62,9 @@ class Gallery_Img_Admin_Assets
         if (!Gallery_Img()->tracking->is_opted_in()) {
             return false;
         }
-        wp_enqueue_script('hugeit_modal', Gallery_Img()->plugin_url() . '/assets/js/hugeit-modal.js', array('jquery'));
-        wp_enqueue_script('hugeit_deactivation_feedback', Gallery_Img()->plugin_url() . '/assets/js/deactivation-feedback.js', array('jquery', 'hugeit_modal'));
-        wp_localize_script('hugeit_deactivation_feedback', 'hugeitImagegalleryL10n', array(
+        wp_enqueue_script('hugeit_gallery_image_modal', Gallery_Img()->plugin_url() . '/assets/js/hugeit-modal.js', array('jquery'));
+        wp_enqueue_script('hugeit_gallery_image_deactivation_feedback', Gallery_Img()->plugin_url() . '/assets/js/deactivation-feedback.js', array('jquery', 'hugeit_gallery_image_modal'));
+        wp_localize_script('hugeit_gallery_image_deactivation_feedback', 'hugeitImagegalleryL10n', array(
             'slug' => Gallery_Img()->get_slug()
         ));
         wp_enqueue_style('hugeit_modal', Gallery_Img()->plugin_url() . '/assets/style/hugeit-modal.css');

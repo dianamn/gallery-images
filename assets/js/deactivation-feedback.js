@@ -12,7 +12,7 @@ jQuery(document).ready(function () {
     jQuery('body').on('click', '#the-list tr[data-slug=' + hugeitImagegalleryL10n.slug + '] .deactivate a', function (e) {
         e.preventDefault();
 
-        hugeitModal.show(hugeitImagegalleryL10n.slug + '-deactivation-feedback');
+        hugeitModalGallery.show(hugeitImagegalleryL10n.slug + '-deactivation-feedback');
         deactivationURL = jQuery(this).attr('href');
 
         return false;
@@ -25,13 +25,13 @@ jQuery(document).ready(function () {
             comment = jQuery('textarea[name=' + hugeitImagegalleryL10n.slug + '-deactivation-comment]').val(),
             nonce = jQuery('#hugeit-image-gallery-deactivation-nonce').val();
         if (checkedOption.length || comment.length) {
-            hugeitModal.hide(hugeitImagegalleryL10n.slug + '-deactivation-feedback');
+            hugeitModalGallery.hide(hugeitImagegalleryL10n.slug + '-deactivation-feedback');
             sendDeactivationFeedback(checkedOption.val(), comment, nonce);
             setTimeout(function () {
                 window.location.replace(deactivationURL);
             }, 0);
         } else {
-            hugeitModal.hide(hugeitImagegalleryL10n.slug + '-deactivation-feedback');
+            hugeitModalGallery.hide(hugeitImagegalleryL10n.slug + '-deactivation-feedback');
             window.location.replace(deactivationURL);
         }
 
@@ -41,7 +41,7 @@ jQuery(document).ready(function () {
     cancelDeactivationLink.on('click', function (e) {
         e.preventDefault();
 
-        hugeitModal.hide(hugeitImagegalleryL10n.slug + '-deactivation-feedback');
+        hugeitModalGallery.hide(hugeitImagegalleryL10n.slug + '-deactivation-feedback');
 
         return false;
     });

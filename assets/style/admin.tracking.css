@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600');
 
-.hugeit-tracking-optin {
+.hugeit-tracking-optin-image-gallery {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
@@ -16,37 +16,37 @@
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
 }
 
-.hugeit-tracking-optin-left {
+.hugeit-tracking-optin-image-gallery-left {
     display: flex;
     justify-content: flex-start;
     flex-flow: row wrap;
 }
 
-.hugeit-tracking-optin-info {
+.hugeit-tracking-optin-image-gallery-info {
     margin-left: 31px;
 }
 
-.hugeit-tracking-optin-header {
+.hugeit-tracking-optin-image-gallery-header {
     font-size: 20px;
     line-height: 1;
     margin-bottom: 8px;
     color: #515151;
 }
 
-.hugeit-tracking-optin-icon {
+.hugeit-tracking-optin-image-gallery-icon {
     padding: 25px;
     background: #e5b126;
     border-radius: 13px;
 }
 
-.hugeit-tracking-optin-description {
+.hugeit-tracking-optin-image-gallery-description {
     max-width: 540px;
     margin-bottom: 10px;
     color: #303030;
     font-size: 12px;
 }
 
-.hugeit-tracking-optin-button {
+.hugeit-tracking-optin-image-gallery-button {
     display: inline-block;
     margin-right: 8px;
     height: 39px;
@@ -61,7 +61,7 @@
     transition: all .15s ease;
 }
 
-.hugeit-tracking-optin-button:hover {
+.hugeit-tracking-optin-image-gallery-button:hover {
     color: #be202e;
     background-color: #fff;
 }
@@ -85,7 +85,7 @@
     color: #fff;
 }
 
-.hugeit-tracking-optin-right {
+.hugeit-tracking-optin-image-gallery-right {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -94,17 +94,17 @@
     text-align: center;
 }
 
-.hugeit-tracking-optin-logo {
+.hugeit-tracking-optin-image-gallery-logo {
     padding-bottom: 16px;
 
 }
 
-.hugeit-tracking-optin-links {
+.hugeit-tracking-optin-image-gallery-links {
     padding-top: 17px;
     border-top: 2px solid #d7d7d7;
 }
 
-.hugeit-tracking-optin-links a {
+.hugeit-tracking-optin-image-gallery-links a {
     display: inline-block;
     font-size: 12px;
     color: #787878;
@@ -113,26 +113,26 @@
     transition: none;
 }
 
-.hugeit-tracking-optin-links a:hover {
+.hugeit-tracking-optin-image-gallery-links a:hover {
     color: #303030;
 }
 
-.hugeit-tracking-optin-links a:nth-child(1) {
+.hugeit-tracking-optin-image-gallery-links a:nth-child(1) {
     background-position: 0 2px;
     padding-left: 21px;
 }
 
-.hugeit-tracking-optin-links a:nth-child(1):hover {
+.hugeit-tracking-optin-image-gallery-links a:nth-child(1):hover {
     background-position: 0 -22px;
 }
 
-.hugeit-tracking-optin-links a:nth-child(2) {
+.hugeit-tracking-optin-image-gallery-links a:nth-child(2) {
     margin-left: 17px;
     padding-left: 19px;
     background-position: 0 -47px;
 }
 
-.hugeit-tracking-optin-links a:nth-child(2):hover {
+.hugeit-tracking-optin-image-gallery-links a:nth-child(2):hover {
     background-position: 0 -70px;
 }
 
