@@ -67,7 +67,7 @@ class Gallery_Img_Admin_Assets
         wp_localize_script('hugeit_gallery_image_deactivation_feedback', 'hugeitImagegalleryL10n', array(
             'slug' => Gallery_Img()->get_slug()
         ));
-        wp_enqueue_style('hugeit_modal', Gallery_Img()->plugin_url() . '/assets/style/hugeit-modal.css');
+        wp_enqueue_style('hugeit_modal_gallery_image', Gallery_Img()->plugin_url() . '/assets/style/hugeit-modal.css');
     }
 
 

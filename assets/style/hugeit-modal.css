@@ -98,7 +98,7 @@
     height: 65px;
 }
 
-.hugeit-deactivate-plugin {
+.hugeit-deactivate-plugin-image-gallery {
     display: inline-block;
     height: 34px;
     padding: 0 29px;
@@ -112,12 +112,12 @@
     text-decoration: none;
 }
 
-.hugeit-deactivate-plugin:hover {
+.hugeit-deactivate-plugin-image-gallery:hover {
     color: #fff;
     background-color: #dd1629;
 }
 
-.hugeit-cancel-deactivation {
+.hugeit-cancel-deactivation-image-gallery {
     display: inline-block;
     height: 34px;
     padding: 0 29px;
@@ -131,7 +131,7 @@
     text-decoration: none;
 }
 
-.hugeit-cancel-deactivation:hover {
+.hugeit-cancel-deactivation-image-gallery:hover {
     color: #dd1629;
     background-color: #fff;
 }
