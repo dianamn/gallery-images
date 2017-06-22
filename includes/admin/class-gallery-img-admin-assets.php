@@ -15,6 +15,7 @@ class Gallery_Img_Admin_Assets
     {
         add_action('admin_enqueue_scripts', array($this, 'admin_styles'));
         add_action('admin_enqueue_scripts', array($this, 'admin_scripts'));
+        add_action('admin_enqueue_scripts', array($this, 'enqueue'));
     }
 
     /**
@@ -33,6 +34,15 @@ class Gallery_Img_Admin_Assets
         }
     }
 
+    public function enqueue($hook)
+    {
+        if ('plugins.php' === $hook) {
+            $this->enqueue_tracking();
+        }
+
+        wp_enqueue_style('hugeit_image_gallery_tracking', Gallery_Img()->plugin_url() . '/assets/style/admin.tracking.css');
+    }
+
     public function admin_scripts($hook)
     {
         if (in_array($hook, Gallery_Img()->admin->pages)) {
@@ -43,5 +53,22 @@ class Gallery_Img_Admin_Assets
             wp_enqueue_script('param_block2', Gallery_Img()->plugin_url() . "/assets/js/jscolor.js");
         }
     }
+
+
+    private function enqueue_tracking()
+    {
+
+        wp_enqueue_style('hugeit_image_gallery_tracking', Gallery_Img()->plugin_url() . '/assets/style/admin.tracking.css');
+        if (!Gallery_Img()->tracking->is_opted_in()) {
+            return false;
+        }
+        wp_enqueue_script('hugeit_gallery_image_modal', Gallery_Img()->plugin_url() . '/assets/js/hugeit-modal.js', array('jquery'));
+        wp_enqueue_script('hugeit_gallery_image_deactivation_feedback', Gallery_Img()->plugin_url() . '/assets/js/deactivation-feedback.js', array('jquery', 'hugeit_gallery_image_modal'));
+        wp_localize_script('hugeit_gallery_image_deactivation_feedback', 'hugeitImagegalleryL10n', array(
+            'slug' => Gallery_Img()->get_slug()
+        ));
+        wp_enqueue_style('hugeit_modal_gallery_image', Gallery_Img()->plugin_url() . '/assets/style/hugeit-modal.css');
+    }
+
 
 }
