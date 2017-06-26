@@ -3,6 +3,6 @@
          alt="album optins"/>
     <div class="album-overlay">
         <p>This section is disabled for current version of plugin</p>
-        <a class="album_purchase_link" href="https://goo.gl/LwtCFf">Get Full Version</a>
+        <a class="album_purchase_link" href="http://huge-it.com/wordpress-gallery/">Get Full Version</a>
     </div>
 </div>
