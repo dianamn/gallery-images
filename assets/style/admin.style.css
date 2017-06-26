@@ -17,12 +17,10 @@
     margin-right: 15px;
 }
 
-
 .help-block {
     -webkit-transform: scale(0);
     transform: scale(0);
     background: rgba(97, 97, 97, .9);
-
 
     border-radius: 2px;
     color: #fff;
@@ -840,7 +838,8 @@ a.delete-link {
     padding: 5px 0 0 0 !important;
     margin: 0 !important;
 }
-#gallery-view-tabs-contents > li > div > div  > div{
+
+#gallery-view-tabs-contents > li > div > div > div {
     position: relative;
     clear: both;
     width: 100%;
@@ -1352,5 +1351,54 @@ a.delete-link {
     width: 150px;
 }
 
+.image_album_pro {
+    color: #dab246;
+}
 
+.album-container {
+    width: 99%;
+    position: relative;
+    margin-top: 15px;
+}
 
+.album-container img {
+    max-width: 100%;
+}
+
+.album-overlay {
+    background: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 98%;
+    padding: 15px;
+    height: 100%;
+    text-align: center;
+    padding-top: 12%;
+}
+
+.album-overlay p {
+    font-size: 18px;
+    color: #1b1a1a;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.album_purchase_link {
+    color: #fff;
+    background-color: #b21919;
+    margin: 30px 0;
+    padding: 11px 59px;
+    border-radius: 3px;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    height: 50px;
+    line-height: 50px;
+    text-decoration: none;
+    transition: text-shadow 0.15s ease-in-out;
+}
+
+.album_purchase_link:hover, .album_purchase_link:active, .album_purchase_link:focus {
+    color: #fff;
+    cursor: pointer;
+}

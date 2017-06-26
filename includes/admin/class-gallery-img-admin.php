@@ -35,6 +35,13 @@ class Gallery_Img_Admin
     public $lightbox_options = null;
 
     /**
+     * Instance of Gallery_Img_Albums_Options class
+     *
+     * @var Gallery_Img_Album_Options
+     */
+    public $album_options = null;
+
+    /**
      * Instance of Gallery_Img_Featured_Plugins class
      *
      * @var Gallery_Img_Featured_Plugins
@@ -92,7 +99,7 @@ class Gallery_Img_Admin
             'load_gallery_page'
         ));
 
-        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Advanced Features PRO', 'gallery-images'), __('Advanced Features PRO', 'gallery-images'), 'delete_pages', 'Options_gallery_styles', array(
+        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Advanced Features <span class="image_album_pro">PRO</span>', 'gallery-images'), __('Advanced Features <span class="image_album_pro">PRO</span>', 'gallery-images'), 'delete_pages', 'Options_gallery_styles', array(
             Gallery_Img()->admin->general_options,
             'load_page'
         ));
@@ -100,6 +107,10 @@ class Gallery_Img_Admin
             Gallery_Img()->admin->lightbox_options,
             'load_page'
         ));
+
+        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Albums <span class="image_album_pro">PRO</span>', 'gallery-images'), __('Albums <span class="image_album_pro">PRO</span>', 'gallery-images'), 'delete_pages', 'Options_gallery_albums_styles',
+            array($this, 'image_gallery_album_page')
+        );
 
         $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Featured Plugins', 'gallery-images'), __('Featured Plugins', 'gallery-images'), 'delete_pages', 'huge_it_gallery_featured_plugins', array(
             Gallery_Img()->admin->featured_plugins,
@@ -112,6 +123,12 @@ class Gallery_Img_Admin
     }
 
 
+    public function image_gallery_album_page()
+    {
+        require Gallery_Img()->plugin_path() . '/templates/admin/albums-html.php';
+    }
+
+
     public function wp_loaded()
     {
         if (isset($_GET['page']) && $_GET['page'] == 'galleries_huge_it_gallery') {
@@ -119,13 +136,13 @@ class Gallery_Img_Admin
                 $task = $_GET['task'];
                 switch ($task) {
                     case 'add_gallery':
-                        $this->add_gallery();
+                        $this->hugeit_gallery_image_add_gallery();
                         break;
                     case 'duplicate_gallery_image':
-                        $this->duplicate_gallery();
+                        $this->hugeit_gallery_image_duplicate_gallery();
                         break;
                     case 'remove_gallery':
-                        $this->remove_gallery();
+                        $this->hugeit_gallery_image_remove_gallery();
                         break;
                 }
             }
@@ -135,7 +152,7 @@ class Gallery_Img_Admin
     /**
      * Add Gallery
      */
-    public static function add_gallery()
+    public static function hugeit_gallery_image_add_gallery()
     {
         if (!isset($_REQUEST['gallery_wp_nonce_add_gallery']) || !wp_verify_nonce($_REQUEST['gallery_wp_nonce_add_gallery'], 'gallery_wp_nonce_add_gallery')) {
             wp_die('Security check fail');
@@ -167,7 +184,7 @@ class Gallery_Img_Admin
     /**
      * Duplicate Video
      */
-    public static function duplicate_gallery()
+    public static function hugeit_gallery_image_duplicate_gallery()
     {
         if (!isset($_GET["id"]) || !absint($_GET['id']) || absint($_GET['id']) != $_GET['id']) {
             wp_die('"id" parameter is required to be not negative integer');
@@ -223,7 +240,7 @@ class Gallery_Img_Admin
     /**
      * Remove Gallery
      */
-    public function remove_gallery()
+    public function hugeit_gallery_image_remove_gallery()
     {
         if (!isset($_GET["id"]) || !absint($_GET['id']) || absint($_GET['id']) != $_GET['id']) {
             wp_die('"id" parameter is required to be not negative integer');
