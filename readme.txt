@@ -3,8 +3,8 @@ Contributors: Huge-IT
 Donate link: https://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, lightbox gallery, wordpress gallery, photo gallery,
 Requires at least: 3.0.1
-Tested up to: 4.7.4
-Stable tag: 2.2.0
+Tested up to: 4.8
+Stable tag: 2.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,9 +52,9 @@ Install plugin and see the result of your creativeness.
 
 * **Advanced Compatibility** - Plugin is compatible with Huge-IT plugins and with most of other plugins.
 
-* **Ratings Button** - Choose for your visitors how to rate your images with Heart button or Like/Dislike button. If do not need to rate your images then just put OFF.
+* **Ratings Button** - Choose for your visitors how to rate your images with Heart button or Like/Dislike button. If do not need to rate your images then just put OFF
 
-* **Lightbox/Popup** - In images are opened using Lightbox /Popup. Due to which your images will be opened in a nicely way.
+* **Lightbox/Popup** - In images are opened using Lightbox /Popup. Due to which your images will be opened in a nicely way
 
 * **Ability to insert a gallery to the WordPress post, page** - You may add a number of images and videos in a single gallery. As you have created a number of image galleries, you can add as many shortcodes on your page as you want.
 
@@ -885,6 +885,10 @@ The commercial version users can do unlimited customization, if your images/vide
 
 
 == Changelog ==
+
+= 2.2.1 =
+* 1) We have added 3 new effects to galleries.
+* 2) We have added album functionality supporting 8 adanced views and options.
 
 = 2.2.0 =
 * 1) Fixed the issue in Content Slider where after clicking Ratings LikeDislike,Hearts options slider would stop.
