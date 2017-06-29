@@ -157,7 +157,6 @@ CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itgallery_gallerys` (
   UNIQUE KEY `id` (`id`)
 )  " . $db_engine . $collate . " AUTO_INCREMENT=2 ";
 
-        $sql_huge_itgallery_gallerys_alter = "ALTER TABLE `" . $wpdb->prefix . "huge_itgallery_gallerys` ADD `hover_effect` int( 1 ) NOT NULL default 0 after `description`";
 
         $table_name = $wpdb->prefix . "huge_itgallery_images";
         $sql_2 = "
@@ -178,7 +177,6 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
 (1, 'My First Gallery', 375, 600, 'on', 'random', '4000', '1000', 'center', 1, '300', '5')";
         $wpdb->query($sql_huge_itgallery_images);
         $wpdb->query($sql_huge_itgallery_gallerys);
-        $wpdb->query($sql_huge_itgallery_gallerys_alter);
         $wpdb->query($sql_huge_itgallery_like_dislike);
 
         if (!$wpdb->get_var("select count(*) from " . $wpdb->prefix . "huge_itgallery_images")) {
@@ -190,15 +188,26 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
         ////////////////////////////////////////
         $imagesAllFieldsInArray2 = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_itgallery_gallerys", ARRAY_A);
         $fornewUpdate = 0;
+        $forHoverEffect = 0;
         foreach ($imagesAllFieldsInArray2 as $galleriesField2) {
             if ($galleriesField2['Field'] == 'display_type') {
                 $fornewUpdate = 1;
+            }
+
+            if ($galleriesField2['Field'] == 'hover_effect') {
+                $forHoverEffect = 1;
             }
         }
         if ($fornewUpdate != 1) {
             $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itgallery_gallerys ADD display_type integer DEFAULT '2' ");
             $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itgallery_gallerys ADD content_per_page integer DEFAULT '5' ");
         }
+
+
+        if ($forHoverEffect != 1) {
+            $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "huge_itgallery_gallerys` ADD `hover_effect` int( 1 ) NOT NULL default 0 after `description`");
+        }
+
         ///////////////////////////////////////////////////////////////////////
         $imagesAllFieldsInArray3 = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_itgallery_images", ARRAY_A);
         $fornewUpdate2 = 0;
