@@ -4,7 +4,7 @@ Donate link: https://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, lightbox gallery, wordpress gallery, photo gallery,
 Requires at least: 3.0.1
 Tested up to: 4.8
-Stable tag: 2.2.1
+Stable tag: 2.2.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -885,6 +885,9 @@ The commercial version users can do unlimited customization, if your images/vide
 
 
 == Changelog ==
+
+= 2.2.2 =
+* We had to make an update because multiple users reported in forum a CSS conflict with older versions of WordPress.
 
 = 2.2.1 =
 * 1) We have added 3 new effects to galleries.
