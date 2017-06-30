@@ -1,5 +1,4 @@
-<
-style >
+<style>
 .huge_it_slideshow_image_wrap_gallery_<?php echo $galleryID; ?> {
     height: <?php echo $sliderheight; ?>px;
     width: <?php  echo $sliderwidth; ?>px;
@@ -969,6 +968,4 @@ break;
     display: block;
 }
 
-<
-/
-style >
+</style>
