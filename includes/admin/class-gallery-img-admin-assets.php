@@ -31,6 +31,7 @@ class Gallery_Img_Admin_Assets
             wp_enqueue_style("featured_plugins", Gallery_Img()->plugin_url() . "/assets/style/featured-plugins.css", false);
             wp_enqueue_style("licensing_css", Gallery_Img()->plugin_url() . "/assets/style/licensing.css", false);
             wp_enqueue_style("free-banner", Gallery_Img()->plugin_url() . "/assets/style/free-banner.css", false);
+            wp_enqueue_style('hugeit_image_gallery_tracking', Gallery_Img()->plugin_url() . '/assets/style/admin.tracking.css');
         }
     }
 
@@ -40,7 +41,7 @@ class Gallery_Img_Admin_Assets
             $this->enqueue_tracking();
         }
 
-        wp_enqueue_style('hugeit_image_gallery_tracking', Gallery_Img()->plugin_url() . '/assets/style/admin.tracking.css');
+
     }
 
     public function admin_scripts($hook)

@@ -3,8 +3,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
-<
-style > #huge_it_gallery_container_<?php echo $galleryID; ?> .paginate {
+<style>
+#huge_it_gallery_container_<?php echo $galleryID; ?> .paginate {
     font-size: <?php echo $gallery_default_params['gallery_img_ht_view10_paginator_fontsize']; ?>px !important;
     color: <?php echo '#'.$gallery_default_params['gallery_img_ht_view10_paginator_color']; ?> !important;
     text-align: <?php echo $gallery_default_params['gallery_img_ht_view10_paginator_position']; ?>;
@@ -189,6 +189,4 @@ style > #huge_it_gallery_container_<?php echo $galleryID; ?> .paginate {
     }
 }
 
-<
-/
-style >
+</style>
