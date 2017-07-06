@@ -199,7 +199,7 @@ if (!class_exists('Gallery_Img')) :
         {
             if (!wp_next_scheduled('hugeit_image_gallery_opt_in_cron')) {
                 $this->tracking->track_data();
-                wp_schedule_event(current_time('timestamp'), 'hugeit-image-gallery-weekly', 'hugeit_image-gallery_opt_in_cron');
+                wp_schedule_event(current_time('timestamp'), 'hugeit-image-gallery-weekly', 'hugeit_image_gallery_opt_in_cron');
             }
         }
 
