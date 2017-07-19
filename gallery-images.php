@@ -126,8 +126,6 @@ if (!class_exists('Gallery_Img')) :
             add_action('init', array($this, 'init'), 0);
             add_action('plugins_loaded', array($this, 'load_plugin_textdomain'));
             add_action('widgets_init', array('Gallery_Img_Widgets', 'init'));
-            add_action('init', array($this, 'schedule_tracking'), 0);
-            add_filter('cron_schedules', array($this, 'custom_cron_job_recurrence'));
         }
 
         /**
@@ -194,24 +192,6 @@ if (!class_exists('Gallery_Img')) :
 
             require_once "includes/tracking/class-image-gallery-deactivation-feedback.php";
 
-        }
-
-        public function schedule_tracking()
-        {
-            if (!wp_next_scheduled('hugeit_image_gallery_opt_in_cron')) {
-                $this->tracking->track_data();
-                wp_clear_scheduled_hook('hugeit_image-gallery_opt_in_cron');
-                wp_schedule_event(current_time('timestamp'), 'hugeit-image-gallery-weekly', 'hugeit_image_gallery_opt_in_cron');
-            }
-        }
-
-        public function custom_cron_job_recurrence($schedules)
-        {
-            $schedules['hugeit-image-gallery-weekly'] = array(
-                'display' => __('Once per week', 'hugeit-image-gallery'),
-                'interval' => 604800
-            );
-            return $schedules;
         }
 
         /**
