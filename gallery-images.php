@@ -14,6 +14,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
+
 include_once('config.php');
 require_once "includes/tracking/class-image-gallery-tracking.php";
 
@@ -199,6 +200,7 @@ if (!class_exists('Gallery_Img')) :
         {
             if (!wp_next_scheduled('hugeit_image_gallery_opt_in_cron')) {
                 $this->tracking->track_data();
+                wp_clear_scheduled_hook('hugeit_image_gallery_opt_in_cron');
                 wp_schedule_event(current_time('timestamp'), 'hugeit-image-gallery-weekly', 'hugeit_image_gallery_opt_in_cron');
             }
         }
