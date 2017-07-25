@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: https://huge-it.com/wordpress-gallery/
 Description: Gallery image is the best gallery plugin to use if you want to be original with your website. Responsive image gallery with many views.
-Version: 2.2.0
+Version: 2.2.4
 Author: Huge-IT
 Author URI: https://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -27,7 +27,7 @@ if (!class_exists('Gallery_Img')) :
          * Version of plugin
          * @var float
          */
-        public $version = '2.3.0';
+        public $version = '2.2.4';
 
         /**
          * @var int
@@ -126,8 +126,7 @@ if (!class_exists('Gallery_Img')) :
             add_action('init', array($this, 'init'), 0);
             add_action('plugins_loaded', array($this, 'load_plugin_textdomain'));
             add_action('widgets_init', array('Gallery_Img_Widgets', 'init'));
-            add_action('init', array($this, 'schedule_tracking'), 0);
-            add_filter('cron_schedules', array($this, 'custom_cron_job_recurrence'));
+            add_action('init', array($this, 'delete_schedule'), 0);
         }
 
         /**
@@ -196,23 +195,14 @@ if (!class_exists('Gallery_Img')) :
 
         }
 
-        public function schedule_tracking()
+
+        public function delete_schedule()
         {
-            if (!wp_next_scheduled('hugeit_image_gallery_opt_in_cron')) {
-                $this->tracking->track_data();
+            if (wp_next_scheduled('hugeit_image-gallery_opt_in_cron')) {
                 wp_clear_scheduled_hook('hugeit_image-gallery_opt_in_cron');
-                wp_schedule_event(current_time('timestamp'), 'hugeit-image-gallery-weekly', 'hugeit_image_gallery_opt_in_cron');
             }
         }
-
-        public function custom_cron_job_recurrence($schedules)
-        {
-            $schedules['hugeit-image-gallery-weekly'] = array(
-                'display' => __('Once per week', 'hugeit-image-gallery'),
-                'interval' => 604800
-            );
-            return $schedules;
-        }
+        
 
         /**
          * Include required core files used in front end
