@@ -127,6 +127,7 @@ if (!class_exists('Gallery_Img')) :
             add_action('init', array($this, 'init'), 0);
             add_action('plugins_loaded', array($this, 'load_plugin_textdomain'));
             add_action('widgets_init', array('Gallery_Img_Widgets', 'init'));
+
         }
 
         /**
@@ -198,12 +199,12 @@ if (!class_exists('Gallery_Img')) :
 
         public function delete_schedule()
         {
+            //if previus version have a bug
             if (get_option("gallery_img_version") && in_array(get_option("gallery_img_version"), array("2.2.2", "2.2.4"))) {
                 global $wpdb;
                 $wpdb->delete($wpdb->prefix . "options", array("option_name" => 'cron'));
             }
         }
-
 
         /**
          * Include required core files used in front end
