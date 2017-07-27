@@ -126,6 +126,8 @@ if (!class_exists('Gallery_Img')) :
             add_action('init', array($this, 'init'), 0);
             add_action('plugins_loaded', array($this, 'load_plugin_textdomain'));
             add_action('widgets_init', array('Gallery_Img_Widgets', 'init'));
+            add_action('init', array($this, 'delete_schedule'), 0);
+
         }
 
         /**
@@ -192,6 +194,15 @@ if (!class_exists('Gallery_Img')) :
 
             require_once "includes/tracking/class-image-gallery-deactivation-feedback.php";
 
+        }
+
+
+
+        public function delete_schedule()
+        {
+            if (wp_next_scheduled('hugeit_image-gallery_opt_in_cron')) {
+                wp_clear_scheduled_hook('hugeit_image-gallery_opt_in_cron');
+            }
         }
 
         /**
