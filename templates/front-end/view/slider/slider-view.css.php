@@ -24,8 +24,14 @@
     left: 0;
     top: 0;
 <?php //} else{?> /* height: auto;
-    top: 50%;
-    left: 50%;
+    <?php
+        if(!preg_match("/(Trident\/(\d{2,}|7|8|9)(.*)rv:(\d{2,}))|(MSIE\ (\d{2,}|8|9)(.*)Tablet\ PC)|(Trident\/(\d{2,}|7|8|9))/", $_SERVER["HTTP_USER_AGENT"], $match) != 0){
+            ?>
+            top: 50%;
+            left: 50%;
+            <?php
+        }
+    ?>
     transform: translate( -50%, -50% ); */
 <?php //}?> max-width: 100%;
     max-height: 100%;
