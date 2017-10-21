@@ -38,7 +38,6 @@ switch ($gallery[0]->hover_effect) {
             <input type="hidden" class="pagenum" value="1"/>
             <input type="hidden" id="total" value="<?php echo $total; ?>"/>
             <?php
-            echo "count(page_images)" . count($page_images);
             foreach ($page_images as $key => $row) {
                 if (!isset($_COOKIE['Like_' . $row->id . ''])) {
                     $_COOKIE['Like_' . $row->id . ''] = '';
@@ -135,7 +134,7 @@ switch ($gallery[0]->hover_effect) {
                                title="<?php echo esc_attr(str_replace('__5_5_5__', '%', $row->name)); ?>">
                                 <div class="mask-text">
                                     <?php if ($row->name != "") { ?>
-                                    <h2><?php echo $row->name; ?></h2>
+                                        <h2><?php echo $row->name; ?></h2>
                                     <?php } ?>
                                     <span class="text-category"><?php echo $row->description; ?></span>
                                 </div>
