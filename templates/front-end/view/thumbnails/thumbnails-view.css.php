@@ -193,7 +193,7 @@ case "dislike":
     font-size: 12px;
     font-weight: 700;
     position:relative;
-    height: 28px;
+    height: 23px;
 }
 .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_like_count,
 .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_dislike_count{
@@ -213,7 +213,7 @@ case "dislike":
     font-size: 12px;
     font-weight: 700;
     position:relative;
-    height: 28px;
+    height: 23px;
 }
 .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .like_thumb_up{
     font-size: 17px;

@@ -124,6 +124,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     color: #<?php echo $gallery_default_params['gallery_img_ht_view10_expand_block_button_text_color']; ?>;
     background-color: #<?php echo $gallery_default_params['gallery_img_ht_view10_expand_block_button_background_color']; ?>;
     box-shadow: none;
+    text-decoration: none;
 }
 
 #huge_it_gallery_content_<?php echo $galleryID; ?> .og-expander .og-details a.link-button:hover {
