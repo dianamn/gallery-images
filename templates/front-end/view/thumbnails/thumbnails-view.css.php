@@ -299,8 +299,8 @@ if($gallery_default_params['gallery_img_ht_thumb_rating_count'] == 'off'){
 ?>;
     color:<?php echo $heartCount; ?>;
     width: 38px;
-    height: 38px;
-    padding:8px 0 !important;
+    height: 26px;
+    padding:10px 0 0 0 !important;
     font-size: 12px;
     text-align: center;
     font-weight: 700;

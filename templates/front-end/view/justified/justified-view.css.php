@@ -36,7 +36,7 @@
     font-weight: 300;
     font-family: sans-serif;
 //margin-left: <?php //echo $gallery_default_params["gallery_img_ht_view8_element_border_width"]; ?>px;
-    background:<?php 			
+    background:<?php
 				list($r,$g,$b) = array_map('hexdec',str_split($gallery_default_params['gallery_img_ht_view8_element_title_background_color'],2));
 				$titleopacity=$gallery_default_params["gallery_img_ht_view8_element_title_overlay_transparency"]/100;
 				echo 'rgba('.$r.','.$g.','.$b.','.$titleopacity.')  !important';	
@@ -285,8 +285,8 @@ if($gallery_default_params['gallery_img_ht_just_rating_count'] == 'off'){
 ?>;
     color:<?php echo $heartCount; ?>;
     width: 38px;
-    height: 38px;
-    padding:8px 0 !important;
+    height: 26px;
+    padding:10px 0 0 0 !important;
     font-size: 12px;
     text-align: center;
     font-weight: 700;
