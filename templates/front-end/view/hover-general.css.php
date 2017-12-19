@@ -5,7 +5,7 @@ a {
     box-shadow: none !important;
 }
 
-.view *, .album_categories *, .album_back_button *, #album_disabled_layer {
+.view *:not(i), .album_categories *, .album_back_button *, #album_disabled_layer {
     font-family: sans-serif, Arial, Verdana, Sylfaen !important;
 }
 

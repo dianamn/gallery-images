@@ -193,7 +193,7 @@ case "dislike":
     font-size: 12px;
     font-weight: 700;
     position:relative;
-    height: 28px;
+    height: 23px;
 }
 .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_like_count,
 .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_dislike_count{
@@ -213,7 +213,7 @@ case "dislike":
     font-size: 12px;
     font-weight: 700;
     position:relative;
-    height: 28px;
+    height: 23px;
 }
 .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .like_thumb_up{
     font-size: 17px;
@@ -238,7 +238,7 @@ case "dislike":
 .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .like_font_active{
     color: #<?php echo $gallery_default_params['gallery_img_ht_thumb_active_font_color']; ?> !important;
 }
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px):{
     .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_gallery_like_wrapper:hover .huge_it_like {
         color: #<?php echo $gallery_default_params['gallery_img_ht_thumb_active_font_color']; ?> !important;
     }
@@ -299,8 +299,8 @@ if($gallery_default_params['gallery_img_ht_thumb_rating_count'] == 'off'){
 ?>;
     color:<?php echo $heartCount; ?>;
     width: 38px;
-    height: 38px;
-    padding:8px 0 !important;
+    height: 26px;
+    padding:10px 0 0 0 !important;
     font-size: 12px;
     text-align: center;
     font-weight: 700;

@@ -508,11 +508,11 @@ case "dislike":
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_like .huge_it_like_thumb {
     display: block;
     float: left;
-    padding: 4px 4px 4px 18px;
+    padding: 0px 4px 0px 18px;
     font-size: 12px;
     font-weight: 700;
     position: relative;
-    height: 28px;
+    height: 23px;
 }
 
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_like_count,
@@ -531,11 +531,11 @@ case "dislike":
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .huge_it_dislike .huge_it_dislike_thumb {
     display: block;
     float: left;
-    padding: 4px 4px 4px 18px;
+    padding: 0px 4px 0px 18px;
     font-size: 12px;
     font-weight: 700;
     position: relative;
-    height: 28px;
+    height: 23px;
 }
 
 #huge_it_gallery_content_<?php echo $galleryID; ?> .huge_it_gallery_like_cont_<?php echo $galleryID.$pID; ?> .like_thumb_up {
