@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: https://huge-it.com/wordpress-gallery/
 Description: Gallery image is the best gallery plugin to use if you want to be original with your website. Responsive image gallery with many views.
-Version: 2.2.5
+Version: 2.2.6
 Author: Huge-IT
 Author URI: https://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -27,7 +27,7 @@ if (!class_exists('Gallery_Img')) :
          * Version of plugin
          * @var float
          */
-        public $version = '2.2.5';
+        public $version = '2.2.6';
 
         /**
          * @var int
