@@ -9,9 +9,9 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
 <div class="wrap">
     <?php require(GALLERY_IMG_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'free-banner.php'); ?>
     <p class="pro_info">
-        <?php echo __('These features are available in the Professional version of the plugin only.', 'gallery-images'); ?>
+        <?php echo __('These features are available in the Professional version of the plugin only.', 'gallery-img'); ?>
         <a href="http://huge-it.com/wordpress-gallery/" target="_blank"
-           class="button button-primary"><?php echo __('Enable', 'gallery-images'); ?></a>
+           class="button button-primary"><?php echo __('Enable', 'gallery-img'); ?></a>
     </p>
     <div>
         <div id="poststuff">
@@ -61,7 +61,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <div class="help">?
                                                     <div class="help-block">
                                                         <span class="pnt"></span>
-                                                        <p>Check to set content in the center</p>
+                                                        <p><?php echo __('Check to set content in the center', 'gallery-img'); ?></p>
                                                     </div>
                                                 </div>
                                             </label>
@@ -76,7 +76,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <div class="help">?
                                                     <div class="help-block">
                                                         <span class="pnt"></span>
-                                                        <p>Check to set type of image behavior</p>
+                                                        <p><?php echo __('Check to set type of image behavior', 'gallery-img'); ?></p>
                                                     </div>
                                                 </div>
                                             </label>
@@ -95,7 +95,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <div class="help">?
                                                     <div class="help-block">
                                                         <span class="pnt"></span>
-                                                        <p>Choose element width in px</p>
+                                                        <p><?php echo __('Choose element width in px', 'gallery-img'); ?></p>
                                                     </div>
                                                 </div>
                                             </label>
@@ -110,7 +110,7 @@ $path_album = plugins_url("../../assets/images/albums", __FILE__);
                                                 <div class="help">?
                                                     <div class="help-block">
                                                         <span class="pnt"></span>
-                                                        <p>Choose element height in px</p>
+                                                        <p><?php echo __('Choose element height in px', 'gallery-img'); ?></p>
                                                     </div>
                                                 </div>
                                             </label>

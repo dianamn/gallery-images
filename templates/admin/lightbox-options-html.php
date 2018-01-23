@@ -45,13 +45,13 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
          } ?>">
         <div class=""></div>
         <div class="lightbox-options-block">
-            <h3>General Options</h3>
+            <h3><?php _e('General Options', 'gallery-img'); ?></h3>
             <div class="has-background">
-                <label for="gallery_img_lightbox_lightboxView">Lightbox style
+                <label for="gallery_img_lightbox_lightboxView"><?php echo __('Lightbox style', 'gallery-img'); ?>
                     <div class="help">?
                         <div class="help-block">
                             <span class="pnt"></span>
-                            <p>Choose the style of your popup</p>
+                            <p><?php echo __('Choose the style of your popup', 'gallery-img'); ?></p>
                         </div>
                     </div>
                 </label>
@@ -71,11 +71,11 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                 </select>
             </div>
             <div>
-                <label for="gallery_img_lightbox_speed_new">Lightbox open speed
+                <label for="gallery_img_lightbox_speed_new"><?php _e('Lightbox open speed', 'gallery-img'); ?>
                     <div class="help">?
                         <div class="help-block">
                             <span class="pnt"></span>
-                            <p>Set lightbox opening speed</p>
+                            <p><?php echo __('Set lightbox opening speed', 'gallery-img'); ?></p>
                         </div>
                     </div>
                 </label>
@@ -85,11 +85,11 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                 <span>ms</span>
             </div>
             <div class="has-background">
-                <label for="gallery_img_lightbox_overlayClose_new">Overlay close
+                <label for="gallery_img_lightbox_overlayClose_new"><?php echo __('Overlay close', 'gallery-img'); ?>
                     <div class="help">?
                         <div class="help-block">
                             <span class="pnt"></span>
-                            <p>Check to enable close by Esc key.</p>
+                            <p><?php echo __('Check to enable close by Esc key.', 'gallery-img'); ?></p>
                         </div>
                     </div>
                 </label>
@@ -100,11 +100,11 @@ $lightbox_options_nonce = wp_create_nonce( 'huge_it_gallery_nonce_save_lightbox_
                 } ?> name="params[gallery_img_lightbox_overlayClose_new]" value="true"/>
             </div>
             <div>
-                <label for="gallery_img_lightbox_style">Loop content
+                <label for="gallery_img_lightbox_style"><?php echo __('Loop content', 'gallery-img'); ?>
                     <div class="help">?
                         <div class="help-block">
                             <span class="pnt"></span>
-                            <p>Check to enable repeating images after one cycle.</p>
+                            <p><?php echo __('Check to enable repeating images after one cycle.', 'gallery-img'); ?></p>
                         </div>
                     </div>
                 </label>

@@ -90,33 +90,33 @@ class Gallery_Img_Admin
      */
     public function admin_menu()
     {
-        $this->pages[] = add_menu_page(__('Huge-IT  Gallery', 'gallery-images'), __('Huge-IT Gallery', 'gallery-images'), 'delete_pages', 'galleries_huge_it_gallery', array(
+        $this->pages[] = add_menu_page(__('Huge-IT  Gallery', 'gallery-img'), __('Huge-IT Gallery', 'gallery-img'), 'delete_pages', 'galleries_huge_it_gallery', array(
             Gallery_Img()->admin->galleries,
             'load_gallery_page'
         ), GALLERY_IMG_IMAGES_URL . "/admin_images/huge-it-gallery-logo-for-menu.png");
-        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Galleries', 'gallery-images'), __('Galleries', 'gallery-images'), 'delete_pages', 'galleries_huge_it_gallery', array(
+        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Galleries', 'gallery-img'), __('Galleries', 'gallery-img'), 'delete_pages', 'galleries_huge_it_gallery', array(
             Gallery_Img()->admin->galleries,
             'load_gallery_page'
         ));
 
-        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Advanced Features <span class="image_album_pro">PRO</span>', 'gallery-images'), __('Advanced Features <span class="image_album_pro">PRO</span>', 'gallery-images'), 'delete_pages', 'Options_gallery_styles', array(
+        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Advanced Features <span class="image_album_pro">PRO</span>', 'gallery-img'), __('Advanced Features <span class="image_album_pro">PRO</span>', 'gallery-img'), 'delete_pages', 'Options_gallery_styles', array(
             Gallery_Img()->admin->general_options,
             'load_page'
         ));
-        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Lightbox Options', 'gallery-images'), __('Lightbox Options', 'gallery-images'), 'delete_pages', 'Options_gallery_lightbox_styles', array(
+        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Lightbox Options', 'gallery-img'), __('Lightbox Options', 'gallery-img'), 'delete_pages', 'Options_gallery_lightbox_styles', array(
             Gallery_Img()->admin->lightbox_options,
             'load_page'
         ));
 
-        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Albums <span class="image_album_pro">PRO</span>', 'gallery-images'), __('Albums <span class="image_album_pro">PRO</span>', 'gallery-images'), 'delete_pages', 'Options_gallery_albums_styles',
+        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Albums <span class="image_album_pro">PRO</span>', 'gallery-img'), __('Albums <span class="image_album_pro">PRO</span>', 'gallery-img'), 'delete_pages', 'Options_gallery_albums_styles',
             array($this, 'image_gallery_album_page')
         );
 
-        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Featured Plugins', 'gallery-images'), __('Featured Plugins', 'gallery-images'), 'delete_pages', 'huge_it_gallery_featured_plugins', array(
+        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Featured Plugins', 'gallery-img'), __('Featured Plugins', 'gallery-img'), 'delete_pages', 'huge_it_gallery_featured_plugins', array(
             Gallery_Img()->admin->featured_plugins,
             'show_page'
         ));
-        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Licensing', 'gallery-images'), __('Licensing', 'gallery-images'), 'delete_pages', 'huge_it_gallery_licensing', array(
+        $this->pages[] = add_submenu_page('galleries_huge_it_gallery', __('Licensing', 'gallery-img'), __('Licensing', 'gallery-img'), 'delete_pages', 'huge_it_gallery_licensing', array(
             Gallery_Img()->admin->licensing,
             'show_page'
         ));

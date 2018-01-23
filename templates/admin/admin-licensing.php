@@ -62,7 +62,7 @@ $license = array(
             </div>
             <p><?php echo $val["text"]; ?></p>
             <div class="col-footer">
-                <a href="https://goo.gl/NmLZX2" class="a-upgrate">Upgrade</a>
+                <a href="https://goo.gl/NmLZX2" class="a-upgrate"><?php echo __('Upgrade', 'gallery-img'); ?></a>
             </div>
         </div>
     <?php } ?>
@@ -70,20 +70,19 @@ $license = array(
 
 
 <div class="license-footer">
-    <p class="footer-text">
-        You are using the Lite version of the Image Gallery Plugin for WordPress. If you want to get more awesome
+    <p class="footer-text"><?php echo __('You are using the Lite version of the Image Gallery Plugin for WordPress. If you want to get more awesome
         options,
         advanced features, settings to customize every area of the plugin, then check out the Full License plugin.
-        The full version of the plugin is available in 3 different packages of one-time payment.
+        The full version of the plugin is available in 3 different packages of one-time payment.', 'gallery-img'); ?>
+
     </p>
     <p class="this-steps max-width">
-        After the purchasing the commercial version follow this steps
+        <?php echo __('After the purchasing the commercial version follow this steps', 'gallery-img'); ?>
     </p>
     <ul class="steps">
-        <li>Deactivate Huge IT Image Gallery Plugin</li>
-        <li>Delete Huge IT Image Gallery</li>
-        <li>Install the downloaded commercial version of the plugin</li>
+        <li><?php echo __('Deactivate Huge IT Image Gallery Plugin', 'gallery-img'); ?></li>
+        <li><?php echo __('Delete Huge IT Image Gallery', 'gallery-img'); ?></li>
+        <li><?php echo __('Install the downloaded commercial version of the plugin', 'gallery-img'); ?></li>
     </ul>
-    <a href="https://goo.gl/NmLZX2" target="_blank">Purchase
-        a License</a>
+    <a href="https://goo.gl/NmLZX2" target="_blank"><?php echo __('Purchase a License', 'gallery-img'); ?></a>
 </div>

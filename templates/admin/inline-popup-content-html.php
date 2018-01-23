@@ -8,7 +8,7 @@
     });
 </script>
 <div id="huge_it_gallery" style="display:none;width:500px">
-    <h3><?php echo __('Select Huge IT Gallery to insert into post', 'gallery-images'); ?></h3>
+    <h3><?php echo __('Select Huge IT Gallery to insert into post', 'gallery-img'); ?></h3>
     <?php
     global $wpdb;
     $query="SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys order by id ASC";

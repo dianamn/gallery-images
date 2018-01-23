@@ -287,7 +287,7 @@ INSERT INTO
             }
         }
         ?>
-        <div class="updated"><p><strong><?php _e('Item Saved'); ?></strong></p></div>
+        <div class="updated"><p><strong><?php _e('Item Saved', 'gallery-img'); ?></strong></p></div>
         <?php
         return true;
 
@@ -314,11 +314,11 @@ INSERT INTO
         $sql_remov_tag = $wpdb->prepare("DELETE FROM " . $wpdb->prefix . "huge_itgallery_gallerys WHERE id = %d", $id);
         if (!$wpdb->query($sql_remov_tag)) {
             ?>
-            <div id="message" class="error"><p>Gallery Deleted</p></div>
+            <div id="message" class="error"><p><?php _e('Gallery Deleted', 'gallery-img'); ?></p></div>
             <?php
         } else {
             ?>
-            <div class="updated"><p><strong><?php _e('Item Deleted.'); ?></strong></p></div>
+            <div class="updated"><p><strong><?php _e('Item Deleted.', 'gallery-img'); ?></strong></p></div>
             <?php
         }
     }

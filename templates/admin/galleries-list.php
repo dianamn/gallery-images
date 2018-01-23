@@ -14,9 +14,9 @@ $gallery_wp_nonce_add_gallery = wp_create_nonce('gallery_wp_nonce_add_gallery');
         <div id="gallerys-list-page">
             <form method="post" onkeypress="galleryImgDoNothing()" action="admin.php?page=galleries_huge_it_gallery"
                   id="admin_form" name="admin_form">
-                <h2>Huge-IT <?php echo __('Galleries', 'gallery-images'); ?>
+                <h2>Huge-IT <?php echo __('Galleries', 'gallery-img'); ?>
                     <a onclick="window.location.href='admin.php?page=galleries_huge_it_gallery&task=add_gallery&gallery_wp_nonce_add_gallery=<?php echo $gallery_wp_nonce_add_gallery; ?>'"
-                       class="add-new-h2"><?php echo __('Add New Gallery', 'gallery-images'); ?></a>
+                       class="add-new-h2"><?php echo __('Add New Gallery', 'gallery-img'); ?></a>
                 </h2>
                 <?php
                 $serch_value = '';
@@ -43,17 +43,17 @@ $gallery_wp_nonce_add_gallery = wp_create_nonce('gallery_wp_nonce_add_gallery');
                     <thead>
                     <tr>
                         <th scope="col" id="id" style="width:30px">
-                            <span><?php echo __('ID', 'gallery-images'); ?></span><span
+                            <span><?php echo __('ID', 'gallery-img'); ?></span><span
                                     class="sorting-indicator"></span></th>
                         <th scope="col" id="name" style="width:85px">
-                            <span><?php echo __('Name', 'gallery-images'); ?></span><span
+                            <span><?php echo __('Name', 'gallery-img'); ?></span><span
                                     class="sorting-indicator"></span></th>
                         <th scope="col" id="prod_count" style="width:40px;">
-                            <span><?php echo __('Images', 'gallery-images'); ?></span><span
+                            <span><?php echo __('Images', 'gallery-img'); ?></span><span
                                     class="sorting-indicator"></span></th>
-                        <th style="width:40px"><span><?php echo __('Duplicate', 'gallery-images'); ?></span><span
+                        <th style="width:40px"><span><?php echo __('Duplicate', 'gallery-img'); ?></span><span
                                     class="sorting-indicator"></span></th>
-                        <th style="width:40px"><span><?php echo __('Delete', 'gallery-images'); ?></span><span
+                        <th style="width:40px"><span><?php echo __('Delete', 'gallery-img'); ?></span><span
                                     class="sorting-indicator"></span></th>
                     </tr>
                     </thead>

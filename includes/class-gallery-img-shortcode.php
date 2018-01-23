@@ -93,7 +93,7 @@ class Gallery_Img_Shortcode {
 	public function add_editor_media_button( $context ) {
 		$img          = GALLERY_IMG_IMAGES_URL . '/admin_images/post.button.png';
 		$container_id = 'huge_it_gallery';
-		$title        = __( 'Select Huge IT gallery to insert into post', 'gallery-images' );
+		$title        = __( 'Select Huge IT gallery to insert into post', 'gallery-img' );
 		$context .= '<a class="button thickbox" title="Select gallery to insert into post" title="' . $title . '" href="#TB_inline?width=400&inlineId=' . $container_id . '">
         <span class="wp-media-buttons-icon" style="background: url(' . $img . '); background-repeat: no-repeat; background-position: left bottom;"></span>
     Add gallery

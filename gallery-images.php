@@ -8,6 +8,8 @@ Version: 2.2.6
 Author: Huge-IT
 Author URI: https://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: gallery-img
+Domain Path:  /languages
 */
 
 if (!defined('ABSPATH')) {
@@ -88,7 +90,7 @@ if (!class_exists('Gallery_Img')) :
 
         private function __clone()
         {
-            _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'gallery-images'), '2.1');
+            _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'gallery-img'), '2.1');
         }
 
         /**
@@ -96,7 +98,7 @@ if (!class_exists('Gallery_Img')) :
          */
         private function __wakeup()
         {
-            _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'gallery-images'), '2.1');
+            _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'gallery-img'), '2.1');
         }
 
         /**
